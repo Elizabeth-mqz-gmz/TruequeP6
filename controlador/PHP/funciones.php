@@ -13,7 +13,7 @@ function validar ($pal,$regex){//Esta función recibe una palabra y una regex
           return $pal;
 }
 
-function checar_con($conex){//revisa conexión escribe en pantalla si hay error //testing
+function checar_con($conex){//revisa conexión escribe en pantalla si hay error 
 		if(!$conex){
 			echo mysqli_connect_error();
 			echo mysqli_connect_errno();
