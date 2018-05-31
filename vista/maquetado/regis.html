@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Registro</title>
+		<meta charset='UTF-8'/>
+		<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+	</head>
+	<body>
+		<section id='registro'>
+			<form id='regis' action='regis.php' method='POST'>
+				Número de cuenta:<br/>
+				<input type='text' name='num_cta' pattern='^(31)[678][1-9]{6}' required/><br/>
+				<br/>
+				Nombre:<br/>
+				<input type='text' name='nom' pattern='^[A-Z][a-záéíóú]+' required/><br/>
+				<br/>
+				Apellido paterno:<br/>
+				<input type='text' name='ape_pat' pattern='^[A-Z][a-záéíóú]+' required/><br/>
+				<br/>
+				Apellido materno:<br/>
+				<input type='text' name='ape_mat' pattern='^[A-Z][a-záéíóú]+' required/><br/>
+				<br/>
+				Nombre de usuario:<br/>
+				<input type='text' name='user' pattern='[A-Za-z\d]{6,20}$' required/><br/>
+				<br/>
+				Contraseña :<br/>
+				<input type='text' name='contra' class='contrasena' id='pass1' required/><br/>
+				<br/>
+				Confirma contraseña :<br/>
+				<input type='text' name='contra2' class='contrasena' id='pass2' required/><br/>
+				<script>
+				    $("#pass2").on("change",function(){
+				        if($("#pass1").val() == $("#pass2").val()){
+							$("#msj").html("<input type='submit'>");
+							$("#msj").attr("style","background-color: green;");
+						}
+				        else{
+							$("#msj").html("Las contraseñas no coinciden");
+							$("#msj").attr("style","background-color: red;");
+						}
+				    });
+				</script>
+				<div id='msj'>
+				</div>
+			</form>
+		</section>
+	</body>
+	<script src='revisa.js'></script>
+</html>
