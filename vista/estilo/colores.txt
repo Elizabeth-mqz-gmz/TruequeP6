@@ -1,0 +1,7 @@
+colores:
+
+#FBF8F7
+#8FCED0
+#E98836
+#1919BEBE
+#3D343F
