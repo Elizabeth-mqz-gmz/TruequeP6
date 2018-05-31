@@ -26,5 +26,5 @@
         }";
         echo $json;
     }
-
+    mysqli_close($db);
 ?>
