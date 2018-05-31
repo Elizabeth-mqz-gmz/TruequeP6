@@ -1,3 +1,16 @@
 .card>h6{
-    margin-left: 3%;
+    align-self: flex-end;
+    text-transform: capitalize;
+    margin-right: 3%;
+}
+.reac{
+    display: flex;
+}
+.reac>img{
+    width: 3.5em;
+    height: 3.5em;
+    /* background-color: #8FCED0; */
+    border: 3px solid #8FCED0;
+    border-radius: 100%;
+    margin-right: 3%;
 }
