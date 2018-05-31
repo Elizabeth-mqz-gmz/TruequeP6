@@ -10,11 +10,13 @@
 </head>
 <body>
     <div>
-        <input type='radio' name='tipoPub' value='trueque'/>
-        <input type='radio' name='tipoPub' value='perdida'/>
-        <input type='text'/>
-        <button>Publicar</button>
+        <form method='POST' action='../../modelo/PHP/publica.php' enctype='multipart/form-data'>
+            <input type='file' name='imagen' accept='image/jpg'/>
+            <input type='radio' name='tipoPub' value='trueque'/>
+            <input type='radio' name='tipoPub' value='perdida'/>
+            <input type='text' name='menPub'/>
+            <input type='submit' value='Publicar'/>
+        </form>
     </div>
 </body>
-<script type='text/javascript' src='../../controlador/JS/publica.js'></script>
 </html>
