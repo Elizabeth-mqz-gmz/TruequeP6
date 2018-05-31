@@ -1,7 +1,7 @@
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
-      obtener_calendario("../../controlador/PHP/calendario.php");
+      obtener_calendario("../../modelo/PHP/calendario.php");
       click = 1;
     }
     else {
