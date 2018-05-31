@@ -15,20 +15,20 @@ function ordenar_eventos(respuesta){
 }
 
 function hacer_calendario (respuesta) {
-  let hoy = new Date ();
   $("<div id='calendario'>").appendTo("#evento");
-  //$("<h2>"+hoy.getDay()+"/"hoy.getMonth()+"/"+hoy.getFullYear()+"</h2>").appendTo("#eventos");
+
   for ( i in respuesta){
     respuesta[i].fecha = new Date(respuesta[i].fecha);
     mes = parseInt(respuesta[i].fecha.getMonth());
     mes ++;
     dia = respuesta[i].fecha.getDate() +"/"+ mes.toString() + "/"+ respuesta[i].fecha.getFullYear();
     hora = respuesta[i].fecha.getHours() + ":" + respuesta[i].fecha.getMinutes();
-    let fecha = "<div>El día "+dia+" en el horario "+hora;//mientras no está súper definido como se mostrará el calendario, así no está todo muy amontonado
+    let fecha = "<div >El día "+dia+" en el horario "+hora;//mientras no está súper definido como se mostrará el calendario, así no está todo muy amontonado
     let personas = " se encontrarán "+respuesta[i].id_em+" y "+respuesta[i].id_rec;
-    let evento = "<h2>"+respuesta[i].tipo_even+"</h2>";
+    let evento = "<h4>"+respuesta[i].tipo_even+"</h4>";
     let lugar = " en "+respuesta[i].lugar+"</div>";
-    $("<div>"+ evento + fecha + personas +  lugar +"</div>").appendTo("#calendario");
+    $("<div class='dropdown-item disabled'>"+ evento + fecha + personas +  lugar +"</div>").appendTo("#calendario");
+    $("<div class='dropdown-divider'></div>").appendTo("#calendario");
   }
   $("</div>").appendTo("#evento");
 }
