@@ -1,0 +1,8 @@
+.botones{
+  padding: 20% 5% ;
+  margin: 0;
+}
+#contenedor{
+  display:flex;
+  padding: 10% 31%;
+}

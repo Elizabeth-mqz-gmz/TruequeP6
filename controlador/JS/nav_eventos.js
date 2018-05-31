@@ -24,5 +24,5 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
     if(publi == 0)
       $("<div id='publicaciones'><div id='trueque'>Soy Un Trueque</div></div>").appendTo("#contenedorPubli");
     else
-      $("<div id='publicaciones'><div id='cambio'>No soy un Trueque</div></div>").appendTo("#contenedorPubli");
+      $("<div id='publicaciones'><div id='trueque'>No soy un trueque</div></div>").appendTo("#contenedorPubli");
   });
