@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../estilo/inicio.css">
   </head>
   <body>
-    <div id="contenedor">
+    <div id="contenedor" <div class="text-center">>
       <div class="botones">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registro" >Registro</button>
       </div>

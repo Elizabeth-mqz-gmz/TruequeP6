@@ -4,22 +4,17 @@
     <?php include 'head.html' ?>
     <title>Document</title>
     <style>
-        #chat{
-            width: 500px;
-            height: 500px;
-            border: 1px solid black;
-        }
     </style>
   </head>
   <body>
     <?php include 'navbar.html' ?>
     <div class='container'>
-      <div id='chat'></div>
-      <div class="form-row">
-        <div class="col-7">
-          <input type="text" class="form-control" placeholder="...">
+      <div id='chat'>ahhaha</div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Enviar</button>
         </div>
-        <button>Enviar</button>
       </div>
     </div>
 
