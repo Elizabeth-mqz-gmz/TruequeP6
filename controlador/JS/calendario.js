@@ -16,7 +16,8 @@ function ordenar_eventos(respuesta){
 
 function hacer_calendario (respuesta) {
   let hoy = new Date ();
-  $("<h2>"+hoy.getDay()+"/"hoy.getMonth()+"/"+hoy.getFullYer()+"</h2>")
+  $("<div id='calendario'>").appendTo("#evento");
+  //$("<h2>"+hoy.getDay()+"/"hoy.getMonth()+"/"+hoy.getFullYear()+"</h2>").appendTo("#eventos");
   for ( i in respuesta){
     respuesta[i].fecha = new Date(respuesta[i].fecha);
     mes = parseInt(respuesta[i].fecha.getMonth());
@@ -26,9 +27,10 @@ function hacer_calendario (respuesta) {
     let fecha = "<div>El día "+dia+" en el horario "+hora;//mientras no está súper definido como se mostrará el calendario, así no está todo muy amontonado
     let personas = " se encontrarán "+respuesta[i].id_em+" y "+respuesta[i].id_rec;
     let evento = "<h2>"+respuesta[i].tipo_even+"</h2>";
-    let lugar = "en "+respuesta[i].lugar+"</div>";
+    let lugar = " en "+respuesta[i].lugar+"</div>";
     $("<div>"+ evento + fecha + personas +  lugar +"</div>").appendTo("#calendario");
   }
+  $("</div>").appendTo("#evento");
 }
 
 function obtener_calendario (ruta){
@@ -43,4 +45,10 @@ function obtener_calendario (ruta){
   request.open("POST", ruta , true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   request.send();
+}
+
+function eliminar_eventos(){
+  $(document).ready(function(){
+    $("#calendario").remove();
+  });
 }
