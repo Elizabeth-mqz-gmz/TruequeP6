@@ -1,5 +1,5 @@
 <?php
-    include "../../controlador/PHP/funciones.php";
+    include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);
     $form = [];
@@ -17,7 +17,6 @@
     $row = mysqli_fetch_array($resp);
     $id_pub= $row[0]+1;
 
-    echo "$id_pub<br/>";
     //guarda el archivo en ../imagenes_pub/
     $ruta = "../imagenes_pub/";
     $ruta_arch = $ruta.basename($id_pub);

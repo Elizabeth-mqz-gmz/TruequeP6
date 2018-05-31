@@ -62,4 +62,34 @@ function cifrado($llave,$tex,$sent){
     }
     return htmlentities($tex);
 }
+function dame_publicacion($idPubli,$db){
+//recibe in id_publicacion para sacar todos sus datos
+//devuelve un json
+
+    //slecciona todo sobre esa publicación
+    //la imagen se guarda con la ruta de ../imagenes_pub/ejemplo.jpg
+    $consul = "SELECT * FROM publicacion WHERE id_publicacion='$idPubli'";
+    $resp = mysqli_query($db,$consul);
+    $row = mysqli_fetch_assoc($resp);
+
+    //sabiendo el id_autor(número de cuenta), busca su nombre de usuario
+    $usu = $row["id_autor"];
+    $consul = "SELECT nomus FROM usuario WHERE id_usuario='$usu'";
+    $re = mysqli_query($db,$consul);
+    $regis =  mysqli_fetch_array($re);
+    $nomUs = $regis[0];
+
+    //si no hay denuncia genera un json para el ajax de publicacion.js
+    if($row["denuncia_p"]!=1){
+        $json = "{
+            \"autor\":\"".$nomUs."\",
+            \"estado\":\"".$row["estado"]."\",
+            \"imagen\":\"".$row["imagen_publi"]."\",
+            \"publicacion\":\"".$row["publicacion"]."\"
+        }";
+        return $json;
+    }
+    else
+        return null;
+}
 ?>
