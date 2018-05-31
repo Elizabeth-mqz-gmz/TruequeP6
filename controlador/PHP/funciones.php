@@ -14,11 +14,13 @@ function validar ($pal,$regex,$conex){//Esta función recibe una palabra y una r
 }
 
 function checar_con($conex){//revisa conexión escribe en pantalla si hay error
-		if(!$conex){
-			echo mysqli_connect_error();
-			echo mysqli_connect_errno();
-			exit();
-		}
+    mysqli_set_charset($conex,"utf8");
+    if(!$conex){
+		echo mysqli_connect_error();
+		echo mysqli_connect_errno();
+		exit();
+	}
+    return;
 }
 
 function cifrado($llave,$tex,$sent){
