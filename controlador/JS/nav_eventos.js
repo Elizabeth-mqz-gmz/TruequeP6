@@ -13,3 +13,16 @@ var click = 0;
     click = 0;
     eliminar_eventos();
   });
+
+var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
+  $('.cambio').on('click',()=>{
+    boton = (publi == 0)? 1 : 0;
+    $(".cambio").removeClass( "boton"+ publi.toString());
+    $(".cambio").addClass("boton"+ boton.toString());
+    publi = boton;
+    $("#publicaciones").remove();
+    if(publi == 0)
+      $("<div id='publicaciones'><div id='trueque'>Soy Un Trueque</div></div>").appendTo("#contenedorPubli");
+    else
+      $("<div id='publicaciones'><div id='cambio'>No soy un Trueque</div></div>").appendTo("#contenedorPubli");
+  });

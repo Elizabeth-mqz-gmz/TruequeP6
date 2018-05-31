@@ -1,0 +1,30 @@
+#cambio {
+  position: fixed;
+  z-index: 99;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin:30%, 0;
+  font-size: 18px;
+}
+
+.boton0{
+  left : 1px;
+  background-color: red;
+  color: white;
+}
+
+.boton1{
+  right: 1px;
+  background-color: blue;
+  color: white;
+}
+
+#cambio:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
+ #contenedor, button{
+  height: 100%;
+}

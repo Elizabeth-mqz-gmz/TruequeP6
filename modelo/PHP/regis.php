@@ -8,7 +8,7 @@
       "contra" => $_POST["contra"] );
 
     $hash = sha1($datos["contra"]); //hasheado de contraseña
-        echo $hash.'<br/>';
+        //echo $hash.'<br/>';
     $valorcillo = false;
      if (preg_match('/^(31)[678][1-9]{6}/',$datos["num_cta"])){
         if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["nom"])){
@@ -46,7 +46,7 @@
         }
         $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datos['nom']."','".$datos['ape_pat']."','".$datos['ape_mat']."','".$datos['contra']."','";
         $bus.=$datos['user']."')";
-        echo $bus;
+        //echo $bus;
         $resp=mysqli_query($conex,$bus);
         mysqli_close($conex);
     }
