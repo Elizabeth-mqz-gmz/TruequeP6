@@ -1,8 +1,9 @@
 <?php
+    include "funciones.php";
   $id_usuario = 317341612;
   //calendario.html
   $bd = mysqli_connect("localhost", "root", "", "truequep6");
-  //checar_con($bd);
+  checar_con($bd);
   $queryEvento = array(
     "SELECT fecha, tipo_even, lugar, id_em, id_rec FROM ",
     "usuario INNER JOIN chat ON usuario.id_usuario = chat.id_rec OR usuario.id_usuario = chat.id_em ",

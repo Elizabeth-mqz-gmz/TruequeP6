@@ -1,6 +1,6 @@
 <?php
     //abrir base de datos en indexs
-    include "../../controlador/php/funciones.php";
+    include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);
     $chat = $_POST["chat"];

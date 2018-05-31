@@ -1,5 +1,5 @@
 <?php
-    include "func.php";
+    include "funciones.php";
     $datos = array( "num_cta" => $_POST["num_cta"],
       "nom" => $_POST["nom"],
       "ape_pat" => $_POST["ape_pat"],
@@ -40,14 +40,9 @@
         //CIFRADO
 
         $conex = mysqli_connect('localhost','root','','truequep6');
-        mysqli_set_charset($conex,'utf8');
-        if(!$conex){
-        		echo mysqli_connect_error();
-        		echo mysqli_connect_errno();
-        		exit();
-        	}
+        checar_con($conex);
         foreach ($datos as $ind => $val) {
-            mysqli_real_escape_string($conex, $val);
+            $datos[$ind]=validar($val,"",$conex);
         }
         $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datos['nom']."','".$datos['ape_pat']."','".$datos['ape_mat']."','".$datos['contra']."','";
         $bus.=$datos['user']."')";

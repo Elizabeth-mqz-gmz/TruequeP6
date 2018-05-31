@@ -8,10 +8,9 @@ var recNomus ="Emy";
 var datos;
 
 function mens(mensajes){
-    if(mensajes == null){
+    if(mensajes == null)
       $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!");
-      console.log("No hay mensajes");
-    }
+      // console.log("No hay mensajes");
     else{
       mensajes = JSON.parse(mensajes);
       for (var i in mensajes){
@@ -20,7 +19,7 @@ function mens(mensajes){
         else
             $(chat).html($(chat).html()+"<br/>"+recNomus+":"+mensajes[i].mensaje);
       }
-      console.log("Ya hablaron");
+      // console.log("Ya hablaron");
     }
     $(enviar).on("click",()=>{
         var mensaje = $("input")[0].value;
@@ -35,7 +34,7 @@ function mens(mensajes){
                 type: "POST",
                 success: function(response){
                     $(chat).html($(chat).html()+"<br/>"+usuNomus+":"+mensaje);
-                    console.log(response);
+                    // console.log(response);
                 }
             });
     });
@@ -52,14 +51,14 @@ function datos_chat(cb){
         type: "POST",
         success: function(response){
             datos = JSON.parse(response);
-            console.log(response);
+            // console.log(response);
             return cb(datos.chat);
         }
     });
 }
 
 datos_chat((r)=>{
-    console.log(r);
+    // console.log(r);
     $.ajax({
         url:"../../modelo/PHP/dame_mens.php",
         data:{
