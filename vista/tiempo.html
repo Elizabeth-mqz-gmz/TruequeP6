@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+      <div align=center>
+        <script type="text/javascript">
+          var  today = new Date();
+          var m = today.getMonth() + 1;
+          var mes = (m < 10) ? '0' + m : m;
+          document.write(today.getDate(),'/' +mes,'/'+2018);
+        </script>
+        <div id="reloj"></div>
+
+</body>
+    <script type="text/javascript">
+    function startTime(){
+      today=new Date();
+      h=today.getHours();
+      m=today.getMinutes();
+      s=today.getSeconds();
+      m=checkTime(m);
+      s=checkTime(s);
+      document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+      t=setTimeout('startTime()',500);
+    }
+    function checkTime(i){
+      if (i<10){i="0" + i;}return i;}
+    window.onload=function(){startTime();
+    }
+    </script>
+</html>

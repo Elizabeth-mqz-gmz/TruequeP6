@@ -46,7 +46,7 @@ function cifrado($llave,$tex,$sent){
                    $mat[chr($i+32)][chr($j+32)]= chr($char);
                }
            }
-    //cifrar o decifraar por coordenadas
+    //cifrar o descifraar por coordenadas
     //buscar [letra_llave][letra_mensaje] para cifrar
     if($sent==1){
         for($i=0;$i<strlen($tex);$i++)
@@ -54,11 +54,11 @@ function cifrado($llave,$tex,$sent){
                 $tex[$i]= $mat[$strkey[$i]][$tex[$i]];
     }
     else if($sent==2){
-    //buscar letra cifrada en el arreglo [letra_llave] para decifrar
-        for($i=0;$i<strlen($tex);$i++)
+    //buscar letra cifrada en el arreglo [letra_llave] para descifrar
+        for($i=0;$i<strlen($tex);$i++){
             if(array_search($tex[$i],$mat[$strkey[$i]])!="")
                 $tex[$i]=array_search($tex[$i],$mat[$strkey[$i]]);
-
+        }
     }
     return strip_tags($tex);
 }
@@ -136,14 +136,24 @@ function validarPass($contra)
 				}
 			}
 	}
-	if (preg_match($regex, $contra)==0 || $error>0){
-		echo "F";
+	if (preg_match($regex, $contra)==0 || $error>0){ //Si no pasa la regex o no hay un error en qwerty
+		// echo "F";
 		return false;
 	}
 	else{
-		echo "T";
+		// echo "T";
 		return true;
 	}
 
+}
+function getCookie(){ //Regresa el num_cta, si no existe devuelve 0.
+    if(isset($_COOKIE)){
+        $usu = cifrado("pUeE","usuario",1);
+        $cook = $_COOKIE[$usu];
+        $cook = cifrado("pUeE",$cook,2);
+    }
+    else
+        $cook = 0;
+    return $cook;
 }
 ?>

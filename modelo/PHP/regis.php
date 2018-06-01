@@ -7,8 +7,7 @@
       "user" => $_POST["user"],
       "contra" => $_POST["contra"] );
 
-    $hash = sha1($datos["contra"]); //hasheado de contraseña
-        echo $hash.'<br/>';
+    $hash = sha1("f2H3".$datos["contra"]."B6jwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;
      if (preg_match('/^(31)[678][1-9]{6}/',$datos["num_cta"])){
         if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["nom"])){
@@ -38,16 +37,35 @@
     if($valorcillo == true)
     {
         //CIFRADO
+        $datosCif = array();
+        foreach($datos as $i => $v){ //Guarda datos cifrados en nuevo array
+            $datosCif[$i]=cifrado("pUeE",$v,1);
+        }
+        // print_r($datosCif);
+        //COOKIE
+        $usu = cifrado("pUeE","usuario",1);
+        setcookie($usu,$datosCif["num_cta"],time()+3600*24*30,"/"); //Vida de 1 mes.
 
         $conex = mysqli_connect('localhost','root','','truequep6');
         checar_con($conex);
-        foreach ($datos as $ind => $val) {
-            $datos[$ind]=validar($val,"",$conex);
+        foreach ($datos as $i => $v) {
+            $datos[$i]=validar($v,"",$conex);
         }
-        $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datos['nom']."','".$datos['ape_pat']."','".$datos['ape_mat']."','".$datos['contra']."','";
-        $bus.=$datos['user']."')";
-        echo $bus;
-        $resp=mysqli_query($conex,$bus);
+        foreach ($datosCif as $i => $v) {
+            $datosCif[$i]=validar($v,"",$conex);
+        }
+        $busq = "SELECT * FROM usuario WHERE id_usuario = ".$datos["num_cta"]."";
+        $unico = mysqli_query($conex,$busq);
+        $exist = mysqli_num_rows($unico);
+        if($exist == 0){ //REVISA SI EL REGISTRO EXISTE
+            $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datosCif['nom']."','".$datosCif['ape_pat']."','".$datosCif['ape_mat']."','".$hash."','";
+            $bus.=$datos['user']."')";
+            // echo $bus;
+            $resp=mysqli_query($conex,$bus);
+        }
+        else{
+            echo "Ya existe un registro como este";
+        }
         mysqli_close($conex);
     }
     else if($valorcillo == false)

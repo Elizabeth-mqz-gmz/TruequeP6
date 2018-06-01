@@ -6,7 +6,7 @@ $(document).ready(function(){
     	// console.log(pass);
 
     	$.ajax({
-    			url: 'validarPass.php',
+    			url: '../../controlador/PHP/validarPass.php',
     			data:{
     				"pass":	pass,
     			},
