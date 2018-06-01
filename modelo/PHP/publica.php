@@ -9,8 +9,21 @@
         $form[$i]=$v;
     }
     $publi = $form["menPub"];
-    $tipoPerdida = "ropa"; //FALTA saber
+
     $usuario = 31700002; //FALTA saber
+
+    if(isset($form["tipoPer"])){
+        //si es pérdida, definir el tipo
+        $tipoPerdida = $form["tipoPer"];
+        if(isset($form["numCred"])){
+        //guarda notificación en la base de datos, referenciando al este usuario
+            $idUsuNot = $form["numCred"];
+            $menNot = "El usuario $usuario encontró tu credencial";
+            $busq = "INSERT INTO notificacion(id_usu_not,men_not) VALUE"."("."'$idUsuNot','$menNot'".")";
+            mysqli_query($db,$busq);
+        }
+    }
+
 
     $busq = "SELECT id_publicacion FROM publicacion ORDER BY id_publicacion DESC";
     $resp = mysqli_query($db,$busq);

@@ -11,7 +11,7 @@
 <body>
     <form method='POST' action='../../modelo/PHP/publica.php' enctype='multipart/form-data'>
         <div class="custom-file">
-            <input type="file" name='imagen' accept='image/jpg' class="custom-file-input" id="validatedCustomFile" required>
+            <input type="file" name='imagen' accept='image/jpg' class="custom-file-input" required>
             <label class="custom-file-label" for="validatedCustomFile">Elige una imagen</label>
         </div>
         <fieldset class="form-group">
@@ -19,17 +19,48 @@
                 <legend class="col-form-label col-sm-2 pt-0">Tipo de Publicación</legend>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name='tipoPub' id="gridRadios1" value='trueque'>
+                        <input class="form-check-input radioTrue" type="radio" name='tipoPub' value='trueque'>
                         <label class="form-check-label" for="gridRadios1">
                            Trueque
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name='tipoPub'id="gridRadios2" value='perdida'>
+                        <input class="form-check-input" type="radio" name='tipoPub' id='radioPerd' value='perdida'>
                         <label class="form-check-label" for="gridRadios2">
                             Perdida
                         </label>
                     </div>
+                    <fieldset class="form-group display-none" id='perd'>
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">Tipo de Pérdida</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input radioNoCred" type="radio" name='tipoPer' value='ropa'>
+                                    <label class="form-check-label" for="gridRadios1">
+                                       Ropa
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input radioNoCred" type="radio" name='tipoPer' value='cuaderno'>
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Cuadernos
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name='tipoPer' id='radioCred' value='credencial'>
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Credencial
+                                    </label>
+                                </div>
+                                <div class="form-group" id='numCred'>
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Inserta el Número de cuenta de la credencial</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name='numCred'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
         </fieldset>
@@ -46,4 +77,5 @@
         </div>
     </form>
 </body>
+<script type='text/javascript' src='../animaciones/publica.js'></script>
 </html>
