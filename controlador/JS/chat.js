@@ -1,25 +1,23 @@
-
 var chat = document.getElementsByTagName("div")[0];
-var usuario = "317346752";
-var receptor =  "317346751";
+var usuario = "317346746";
+var receptor =  "317346742";
 var enviar = document.getElementsByTagName("button")[0];
-var usuNomus = "Paola";
+var usuNomus = "Uriel";
 var recNomus ="Emy";
-var datos;
-
-function mens(mensajes){
-    if(mensajes == null)
+var datos, ultimoMen, mensajes;
+var llave = usuNomus+recNomus;
+function mens(mens){
+    if(mens == null)
       $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!");
-      // console.log("No hay mensajes");
     else{
-      mensajes = JSON.parse(mensajes);
+      mensajes = JSON.parse(mens);
       for (var i in mensajes){
         if (datos.quienEnvio == mensajes[i].emisor)
-            $(chat).html($(chat).html()+"<br/>"+usuNomus+":"+mensajes[i].mensaje);
+            $(chat).append(usuNomus+":"+mensajes[i].mensaje+"<br/>");
         else
-            $(chat).html($(chat).html()+"<br/>"+recNomus+":"+mensajes[i].mensaje);
+            $(chat).append(recNomus+":"+mensajes[i].mensaje+"<br/>");
       }
-      // console.log("Ya hablaron");
+      ultimoMen = mensajes[mensajes.length-1].idMen;
     }
     $(enviar).on("click",()=>{
         var mensaje = $("input")[0].value;
@@ -29,15 +27,38 @@ function mens(mensajes){
                 data:{
                     chat : datos.chat,
                     men : mensaje,
-                    envia : datos.quienEnvio
+                    envia : datos.quienEnvio,
+                    llave : llave
                 },
                 type: "POST",
                 success: function(response){
-                    $(chat).html($(chat).html()+"<br/>"+usuNomus+":"+mensaje);
-                    // console.log(response);
+                    $("input")[0].value= "";
                 }
             });
     });
+    setInterval(()=>{
+        $.ajax({
+            url:"../../modelo/PHP/dame_mens.php",
+            data:{
+                busq :"SELECT id_men,mensaje,emisor FROM mensaje where id_chat ='"+datos.chat+"' AND id_men >'"+ultimoMen+"';",
+                llave : llave
+            },
+            type: "POST",
+            success: function(response){
+                if(response != ""){
+                    let nuevosMen = JSON.parse(response);
+                    for (var i in nuevosMen){
+                      if (datos.quienEnvio == nuevosMen[i].emisor)
+                          $(chat).append(usuNomus+":"+nuevosMen[i].mensaje+"<br/>");
+                      else
+                          $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");
+                      mensajes.push(nuevosMen[i]);
+                    }
+                    ultimoMen = mensajes[(mensajes.length)-1].idMen;
+                }
+            }
+        });
+      },1000);
     return;
 }
 
@@ -51,28 +72,26 @@ function datos_chat(cb){
         type: "POST",
         success: function(response){
             datos = JSON.parse(response);
-            // console.log(response);
+            if (datos.quienEnvio == 0)
+                llave = recNomus+usuNomus;
             return cb(datos.chat);
         }
     });
 }
 
 datos_chat((r)=>{
-    // console.log(r);
     $.ajax({
         url:"../../modelo/PHP/dame_mens.php",
         data:{
-            chat : r
+            busq :"SELECT id_men,mensaje,emisor FROM mensaje where id_chat ='"+r+"';",
+            llave : llave
         },
         type: "POST",
         success: function(response){
-            // console.log(response);
-            if ( response == "1er_men]"){
+            if ( response == "")
               return mens(null);
-            }
             else
               return mens(response);
-
         }
     });
 });

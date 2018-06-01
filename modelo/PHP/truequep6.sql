@@ -34,7 +34,6 @@ CREATE TABLE `chat` (
   `id_chat` int(11) NOT NULL AUTO_INCREMENT,
   `id_em` int(9) NOT NULL,
   `id_rec` int(9) NOT NULL,
-  `emisor` enum('0','1') NOT NULL,
   PRIMARY KEY (`id_chat`),
   KEY `id_em` (`id_em`),
   KEY `id_rec` (`id_rec`),
@@ -63,8 +62,8 @@ CREATE TABLE `comentario` (
   `id_comen` int(11) NOT NULL AUTO_INCREMENT,
   `id_usu_comen` int(9) DEFAULT NULL,
   `id_publi_comen` int(11) DEFAULT NULL,
-  `comentario` blob NOT NULL,
   `denuncia_p` enum('0','1') DEFAULT '0',
+  `comentario` text NOT NULL,
   PRIMARY KEY (`id_comen`),
   KEY `id_usu_comen` (`id_usu_comen`),
   KEY `id_publi_comen` (`id_publi_comen`),
@@ -118,8 +117,9 @@ DROP TABLE IF EXISTS `mensaje`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mensaje` (
   `id_men` int(11) NOT NULL AUTO_INCREMENT,
-  `mensaje` blob NOT NULL,
+  `mensaje` text NOT NULL,
   `id_chat` int(11) NOT NULL,
+  `emisor` enum('0','1') NOT NULL,
   UNIQUE KEY `id_men` (`id_men`),
   KEY `id_chat` (`id_chat`),
   CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`)
@@ -145,7 +145,7 @@ DROP TABLE IF EXISTS `notificacion`;
 CREATE TABLE `notificacion` (
   `id_not` int(11) NOT NULL AUTO_INCREMENT,
   `id_usu_not` int(9) NOT NULL,
-  `men_not` varchar(30) NOT NULL,
+  `men_not` varchar(100) NOT NULL,
   PRIMARY KEY (`id_not`),
   KEY `id_usu_not` (`id_usu_not`),
   CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`id_usu_not`) REFERENCES `usuario` (`id_usuario`)
@@ -203,7 +203,7 @@ CREATE TABLE `publicacion` (
   `denuncia_p` enum('0','1') DEFAULT '0',
   `estado` enum('inconcluso','terminado') DEFAULT 'inconcluso',
   `imagen_publi` varchar(60) DEFAULT NULL,
-  `publicacion` blob NOT NULL,
+  `publicacion` text NOT NULL,
   PRIMARY KEY (`id_publicacion`),
   KEY `id_autor` (`id_autor`),
   CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `usuario` (`id_usuario`)
@@ -290,7 +290,7 @@ CREATE TABLE `usuario` (
   `ape_pat` char(30) DEFAULT NULL,
   `ape_mat` char(30) DEFAULT NULL,
   `contra` varchar(64) NOT NULL,
-  `imagen` varchar(60) DEFAULT 'modeloimagenes_perdefailt.jpg',
+  `imagen` varchar(60) DEFAULT '../imagenes_pub/default.jpg',
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -301,6 +301,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (317346741,'','',NULL,NULL,'','../imagenes_pub/default.jpg'),(317346742,'','',NULL,NULL,'','../imagenes_pub/default.jpg'),(317346743,'','',NULL,NULL,'','../imagenes_pub/default.jpg'),(317346744,'','',NULL,NULL,'','../imagenes_pub/default.jpg'),(317346746,'','',NULL,NULL,'','../imagenes_pub/default.jpg');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -313,4 +314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-30 13:39:40
+-- Dump completed on 2018-05-31 14:00:34
