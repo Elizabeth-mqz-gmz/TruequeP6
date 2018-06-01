@@ -65,6 +65,7 @@ function cifrado($llave,$tex,$sent){
 function dame_publicacion($idPubli,$db){
 //recibe in id_publicacion para sacar todos sus datos
 //devuelve un json
+    $usuario = 31700002; //FALTA sacar cookie
 
     //slecciona todo sobre esa publicación
     //la imagen se guarda con la ruta de ../imagenes_pub/ejemplo.jpg
@@ -72,8 +73,23 @@ function dame_publicacion($idPubli,$db){
     $resp = mysqli_query($db,$consul);
     $row = mysqli_fetch_assoc($resp);
 
+    //busca si el usuario actual, ya reaccionó a la publicación
+    $consulta = "SELECT * FROM reaccion WHERE id_publi_reac='$idPubli' AND id_usu_reac='$usuario'";
+    $re = mysqli_query($db,$consulta);
+    $fila = mysqli_fetch_assoc($re);
+    if(isset($fila["tipo_reac"]))
+        $tipoReac = $fila["tipo_reac"];
+    else
+        $tipoReac = "null";
+
     //sabiendo el id_autor(número de cuenta), busca su nombre de usuario
     $usu = $row["id_autor"];
+    //si el autor es igual a la cookie, puede concluir
+    if($usu==$usuario)
+        $esAutor = "true";
+    else
+        $esAutor = "false";
+
     $consul = "SELECT nomus FROM usuario WHERE id_usuario='$usu'";
     $re = mysqli_query($db,$consul);
     $regis =  mysqli_fetch_array($re);
@@ -85,7 +101,9 @@ function dame_publicacion($idPubli,$db){
             \"autor\":\"".$nomUs."\",
             \"estado\":\"".$row["estado"]."\",
             \"imagen\":\"".$row["imagen_publi"]."\",
-            \"publicacion\":\"".$row["publicacion"]."\"
+            \"publicacion\":\"".$row["publicacion"]."\",
+            \"esAutor\":\"$esAutor\",
+            \"usuReac\":\"$tipoReac\"
         }";
         return $json;
     }
