@@ -7,7 +7,7 @@
       "user" => $_POST["user"],
       "contra" => $_POST["contra"] );
 
-    $hash = sha1($datos["contra"]); //hasheado de contraseña
+    $hash = sha1("f2H3".$datos["contra"]."B6jwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;
      if (preg_match('/^(31)[678][1-9]{6}/',$datos["num_cta"])){
         if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["nom"])){
@@ -58,9 +58,9 @@
         $unico = mysqli_query($conex,$busq);
         $exist = mysqli_num_rows($unico);
         if($exist == 0){ //REVISA SI EL REGISTRO EXISTE
-            $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datosCif['nom']."','".$datosCif['ape_pat']."','".$datosCif['ape_mat']."','"."f2H3".$hash."B6jwq"."','";
+            $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datosCif['nom']."','".$datosCif['ape_pat']."','".$datosCif['ape_mat']."','".$hash."','";
             $bus.=$datos['user']."')";
-            echo $bus;
+            // echo $bus;
             $resp=mysqli_query($conex,$bus);
         }
         else{
