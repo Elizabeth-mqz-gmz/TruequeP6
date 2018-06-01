@@ -60,7 +60,7 @@ function cifrado($llave,$tex,$sent){
                 $tex[$i]=array_search($tex[$i],$mat[$strkey[$i]]);
 
     }
-    return htmlentities($tex);
+    return strip_tags($tex);
 }
 function dame_publicacion($idPubli,$db){
 //recibe in id_publicacion para sacar todos sus datos

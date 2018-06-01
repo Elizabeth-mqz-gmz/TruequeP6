@@ -1,8 +1,8 @@
 var chat = document.getElementsByTagName("div")[0];
-var usuario = "317346746";
-var receptor =  "317346743";
-var usuNomus = "Sophia";
-var recNomus ="Kaime";
+var usuario = "317346743";
+var receptor =  "317346746";
+var usuNomus = "Kaime";
+var recNomus ="Sophia";
 var datos, ultimoMen, mensajes;
 var llave = usuNomus+recNomus;
 function mens(mens){
@@ -45,12 +45,11 @@ function mens(mens){
             },
             type: "POST",
             success: function(response){
+                console.log(response);
                 if(response != ""){
-                    console.log(response);
                     let nuevosMen = JSON.parse(response);
                     for (var i in nuevosMen)
                       if (datos.quienEnvio != nuevosMen[i].emisor){
-                          console.log(mensajes);
                           $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");
                           mensajes.push(nuevosMen[i]);
                       }

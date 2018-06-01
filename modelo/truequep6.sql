@@ -34,13 +34,12 @@ CREATE TABLE `chat` (
   `id_chat` int(11) NOT NULL AUTO_INCREMENT,
   `id_em` int(9) NOT NULL,
   `id_rec` int(9) NOT NULL,
-  `emisor` enum('0','1') NOT NULL,
   PRIMARY KEY (`id_chat`),
   KEY `id_em` (`id_em`),
   KEY `id_rec` (`id_rec`),
   CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_em`) REFERENCES `usuario` (`id_usuario`),
   CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`id_rec`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,15 +60,15 @@ DROP TABLE IF EXISTS `comentario`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comentario` (
   `id_comen` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usu_comen` int(9) DEFAULT NULL,
-  `id_publi_comen` int(11) DEFAULT NULL,
-  `comentario` blob NOT NULL,
-  `denuncia_p` enum('0','1') DEFAULT '0',
+  `id_usu_comen` int(9) NOT NULL,
+  `id_publi_comen` int(11) NOT NULL,
+  `comentario` text NOT NULL,
+  `denuncia_c` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_comen`),
-  KEY `id_usu_comen` (`id_usu_comen`),
   KEY `id_publi_comen` (`id_publi_comen`),
-  CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_usu_comen`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_publi_comen`) REFERENCES `publicacion` (`id_publicacion`)
+  KEY `id_usu_comen` (`id_usu_comen`),
+  CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_publi_comen`) REFERENCES `publicacion` (`id_publicacion`),
+  CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_usu_comen`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,7 +92,8 @@ CREATE TABLE `evento` (
   `id_even` int(11) NOT NULL AUTO_INCREMENT,
   `id_chat` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
-  `tipo_even` enum('trueque','perdida') DEFAULT NULL,
+  `lugar` varchar(100) DEFAULT NULL,
+  `tipo_even` enum('trueque','perdida') NOT NULL,
   UNIQUE KEY `id_even` (`id_even`),
   KEY `id_chat` (`id_chat`),
   CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`)
@@ -117,13 +117,15 @@ DROP TABLE IF EXISTS `mensaje`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mensaje` (
-  `id_men` int(11) NOT NULL AUTO_INCREMENT,
-  `mensaje` blob NOT NULL,
+  `id_men` bigint(20) NOT NULL AUTO_INCREMENT,
+  `mensaje` text NOT NULL,
   `id_chat` int(11) NOT NULL,
+  `emisor` enum('0','1') NOT NULL,
+  PRIMARY KEY (`id_men`),
   UNIQUE KEY `id_men` (`id_men`),
   KEY `id_chat` (`id_chat`),
   CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +147,8 @@ DROP TABLE IF EXISTS `notificacion`;
 CREATE TABLE `notificacion` (
   `id_not` int(11) NOT NULL AUTO_INCREMENT,
   `id_usu_not` int(9) NOT NULL,
-  `men_not` varchar(30) NOT NULL,
+  `men_not` varchar(100) NOT NULL,
+  `tipo_not` enum('comentario','trueque','credencial','evento') NOT NULL,
   PRIMARY KEY (`id_not`),
   KEY `id_usu_not` (`id_usu_not`),
   CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`id_usu_not`) REFERENCES `usuario` (`id_usuario`)
@@ -170,14 +173,14 @@ DROP TABLE IF EXISTS `perdida`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `perdida` (
   `id_perdida` int(11) NOT NULL AUTO_INCREMENT,
-  `id_publi_per` int(11) DEFAULT NULL,
-  `id_dueño` int(9) DEFAULT NULL,
-  `tipo_perdida` enum('ropa','cuaderno','credencial') DEFAULT NULL,
+  `id_publi_per` int(11) NOT NULL,
+  `id_dueño` int(9) NOT NULL,
+  `tipo_perdida` enum('ropa','cuaderno','credencial') NOT NULL,
   PRIMARY KEY (`id_perdida`),
-  KEY `id_dueño` (`id_dueño`),
   KEY `id_publi_per` (`id_publi_per`),
-  CONSTRAINT `perdida_ibfk_1` FOREIGN KEY (`id_dueño`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `perdida_ibfk_2` FOREIGN KEY (`id_publi_per`) REFERENCES `publicacion` (`id_publicacion`)
+  KEY `id_dueño` (`id_dueño`),
+  CONSTRAINT `perdida_ibfk_1` FOREIGN KEY (`id_publi_per`) REFERENCES `publicacion` (`id_publicacion`),
+  CONSTRAINT `perdida_ibfk_2` FOREIGN KEY (`id_dueño`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -203,7 +206,7 @@ CREATE TABLE `publicacion` (
   `denuncia_p` enum('0','1') DEFAULT '0',
   `estado` enum('inconcluso','terminado') DEFAULT 'inconcluso',
   `imagen_publi` varchar(60) DEFAULT NULL,
-  `publicacion` blob NOT NULL,
+  `publicacion` text NOT NULL,
   PRIMARY KEY (`id_publicacion`),
   KEY `id_autor` (`id_autor`),
   CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `usuario` (`id_usuario`)
@@ -228,9 +231,9 @@ DROP TABLE IF EXISTS `reaccion`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reaccion` (
   `id_reaccion` bigint(20) NOT NULL AUTO_INCREMENT,
-  `id_publi_reac` int(11) DEFAULT NULL,
-  `id_usu_reac` int(9) DEFAULT NULL,
-  `tipo_reac` enum('Mmm','Jajajaja','Me vale') DEFAULT NULL,
+  `id_publi_reac` int(11) NOT NULL,
+  `id_usu_reac` int(9) NOT NULL,
+  `tipo_reac` enum('Mmm','Jajajaja','Me vale') NOT NULL,
   PRIMARY KEY (`id_reaccion`),
   KEY `id_publi_reac` (`id_publi_reac`),
   KEY `id_usu_reac` (`id_usu_reac`),
@@ -257,13 +260,13 @@ DROP TABLE IF EXISTS `trueque`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `trueque` (
   `id_trueque` int(11) NOT NULL AUTO_INCREMENT,
-  `id_publi_true` int(11) DEFAULT NULL,
-  `id_aceptador` int(9) DEFAULT NULL,
+  `id_publi_true` int(11) NOT NULL,
+  `id_aceptador` int(9) NOT NULL,
   PRIMARY KEY (`id_trueque`),
-  KEY `id_aceptador` (`id_aceptador`),
   KEY `id_publi_true` (`id_publi_true`),
-  CONSTRAINT `trueque_ibfk_1` FOREIGN KEY (`id_aceptador`) REFERENCES `usuario` (`id_usuario`),
-  CONSTRAINT `trueque_ibfk_2` FOREIGN KEY (`id_publi_true`) REFERENCES `publicacion` (`id_publicacion`)
+  KEY `id_aceptador` (`id_aceptador`),
+  CONSTRAINT `trueque_ibfk_1` FOREIGN KEY (`id_publi_true`) REFERENCES `publicacion` (`id_publicacion`),
+  CONSTRAINT `trueque_ibfk_2` FOREIGN KEY (`id_aceptador`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -290,7 +293,7 @@ CREATE TABLE `usuario` (
   `ape_pat` char(30) DEFAULT NULL,
   `ape_mat` char(30) DEFAULT NULL,
   `contra` varchar(64) NOT NULL,
-  `imagen` varchar(60) DEFAULT 'modeloimagenes_perdefailt.jpg',
+  `imagen` varchar(60) DEFAULT '../imagenes_pub/default.jpg',
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -313,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-30 13:39:40
+-- Dump completed on 2018-06-01  2:20:18

@@ -3,18 +3,18 @@
     include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);
-    $chat = $_POST["chat"];
-    $mensajes = "1er_men";
-    $busq = "SELECT mensaje,emisor FROM mensaje  where id_chat = $chat;";
+    //$chat = $_POST["chat"];
+    $llave = $_POST["llave"];
+    $mensajes = "[";
+    $busq = $_POST["busq"];
     $resp = mysqli_query($db,$busq);
     while ($row = mysqli_fetch_assoc($resp)) {
-      if ($mensajes == "1er_men" )
-        $mensajes = '[{"mensaje":"'.$row["mensaje"].'","emisor":"'.$row["emisor"].'"}';
-      else{
-        $men = '{"mensaje":"'.$row["mensaje"].'","emisor":"'.$row["emisor"].'"}';
-        $mensajes = $mensajes.','.$men;
-      }
+        $men = '{"idMen":"'.$row["id_men"].'","mensaje":"'.cifrado($llave,$row["mensaje"],2).'","emisor":"'.$row["emisor"].'"}';
+        $mensajes = $mensajes.$men.',';
     }
-    echo $mensajes.']';
+    if ($mensajes != "["){
+      $mensajes = substr($mensajes,0,strlen($mensajes)-1);
+      echo $mensajes."]";
+    }
     mysqli_close($db);
 ?>
