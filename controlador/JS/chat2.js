@@ -1,8 +1,8 @@
 var chat = document.getElementsByTagName("div")[0];
-var usuario = "317346746";
-var receptor =  "317346743";
-var usuNomus = "Sophia";
-var recNomus ="Kaime";
+var usuario = "317346743";
+var receptor =  "317346746";
+var usuNomus = "Kaime";
+var recNomus ="Sophia";
 var datos, ultimoMen, mensajes;
 var noRepetirMensajes = 0;
 var llave = usuNomus+recNomus;
@@ -52,7 +52,6 @@ function mens(mens){
                     for (noRepetirMensajes=noRepetirMensajes; noRepetirMensajes>=0; noRepetirMensajes--)
                       var x = nuevosMen.shift();
                     noRepetirMensajes++;
-                    console.log(noRepetirMensajes);
                     for (var i in nuevosMen){
                       if (datos.quienEnvio == nuevosMen[i].emisor)
                           $(chat).append("Tu:"+nuevosMen[i].mensaje+"<br/>");
