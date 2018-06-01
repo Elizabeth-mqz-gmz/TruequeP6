@@ -1,4 +1,4 @@
-var chat = document.getElementsByTagName("div")[0];
+var chat = document.getElementById("chat");
 var usuario = "317346746";
 var receptor =  "317346743";
 var usuNomus = "Sophia";
@@ -19,7 +19,7 @@ function mens(mens){
       ultimoMen = mensajes[mensajes.length-1].idMen;
     }
     $("#enviar").on("click",()=>{
-        var mensaje = $("input")[0].value;
+        var mensaje = $("#mensaje").val();
         if(mensaje!="")
             $.ajax({
                 url:"../../modelo/PHP/guarda_mensaje.php",
@@ -31,7 +31,7 @@ function mens(mens){
                 },
                 type: "POST",
                 success: function(response){
-                    $("input")[0].value= "";
+                    $("#mensaje").val("");
                     $(chat).append("Tú: "+mensaje+"<br/>");
                 }
             });

@@ -15,7 +15,7 @@
   $bus = mysqli_fetch_assoc($resp);
 
   if($bus != null){//solo si existe coincidencia verifica que la contraseña sea la correcta
-    $datosUsu["contra"]=$hash = sha1("f2H3".$datosUsu["contra"]."B6jwq");//hace el hash
+    $datosUsu["contra"] = sha1("f2wesxdrftgyH3".$datosUsu["contra"]."B6jxddgvhuijwq");//hace el hash
     if($bus["contra"]== $datosUsu["contra"]){
       echo "T";
       if ($datosUsu["id_usuario"] == 979847874) //revisa si coincide con el id de administrador

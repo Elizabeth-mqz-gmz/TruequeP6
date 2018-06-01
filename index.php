@@ -1,8 +1,13 @@
+<!DOCTYPE html >
 <html>
   <head>
     <title>Inicio</title>
-    <?php include "head.html" ?>
-    <link rel="stylesheet" href="../estilo/inicio.css">
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB' crossorigin='anonymous'>
+    <script type= "text/javascript" src="controlador/JS/calendario.js"></script>
+    <script type='text/javascript' src='librerias/jquery-3.3.1.min.js'></script>
+    <link rel="stylesheet" href="vista/estilo/inicio.css">
   </head>
   <body>
     <div id="contenedor" class="text-center">
@@ -22,7 +27,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <?php include "regis.html"?>
+            <?php include "vista/maquetado/regis.html"?>
           </div>
         </div>
       </div>
@@ -37,7 +42,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <?php include "inicio_sesion.html"?>
+            <?php include "vista/maquetado/inicio_sesion.html"?>
           </div>
         </div>
       </div>

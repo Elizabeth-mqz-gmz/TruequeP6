@@ -1,9 +1,9 @@
 $("#enviar").click(()=>{
     $("#alert").remove();
-    var usuario = $("#num_cta").val();
+    var usuario = $("#numero_cta").val();
     var contraseña = $("#pass").val();
     jQuery.ajax({
-        url:"../../modelo/PHP/inicio_sesion.php",
+        url:"modelo/PHP/inicio_sesion.php",
         data:{
             id_usuario : usuario,
             contra : contraseña

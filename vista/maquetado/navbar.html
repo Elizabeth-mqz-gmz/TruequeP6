@@ -1,6 +1,6 @@
 <nav class='navbar sticky-top navbar-expand-lg navbar-light bg-light'>
 
-  <a class='navbar-brand mb-0 h1' href='index.php'>
+  <a class='navbar-brand mb-0 h1' href='main.php'>
     <h1 class='display-4'>Trueque P6</h1>
   </a>
 
@@ -51,11 +51,17 @@
               aquí van las notificaciones :)
             </div>
           </li>
-          <li class='nav-item active'>
-            <a class='nav-link' id='mensajes' href='chat.php'>Chat</a>
+          <li class='nav-item dropdown'>
+            <a class='nav-link dropdown-toggle' id='mensajes'  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chat</a>
+            <a href='chat.php'><div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              Personas con las que has chateado
+            </div></a>
           </li>
           <li class='nav-item active'>
             <a class='nav-link' id='perfil' href='perfil_usuario.php'>Perfil</a>
+          </li>
+          <li class='nav-item active'>
+            <a class='nav-link' id='mensajes' href='publica.html'>Publicar</a>
           </li>
         </ul>
       </div>

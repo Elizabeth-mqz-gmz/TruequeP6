@@ -6,10 +6,19 @@
       "ape_mat" => $_POST["ape_mat"],
       "user" => $_POST["user"],
       "contra" => $_POST["contra"] );
+    //IMAGEN
+    // print_r($_FILES);
+    $ruta = "../imagenes_per/";
+    //toma la extensión del archivo y la concatena
+    $tipo = strtolower(pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION));
+    if($tipo == "jpg")
+        $ruta = $ruta.$_FILES["imagen"]["name"];
+    else
+        $ruta = "modelo/imagenes_per/default.jpg";
 
-    $hash = sha1("hvy598vrs9trf2H3".$datos["contra"]."B6j7843hecvwq"); //hasheado de contraseña, con sazonado
+    $hash = sha1("f2wesxdrftgyH3".$datos["contra"]."B6jxddgvhuijwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;
-     if (preg_match('/^(31)[678][1-9]{6}/',$datos["num_cta"])){
+     if (preg_match('/^(31)[678][0-9]{6}/',$datos["num_cta"])){
         if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["nom"])){
             if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["ape_pat"])){
                 if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["ape_mat"])){
@@ -58,9 +67,9 @@
         $unico = mysqli_query($conex,$busq);
         $exist = mysqli_num_rows($unico);
         if($exist == 0){ //REVISA SI EL REGISTRO EXISTE
-            $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus) VALUES "."("."".$datos["num_cta"].",'".$datosCif['nom']."','".$datosCif['ape_pat']."','".$datosCif['ape_mat']."','".$hash."','";
-            $bus.=$datos['user']."')";
-            // echo $bus;
+            $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus, imagen) VALUES "."("."".$datos["num_cta"].",'".$datosCif['nom']."','".$datosCif['ape_pat']."','".$datosCif['ape_mat']."','".$hash."','";
+            $bus.=$datos['user']."','".$ruta."')";
+            echo $bus;
             $resp=mysqli_query($conex,$bus);
         }
         else{
@@ -70,4 +79,5 @@
     }
     else if($valorcillo == false)
         echo 'El registro ha resultado en fracaso';
+  //  header("Location: ../../index.php");
 ?>

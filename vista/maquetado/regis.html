@@ -2,47 +2,51 @@
 	<head>
 		<title>Registro</title>
 		<meta charset='UTF-8'/>
-		<script src='../../librerias/jquery-3.3.1.min.js'></script>
+		<script src='librerias/jquery-3.3.1.min.js'></script>
 		<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB' crossorigin='anonymous'>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 		<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T' crossorigin='anonymous'></script>
 	</head>
 	<body>
 		<section id='registro'>
-			<form id='regis' action='../../modelo/PHP/regis.php' method='POST'>
-				<div class="col-md-4 mb-3">
-			    <label for="num_cta">Número de cuenta</label>
+			<form id='regis' action='modelo/PHP/regis.php' method='POST' enctype='multipart/form-data'>
+				<div class='col-md-4 mb-3'>
+			    <label for='num_cta'>Número de cuenta</label>
 					<input type='text' name='num_cta' id='num_cta' pattern='^31[678][0-9]{6}' placeholder='No. de Cuenta' required/>
 			    	<div></div>
 		    	</div>
-				<div class="col-md-4 mb-3">
-			    	<label for="no">Nombre</label>
+				<div class='col-md-4 mb-3'>
+			    	<label for='nom'>Nombre</label>
 					  <input type='text' name='nom' id='nom' pattern='^[A-Z][a-zA-Záéíóú\s]+' placeholder='Nombre' required/>
 			        <div></div>
 		    	</div>
-				<div class="col-md-4 mb-3">
-			    	<label for="num_cta">Apellido Paterno</label>
+				<div class='col-md-4 mb-3'>
+			    	<label for='num_cta'>Apellido Paterno</label>
 					<input type='text' name='ape_pat' id='ape_pat' pattern='^[A-Z][a-zA-Záéíóú\s]+' placeholder='Apellido Paterno' required/>
 			        <div></div>
 		    	</div>
-				<div class="col-md-4 mb-3">
-			    	<label for="ape_mat">Apellido Materno</label>
-					  <input type='text' name='ape_mat' id='ape_mat' pattern='^[A-Z][a-zA-Záéíóú\s]+' placeholder='Apellido Materno' required/>
+				<div class='col-md-4 mb-3'>
+			    	<label for='ape_mat'>Apellido Materno</label>
+					  <input type='text' name='ape_mat' id='ape_mat' pattern='^[A-Z][a-zA-Záéíóú\s]+' placeholder='Apellido Materno'/>
 			        <div></div>
 		    	</div>
-				<div class="col-md-4 mb-3">
-			    		<label for="num_cta">Nombre de Usuario</label>
+				<div class='col-md-4 mb-3'>
+			    		<label for='num_cta'>Nombre de Usuario</label>
 						<input type='text' name='user' id='user' pattern='[A-Za-z\d]{6,20}$' placeholder='Usuario' required/>
 			        <div></div>
 		    	</div>
+				<div class="custom-file">
+					<input type="file" name='imagen' accept='image/jpg' class="custom-file-input" id="validatedCustomFile">
+		            <label class="custom-file-label" for="validatedCustomFile">Elige una imagen</label>
+		        </div>
 				<div class="col-md-4 mb-3">
 			    		<label for="num_cta">Contraseña</label>
-						<input type='text' name='contra' class='contrasena' id='pass1' required/>
+						<input type='password' name='contra' class='contrasena' id='pass1' required/>
 			       <div></div>
 		    	</div>
 				<div class="col-md-4 mb-3">
 			    		<label for="num_cta">Confirma contraseña</label>
-						<input type='text' name='contra2' class='contrasena' id='pass2' required/>
+						<input type='password' name='contra2' class='contrasena' id='pass2' required/>
 			        <div></div>
 		    	</div>
 				<script>
@@ -55,11 +59,15 @@
 							var aux = elements.indexOf(dato);
 							if (aux >= 0){
 								var reg = new RegExp (regex[aux]);
-								console.log(reg);
-								if (reg.test(event.target.value) == true)
+								// console.log(reg);
+								if (reg.test(event.target.value) == true){
 									document.getElementById(dato).className = "form-control is-valid";
-								else
+									document.getElementById(dato).nextSibling.innerHTML="Eso funciona para mi!"
+								}
+								else{
 									document.getElementById(dato).className = "form-control is-invalid";
+									document.getElementById(dato).nextSibling.innerHTML="No es correcto";
+								}
 							}
 						});
 					});
@@ -69,16 +77,16 @@
 							$("#msj").html("<input type='submit'>");
 							$("#msj").attr("style","background-color: green;");
 						}
-								else{
+				        else{
 							$("#msj").html("Las contraseñas no coinciden");
+							$("#msj").attr("style","background-color: red;");
 						}
-						});
+				    });
 				</script>
 				<div id='msj'>
 				</div>
-			</div>
-		</form>
-	</div>
-</div>
-<script type= 'text/javascript' src='../../controlador/JS/revisa.js'></script>
-<script type= 'text/javascript' src='../../controlador/JS/nav_eventos.js'></script>
+			</form>
+		</section>
+	</body>
+	<script src='controlador/JS/revisa.js'></script>
+</html>

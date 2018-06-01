@@ -146,9 +146,9 @@ function validarPass($contra)
 	}
 
 }
-function getCookie(){ //Regresa el num_cta, si no existe devuelve 0.
-    if(isset($_COOKIE)){
-        $usu = cifrado("pUeE","usuario",1);
+function dame_cookie(){ //Regresa el num_cta, si no existe devuelve 0.
+    $usu = cifrado("pUeE","usuario",1);
+    if(isset($_COOKIE[$usu])){
         $cook = $_COOKIE[$usu];
         $cook = cifrado("pUeE",$cook,2);
     }
