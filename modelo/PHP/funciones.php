@@ -96,19 +96,16 @@ function dame_publicacion($idPubli,$db){
     $nomUs = $regis[0];
 
     //si no hay denuncia genera un json para el ajax de publicacion.js
-    if($row["denuncia_p"]!=1){
-        $json = "{
-            \"autor\":\"".$nomUs."\",
-            \"estado\":\"".$row["estado"]."\",
-            \"imagen\":\"".$row["imagen_publi"]."\",
-            \"publicacion\":\"".$row["publicacion"]."\",
-            \"esAutor\":\"$esAutor\",
-            \"usuReac\":\"$tipoReac\"
-        }";
-        return $json;
-    }
-    else
-        return null;
+    $json = "{
+        \"autor\":\"".$nomUs."\",
+        \"estado\":\"".$row["estado"]."\",
+        \"imagen\":\"".$row["imagen_publi"]."\",
+        \"publicacion\":\"".$row["publicacion"]."\",
+        \"esAutor\":\"$esAutor\",
+        \"usuReac\":\"$tipoReac\",
+        \"denuncia\":\"".$row["denuncia_p"]."\"
+    }";
+    return $json;
 }
 function validarPass($contra)
 {

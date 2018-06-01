@@ -40,10 +40,10 @@ function publicacion(idPub,individual,cb){
 
             //si el usuario actual ya reaccionó se pone naranja la reacción
             if(publi.usuReac!="null")
-                if(publi.usuReac=="Me vale")
-                    $("#"+idPub+".reac>img:first-child").css("border-color","#E98836");
+                if(publi.usuReac=="Me vale")//Me vale, causa error por tener espacio, corregido
+                    $("#"+idPub+" .reac>img:first-child").css("border-color","#E98836");
                 else
-                    $("#"+publi.usuReac).css("border-color","#E98836");
+                    $("."+publi.usuReac).css("border-color","#E98836");
 
             if(publi.esAutor=="true"){
                 //poner borde si es autor
@@ -75,17 +75,19 @@ function publicacion(idPub,individual,cb){
 
                 });
             }
-            $("#"+idPub+" .den").on("click",()=>{
-                $("#"+idPub+" .den").hide();
-                $.ajax({
-                    url:"../../modelo/PHP/denuncia.php",
-                    data:{
-                        idPubli: idPub,
-                    },
-                    type: "POST"
+            if(publi.denuncia == "0")
+                $("#"+idPub+" .den").on("click",()=>{
+                    $("#"+idPub+" .den").hide();
+                    $.ajax({
+                        url:"../../modelo/PHP/denuncia.php",
+                        data:{
+                            idPubli: idPub,
+                        },
+                        type: "POST"
+                    });
                 });
-            });
-
+            else
+                $("#"+idPub+" .den").hide();
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             if(individual)
                 return cb();
