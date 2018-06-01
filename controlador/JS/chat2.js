@@ -4,7 +4,6 @@ var receptor =  "317346746";
 var usuNomus = "Kaime";
 var recNomus ="Sophia";
 var datos, ultimoMen, mensajes;
-var noRepetirMensajes = 0;
 var llave = usuNomus+recNomus;
 function mens(mens){
     if(mens == null)
@@ -33,7 +32,6 @@ function mens(mens){
                 type: "POST",
                 success: function(response){
                     $("input")[0].value= "";
-                    noRepetirMensajes++;
                     $(chat).append("Tú: "+mensaje+"<br/>");
                 }
             });
@@ -47,18 +45,14 @@ function mens(mens){
             },
             type: "POST",
             success: function(response){
+                console.log(response);
                 if(response != ""){
                     let nuevosMen = JSON.parse(response);
-                    for (noRepetirMensajes=noRepetirMensajes; noRepetirMensajes>=0; noRepetirMensajes--)
-                      var x = nuevosMen.shift();
-                    noRepetirMensajes++;
-                    for (var i in nuevosMen){
-                      if (datos.quienEnvio == nuevosMen[i].emisor)
-                          $(chat).append("Tu:"+nuevosMen[i].mensaje+"<br/>");
-                      else
+                    for (var i in nuevosMen)
+                      if (datos.quienEnvio != nuevosMen[i].emisor){
                           $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");
-                      mensajes.push(nuevosMen[i]);
-                    }
+                          mensajes.push(nuevosMen[i]);
+                      }
                     ultimoMen = mensajes[(mensajes.length)-1].idMen;
                 }
             }
