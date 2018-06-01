@@ -1,3 +1,4 @@
+
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
