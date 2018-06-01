@@ -2,13 +2,13 @@
 	<head>
 		<title>Registro</title>
 		<meta charset='UTF-8'/>
-		<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+		<script src='../../librerias/jquery-3.3.1.min.js'></script>
 	</head>
 	<body>
 		<section id='registro'>
-			<form id='regis' action='regis.php' method='POST'>
+			<form id='regis' action='../../modelo/PHP/regis.php' method='POST'>
 				Número de cuenta:<br/>
-				<input type='text' name='num_cta' pattern='^(31)[678][1-9]{6}' required/><br/>
+				<input type='text' name='num_cta' pattern='^31[678][0-9]{6}' required/><br/>
 				<br/>
 				Nombre:<br/>
 				<input type='text' name='nom' pattern='^[A-Z][a-záéíóú]+' required/><br/>
@@ -44,5 +44,5 @@
 			</form>
 		</section>
 	</body>
-	<script src='revisa.js'></script>
+	<script src='../../controlador/JS/revisa.js'></script>
 </html>
