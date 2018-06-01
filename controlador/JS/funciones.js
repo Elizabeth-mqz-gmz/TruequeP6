@@ -1,3 +1,10 @@
+
+function comentario(idPub){
+    console.log(idPub);
+    $("")
+    return;
+}
+
 function publicacion(idPub,individual,cb){
 //individual false, muestra boton, es para ver publicaciones
 //individual true, es el modo de comentarios y reacciones
@@ -25,6 +32,7 @@ function publicacion(idPub,individual,cb){
                 boton = "<a href='#' class='btn btn-primary'>Ver publicación</a>";
             let estado = "</div><h6></h6></div>";
 
+            //contenedor puede ser cualquier caja IMPORTANTE
             $("#contenedor").append(divGeneral+imgDiv2+texto+boton+estado);
             $("#"+idPub+">div>h5").text(publi.autor);
             $("#"+idPub+">div>p").text(publi.publicacion);
@@ -75,6 +83,8 @@ function publicacion(idPub,individual,cb){
 
                 });
             }
+            //si la denuncia es 0, muestra la imagen, del contrario no
+            //al darle click en la imagen de denuncia, cambia el estado 
             if(publi.denuncia == "0")
                 $("#"+idPub+" .den").on("click",()=>{
                     $("#"+idPub+" .den").hide();
