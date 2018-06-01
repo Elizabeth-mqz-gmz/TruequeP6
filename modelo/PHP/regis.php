@@ -52,8 +52,8 @@
         }
         // print_r($datosCif);
         //COOKIE
-        $usu = cifrado("pUeE","usuario",1);
-        setcookie($usu,$datosCif["num_cta"],time()+3600*24*30,"/"); //Vida de 1 mes.
+        //$usu = cifrado("pUeE","usuario",1);
+        //setcookie($usu,$datosCif["num_cta"],time()+3600*24*30,"/"); //Vida de 1 mes.
 
         $conex = mysqli_connect('localhost','root','','truequep6');
         checar_con($conex);
@@ -69,7 +69,7 @@
         if($exist == 0){ //REVISA SI EL REGISTRO EXISTE
             $bus = "INSERT INTO usuario (id_usuario, nombre, ape_pat, ape_mat, contra, nomus, imagen) VALUES "."("."".$datos["num_cta"].",'".$datosCif['nom']."','".$datosCif['ape_pat']."','".$datosCif['ape_mat']."','".$hash."','";
             $bus.=$datos['user']."','".$ruta."')";
-            echo $bus;
+            //echo $bus;
             $resp=mysqli_query($conex,$bus);
         }
         else{
