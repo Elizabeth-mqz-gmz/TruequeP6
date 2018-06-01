@@ -1,0 +1,3 @@
+<?php
+// quitar denuncia
+?>
