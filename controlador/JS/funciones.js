@@ -15,7 +15,7 @@ function publicacion(idPub,individual,cb){
             //el php regresa un json
             var publi = JSON.parse(response);
             //clases de bootstrap
-            let divGeneral = "<div id='"+idPub+"' class='card' style='width:25rem;''>";
+            let divGeneral = "<div id='"+idPub+"' class='card'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
             let texto = "<h5 class='card-title'></h5><div class='den'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             let boton;
@@ -89,10 +89,8 @@ function publicacion(idPub,individual,cb){
             else
                 $("#"+idPub+" .den").hide();
             //para cuando está con comenatrios y reacciones, se ejecute un callback
-            if(individual)
-                return cb();
-            else
-                return;
+            //para el botón se agrega el evento click
+            return cb();
         }
     });
 }

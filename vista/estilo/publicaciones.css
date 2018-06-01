@@ -23,6 +23,20 @@ h6{
     width: 2em;
     height: 2em;
     position: absolute;
-    top: 60%;
+    top: 24em;
     left: 83%;
+}
+.card-img-top{
+    height: 23em;
+}
+.card{
+    width: 28em;
+    height: auto;
+}
+/*checar responsive de publicacion*/
+@media (max-width: 500px){
+    .card{
+        width: 90vw;
+        margin: 5vw;
+    }
 }
