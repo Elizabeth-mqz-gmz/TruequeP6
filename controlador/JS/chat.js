@@ -6,6 +6,7 @@ var recNomus ="Kaime";
 var datos, ultimoMen, mensajes;
 var noRepetirMensajes = 0;
 var llave = usuNomus+recNomus;
+//aún hay que arreglar lo de los mensajes (si es el que ya pusiste, no lo pongas)
 function mens(mens){
     if(mens == null)
       $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!");
