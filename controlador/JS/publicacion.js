@@ -2,9 +2,9 @@
 var publi = 12;
 
 publicacion(publi,true,()=>{
-    var reacciones = $(".reac>img");
+    var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
-        reac = event.target.id;
+        reac = event.target.id; //el id es el tipo de reacción
         if(reac=="Mmm" || reac=="Jajajaja" ||reac=="Me vale")
             $.ajax({
                 url:"../../modelo/PHP/reacciona.php",
@@ -14,8 +14,10 @@ publicacion(publi,true,()=>{
                 },
                 type:"POST"
             });
+        //cambia color de bordes
         for(let v of $(reacciones))
             $(v).css("border-color","#8FCED0");
+        //pone el color de de la reacción elegida, naranja
         $(event.target).css("border-color","#E98836");
     });
 });

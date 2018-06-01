@@ -32,7 +32,8 @@ function publicacion(idPub,individual,cb){
                 $("#"+idPub+">h6").css("color","red");//cambiar a color elegido
             else if(publi.estado=="inconcluso")
                 $("#"+idPub+">h6").css("color","green");//cambiar a color elegido
-            //$("#"+idPub+">h6").css("text-transform","capitalize");// poner clase en css
+
+            //para cuando está con comenatrios y reacciones, se ejecute un callback
             if(individual)
                 return cb();
             else
