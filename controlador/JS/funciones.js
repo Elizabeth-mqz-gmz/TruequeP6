@@ -1,4 +1,4 @@
-function publicacion(idPub,individual){
+function publicacion(idPub,individual,cb){
 //individual false, muestra boton, es para ver publicaciones
 //individual true, es el modo de comentarios y reacciones
     $.ajax({
@@ -18,7 +18,7 @@ function publicacion(idPub,individual){
             let texto = "<h5 class='card-title'></h5><p class='card-text'></p>";
             let boton;
             if(individual)
-                boton = "<div class='reac'><img src='../recursos/nmp.png'/><img src='../recursos/md.png'/><img src='../recursos/mmm.png'/></div>";
+                boton = "<div class='reac'><img src='../recursos/nmp.png'/ id='Me vale'><img src='../recursos/md.png'/ id='Jajajaja'><img src='../recursos/mmm.png' id='Mmm'/></div>";
             else
                 boton = "<a href='#' class='btn btn-primary'>Ver publicación</a>";
             let estado = "</div><h6></h6></div>";
@@ -33,7 +33,10 @@ function publicacion(idPub,individual){
             else if(publi.estado=="inconcluso")
                 $("#"+idPub+">h6").css("color","green");//cambiar a color elegido
             //$("#"+idPub+">h6").css("text-transform","capitalize");// poner clase en css
+            if(individual)
+                return cb();
+            else
+                return;
         }
     });
 }
-publicacion(12,true);
