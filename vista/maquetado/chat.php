@@ -8,16 +8,19 @@
   </head>
   <body>
     <?php include 'navbar.html' ?>
-    <div class='container'>
-      <div id='chat'>ahhaha</div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Enviar</button>
+    <div>
+      <div id="conversaciones">
+      </div>
+      <div class='container'>
+        <div id='chat'>ahhaha</div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="..." aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Enviar</button>
+          </div>
         </div>
       </div>
     </div>
-
   </body>
 </html>
 <!--script type='text/javascript' src='../../controlador/JS/chat.js'></script-->
