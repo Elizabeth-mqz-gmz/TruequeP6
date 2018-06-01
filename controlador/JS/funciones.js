@@ -17,10 +17,10 @@ function publicacion(idPub,individual,cb){
             //clases de bootstrap
             let divGeneral = "<div id='"+idPub+"' class='card' style='width:25rem;''>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
-            let texto = "<h5 class='card-title'></h5><p class='card-text'></p>";
+            let texto = "<h5 class='card-title'></h5><div class='den'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             let boton;
             if(individual)
-                boton = "<div class='reac'><img src='../recursos/nmp.png'/ id='Me vale'><img src='../recursos/md.png'/ id='Jajajaja'><img src='../recursos/mmm.png' id='Mmm'/></div>";
+                boton = "<div class='reac'><img src='../recursos/nmp.png'/ class='Me vale'><img src='../recursos/md.png'/ class='Jajajaja'><img src='../recursos/mmm.png' class='Mmm'/></div>";
             else
                 boton = "<a href='#' class='btn btn-primary'>Ver publicación</a>";
             let estado = "</div><h6></h6></div>";
@@ -28,6 +28,8 @@ function publicacion(idPub,individual,cb){
             $("#contenedor").append(divGeneral+imgDiv2+texto+boton+estado);
             $("#"+idPub+">div>h5").text(publi.autor);
             $("#"+idPub+">div>p").text(publi.publicacion);
+
+            //OJO no agregar o quitar clases de img, IMPORTANTE para reacciones
             $("#"+idPub+">img").attr("src","../../modelo/PHP/"+publi.imagen);
             $("#"+idPub+">h6").text(publi.estado);
 
@@ -72,8 +74,18 @@ function publicacion(idPub,individual,cb){
                     });
 
                 });
-
             }
+            $("#"+idPub+" .den").on("click",()=>{
+                $("#"+idPub+" .den").hide();
+                $.ajax({
+                    url:"../../modelo/PHP/denuncia.php",
+                    data:{
+                        idPubli: idPub,
+                    },
+                    type: "POST"
+                });
+            });
+
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             if(individual)
                 return cb();

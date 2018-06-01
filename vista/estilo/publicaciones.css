@@ -3,7 +3,7 @@
     text-transform: capitalize;
     margin-right: 3%;
 }
-.reac{
+.reac,.den{
     display: flex;
 }
 .reac>img{
@@ -13,9 +13,16 @@
     border-radius: 100%;
     margin-right: 3%;
 }
-h6:hover,.reac>img:hover{
+h6:hover,.reac>img:hover,.den>img:hover{
     cursor: pointer;
 }
 h6{
     padding: 1%;
+}
+.den>img{
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 60%;
+    left: 83%;
 }

@@ -4,7 +4,7 @@ var publi = 12;
 publicacion(publi,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
-        reac = event.target.id; //el id es el tipo de reacción
+        reac = event.target.className; //el id es el tipo de reacción
         if(reac=="Mmm" || reac=="Jajajaja" ||reac=="Me vale")
             $.ajax({
                 url:"../../modelo/PHP/reacciona.php",
