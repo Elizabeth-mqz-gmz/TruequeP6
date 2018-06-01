@@ -7,7 +7,7 @@
       "user" => $_POST["user"],
       "contra" => $_POST["contra"] );
 
-    $hash = sha1("f2H3".$datos["contra"]."B6jwq"); //hasheado de contraseña, con sazonado
+    $hash = sha1("hvy598vrs9trf2H3".$datos["contra"]."B6j7843hecvwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;
      if (preg_match('/^(31)[678][1-9]{6}/',$datos["num_cta"])){
         if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["nom"])){
