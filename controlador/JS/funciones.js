@@ -122,7 +122,7 @@ function ordenar_eventos(respuesta){
 }
 
 function hacer_calendario (respuesta) {
-  $("<div id='calendario'>").appendTo("#evento");
+  $("<div id='calendario' data-spy='scroll' data-target='MuchosEventos' data-offset='0'>").appendTo("#evento");
 
   for ( i in respuesta){
     respuesta[i].fecha = new Date(respuesta[i].fecha);
