@@ -24,6 +24,7 @@
     $denuncia[$i]["id_publicacion"]=$den[$id];
     $i++;
   }
+
   $denuncia = json_encode($denuncia);
   print_r($denuncia);
   mysqli_close($bd);

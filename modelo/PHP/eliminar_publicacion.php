@@ -8,7 +8,7 @@
   $publicacion = validar($_POST["publicacion"], "", $bd);
   $usuario = validar ($_POST["usuario"], "", $bd);
 
-  //if($tabla = "publicaion"){
+  //if($tabla == "1"){
   //$resp = mysqli_query($bd, "SELECT imagen_publi FROM publicacion WHERE id_publicacion = $publicacion");
   //$bus = mysqli_fetch_assoc($resp);
   //if ($bus["imagen_publi"] != null)

@@ -15,6 +15,7 @@
       $bus = "UPDATE comentario SET denuncia_p = '0' WHERE id_comen = $publicacion";
 }
 
+ mysqli_query($bd, $bus);
  $mensaje = "Fue retirada una denuncia.";//enviar notificación al usuario
  $bus = "INSERT INTO notificacion (id_usu_not, men_not) VALUES ($usuario, '$mensaje')";
  mysqli_query($bd, $bus);
