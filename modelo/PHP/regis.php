@@ -11,10 +11,10 @@
     $ruta = "../imagenes_per/";
     //toma la extensión del archivo y la concatena
     $tipo = strtolower(pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION));
-    if($tipo == "jpg")
+    if($tipo == "png")
         $ruta = $ruta.$_FILES["imagen"]["name"];
     else
-        $ruta = "modelo/imagenes_per/default.jpg";
+        $ruta = "modelo/imagenes_per/default.png";
 
     $hash = sha1("f2wesxdrftgyH3".$datos["contra"]."B6jxddgvhuijwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;

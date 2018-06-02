@@ -13,7 +13,7 @@
     border-radius: 100%;
     margin-right: 3%;
 }
-h6:hover,.reac>img:hover,.den>img:hover{
+h6:hover,.reac>img:hover,.den>img:hover,.card span:hover{
     cursor: pointer;
 }
 h6{
@@ -32,6 +32,13 @@ h6{
 .card{
     width: 28em;
     height: auto;
+    margin: 5% auto;
+}
+.card span{
+    position: absolute;
+    left: 79%;
+    bottom: 15%;
+    font-weight: bold;
 }
 /*checar responsive de publicacion*/
 @media (max-width: 500px){

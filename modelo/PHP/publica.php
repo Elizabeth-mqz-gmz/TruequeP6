@@ -1,4 +1,5 @@
 <?php
+//guarda los datos de una publicación en la base de datos
     include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);
@@ -10,8 +11,8 @@
     }
     $publi = $form["menPub"];
 
-    $usuario = 31700002; //FALTA saber
-
+    $usuario = dame_cookie();
+    // echo $usuario;
     if(isset($form["tipoPer"])){
         //si es pérdida, definir el tipo
         $tipoPerdida = $form["tipoPer"];
@@ -29,7 +30,8 @@
     $resp = mysqli_query($db,$busq);
     $row = mysqli_fetch_array($resp);
     $id_pub= $row[0]+1;
-
+    // echo "<br/>".$busq;
+    // echo "<br/>".$id_pub;
     //guarda el archivo en ../imagenes_pub/
     $ruta = "../imagenes_pub/";
     $ruta_arch = $ruta.basename($id_pub);
@@ -40,7 +42,9 @@
     //si existen todos los datos necesarios, se guarda en la base de datos
     if(isset($form["menPub"]) && isset($form["tipoPub"])){
         //valida que no exista ya el archivo: imagen
-        if(!file_exists($ruta_arch))
+        echo $ruta_arch;
+        if(!file_exists($ruta_arch)){
+            // echo "probar";
             //valida que el archivo se coloque correctamente en el servidor
             if(!move_uploaded_file($_FILES["imagen"]["tmp_name"],$ruta_arch))
                 echo "<br/>ERROR";
@@ -48,16 +52,17 @@
                 //guarda la publicación en la base de datos
                 $busq = "INSERT INTO publicacion(id_autor,imagen_publi,publicacion) VALUE"."("."'$usuario','$ruta_arch','$publi'".")";
                 mysqli_query($db,$busq);
-
+                // echo "<br/>".$busq;
                 //si es truque guarda con truque, del contrario con peridia
                 if($form["tipoPub"]=="trueque")
                     $busq = "INSERT INTO trueque(id_publi_true) VALUE"."(".$id_pub.")";
                 else if($form["tipoPub"]=="perdida")
                     $busq = "INSERT INTO perdida(id_publi_per,tipo_perdida) VALUE"."("."'$id_pub','$tipoPerdida'".")";
-
+                // echo "<br/>".$busq;
                 mysqli_query($db,$busq);
             }
+        }
     }
     mysqli_close($db);
-
+    header("Location: ../../vista/maquetado/main.php")
 ?>

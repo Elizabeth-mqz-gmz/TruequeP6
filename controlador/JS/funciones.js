@@ -1,7 +1,8 @@
 
 function comentario(idPub){
-    console.log(idPub);
-    $("")
+//sacar todos los comentarios
+//sacar input para comentar
+    //console.log(idPub);
     return;
 }
 
@@ -29,8 +30,8 @@ function publicacion(idPub,individual,cb){
             if(individual)
                 boton = "<div class='reac'><img src='../recursos/nmp.png'/ class='Me vale'><img src='../recursos/md.png'/ class='Jajajaja'><img src='../recursos/mmm.png' class='Mmm'/></div>";
             else
-                boton = "<a href='#' class='btn btn-primary'>Ver publicación</a>";
-            let estado = "</div><h6></h6></div>";
+                boton = "<a href='publicacion.php' class='btn btn-primary'>Ver publicación</a>";
+            let estado = "</div><h6></h6><span>Me interesa<span></div>";
 
             //contenedor puede ser cualquier caja IMPORTANTE
             $("#contenedor").append(divGeneral+imgDiv2+texto+boton+estado);
@@ -98,12 +99,49 @@ function publicacion(idPub,individual,cb){
                 });
             else
                 $("#"+idPub+" .den").hide();
+
+            $("#"+idPub+">span").on("click",()=>{
+                $.ajax({
+                    url:"../../modelo/PHP/me_interesa.php",
+                    type: "POST",
+                    success: function(){
+                        $("#"+idPub+">span").css("color","green");
+                    }
+                });
+            });
+
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             //para el botón se agrega el evento click
             return cb();
         }
     });
 }
+
+function saca_publi(tipo){
+    $.ajax({
+        url:"../../modelo/PHP/dame_publis.php",
+        data:{
+            tipoPubli: tipo
+        },
+        type: "POST",
+        success:function(response){
+            console.log(response);
+            if(response!="null"){
+                var publis = [];
+                publis = JSON.parse(response);
+                console.log(publis);
+                for (let v of publis)
+                    publicacion(v,false,()=>{
+                        $("#"+v+" .btn").one("click",()=>{
+                            document.cookie = "pub="+v+";max-age=60";
+                        });
+                    });
+            }
+        }
+    })
+    return;
+}
+
 function ordenar_eventos(respuesta){
   let ayu= [], ayu2=[];
   for (i in respuesta){

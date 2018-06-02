@@ -1,7 +1,13 @@
 
-// var publi = 14; //ejemplo poco texto
-var publi = 12; //ejemplo mucho texto
 // var publi = cookie de la publicacion
+var coo = [];
+coo = document.cookie.split(";");
+var cookie;
+for(let v of coo)
+    if(v.search(/pub/)!=-1)
+        cookie = v;
+var cookieBuscada = cookie.split("=");
+var publi = cookieBuscada[1];
 
 publicacion(publi,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
@@ -24,9 +30,3 @@ publicacion(publi,true,()=>{
     });
     comentario(publi);
 });
-
-// publicacion(publi,false,()=>{
-//     $("#"+publi+" .btn").one("click",()=>{
-//         document.cookie = "pub="+publi+";max-age=300";
-//     });
-// });
