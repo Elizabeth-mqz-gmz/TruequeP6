@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php include "navbar.html" ?>
-    <div id='contenedor'></div>
+    <div id='contenedorPubli'></div>
 </body>
 <script type='text/javascript' src='../../controlador/JS/publicacion.js'></script>
 </html>
