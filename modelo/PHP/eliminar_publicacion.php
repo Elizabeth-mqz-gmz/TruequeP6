@@ -1,9 +1,10 @@
 <?php
   //eliminar publicación;
+  include "funciones.php";
   $bd = mysqli_connect("localhost", "root", "", "truequep6");
   checar_con($bd);
 
-  $tabla = validar ($_POST["tabla"],"",$bd);
+  $tabla = $_POST["tabla"];
   $publicacion = validar($_POST["publicacion"], "", $bd);
   $usuario = validar ($_POST["usuario"], "", $bd);
 
@@ -14,12 +15,17 @@
       //unlink("../".$bus["imagen_publi"]); //eliminar imagen del subdirectorio imagenes_pub
   //eliminar imagen publicacion
   //}
-
-  mysqli_query($bd, "DELETE FROM $tabla WHERE id_publicacion = $publicacion"); //se elimino la publicación.
+  if ($tabla == "1")
+    mysqli_query($bd, "DELETE FROM publicacion WHERE id_publicacion = $publicacion"); //se elimino la publicación.
+  else {
+    if($tabla == "2")
+      mysqli_query($bd, "DELETE FROM comentario WHERE id_comen = $publicacion");
+  }
+  //mysqli_query($bd, $bus)
 
   $mensaje = "Quitamos tu publicación."; //notificación
-  $bus = "INSERT INTO notificacion (id_usu_not, men_not) VALUES ($usuario, $mensaje)";
-  mysqli_query($bd, $bus);
+  //$bus = "INSERT INTO notificacion (id_usu_not, men_not) VALUES ($usuario, $mensaje)";
+  //mysqli_query($bd, $bus);
 
   echo "Se ha eliminado la publicación";
 
