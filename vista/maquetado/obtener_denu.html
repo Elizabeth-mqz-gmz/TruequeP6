@@ -5,42 +5,66 @@
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <meta charset='UTF-8' />
   <body>
-    <button id='denuncias' value='3'>Denuncias</button>
+    <button id='denuncias'>Denuncias</button>
     <div id="contDenuncias"></div>
     </body>
 </html>
 <script>
-$(document).ready(function(){
-  $("#quitar").on("click", ()=>{
-    let denuncia = event.target.value();
-    console.log(denuncia);
-    console.log("shdhd");
-  });
+
+$("#denuncias").on("click", function(){
+  $(".quitar").remove();
+  denuncia();
 });
-  function mostrar_publid(respuesta){
-    for (let i in respuesta ){
-      let autor = $("<div>"+respuesta[i].id_autor+"</div><button value='"+respuesta[i].id_publicacion+"' class='quitar'>Eliminar Denuncia</button>");
-      autor.appendTo("#contDenuncias");
-      console.log(respuesta[i].id_autor);
-      console.log(respuesta[i].id_publicacion);
-      let btn = $("#denuncias").val();
-      console.log(btn);
-    }
-  }
 
-  function denuncia(){
-    let request = new XMLHttpRequest();
-    request.onreadystatechange = function (){
-      if (this.readyState === 4 && this.status == 200)
-        var denuncias = JSON.parse(this.response);
-        mostrar_publid(denuncias);
-    }
-    request.open("POST", "../../modelo/PHP/obtener_denuncia.php");
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send();
+function mostrar_publid(respuesta){
+  for (let i in respuesta ){
+    let autor = $("<div class='quitar'>"+respuesta[i].id_autor+"</div><button autor ='"+respuesta[i].id_autor+"'publi='"+respuesta[i].id_publicacion+"' class='quitar' value = 'quitarD'>Eliminar Denuncia</button>");
+    autor.appendTo("#contDenuncias");
+    console.log(respuesta[i].id_autor);
+    console.log(respuesta[i].id_publicacion);
   }
+}
 
-  $("#denuncias").on("click", function(){
-    denuncia();
+function denuncia(){
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function (){
+    if (this.readyState === 4 && this.status == 200)
+      var denuncias = JSON.parse(this.response);
+      mostrar_publid(denuncias);
+  }
+  request.open("POST", "../../modelo/PHP/obtener_denuncia.php");
+  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  request.send();
+}
+
+function quitar_eliminar( ruta, autor_publi, id_publi, mensaje){
+  jQuery.ajax({
+      url:"../../modelo/PHP/"ruta".php",
+      data:{
+          usuario : autor_publi,
+          publi : id_publi
+      },
+      type: "POST",
+      success: function(response){
+          alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
+      }
   });
+}
+
+document.getElementById("contDenuncias").addEventListener("click",()=>{
+  let denun = event.target.val;
+  let publi = denun.getAttribute("publi");
+  let autor = denun.getAttribute("autor");
+  console.log(publi);
+  console.log(autor);
+  console.log(denun);
+  if (denun = "quitarD")
+    quitar_eliminar(,autor,publi,"denuncia");
+  else{
+    quitar_eliminar("quitar_denuncia",autor,publi,"publicación");
+  }
+  $(".quitar").remove();
+  denuncia();
+});
+
 </script>

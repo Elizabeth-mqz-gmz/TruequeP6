@@ -16,4 +16,8 @@
     $upd = "UPDATE publicacion SET denuncia_p='1' WHERE id_publicacion='$idPub'";
     mysqli_query($db,$upd);
     mysqli_close($db);
+
+    echo (sha1("f2wesxdrftgyH3EmiliaB6jxddgvhuijwq"));
+
+
 ?>
