@@ -15,14 +15,12 @@ $("#comentarios").on("click", function(){
 
 function desplegarPublicacion(respuesta){
   let publi = respuesta;
-  let  datos = $("<img src='"+respuesta.imagen_publi+"'/ class='quitar'><p class='quitar'>"+respuesta.publicacion+"</p>");
-  datos.appendTo("#contPublicaciones");
-  console.log(publi);
-  console.log(publi.publicacion);
+  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><button autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
+  datos.appendTo("#contPublicaciones");//append a event.target XD
 }
 
 function desplegarComentario(respuesta){
-  let comentario = $("<p class='quitar'>"+respuesta.comentario+"</p>");
+  let datos = $("<div class ='quitar'><div>"+respuesta.id_usu_comen+"</div><p>"+respuesta.comentario+"</p><button autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'quitarD'>Quitar Denuncia</button><button autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
   datos.appendTo("#contComentarios");
 }
 
@@ -36,20 +34,22 @@ function mostrarContenido(id_cont, valor){
         tabla : valor
       },
       success: function(response){
-        mostrar[valor](JSON.parse(response);
+        n = response;
+        console.log(response);
+        mostrar[valor](JSON.parse(response));
         //console.log(response);// obtiene comentario o imagen
       }
   });
 }
 
-function mostrar_publid(respuesta, donde){
+function mostrar_publid(respuesta, valor){
   for (let i in respuesta ){
-    let autor = $("<div class='quitar'><div>"+respuesta[i].id_autor+"</div><button autor ='"+respuesta[i].id_autor+"'publi='"+respuesta[i].id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button autor ='"+respuesta[i].id_autor+"'publi='"+respuesta[i].id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
-    autor.appendTo("#cont"+donde);
+    mostrarContenido(respuesta[i].id_publicacion,valor );
+    console.log(respuesta[i].id_publicacion);
   }
 }
 
-function denuncia(valor, donde){
+function denuncia(valor){
   jQuery.ajax({
       url:"../../modelo/PHP/obtener_denuncia.php",
       type: "POST",
@@ -57,8 +57,9 @@ function denuncia(valor, donde){
         tabla : valor
       },
       success: function(response){
-            mostrar_publid(JSON.parse(response), donde, valor);
+            mostrar_publid(JSON.parse(response),valor);
             console.log(valor);
+            console.log(JSON.parse(response));
       }
   });
 }
@@ -80,6 +81,13 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
       }
   });
 }
+
+
+
+
+
+
+
 
 document.getElementById("contPublicaciones").addEventListener("click",()=>{
   let denun = event.target.value;
