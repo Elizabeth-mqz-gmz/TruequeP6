@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `truequep6`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `truequep6` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `truequep6`;
-
---
 -- Table structure for table `chat`
 --
 
@@ -39,7 +31,7 @@ CREATE TABLE `chat` (
   KEY `id_rec` (`id_rec`),
   CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_em`) REFERENCES `usuario` (`id_usuario`),
   CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`id_rec`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +117,7 @@ CREATE TABLE `mensaje` (
   UNIQUE KEY `id_men` (`id_men`),
   KEY `id_chat` (`id_chat`),
   CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,11 +140,10 @@ CREATE TABLE `notificacion` (
   `id_not` int(11) NOT NULL AUTO_INCREMENT,
   `id_usu_not` int(9) NOT NULL,
   `men_not` varchar(100) NOT NULL,
-  `tipo_not` enum('comentario','trueque','credencial','evento') NOT NULL,
   PRIMARY KEY (`id_not`),
   KEY `id_usu_not` (`id_usu_not`),
   CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`id_usu_not`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,6 +152,7 @@ CREATE TABLE `notificacion` (
 
 LOCK TABLES `notificacion` WRITE;
 /*!40000 ALTER TABLE `notificacion` DISABLE KEYS */;
+INSERT INTO `notificacion` VALUES (1,317205445,'Al usuario 317205445 le interesa una publicación tuya'),(2,317205445,'El usuario 317205445 encontró tu credencial'),(11,317205445,'Al usuario 317205445 le interesa una publicación tuya');
 /*!40000 ALTER TABLE `notificacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,14 +166,14 @@ DROP TABLE IF EXISTS `perdida`;
 CREATE TABLE `perdida` (
   `id_perdida` int(11) NOT NULL AUTO_INCREMENT,
   `id_publi_per` int(11) NOT NULL,
-  `id_dueño` int(9) NOT NULL,
+  `id_dueño` int(9) DEFAULT NULL,
   `tipo_perdida` enum('ropa','cuaderno','credencial') NOT NULL,
-  PRIMARY KEY (`id_perdida`),
+  UNIQUE KEY `id_perdida` (`id_perdida`),
   KEY `id_publi_per` (`id_publi_per`),
   KEY `id_dueño` (`id_dueño`),
   CONSTRAINT `perdida_ibfk_1` FOREIGN KEY (`id_publi_per`) REFERENCES `publicacion` (`id_publicacion`),
   CONSTRAINT `perdida_ibfk_2` FOREIGN KEY (`id_dueño`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,6 +182,7 @@ CREATE TABLE `perdida` (
 
 LOCK TABLES `perdida` WRITE;
 /*!40000 ALTER TABLE `perdida` DISABLE KEYS */;
+INSERT INTO `perdida` VALUES (1,18,NULL,'ropa'),(2,19,NULL,'ropa'),(3,20,NULL,'ropa'),(4,21,NULL,'ropa'),(5,22,NULL,'ropa'),(6,23,NULL,'cuaderno');
 /*!40000 ALTER TABLE `perdida` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +203,7 @@ CREATE TABLE `publicacion` (
   PRIMARY KEY (`id_publicacion`),
   KEY `id_autor` (`id_autor`),
   CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,6 +212,7 @@ CREATE TABLE `publicacion` (
 
 LOCK TABLES `publicacion` WRITE;
 /*!40000 ALTER TABLE `publicacion` DISABLE KEYS */;
+INSERT INTO `publicacion` VALUES (3,317205445,'0','inconcluso','../imagenes_pub/1.png','Cambio esto por un beso'),(4,317205445,'0','inconcluso','../imagenes_pub/4.png','Cambio esto por un beso'),(5,317205445,'0','inconcluso','../imagenes_pub/5.png','Amigo perdiste tu pantalon'),(6,317205445,'0','inconcluso','../imagenes_pub/6.png','Cambio esto por un beso'),(7,317205445,'0','inconcluso','../imagenes_pub/7.jpg','prueba'),(8,317205445,'0','inconcluso','../imagenes_pub/8.jpg','Hago muchas pruebas de estas'),(9,317205445,'0','inconcluso','../imagenes_pub/9.jpg','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(10,317205445,'0','inconcluso','../imagenes_pub/10.jpg','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(11,317205445,'0','inconcluso','../imagenes_pub/11.jpg','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(12,317205445,'0','inconcluso','../imagenes_pub/12.jpg','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(13,317205445,'0','inconcluso','../imagenes_pub/13.jpg','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(14,317205445,'0','inconcluso','../imagenes_pub/14.jpg','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(15,317205445,'0','inconcluso','../imagenes_pub/15.png','Amigo encontré tu credencial, pasa el 504 con unos chilaquiles.'),(16,317205445,'0','inconcluso','../imagenes_pub/16.png','prueba'),(17,317205445,'0','inconcluso','../imagenes_pub/17.jpg','prueba'),(18,317205445,'0','inconcluso','../imagenes_pub/18.jpg','prueba'),(19,317205445,'0','inconcluso','../imagenes_pub/19.jpg','prueba'),(20,317205445,'0','inconcluso','../imagenes_pub/20.jpg','prueba'),(21,317205445,'0','inconcluso','../imagenes_pub/21.jpg','prueba'),(22,317205445,'0','inconcluso','../imagenes_pub/22.jpg','prueba'),(23,317205445,'0','inconcluso','../imagenes_pub/23.jpg','prueba 2');
 /*!40000 ALTER TABLE `publicacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,7 +233,7 @@ CREATE TABLE `reaccion` (
   KEY `id_usu_reac` (`id_usu_reac`),
   CONSTRAINT `reaccion_ibfk_1` FOREIGN KEY (`id_publi_reac`) REFERENCES `publicacion` (`id_publicacion`),
   CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`id_usu_reac`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -248,6 +242,7 @@ CREATE TABLE `reaccion` (
 
 LOCK TABLES `reaccion` WRITE;
 /*!40000 ALTER TABLE `reaccion` DISABLE KEYS */;
+INSERT INTO `reaccion` VALUES (1,6,317205445,'Jajajaja');
 /*!40000 ALTER TABLE `reaccion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,13 +256,13 @@ DROP TABLE IF EXISTS `trueque`;
 CREATE TABLE `trueque` (
   `id_trueque` int(11) NOT NULL AUTO_INCREMENT,
   `id_publi_true` int(11) NOT NULL,
-  `id_aceptador` int(9) NOT NULL,
-  PRIMARY KEY (`id_trueque`),
+  `id_aceptador` int(9) DEFAULT NULL,
+  UNIQUE KEY `id_trueque` (`id_trueque`),
   KEY `id_publi_true` (`id_publi_true`),
   KEY `id_aceptador` (`id_aceptador`),
   CONSTRAINT `trueque_ibfk_1` FOREIGN KEY (`id_publi_true`) REFERENCES `publicacion` (`id_publicacion`),
   CONSTRAINT `trueque_ibfk_2` FOREIGN KEY (`id_aceptador`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,6 +271,7 @@ CREATE TABLE `trueque` (
 
 LOCK TABLES `trueque` WRITE;
 /*!40000 ALTER TABLE `trueque` DISABLE KEYS */;
+INSERT INTO `trueque` VALUES (1,6,NULL),(2,7,NULL),(3,8,NULL);
 /*!40000 ALTER TABLE `trueque` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -304,6 +300,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (317205445,'Urielge','hX|uO','ZG&sís','XR##]z','e247554ca5094ef100bd854b324b7d17efb5f51d','modelo/imagenes_per/default.png');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -316,4 +313,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-01  2:20:18
+-- Dump completed on 2018-06-02  1:04:24

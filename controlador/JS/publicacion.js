@@ -8,7 +8,8 @@ for(let v of coo)
         cookie = v;
 var cookieBuscada = cookie.split("=");
 var publi = cookieBuscada[1];
-console.log(publi);
+
+
 publicacion(publi,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
@@ -29,4 +30,8 @@ publicacion(publi,true,()=>{
         $(event.target).css("border-color","#E98836");
     });
     comentario(publi);
+});
+
+$(".container .btn").on("click",()=>{
+
 });

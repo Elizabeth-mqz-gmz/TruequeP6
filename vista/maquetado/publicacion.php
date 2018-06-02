@@ -12,6 +12,12 @@
 <body>
     <?php include "navbar.html" ?>
     <div id='contenedorPubli'></div>
+    <div class="container">
+        <div class="form-inline row">
+            <input type='text' class="form-control" placeholder="Escribe un comentario" id="comentar"/>
+            <button type="button" class="btn btn-primary">Comentar</button>
+        </div>
+    </div>
 </body>
 <script type='text/javascript' src='../../controlador/JS/publicacion.js'></script>
 </html>
