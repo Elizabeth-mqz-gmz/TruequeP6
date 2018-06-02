@@ -34,7 +34,7 @@ function publicacion(idPub,individual,cb){
             let estado = "</div><h6></h6><span>Me interesa<span></div>";
 
             //contenedor puede ser cualquier caja IMPORTANTE
-            $("#contenedor").append(divGeneral+imgDiv2+texto+boton+estado);
+            $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+estado);
             $("#"+idPub+">div>h5").text(publi.autor);
             $("#"+idPub+">div>p").text(publi.publicacion);
 
@@ -72,7 +72,7 @@ function publicacion(idPub,individual,cb){
                         $("#"+idPub+">h6").text(est);
                         $("#"+idPub+">h6").css("color","red");
                     }
-                    //actualiza en la BD
+                    //actualiza en la BD si está incocluso o terminado la publicación
                     $.ajax({
                         url:"../../modelo/PHP/concluye_pub.php",
                         data:{
@@ -100,9 +100,13 @@ function publicacion(idPub,individual,cb){
             else
                 $("#"+idPub+" .den").hide();
 
+            //manda notificación a la BD de que al usuario le interesa esa publicación
             $("#"+idPub+">span").on("click",()=>{
                 $.ajax({
                     url:"../../modelo/PHP/me_interesa.php",
+                    data:{
+                        idPubli:idPub
+                    },
                     type: "POST",
                     success: function(){
                         $("#"+idPub+">span").css("color","green");
@@ -125,11 +129,9 @@ function saca_publi(tipo){
         },
         type: "POST",
         success:function(response){
-            console.log(response);
             if(response!="null"){
                 var publis = [];
                 publis = JSON.parse(response);
-                console.log(publis);
                 for (let v of publis)
                     publicacion(v,false,()=>{
                         $("#"+v+" .btn").one("click",()=>{

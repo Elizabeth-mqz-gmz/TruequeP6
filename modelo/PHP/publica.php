@@ -11,11 +11,13 @@
     }
     $publi = $form["menPub"];
 
+    // echo "<br/>";
     $usuario = dame_cookie();
     // echo $usuario;
     if(isset($form["tipoPer"])){
         //si es pérdida, definir el tipo
         $tipoPerdida = $form["tipoPer"];
+        // echo $tipoPerdida."<br/>";
         if(isset($form["numCred"])){
         //guarda notificación en la base de datos, referenciando al este usuario
             $idUsuNot = $form["numCred"];
@@ -42,9 +44,8 @@
     //si existen todos los datos necesarios, se guarda en la base de datos
     if(isset($form["menPub"]) && isset($form["tipoPub"])){
         //valida que no exista ya el archivo: imagen
-        echo $ruta_arch;
+        // echo $ruta_arch;
         if(!file_exists($ruta_arch)){
-            // echo "probar";
             //valida que el archivo se coloque correctamente en el servidor
             if(!move_uploaded_file($_FILES["imagen"]["tmp_name"],$ruta_arch))
                 echo "<br/>ERROR";
@@ -64,5 +65,5 @@
         }
     }
     mysqli_close($db);
-    header("Location: ../../vista/maquetado/main.php")
+    //header("Location: ../../vista/maquetado/main.php")
 ?>

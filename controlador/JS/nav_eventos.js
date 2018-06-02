@@ -24,10 +24,12 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
     $("#publicaciones").remove();
     if(publi == 0){
       $("<div id='publicaciones'><div id='trueque'>Trueques</div></div>").appendTo("#contenedorPubli");
-      saca_publi("trueque");
+      $("#contenedorPubli").html("");
+      saca_publi("trueque");//IMPORTANTE saca eventos en index necesita funciones.js
     }
     else{
       $("<div id='publicaciones'><div id='trueque'>Pérdidas</div></div>").appendTo("#contenedorPubli");
-      saca_publi("perdida");
+      $("#contenedorPubli").html("");
+      saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
     }
   });
