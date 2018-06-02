@@ -56,7 +56,7 @@ function cifrado($llave,$tex,$sent){
     else if($sent==2){
     //buscar letra cifrada en el arreglo [letra_llave] para descifrar
         for($i=0;$i<strlen($tex);$i++){
-            if(array_search($tex[$i],$mat[$strkey[$i]])!="")
+            if(array_search($tex[$i],$mat[$strkey[$i]])!="" || array_search($tex[$i],$mat[$strkey[$i]])===0)
                 $tex[$i]=array_search($tex[$i],$mat[$strkey[$i]]);
         }
     }
@@ -155,5 +155,11 @@ function dame_cookie(){ //Regresa el num_cta, si no existe devuelve 0.
     else
         $cook = 0;
     return $cook;
+}
+function num_notif($usuario, $conex){
+    $busNum = "SELECT id_not FROM notificacion WHERE id_usuario = ".$usuario."";
+    $encuentra = mysqli_query($conex,$busNum);
+    $num = mysqli_num_rows($encuentra);
+    return $num;
 }
 ?>

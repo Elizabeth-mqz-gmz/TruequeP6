@@ -45,13 +45,11 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notificaciones <span class="badge badge-light"></span>
             </a>
-            <?php include '../../prunotif.php';?>
             <script>
+                <?php include '../../prunotif.php';?>
                 var notifNum = '<?php echo $num;?>';
-                $("badge badge-light").html("hola");
-
+                $("#navbarDropdownNotif").html("Notificaciones<span class='badge badge-light'>"+notifNum+"</span>");
             </script>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               aquí van las notificaciones :)
