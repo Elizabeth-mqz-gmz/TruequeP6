@@ -18,7 +18,7 @@ $("#denuncias").on("click", function(){
 
 function mostrar_publid(respuesta){
   for (let i in respuesta ){
-    let autor = $("<div class='quitar'>"+respuesta[i].id_autor+"</div><button autor ='"+respuesta[i].id_autor+"'publi='"+respuesta[i].id_publicacion+"' class='quitar' value = 'quitarD'>Eliminar Denuncia</button>");
+    let autor = $("<div class='quitar'>"+respuesta[i].id_autor+"</div><button autor ='"+respuesta[i].id_autor+"'publi='"+respuesta[i].id_publicacion+"' class='quitar' value = 'quitarD'>Eliminar Denuncia</button><button autor ='"+respuesta[i].id_autor+"'publi='"+respuesta[i].id_publicacion+"' class='quitar' value = 'eliminarD'>Eliminar Publicación</button>");
     autor.appendTo("#contDenuncias");
     console.log(respuesta[i].id_autor);
     console.log(respuesta[i].id_publicacion);
@@ -39,7 +39,7 @@ function denuncia(){
 
 function quitar_eliminar( ruta, autor_publi, id_publi, mensaje){
   jQuery.ajax({
-      url:"../../modelo/PHP/"ruta".php",
+      url:"../../modelo/PHP/"+ruta+".php",
       data:{
           usuario : autor_publi,
           publi : id_publi
@@ -52,17 +52,13 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje){
 }
 
 document.getElementById("contDenuncias").addEventListener("click",()=>{
-  let denun = event.target.val;
-  let publi = denun.getAttribute("publi");
-  let autor = denun.getAttribute("autor");
-  console.log(publi);
-  console.log(autor);
-  console.log(denun);
+  let denun = event.target.value;
+  let publi = event.target.getAttribute("publi");
+  let autor = event.target.getAttribute("autor");
   if (denun = "quitarD")
-    quitar_eliminar(,autor,publi,"denuncia");
-  else{
-    quitar_eliminar("quitar_denuncia",autor,publi,"publicación");
-  }
+    quitar_eliminar("quitar_denuncia",autor,publi,"denuncia");
+  else if (denun = "eliminarD")
+    quitar_eliminar("eliminar_publicacion", autor, publi, "publicación");
   $(".quitar").remove();
   denuncia();
 });
