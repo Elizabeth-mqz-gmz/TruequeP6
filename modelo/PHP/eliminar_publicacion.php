@@ -3,16 +3,19 @@
   $bd = mysqli_connect("localhost", "root", "", "truequep6");
   checar_con($bd);
 
+  $tabla = validar ($_POST["tabla"],"",$bd);
   $publicacion = validar($_POST["publicacion"], "", $bd);
   $usuario = validar ($_POST["usuario"], "", $bd);
 
+  //if($tabla = "publicaion"){
   //$resp = mysqli_query($bd, "SELECT imagen_publi FROM publicacion WHERE id_publicacion = $publicacion");
   //$bus = mysqli_fetch_assoc($resp);
   //if ($bus["imagen_publi"] != null)
       //unlink("../".$bus["imagen_publi"]); //eliminar imagen del subdirectorio imagenes_pub
   //eliminar imagen publicacion
+  //}
 
-  mysqli_query($bd, "DELETE FROM publicacion WHERE id_publicacion = $publicacion"); //se elimino la publicación.
+  mysqli_query($bd, "DELETE FROM $tabla WHERE id_publicacion = $publicacion"); //se elimino la publicación.
 
   $mensaje = "Quitamos tu publicación."; //notificación
   $bus = "INSERT INTO notificacion (id_usu_not, men_not) VALUES ($usuario, $mensaje)";

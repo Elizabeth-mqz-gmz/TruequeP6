@@ -5,15 +5,22 @@
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <meta charset='UTF-8' />
   <body>
-    <button id='denuncias'>Denuncias</button>
-    <div id="contDenuncias"></div>
+    <button id='publicaciones'>Publicaciones</button>
+    <button id='comentarios'>Comentarios</button>
+    <div id="contPublicaciones"></div>
+    <div id="contComentarios"></div>
     </body>
 </html>
 <script>
 
-$("#denuncias").on("click", function(){
+$("#publicaciones").on("click", function(){
   $(".quitar").remove();
-  denuncia();
+  denuncia("1", "publicacion");
+});
+
+$("#comentarios").on("click", function(){
+  $(".quitar").remove();
+  denuncia("2", "comentario");
 });
 
 function mostrar_publid(respuesta){
@@ -25,40 +32,56 @@ function mostrar_publid(respuesta){
   }
 }
 
-function denuncia(){
-  let request = new XMLHttpRequest();
-  request.onreadystatechange = function (){
-    if (this.readyState === 4 && this.status == 200)
-      var denuncias = JSON.parse(this.response);
-      mostrar_publid(denuncias);
-  }
-  request.open("POST", "../../modelo/PHP/obtener_denuncia.php");
-  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send();
+function denuncia(valor, tablabd){
+  jQuery.ajax({
+      url:"../../modelo/PHP/obtener_denuncia.php",
+      data:{
+          denuncia : valor,
+          tabla : tablabd
+      },
+      type: "POST",
+      success: function(response){
+        var denuncias = JSON.parse(this.response);
+        mostrar_publid(denuncias);
+      }
+  });
 }
 
-function quitar_eliminar( ruta, autor_publi, id_publi, mensaje){
+function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, tablabd){
   jQuery.ajax({
       url:"../../modelo/PHP/"+ruta+".php",
       data:{
+          tabla : tablabd,
           usuario : autor_publi,
           publi : id_publi
       },
       type: "POST",
       success: function(response){
-          alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
+          alert("¡Proceso Éxitoso!, "+mensaje+" ha sido eliminada");
       }
   });
 }
 
-document.getElementById("contDenuncias").addEventListener("click",()=>{
+document.getElementById("contPublicaciones").addEventListener("click",()=>{
   let denun = event.target.value;
   let publi = event.target.getAttribute("publi");
   let autor = event.target.getAttribute("autor");
   if (denun = "quitarD")
-    quitar_eliminar("quitar_denuncia",autor,publi,"denuncia");
+    quitar_eliminar("quitar_denuncia",autor,publi,"la denuncia", "publicacion");
   else if (denun = "eliminarD")
-    quitar_eliminar("eliminar_publicacion", autor, publi, "publicación");
+    quitar_eliminar("eliminar_publicacion", autor, publi, "la publicación", "publicacion");
+  $(".quitar").remove();
+  denuncia();
+});
+
+document.getElementById("contComentarios").addEventListener("click",()=>{
+  let denun = event.target.value;
+  let publi = event.target.getAttribute("publi");
+  let autor = event.target.getAttribute("autor");
+  if (denun = "quitarD")
+    quitar_eliminar("quitar_denuncia",autor,publi,"denuncia", "la denuncia", "comentario");
+  else if (denun = "eliminarD")
+    quitar_eliminar("eliminar_publicacion", autor, publi, "el comentario", "comentario");
   $(".quitar").remove();
   denuncia();
 });
