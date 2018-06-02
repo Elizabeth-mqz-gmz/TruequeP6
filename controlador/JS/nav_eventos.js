@@ -26,3 +26,25 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
     else
       $("<div id='publicaciones'><div id='trueque'>Pérdidas</div></div>").appendTo("#contenedorPubli");
   });
+$("#buscar").click(()=>{
+    var usuBuscado = $("#buscado").val();
+    if ( usuBuscado != ""){
+      let exist = new RegExp ("/^31[678][0-9]{6}/");
+      if (exit.test(usuBuscado)==true) {
+          $.ajax({
+              url:"../../modelo/PHP/buscar.php",
+              data:{
+              },
+              type: "POST",
+              success: function(response){
+                  if (response != "")
+                    
+                  else
+                    alert("No hay resultados para tu búsqueda");
+              }
+          });
+      }
+      else
+        $("#buscado").val("Ingresa un número de cuenta válido");
+    }
+});
