@@ -1,4 +1,16 @@
 <?php
+
+function dame_cookie(){ //Regresa el num_cta, si no existe devuelve 0.
+    $usu = cifrado("pUeE","usuario",1);
+    if(isset($_COOKIE[$usu])){
+        $cook = $_COOKIE[$usu];
+        $cook = cifrado("pUeE",$cook,2);
+    }
+    else
+        $cook = 0;
+    return $cook;
+}
+
 function validar ($pal,$regex,$conex){//Esta función recibe una palabra y una regex
       $pal=strip_tags($pal); //quitar las etiquetas
       $pal=mysqli_real_escape_string($conex,$pal); //quitar los comandos sql
@@ -65,7 +77,7 @@ function cifrado($llave,$tex,$sent){
 function dame_publicacion($idPubli,$db){
 //recibe in id_publicacion para sacar todos sus datos
 //devuelve un json
-    $usuario = 31700002; //FALTA sacar cookie
+    $usuario = dame_cookie();
 
     //slecciona todo sobre esa publicación
     //la imagen se guarda con la ruta de ../imagenes_pub/ejemplo.jpg
@@ -145,15 +157,5 @@ function validarPass($contra)
 		return true;
 	}
 
-}
-function dame_cookie(){ //Regresa el num_cta, si no existe devuelve 0.
-    $usu = cifrado("pUeE","usuario",1);
-    if(isset($_COOKIE[$usu])){
-        $cook = $_COOKIE[$usu];
-        $cook = cifrado("pUeE",$cook,2);
-    }
-    else
-        $cook = 0;
-    return $cook;
 }
 ?>

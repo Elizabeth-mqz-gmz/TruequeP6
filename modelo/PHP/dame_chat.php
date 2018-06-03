@@ -5,7 +5,7 @@
     checar_con($db);
     //Datos que se definen para la búsqueda
     $quienEnvio = 1; // Suponemos que es el emisor hasta que entra en la condición de lo contrario
-    $usuario = validar($_POST["usuEm"],"",$db); //USUARIO QUE ESTÁ ABIRTO EN LA PÁGINA
+    $usuario = dame_cookie(); //USUARIO QUE ESTÁ ABIERTO EN LA PÁGINA
     $otro = validar($_POST["usuRec"],"",$db); //PERSONA CON LA QUE QUIERE HABLAR
     $personas = 'emisor":"'.$usuario.'","receptor":"'.$otro; //Supunemos que así está el jsson hasta que entre a la condicion de lo contrario
 
