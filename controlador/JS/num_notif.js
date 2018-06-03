@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$("#navbarDropdownNotif").on("click",function(){
-		console.log("entré");
+		// console.log("entré");
 		$.ajax({
 			    url: "../../modelo/PHP/num_notif.php",
 			    data: {

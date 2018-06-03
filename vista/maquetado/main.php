@@ -8,7 +8,7 @@
   <body>
     <?php include 'navbar.html' ?>
     <div id="contenedor">
-      <button id="cambio" class="cambio boton0 btn btn-light"><div id="contenedorBoton">></div></button>
+      <button id="cambio" class="cambio boton0 btn btn-light"><div id="contenedorBoton"></div></button>
     </div>
     <div class='container' id='contenedorPubli'>
       <div id="publicaciones">

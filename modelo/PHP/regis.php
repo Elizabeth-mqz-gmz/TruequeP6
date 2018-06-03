@@ -72,8 +72,8 @@
             //echo $bus;
             $resp=mysqli_query($conex,$bus);
         }
-        else{
-            echo "Ya existe un registro como este";
+        else{//REVISAAAAAAAA
+            echo "+<script type='text/javascript'>alert('Ya existe un registro como este')</script>+";
         }
         mysqli_close($conex);
     }
