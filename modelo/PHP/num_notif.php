@@ -1,5 +1,5 @@
     <?php
-        include "modelo/PHP/funciones.php";
+        include "funciones.php";
         $usuario = dame_cookie();
         $conex = mysqli_connect('localhost','root','','truequep6');
         checar_con($conex);

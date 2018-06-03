@@ -156,10 +156,4 @@ function dame_cookie(){ //Regresa el num_cta, si no existe devuelve 0.
         $cook = 0;
     return $cook;
 }
-function num_notif($usuario, $conex){
-    $busNum = "SELECT id_not FROM notificacion WHERE id_usuario = ".$usuario."";
-    $encuentra = mysqli_query($conex,$busNum);
-    $num = mysqli_num_rows($encuentra);
-    return $num;
-}
 ?>

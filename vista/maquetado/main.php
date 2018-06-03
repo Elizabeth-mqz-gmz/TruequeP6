@@ -6,7 +6,7 @@
     <link rel='stylesheet' href='../estilo/botonCambio.css'/>
 </head>
   <body>
-    <?php include 'navbar.php' ?>
+    <?php include 'navbar.html' ?>
     <div id="contenedor">
       <button id="cambio" class="cambio boton0 btn btn-light"><div id="contenedorBoton">></div></button>
     </div>
