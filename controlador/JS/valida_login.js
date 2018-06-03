@@ -21,7 +21,7 @@ $("#enviar").click(()=>{
                 window.location="vista/maquetado/main.php";
               }
               else{
-              var alerta = $("<div id = 'alert' class='alert alert-danger' role='alert'>Tu número de cuenta o contraseña no son validos. Por favor intentalo de nuevo.</div>");
+              var alerta = $("<div id = 'alert' class='alert alert-danger' role='alert'>Tu número de cuenta o contraseña no son validos. Por favor inténtalo de nuevo.</div>");
               alerta.appendTo("#mensaje");
               }
             }

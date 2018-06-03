@@ -8,6 +8,7 @@
     <script type='text/javascript' src='librerias/jquery-3.3.1.min.js'></script>
     <link rel="stylesheet" href="vista/estilo/inicio.css">
     <link rel='stylesheet' href='../estilo/publicaciones.css'/>
+    <script type= 'text/javascript' src='../../controlador/JS/funciones.js'></script>
   </head>
   <body>
     <div id="contenedor" class="text-center">

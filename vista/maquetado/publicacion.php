@@ -13,6 +13,9 @@
     <?php include "navbar.html" ?>
     <div id='contenedorPubli'></div>
     <div class="container">
+        <div id='contenedorComen'></div> <!--POR FAVOR AIUDA CON EL DISEÑO AQUÍ -Paola-->
+    </div>
+    <div class="container">
         <div class="form-inline row">
             <input type='text' class="form-control" placeholder="Escribe un comentario" id="comentar"/>
             <button type="button" class="btn btn-primary">Comentar</button>

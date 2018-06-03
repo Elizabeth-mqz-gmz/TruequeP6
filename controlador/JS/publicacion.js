@@ -12,8 +12,6 @@ for(let v of coo)
         cookie = v;
 var cookieBuscada = cookie.split("=");
 var publi = cookieBuscada[1];
-
-
 publicacion(publi,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
@@ -50,6 +48,7 @@ $(".container .btn").on("click",()=>{
         type: "POST",
         success: function(){
             $(inp).val("");
+            $("#contenedorComen").append("Tú: <br />"+comentario+"<br/>"); //En vez de "Tú" Hay que poner el nomus
         }
     });
 });

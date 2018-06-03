@@ -65,5 +65,5 @@
         }
     }
     mysqli_close($db);
-    //header("Location: ../../vista/maquetado/main.php")
+    header("Location: ../../vista/maquetado/main.php");
 ?>

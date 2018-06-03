@@ -13,7 +13,7 @@
     <div class='container'>
       <div id='chat'></div>
       <div class="input-group mb-3">
-        <input type="text" id='mensaje' class="form-control" placeholder="..." aria-describedby="basic-addon2">
+        <input type="text" id='mensaje' class="form-control" placeholder="..." aria-describedby="basic-addon2" />
         <div class="input-group-append">
           <button id="enviar" class="btn btn-outline-secondary" type="button">Enviar</button>
           <button id="actu" class="btn btn-outline-secondary" type="button">Ver nuevos mensajes</button>
@@ -21,7 +21,6 @@
       </div>
     </div>
   </body>
-</html>
-<script type='text/javascript' src='../../controlador/JS/chat.js'></script>
-<script type= "text/javascript" src="../../controlador/JS/nav_eventos.js"></script>
+  <script type='text/javascript' src='../../controlador/JS/chat.js'></script>
+  <!-- <script type= "text/javascript" src="../../controlador/JS/nav_eventos.js"></script> -->
 </html>

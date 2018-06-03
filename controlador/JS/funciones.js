@@ -1,8 +1,22 @@
 
 function comentario(idPub){
-//sacar todos los comentarios
-//sacar input para comentar
-    //console.log(idPub);
+  var comentarios;
+    $.ajax({
+        url:"../../modelo/PHP/dame_comen.php",
+        data:{
+            idPubli:idPub
+        },
+        type: "POST",
+        success: function(response){
+          console.log(response);
+          if (response != "null"){
+            comentarios = JSON.parse(response);
+            for (let i in comentarios)
+              $("#contenedorComen").append(comentarios[i].nomus+"dice: <br />"+comentarios[i].comentario+"<br/>");
+          }
+        }
+    });
+    console.log(idPub);
     return;
 }
 
@@ -72,7 +86,7 @@ function publicacion(idPub,individual,cb){
                         $("#"+idPub+">h6").text(est);
                         $("#"+idPub+">h6").css("color","red");
                     }
-                    //actualiza en la BD si está incocluso o terminado la publicación
+                    //actualiza en la BD si está inconcluso o terminado la publicación
                     $.ajax({
                         url:"../../modelo/PHP/concluye_pub.php",
                         data:{

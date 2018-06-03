@@ -4,20 +4,14 @@
     include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);
-    $form = [];
-    foreach($_POST as $i=> $v){
-        $i = validar($i,"",$db);
-        $v = validar($v,"",$db);
-        $form[$i]=$v;
-    }
-    $idPub = $form["idPubli"];
+    $idPub = validar($_POST["idPubli"],"",$db);
 
-    $busq = "SELECT comentario,nomus FROM comentario INNER JOIN usuario ON id_publi_comen='$idPub'";
+    $busq = "SELECT comentario,nomus FROM comentario INNER JOIN usuario ON comentario. id_usu_comen=usuario.id_usuario where id_publi_comen= '$idPub';";
     $resp = mysqli_query($db,$busq);
 
     $resp = mysqli_query($db,$busq);
 
-    $count = null;
+    $count = "null";
     $contador = 0; //para saber si es nulo
     //si se ejecuta mysqli_fetch algo, se mueve el puntero de la BD
     $json = "[";
@@ -30,10 +24,9 @@
     }
 
     $json[strlen($json)-1]="]";
-
     //si está vacío devuelve "null" OJO como cadena
-    if($count!=null)
+    if($count != "null")
         echo $json;
     else
-        echo "null";
+        echo $count;
  ?>

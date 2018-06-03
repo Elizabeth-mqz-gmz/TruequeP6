@@ -1,13 +1,13 @@
 var chat = document.getElementById("chat");
-var usuario = "317346746";
-var receptor =  "317346743";
-var usuNomus = "Sophia";
+var usuario ="317346741"; //Esto se agarra de la cookie
+var receptor =  "317346746"; //Esto de la búsqueda
+var usuNomus = "Paola"; // ESto del html
 var recNomus ="Kaime";
 var datos, ultimoMen, mensajes;
 var llave = usuNomus+recNomus;
 function mens(mens){
     if(mens == null)
-      $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!");
+      $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!<br />");
     else{
       mensajes = JSON.parse(mens);
       for (var i in mensajes){
