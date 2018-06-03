@@ -13,8 +13,8 @@
         $mensajes = $mensajes.$men.',';
     }
     if ($mensajes != "["){
-      $mensajes = substr($mensajes,0,strlen($mensajes)-1);
-      echo $mensajes."]";
+      $mensajes[strlen($mensajes)-1]="]";
+      echo $mensajes;
     }
     mysqli_close($db);
 ?>
