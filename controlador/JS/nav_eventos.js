@@ -33,3 +33,38 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
       saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
     }
   });
+
+
+  $("#buscar").on("click",()=>{
+     var usuBuscado = $("#buscado").val();
+     if ( usuBuscado != ""){
+        let valida = new RegExp (/^(31)[6789][0-9]{6}/);
+        if ( valida.test(usuBuscado) == true) {
+             $.ajax({
+                 url:"../../modelo/PHP/busca.php",
+                 data:{
+                  usuario : usuBuscado
+                 },
+                 type: "POST",
+                 success: function(response){
+                   if (response != "false"){
+                      if (response == "existe"){
+                        document.cookie = "usuBuscado="+usuBuscado+";max-age=2";
+                        // setTimeout(()=>{
+                          location.href ="perfil_usuario.php";
+                        // },200);
+                      }
+                      else
+                        alert("Lo siento, tu amigo no está registrado en esta plataforma");
+                   }
+                   else
+                      alert("Ingresa un usuario válido");
+                 }
+             });
+         }
+        else
+          alert("Ingresa un usuario válido");
+      }
+      else
+        alert("Ingresa un número de cuenta para buscar");
+  });
