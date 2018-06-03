@@ -6,7 +6,7 @@
   checar_con($bd);
 
   $queryEvento = array(
-    "SELECT fecha, tipo_even, id_em, id_rec FROM ",
+    "SELECT fecha, tipo_even, id_em, id_rec, lugar FROM ",
     "usuario INNER JOIN chat ON usuario.id_usuario = chat.id_rec OR usuario.id_usuario = chat.id_em ",
     "INNER JOIN evento ON evento.id_chat = chat.id_chat "
   ); //facilitar leer query. Lo que hace es buscar los datos escenciales para mostrar el evento uniendo las tablas usuario, evento y chat donde el emisor o receptor pude ser el usuario.

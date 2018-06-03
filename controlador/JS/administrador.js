@@ -1,7 +1,5 @@
 //funciones Administrador
 //Este es el bueno :)
-//scriptAdmi = $("<script type='text/javascript' src='"+response.script+"'></script>");
-//scriptAdmi.appendTo("body");
 
 mostrar = [];
 mostrar["1"] = desplegarPublicacion;
@@ -19,8 +17,9 @@ $("#comentarios").on("click", function(){
 
 function desplegarPublicacion(respuesta){
   let publi = respuesta;
-  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><button class='btn btn-warning' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
-  datos.appendTo("#contPublicaciones");//append a event.target XD
+  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-warning' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
+  datos.appendTo("#contPublicaciones");
+  console.log("hola");
 }
 
 function desplegarComentario(respuesta){
