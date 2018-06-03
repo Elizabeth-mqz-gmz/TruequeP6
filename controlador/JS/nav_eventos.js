@@ -50,9 +50,7 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
                    if (response != "false"){
                       if (response == "existe"){
                         document.cookie = "usuBuscado="+usuBuscado+";max-age=2";
-                        // setTimeout(()=>{
-                          location.href ="perfil_usuario.php";
-                        // },200);
+                        location.href ="perfil_usuario.php";
                       }
                       else
                         alert("Lo siento, tu amigo no está registrado en esta plataforma");
