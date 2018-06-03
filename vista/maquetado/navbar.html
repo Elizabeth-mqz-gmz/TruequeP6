@@ -33,11 +33,12 @@
               <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario
               </a>
-              <div  id="evento"  class="dropdown-menu p-4 text-muted" aria-labelledby="dropdownMenuLink">
+              <div  id="evento" id="MuchosEventos" class="dropdown-menu p-4 text-muted" aria-labelledby="dropdownMenuLink">
                 <span class='navbar-text' id='fechaHoy'></span>
                 <script>
                 let hoy = new Date ();
-                $("<h4>Hoy: "+hoy.getDate()+"/"+hoy.getMonth()+"/"+hoy.getFullYear()+"</h4>").appendTo("#fechaHoy");
+                let mes = hoy.getMonth()+1;
+                $("<h4>Hoy: "+hoy.getDate()+"/"+mes.toString()+"/"+hoy.getFullYear()+"</h4>").appendTo("#fechaHoy");
                 </script>
               </div>
             </div>
