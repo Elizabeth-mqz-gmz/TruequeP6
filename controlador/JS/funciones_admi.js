@@ -15,12 +15,12 @@ $("#comentarios").on("click", function(){
 
 function desplegarPublicacion(respuesta){
   let publi = respuesta;
-  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><button autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
+  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><button class='btn btn-warning' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-warning' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='byebye' class='btn btn-danger'>Eliminar Usuario</button></div>");
   datos.appendTo("#contPublicaciones");//append a event.target XD
 }
 
 function desplegarComentario(respuesta){
-  let datos = $("<div class ='quitar'><div>"+respuesta.id_usu_comen+"</div><p>"+respuesta.comentario+"</p><button autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'quitarD'>Quitar Denuncia</button><button autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'eliminarD'>Eliminar Publicación</button></div>");
+  let datos = $("<div class ='quitar'><div>"+respuesta.id_usu_comen+"</div><p>"+respuesta.comentario+"</p><button class='btn btn-warning' autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-warning' autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='byebye' class='btn btn-danger'>Eliminar Usuario</button></div>");
   datos.appendTo("#contComentarios");
 }
 
