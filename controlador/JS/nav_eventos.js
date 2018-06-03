@@ -20,6 +20,9 @@ var click = 0;
     jQuery.ajax({
         url:"../../modelo/PHP/cookie.php",
         type: "POST",
+        data:{
+          val : "0"
+        },
         success: function(response){
           if(response != "false"){
             res = JSON.parse(response);
