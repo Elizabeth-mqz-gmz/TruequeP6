@@ -1,17 +1,19 @@
 //funciones Administrador
+//Este es el bueno :)
+//scriptAdmi = $("<script type='text/javascript' src='"+response.script+"'></script>");
+//scriptAdmi.appendTo("body");
+
 mostrar = [];
 mostrar["1"] = desplegarPublicacion;
 mostrar["2"] = desplegarComentario;
 
 $("#publicaciones").on("click", function(){
   $(".quitar").remove();
-  console.log("holaaaaa mundooooooo, por favor funciona :)");
   denuncia("1");
 });
 
 $("#comentarios").on("click", function(){
   $(".quitar").remove();
-  console.log("holaaaaa mundooooooo");
   denuncia("2");
 });
 

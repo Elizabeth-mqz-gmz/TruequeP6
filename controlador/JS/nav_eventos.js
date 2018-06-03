@@ -22,20 +22,14 @@ var click = 0;
         type: "POST",
         success: function(response){
           if(response != "false"){
-            console.log("Hola Mundo");
-            añadirFuncAdmi(JSON.parse(response));
+            res = JSON.parse(response);
+            BotonAdmi = $("<li class='nav-item active'><a class='nav-link' id='mensajes' href='"+res.ruta+"'>Administrador</a></li>");
+            BotonAdmi.appendTo("#navbar");
           }
         }
     });
   });
 
-
-  function añadirFuncAdmi(response){
-    BotonAdmi = $("<li class='nav-item active'><a class='nav-link' id='mensajes' href='"+response.ruta+"'>Administrador</a></li>");
-    BotonAdmi.appendTo("#navbar");
-    //scriptAdmi = $("<script type='text/javascript' src='"+response.script+"'></script>");
-    //scriptAdmi.appendTo("body");
-  }
 
 var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
   $('.cambio').on('click',()=>{
