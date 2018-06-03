@@ -1,4 +1,5 @@
 
+
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
@@ -15,21 +16,25 @@ var click = 0;
     eliminar_eventos();
   });
 
-  $("body").on("load", function(){
-    revisaCookie();
-  });
-
-  function revisaCookie(){
+  $(document).ready(()=>{
     jQuery.ajax({
-        url:"../../modelo/PHP/cookieAdmi.php",
+        url:"../../modelo/PHP/cookie.php",
         type: "POST",
-        data:{
-        },
         success: function(response){
-          n = response;
-          console.log(response);
+          if(response != "false"){
+            console.log("Hola Mundo");
+            añadirFuncAdmi(JSON.parse(response));
+          }
         }
     });
+  });
+
+
+  function añadirFuncAdmi(response){
+    BotonAdmi = $("<li class='nav-item active'><a class='nav-link' id='mensajes' href='"+response.ruta+"'>Administrador</a></li>");
+    BotonAdmi.appendTo("#navbar");
+    //scriptAdmi = $("<script type='text/javascript' src='"+response.script+"'></script>");
+    //scriptAdmi.appendTo("body");
   }
 
 var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque

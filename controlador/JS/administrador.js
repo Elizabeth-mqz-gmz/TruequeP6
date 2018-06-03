@@ -28,32 +28,34 @@ function desplegarComentario(respuesta){
 
 function mostrarContenido(id_cont, valor){
   console.log(id_cont);
-  jQuery.ajax({
+  console.log(valor);
+  $.ajax({
       url:"../../modelo/PHP/motivo_denun.php",
       type: "POST",
       data:{
         id : id_cont,
-        tabla : valor
+        tabla : valor,
       },
       success: function(response){
         console.log("Hola Mundo");
-        n = response;
-        mostrar[valor](JSON.parse(response));
-        console.log("Hola");// obtiene comentario o imagen
+        //n = response;
+        console.log(response);
+        //mostrar[valor](JSON.parse(response));
+        //console.log("Hola");// obtiene comentario o imagen
       }
   });
 }
 
 function mostrar_publid(respuesta, valor){
   for (let i in respuesta ){
-    mostrarContenido(respuesta[i].id_publicacion,valor );
+    mostrarContenido(respuesta[i].id_publicacion,valor);
     console.log(respuesta[i].id_publicacion);
-    console.log("Hola Mundo");
+    console.log("Hola Mundo");//aquí todo bien :)
+    console.log(valor);
   }
 }
 
 function denuncia(valor){
-  alert("soy funcion denuncia");
   jQuery.ajax({
       url:"../../modelo/PHP/obtener_denuncia.php",
       type: "POST",
@@ -61,10 +63,8 @@ function denuncia(valor){
         tabla : valor
       },
       success: function(response){
-            console.log("Hola Mundo");
             mostrar_publid(JSON.parse(response),valor);
-            console.log(valor);
-            console.log(response);
+            console.log(JSON.parse(response));
       }
   });
 }
