@@ -1,28 +1,31 @@
 <?php
   //obtener denuncia
+  //Es el bueno x2
   include 'funciones.php';
   $valor = $_POST["tabla"];
   $bd = mysqli_connect('localhost', 'root', '', 'truequep6');
   checar_con($bd);
-  //obtiene todas las publicaciones que presentan alguna denuncia
-  if($valor == "1"){
-    $resp = mysqli_query($bd, "SELECT id_publicacion FROM publicacion WHERE denuncia_p = '1'");
-    $id = "id_publicacion";
-    }
-  else {
-    if($valor == "2"){
-      $resp = mysqli_query($bd, "SELECT id_comen FROM comentario WHERE denuncia_p = '1'");
-      $id = "id_comen";
+
+  if ($valor == "1"){
+    $bus = "SELECT id_autor, id_publicacion, publicacion, imagen_publi FROM publicacion WHERE denuncia_p = '1'";
+    //$bus = "SELECT id_autor, id_publicacion, publicacion, imagen_publi, razon_denuncia FROM publicacion WHERE denuncia_p = '1'";
+  }
+  else{
+    if ($valor == "2"){
+      $bus = "SELECT id_comen, id_usu_comen, comentario FROM comentario WHERE denuncia_c = '1'";
     }
   }
+
+  $resp = mysqli_query($bd, $bus);
   $i=0;
-  $denuncia = array();
-  while($den = mysqli_fetch_assoc($resp)){
-    $denuncia[$i]["id_publicacion"]=$den[$id];
+  $respuesta = array();
+
+  while($cosa = mysqli_fetch_assoc($resp)){
+    $respuesta[$i]= $cosa;
     $i++;
   }
 
-  $denuncia = json_encode($denuncia);
-  print_r($denuncia);
+  echo json_encode($respuesta);
+
   mysqli_close($bd);
 ?>
