@@ -26,21 +26,27 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
     else
       $("<div id='publicaciones'><div id='trueque'>Pérdidas</div></div>").appendTo("#contenedorPubli");
   });
-$("#buscar").click(()=>{
+
+$("#buscar").on("click",()=>{
+    //console.log("Hola Mundo"); //Esto es algo hermoso que te ayuda a corregir todo
     var usuBuscado = $("#buscado").val();
+    //console.log(usuBuscado);
+    //Esto si funciona; 
     if ( usuBuscado != ""){
-      let exist = new RegExp ("/^31[678][0-9]{6}/");
-      if (exit.test(usuBuscado)==true) {
+      let exist = new RegExp (/^(31)[6789][0-9]{6}/);
+      if (exist.test(usuBuscado) == true) {
           $.ajax({
               url:"../../modelo/PHP/buscar.php",
               data:{
+                id_usu : usuBuscado
               },
               type: "POST",
               success: function(response){
-                  if (response != "")
-                    
+                  console.log(response);
+                  if (response != "F")
+                    console.log("Funciona!");
                   else
-                    alert("No hay resultados para tu búsqueda");
+                    alert("Lo siento, tu amigo no está registrado en esta plataforma.");
               }
           });
       }
