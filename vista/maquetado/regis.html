@@ -5,7 +5,7 @@
 				<div class="container">
 					<div class="form-group">
 						<label>Número de cuenta:</label>
-						<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[678][1-9]{6}' required/>
+						<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[6789][0-9]{6}' required/>
 						<div></div>
 					</div>
 					<div class="form-group">
@@ -41,7 +41,7 @@
 						</small>
 					</div>
 					<div class="custom-file">
-						<input type="file" name='imagen' accept='image/jpg' class="custom-file-input" id="validatedCustomFile">
+						<input type="file" name="imagen" accept='image/png' class="custom-file-input" id="validatedCustomFile">
 						<label class="custom-file-label" for="validatedCustomFile">Elige una imagen</label>
 					</div>
 					<div class="form-group">
@@ -49,16 +49,13 @@
 						<input class="form-control mx-sm-3" type='password' class="form-control" name='contra' class='contrasena' id='pass1' required/>
 						<div></div>
 						<small class="text-muted">
-							Must be 8-20 characters long.
+							De 8-20 caracteres, al menos una mayúscula, una minúscula, un número y un caracter especial.
 						</small>
 					</div>
 					<div class="form-group">
 						<label >Confirma contraseña :</label>
 						<input class="form-control mx-sm-3" type='password' class="form-control" name='contra2' class='contrasena' id='pass2' required/>
 						<div></div>
-						<small class="text-muted">
-							Must be 8-20 characters long.
-						</small>
 					</div>
 					<script>
 							$("#pass2").on("change",function(){
@@ -71,7 +68,7 @@
 							});
 
 							$(document).ready(()=>{
-								var regex = [/^31[678][0-9]{6}/, /^[A-Z][a-zA-Záéíóú\s]+/, /^[A-Z][a-zA-Záéíóú\s]+/, /^[A-Z][a-zA-Záéíóú\s]+/, /[A-Za-z\d]{6,20}$/];
+								var regex = [/^(31)[6789][0-9]{6}/, /^[A-Z][a-zA-Záéíóú\s]+/, /^[A-Z][a-zA-Záéíóú\s]+/, /^[A-Z][a-zA-Záéíóú\s]+/, /[A-Za-z\d]{6,20}$/];
 								var elements = ["num_cta", "nom", "ape_pat", "ape_mat", "user"];
 								$("#regis").change((event)=>{
 									var dato = event.target.id;

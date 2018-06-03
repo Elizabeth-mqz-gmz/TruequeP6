@@ -1,5 +1,5 @@
 <?php
-    //abrir base de datos en indexs
+    //abrir base de datos en index
     include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);
