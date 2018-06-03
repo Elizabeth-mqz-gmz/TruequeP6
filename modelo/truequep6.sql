@@ -1,4 +1,4 @@
--- MySQL dump 10.16  Distrib 10.1.31-MariaDB, for Win32 (AMD64)
+¿-- MySQL dump 10.16  Distrib 10.1.31-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: truequep6
 -- ------------------------------------------------------
@@ -293,7 +293,7 @@ CREATE TABLE `usuario` (
   `ape_pat` char(30) DEFAULT NULL,
   `ape_mat` char(30) DEFAULT NULL,
   `contra` varchar(64) NOT NULL,
-  `imagen` varchar(60) DEFAULT '../imagenes_pub/default.jpg',
+  `imagen` varchar(60) DEFAULT '../imagenes_per/default.png',
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

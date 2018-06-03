@@ -11,11 +11,12 @@ $("#enviar").click(()=>{
         type: "POST",
         success: function(response){
             let n = response;
-            console.log(n);
+            //console.log(n);
+
             if (n.length == 2){
               //cookie que indica que eres un administrador
               window.location="vista/maquetado/main.php";
-            }
+              }
             else{
               if (n == "T"){
                 window.location="vista/maquetado/main.php";
