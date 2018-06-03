@@ -10,7 +10,6 @@
   $bus = "SELECT id_usuario, contra FROM usuario WHERE id_usuario = ".$datosUsu["id_usuario"];
   $resp = mysqli_query($bd, $bus);
   $bus = mysqli_fetch_assoc($resp);
-  $datosUsu["id_usuario"] = (int)$datosUsu["id_usuario"];
 
   if($bus != null){//solo si existe coincidencia verifica que la contraseña sea la correcta
     $datosUsu["contra"] = sha1("f2wesxdrftgyH3".$datosUsu["contra"]."B6jxddgvhuijwq");//hace el hash

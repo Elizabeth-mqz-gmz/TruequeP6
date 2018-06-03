@@ -33,23 +33,21 @@
               <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario
               </a>
-              <div  id="evento"  class="dropdown-menu p-4 text-muted" aria-labelledby="dropdownMenuLink">
+              <div  id="evento" id="MuchosEventos" class="dropdown-menu p-4 text-muted" aria-labelledby="dropdownMenuLink">
                 <span class='navbar-text' id='fechaHoy'></span>
                 <script>
                 let hoy = new Date ();
-                $("<h4>Hoy: "+hoy.getDate()+"/"+hoy.getMonth()+"/"+hoy.getFullYear()+"</h4>").appendTo("#fechaHoy");
+                let mes = hoy.getMonth()+1;
+                $("<h4>Hoy: "+hoy.getDate()+"/"+mes.toString()+"/"+hoy.getFullYear()+"</h4>").appendTo("#fechaHoy");
                 </script>
               </div>
             </div>
-
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notificaciones <span class="badge badge-light"> 4 </span>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              aquí van las notificaciones :)
-            </div>
+            <ul class="dropdown-menu" id="notifis" role="menu" aria-labelledby="navbarDropdown">
+            </ul>
           </li>
           <li class='nav-item dropdown'>
             <a class='nav-link dropdown-toggle' id='mensajes'  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chat</a>
@@ -66,6 +64,7 @@
         </ul>
       </div>
     </div>
-
   </div>
 </nav>
+<script src='../../controlador/JS/num_notif.js'></script>
+<script src='../../controlador/JS/notif.js'></script>

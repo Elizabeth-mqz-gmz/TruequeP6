@@ -11,14 +11,14 @@
     $ruta = "../imagenes_per/";
     //toma la extensión del archivo y la concatena
     $tipo = strtolower(pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION));
-    if($tipo == "jpg")
+    if($tipo == "png")
         $ruta = $ruta.$_FILES["imagen"]["name"];
     else
-        $ruta = "modelo/imagenes_per/default.jpg";
+        $ruta = "modelo/imagenes_per/default.png";
 
     $hash = sha1("f2wesxdrftgyH3".$datos["contra"]."B6jxddgvhuijwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;
-     if (preg_match('/^(31)[678][0-9]{6}/',$datos["num_cta"])){
+     if (preg_match('/^(31)[6789][0-9]{6}/',$datos["num_cta"])){
         if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["nom"])){
             if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["ape_pat"])){
                 if (preg_match('/^[A-Z][a-záéíóú]+/',$datos["ape_mat"])){
@@ -79,5 +79,5 @@
     }
     else if($valorcillo == false)
         echo 'El registro ha resultado en fracaso';
-  //  header("Location: ../../index.php");
+   header("Location: ../../index.php");
 ?>

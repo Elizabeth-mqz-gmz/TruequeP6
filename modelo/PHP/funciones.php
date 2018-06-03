@@ -56,7 +56,7 @@ function cifrado($llave,$tex,$sent){
     else if($sent==2){
     //buscar letra cifrada en el arreglo [letra_llave] para descifrar
         for($i=0;$i<strlen($tex);$i++){
-            if(array_search($tex[$i],$mat[$strkey[$i]])!="")
+            if(array_search($tex[$i],$mat[$strkey[$i]])!="" || array_search($tex[$i],$mat[$strkey[$i]])===0)
                 $tex[$i]=array_search($tex[$i],$mat[$strkey[$i]]);
         }
     }
