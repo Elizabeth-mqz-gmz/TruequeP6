@@ -148,7 +148,7 @@ CREATE TABLE `notificacion` (
   `id_not` int(11) NOT NULL AUTO_INCREMENT,
   `id_usu_not` int(9) NOT NULL,
   `men_not` varchar(100) NOT NULL,
-  `tipo_not` enum('comentario','trueque','credencial','evento') NOT NULL,
+  `visto` enum('0','1') DEFAULT '0',
   PRIMARY KEY (`id_not`),
   KEY `id_usu_not` (`id_usu_not`),
   CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`id_usu_not`) REFERENCES `usuario` (`id_usuario`)
@@ -174,7 +174,7 @@ DROP TABLE IF EXISTS `perdida`;
 CREATE TABLE `perdida` (
   `id_perdida` int(11) NOT NULL AUTO_INCREMENT,
   `id_publi_per` int(11) NOT NULL,
-  `id_dueño` int(9) NOT NULL,
+  `id_dueño` int(9),
   `tipo_perdida` enum('ropa','cuaderno','credencial') NOT NULL,
   PRIMARY KEY (`id_perdida`),
   KEY `id_publi_per` (`id_publi_per`),
@@ -261,7 +261,7 @@ DROP TABLE IF EXISTS `trueque`;
 CREATE TABLE `trueque` (
   `id_trueque` int(11) NOT NULL AUTO_INCREMENT,
   `id_publi_true` int(11) NOT NULL,
-  `id_aceptador` int(9) NOT NULL,
+  `id_aceptador` int(9),
   PRIMARY KEY (`id_trueque`),
   KEY `id_publi_true` (`id_publi_true`),
   KEY `id_aceptador` (`id_aceptador`),

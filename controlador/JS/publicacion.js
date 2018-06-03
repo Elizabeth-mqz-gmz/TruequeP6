@@ -1,8 +1,17 @@
 
-// var publi = 14; //ejemplo poco texto
-var publi = 12; //ejemplo mucho texto
 // var publi = cookie de la publicacion
-
+var coo = [];
+//separa la cookie en arreglo por ";"
+coo = document.cookie.split(";");
+var cookie;
+//busca el valor con "pub", es una regex
+//si la encuentra, su siguiente índice el es el valor de la cookie pub
+//ese valor es el número de publicación actual
+for(let v of coo)
+    if(v.search(/pub/)!=-1)
+        cookie = v;
+var cookieBuscada = cookie.split("=");
+var publi = cookieBuscada[1];
 publicacion(publi,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
@@ -25,8 +34,21 @@ publicacion(publi,true,()=>{
     comentario(publi);
 });
 
-// publicacion(publi,false,()=>{
-//     $("#"+publi+" .btn").one("click",()=>{
-//         document.cookie = "pub="+publi+";max-age=300";
-//     });
-// });
+$(".container .btn").on("click",()=>{
+//ajax que guarda comentario en la BD, publi es id_publicacion
+//comentario es el mensaje, comentario
+    var inp = document.getElementById("comentar");
+    comentario = inp.value;
+    $.ajax({
+        url:"../../modelo/PHP/guarda_comen.php",
+        data:{
+            idPubli: publi,
+            comen: comentario
+        },
+        type: "POST",
+        success: function(){
+            $(inp).val("");
+            $("#contenedorComen").append("Tú: <br />"+comentario+"<br/>"); //En vez de "Tú" Hay que poner el nomus
+        }
+    });
+});

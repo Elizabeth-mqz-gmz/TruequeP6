@@ -11,7 +11,7 @@
     }
     $idPub = $form["idPubli"];
     $tipoReac = $form["tipoReac"];
-    $usuario = 31700002; //FALTA sacar de cookie
+    $usuario = dame_cookie();
 
     //si la reacción ya existe, la devuelve
     $busq = "SELECT id_reaccion FROM reaccion WHERE id_publi_reac='$idPub' AND id_usu_reac='$usuario'";

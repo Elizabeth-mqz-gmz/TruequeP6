@@ -1,7 +1,21 @@
-
 function comentario(idPub){
+  var comentarios;
+    $.ajax({
+        url:"../../modelo/PHP/dame_comen.php",
+        data:{
+            idPubli:idPub
+        },
+        type: "POST",
+        success: function(response){
+          console.log(response);
+          if (response != "null"){
+            comentarios = JSON.parse(response);
+            for (let i in comentarios)
+              $("#contenedorComen").append(comentarios[i].nomus+"dice: <br />"+comentarios[i].comentario+"<br/>");
+          }
+        }
+    });
     console.log(idPub);
-    $("")
     return;
 }
 
@@ -29,11 +43,11 @@ function publicacion(idPub,individual,cb){
             if(individual)
                 boton = "<div class='reac'><img src='../recursos/nmp.png'/ class='Me vale'><img src='../recursos/md.png'/ class='Jajajaja'><img src='../recursos/mmm.png' class='Mmm'/></div>";
             else
-                boton = "<a href='#' class='btn btn-primary'>Ver publicación</a>";
-            let estado = "</div><h6></h6></div>";
+                boton = "<a href='publicacion.php' class='btn btn-primary'>Ver publicación</a>";
+            let estado = "</div><h6></h6><span>Me interesa<span></div>";
 
             //contenedor puede ser cualquier caja IMPORTANTE
-            $("#contenedor").append(divGeneral+imgDiv2+texto+boton+estado);
+            $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+estado);
             $("#"+idPub+">div>h5").text(publi.autor);
             $("#"+idPub+">div>p").text(publi.publicacion);
 
@@ -71,7 +85,7 @@ function publicacion(idPub,individual,cb){
                         $("#"+idPub+">h6").text(est);
                         $("#"+idPub+">h6").css("color","red");
                     }
-                    //actualiza en la BD
+                    //actualiza en la BD si está inconcluso o terminado la publicación
                     $.ajax({
                         url:"../../modelo/PHP/concluye_pub.php",
                         data:{
@@ -98,11 +112,49 @@ function publicacion(idPub,individual,cb){
                 });
             else
                 $("#"+idPub+" .den").hide();
+
+            //manda notificación a la BD de que al usuario le interesa esa publicación
+            $("#"+idPub+">span").on("click",()=>{
+                $.ajax({
+                    url:"../../modelo/PHP/me_interesa.php",
+                    data:{
+                        idPubli:idPub
+                    },
+                    type: "POST",
+                    success: function(){
+                        $("#"+idPub+">span").css("color","green");
+                    }
+                });
+            });
+
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             //para el botón se agrega el evento click
             return cb();
         }
     });
+}
+
+function saca_publi(tipo){
+    $.ajax({
+        url:"../../modelo/PHP/dame_publis.php",
+        data:{
+            tipoPubli: tipo
+        },
+        type: "POST",
+        success:function(response){
+            if(response!="null"){
+                var publis = [];
+                publis = JSON.parse(response);
+                for (let v of publis)
+                    publicacion(v,false,()=>{
+                        $("#"+v+" .btn").one("click",()=>{
+                            document.cookie = "pub="+v+";max-age=60";
+                        });
+                    });
+            }
+        }
+    })
+    return;
 }
 
 function ordenar_eventos(respuesta){
@@ -122,19 +174,19 @@ function ordenar_eventos(respuesta){
 }
 
 function hacer_calendario (respuesta) {
-  $("<div id='calendario' data-spy='scroll' data-target='MuchosEventos' data-offset='0'>").appendTo("#evento");
+  $("<div id='calendario'>").appendTo("#evento");
 
   for ( i in respuesta){
     respuesta[i].fecha = new Date(respuesta[i].fecha);
     mes = parseInt(respuesta[i].fecha.getMonth());
-    mes += 1;
-    console.log(mes);
+    mes ++;
     dia = respuesta[i].fecha.getDate() +"/"+ mes.toString() + "/"+ respuesta[i].fecha.getFullYear();
     hora = respuesta[i].fecha.getHours() + ":" + respuesta[i].fecha.getMinutes();
     let fecha = "<div >El día "+dia+" en el horario "+hora;//mientras no está súper definido como se mostrará el calendario, así no está todo muy amontonado
-    let personas = " se encontrarán "+respuesta[i].id_em+" y "+respuesta[i].id_rec+"</div>";
+    let personas = " se encontrarán "+respuesta[i].id_em+" y "+respuesta[i].id_rec;
     let evento = "<h4>"+respuesta[i].tipo_even+"</h4>";
-    $("<div class='dropdown-item disabled'>"+ evento + fecha + personas+"</div>").appendTo("#calendario");
+    let lugar = " en "+respuesta[i].lugar+"</div>";
+    $("<div class='dropdown-item disabled'>"+ evento + fecha + personas +  lugar +"</div>").appendTo("#calendario");
     $("<div class='dropdown-divider'></div>").appendTo("#calendario");
   }
   $("</div>").appendTo("#evento");
