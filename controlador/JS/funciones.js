@@ -7,7 +7,7 @@ function comentario(idPub){
         },
         type: "POST",
         success: function(response){
-          console.log(response);
+          // console.log(response);
           if (response != "null"){
             comentarios = JSON.parse(response);
             for (let i in comentarios)
@@ -15,7 +15,7 @@ function comentario(idPub){
           }
         }
     });
-    console.log(idPub);
+    // console.log(idPub);
     return;
 }
 
