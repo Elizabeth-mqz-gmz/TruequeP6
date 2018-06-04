@@ -23,7 +23,7 @@
       </div>
     </div>
     <!-- con MODAL -->
-    <!-- <div class="modal fade" id="denuncia" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="denuncia" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -33,7 +33,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST">
-                    <select name="denun" id="denun">
+                    <select name="denun" id="Opciondenun">
                         <option value="Contenido inapropiado para la plataforma">Contenido inapropiado para la plataforma</option>
                         <option value="Me ofende">Me ofende</option>
                         <option value="Eso es mentira">Eso es mentira</option>
@@ -46,7 +46,7 @@
             </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <!--?php include 'footer.html' ?-->
   </body>
   <?php include '../../modelo/PHP/notif_bienve.php' ?>

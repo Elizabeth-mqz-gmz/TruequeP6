@@ -39,8 +39,8 @@ function publicacion(idPub,individual,cb){
             //clases de bootstrap
             let divGeneral = "<div id='"+idPub+"' class='card'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
-            let texto = "<h5 class='card-title'></h5><div class='den'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
-            // let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
+            //let texto = "<h5 class='card-title'></h5><div class='den' ><img src='../recursos/den.png'/></div><p class='card-text'></p>";
+            let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             //con MODAL
             let boton;
             if(individual)
@@ -72,7 +72,7 @@ function publicacion(idPub,individual,cb){
 
             if(publi.esAutor=="true"){
                 //poner borde si es autor
-                $("#"+idPub+">h6").css("border","1px solid #1919BEBE");
+                $("#"+idPub+">h6").css("border","1px solid #19BEBE");
 
                 //al darle click al estado, este se cambia y actualiza en la base de datos
                 $("#"+idPub+">h6").on("click",()=>{
@@ -102,7 +102,7 @@ function publicacion(idPub,individual,cb){
             }
             //si la denuncia es 0, muestra la imagen, del contrario no
             //al darle click en la imagen de denuncia, cambia el estado
-            if(publi.denuncia == "0")
+            /*if(publi.denuncia == "0")
                 $("#"+idPub+" .den").on("click",()=>{
                     $("#"+idPub+" .den").hide();
                     // console.log($("#"+idPub+" .den"));
@@ -115,28 +115,30 @@ function publicacion(idPub,individual,cb){
                         },
                         type: "POST"
                     });
-                });
-                // if(publi.denuncia == "0") con MODAL
-                //     $("#"+idPub+" .den").on("click",()=>{
-                //         $("#"+idPub+" .den").hide();
-                //         $("#envia").on("click",()=>{
-                //             console.log("hola");
-                //             var denuncia = $("#denun").val();
-                //             // console.log(denuncia);
-                //         });
-                //         console.log(denuncia);
-                //         $.ajax({
-                //             url:"../../modelo/PHP/denuncia.php",
-                //             data:{
-                //                 idPubli: idPub,
-                //                 "denuncia": denun,
-                //             },
-                //             type: "POST",
-                //             success: function(response){
-                // 					console.log(response);
-                //             }
-                //         });
-                //     });
+                });*/
+                 if(publi.denuncia == "0") //con MODAL
+                     $("#"+idPub+" .den").on("click",()=>{
+                         $("#"+idPub+" .den").hide();
+                         $("#envia").on("click",()=>{
+                             console.log("hola");
+                             var denun = $(":selected").val();//obtiene el valor del select
+                             console.log(denun);
+                             alert(denun);
+
+                        // console.log(denuncia);
+                         $.ajax({
+                             url:"../../modelo/PHP/denuncia.php",
+                             data:{
+                                 idPubli: idPub,
+                                 motivo : denun,
+                             },
+                             type: "POST",
+                             success: function(response){
+                 					console.log(response);
+                             }
+                              });
+                         });
+                     });
             else
                 $("#"+idPub+" .den").hide();
 
