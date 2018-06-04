@@ -39,7 +39,7 @@ CREATE TABLE `chat` (
   KEY `id_rec` (`id_rec`),
   CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_em`) REFERENCES `usuario` (`id_usuario`),
   CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`id_rec`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `chat` (
 
 LOCK TABLES `chat` WRITE;
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
-INSERT INTO `chat` VALUES (14,317346741,317346746);
+INSERT INTO `chat` VALUES (14,317346741,317346746),(15,317311974,317346746);
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,7 +70,7 @@ CREATE TABLE `comentario` (
   KEY `id_usu_comen` (`id_usu_comen`),
   CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_publi_comen`) REFERENCES `publicacion` (`id_publicacion`),
   CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_usu_comen`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +79,7 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
-INSERT INTO `comentario` VALUES (1,317346741,4,'Vaya...','0'),(2,317346741,4,'Jajajajaj','0'),(3,317346741,4,'Jajajjajajaj','0'),(4,317346741,4,'jajajjajaj x2','0'),(7,317346741,5,'mmmmmmmmmmmmmm','0');
+INSERT INTO `comentario` VALUES (1,317346741,4,'Vaya...','0'),(2,317346741,4,'Jajajajaj','0'),(3,317346741,4,'Jajajjajajaj','0'),(4,317346741,4,'jajajjajaj x2','0'),(7,317346741,5,'mmmmmmmmmmmmmm','0'),(9,317311974,9,'Holaaa','0');
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +128,7 @@ CREATE TABLE `mensaje` (
   UNIQUE KEY `id_men` (`id_men`),
   KEY `id_chat` (`id_chat`),
   CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`id_chat`) REFERENCES `chat` (`id_chat`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,7 @@ CREATE TABLE `mensaje` (
 
 LOCK TABLES `mensaje` WRITE;
 /*!40000 ALTER TABLE `mensaje` DISABLE KEYS */;
-INSERT INTO `mensaje` VALUES (57,'a!PxD',14,'1'),(58,'czN!',14,'1');
+INSERT INTO `mensaje` VALUES (57,'a!PxD',14,'1'),(58,'czN!',14,'1'),(59,'a!PxDC',15,'1');
 /*!40000 ALTER TABLE `mensaje` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `notificacion` (
   PRIMARY KEY (`id_not`),
   KEY `id_usu_not` (`id_usu_not`),
   CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`id_usu_not`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +165,7 @@ CREATE TABLE `notificacion` (
 
 LOCK TABLES `notificacion` WRITE;
 /*!40000 ALTER TABLE `notificacion` DISABLE KEYS */;
-INSERT INTO `notificacion` VALUES (1,317346741,'El usuario 317346741 encontró tu credencial','0'),(4,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(6,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(7,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(8,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(9,317346741,'Al usuario 317346745 le interesa una publicación tuya','0');
+INSERT INTO `notificacion` VALUES (1,317346741,'El usuario 317346741 encontró tu credencial','1'),(4,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(6,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(7,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(8,317346741,'Al usuario 317346741 le interesa una publicación tuya','0'),(9,317346741,'Al usuario 317346745 le interesa una publicación tuya','0'),(24,317311974,'¡Felicidades, te has registrado en Trueque-P6 :)','1'),(25,317311975,'¡Felicidades, te has registrado en Trueque-P6 :)','1'),(26,979847874,'¡Felicidades, te has registrado en Trueque-P6 :)','0');
 /*!40000 ALTER TABLE `notificacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,7 +186,7 @@ CREATE TABLE `perdida` (
   KEY `id_dueño` (`id_dueño`),
   CONSTRAINT `perdida_ibfk_1` FOREIGN KEY (`id_publi_per`) REFERENCES `publicacion` (`id_publicacion`),
   CONSTRAINT `perdida_ibfk_2` FOREIGN KEY (`id_dueño`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,7 +195,7 @@ CREATE TABLE `perdida` (
 
 LOCK TABLES `perdida` WRITE;
 /*!40000 ALTER TABLE `perdida` DISABLE KEYS */;
-INSERT INTO `perdida` VALUES (1,4,NULL,'cuaderno'),(2,7,NULL,''),(3,8,NULL,'cuaderno');
+INSERT INTO `perdida` VALUES (1,4,NULL,'cuaderno'),(2,7,NULL,''),(3,8,NULL,'cuaderno'),(4,9,NULL,'cuaderno');
 /*!40000 ALTER TABLE `perdida` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,10 +213,11 @@ CREATE TABLE `publicacion` (
   `estado` enum('inconcluso','terminado') DEFAULT 'inconcluso',
   `imagen_publi` varchar(60) DEFAULT NULL,
   `publicacion` text NOT NULL,
+  `razon_denuncia` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_publicacion`),
   KEY `id_autor` (`id_autor`),
   CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,7 +226,7 @@ CREATE TABLE `publicacion` (
 
 LOCK TABLES `publicacion` WRITE;
 /*!40000 ALTER TABLE `publicacion` DISABLE KEYS */;
-INSERT INTO `publicacion` VALUES (1,317346741,'0','inconcluso','../imagenes_pub/1.jpeg','Prueba'),(2,317346741,'0','inconcluso','../imagenes_pub/2.jpeg','Prueba para ver si guarda las pérdidas'),(3,317346741,'0','inconcluso','../imagenes_pub/3.png','Prueba para ver si guarda trueques'),(4,317346741,'1','inconcluso','../imagenes_pub/4.jpeg','Prueba para ver si guarda las pérdidas 2'),(5,317346741,'1','terminado','../imagenes_pub/5.jpeg','Cambio mi riñón por un Harry Styles'),(6,317346741,'0','inconcluso','../imagenes_pub/6.jpeg','Prueba para ver si guarda las pérdidas'),(7,317346741,'0','inconcluso','../imagenes_pub/7.jpeg','Uriel encontré tu credenciaaaal'),(8,317346741,'0','inconcluso','../imagenes_pub/8.png','Ya porfavooooooor');
+INSERT INTO `publicacion` VALUES (1,317346741,'0','terminado','../imagenes_pub/1.jpeg','Prueba',NULL),(2,317346741,'0','inconcluso','../imagenes_pub/2.jpeg','Prueba para ver si guarda las pérdidas',NULL),(3,317346741,'0','inconcluso','../imagenes_pub/3.png','Prueba para ver si guarda trueques',NULL),(4,317346741,'1','inconcluso','../imagenes_pub/4.jpeg','Prueba para ver si guarda las pérdidas 2','Me caes mal, ggg'),(5,317346741,'0','terminado','../imagenes_pub/5.jpeg','Cambio mi riñón por un Harry Styles',NULL),(6,317346741,'0','inconcluso','../imagenes_pub/6.jpeg','Prueba para ver si guarda las pérdidas',NULL),(7,317346741,'0','inconcluso','../imagenes_pub/7.jpeg','Uriel encontré tu credenciaaaal',NULL),(8,317346741,'0','inconcluso','../imagenes_pub/8.png','Ya porfavooooooor',NULL),(9,317311974,'0','inconcluso','../imagenes_pub/9.jpg','Hola amiga, ggg',NULL);
 /*!40000 ALTER TABLE `publicacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +247,7 @@ CREATE TABLE `reaccion` (
   KEY `id_usu_reac` (`id_usu_reac`),
   CONSTRAINT `reaccion_ibfk_1` FOREIGN KEY (`id_publi_reac`) REFERENCES `publicacion` (`id_publicacion`),
   CONSTRAINT `reaccion_ibfk_2` FOREIGN KEY (`id_usu_reac`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +256,7 @@ CREATE TABLE `reaccion` (
 
 LOCK TABLES `reaccion` WRITE;
 /*!40000 ALTER TABLE `reaccion` DISABLE KEYS */;
-INSERT INTO `reaccion` VALUES (1,4,317346741,'Jajajaja'),(2,5,317346741,'Mmm'),(3,5,317346745,'Jajajaja');
+INSERT INTO `reaccion` VALUES (1,4,317346741,'Jajajaja'),(2,5,317346741,'Mmm'),(3,5,317346745,'Jajajaja'),(4,9,317311974,'Me vale');
 /*!40000 ALTER TABLE `reaccion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +303,7 @@ CREATE TABLE `usuario` (
   `ape_pat` char(30) DEFAULT NULL,
   `ape_mat` char(30) DEFAULT NULL,
   `contra` varchar(64) NOT NULL,
-  `imagen` varchar(60) DEFAULT '../imagenes_pub/default.jpg',
+  `imagen` varchar(60) DEFAULT '../imagenes_per/default.png',
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -313,7 +314,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (317346741,'PaoInnes','cG#|D','\\T\"uV','UG&#R(','526e451c31fd5ebfed2f47e48fa0aee077983daa','modelo/imagenes_per/default.png'),(317346745,'Urielge','hX|uO','ZG&sís','XR##]z','87581421956f9c71bdbfda4815cf4f225d6d8b96','modelo/imagenes_per/default.png'),(317346746,'','',NULL,NULL,'','../imagenes_pub/default.jpg');
+INSERT INTO `usuario` VALUES (317311974,'Elizahk12','XR|','`á#T/w1','Zó}H4','e247554ca5094ef100bd854b324b7d17efb5f51d','modelo/imagenes_per/default.png'),(317311975,'Sofia04','fUyyD','`á#T/w1','Zó}H4','e247554ca5094ef100bd854b324b7d17efb5f51d','modelo/imagenes_per/default.png'),(317346741,'PaoInnes','cG#|D','\\T\"uV','UG&#R(','526e451c31fd5ebfed2f47e48fa0aee077983daa','modelo/imagenes_per/default.png'),(317346745,'Urielge','hX|uO','ZG&sís','XR##]z','87581421956f9c71bdbfda4815cf4f225d6d8b96','modelo/imagenes_per/default.png'),(317346746,'','',NULL,NULL,'','../imagenes_pub/default.jpg'),(979847874,'Administrador','',NULL,NULL,'658b387ccc6b6e388faf30f41ad5e988e62499c4','modelo/imagenes_per/default.png');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -326,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-03  0:46:20
+-- Dump completed on 2018-06-04 12:13:51

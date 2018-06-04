@@ -12,33 +12,16 @@
     </div>
     <div class='container' id='contenedorPubli'>
       <div id="publicaciones">
-      </div>
-    </div>
-<!-- con MODAL -->
-    <!-- <div class="modal fade" id="denuncia" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" value="cerrar" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST">
-                    <select name="denun" id="denun">
-                        <option value="Contenido inapropiado para la plataforma">Contenido inapropiado para la plataforma</option>
-                        <option value="Me ofende">Me ofende</option>
-                        <option value="Eso es mentira">Eso es mentira</option>
-                        <option value="La publicación se repite">La publicación se repite</option>
-                        <option value="El usuario no pertenece a la Prepa">El usuario no pertenece a la Prepa</option>
-                    </select>
-                      <br><br>
-                      <input type="submit" id="envia">
-                </form>
-            </div>
+        <div class='container'>
+          <h2>Bienvenido a Trueque P6!!!</h2>
+          <p>Utiliza esta plataforma para encontrar tus cosas perdidas. Puedes buscar a tus amigos conociendo su número de cueta.</p>
+          <br />
+          <p> Tus datos están seguros, nunca compartiremos nada de tu informacion.</p>
+          <p>Esperamos te guste, lo hicimos con mucho cariño</p>
+          <img src="../../modelo/imagenes_pub/Nosotros.jpg"></img>
         </div>
       </div>
-    </div> -->
+    </div>
     <!--?php include 'footer.html' ?-->
   </body>
   <?php include '../../modelo/PHP/notif_bienve.php' ?>
