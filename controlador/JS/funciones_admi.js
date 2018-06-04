@@ -47,6 +47,8 @@ function denuncia (valor){
 
 function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
   console.log(valor);
+  console.log(autor_publi);
+  console.log(id_publi);
   jQuery.ajax({
       url:"../../modelo/PHP/"+ruta+".php",
       data:{
@@ -56,6 +58,7 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
       },
       type: "POST",
       success: function(response){
+        console.log(response);
           alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
           $(".quitar").remove();
           denuncia(valor, div);

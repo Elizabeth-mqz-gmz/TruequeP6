@@ -46,6 +46,8 @@ function denuncia (valor){
 }
 
 function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
+  console.log(autor_publi + "autor");
+  console.log(id_publi + "publicacion");
   console.log(valor);
   jQuery.ajax({
       url:"../../modelo/PHP/"+ruta+".php",
@@ -56,6 +58,7 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
       },
       type: "POST",
       success: function(response){
+          console.log(response);
           alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
           $(".quitar").remove();
           denuncia(valor, div);
@@ -71,7 +74,7 @@ document.getElementById("contPublicaciones").addEventListener("click",()=>{
     quitar_eliminar("quitar_denuncia",autor,publi,"denuncia","1","Publicaciones");
   }
   else if (denun == "eliminarD"){
-    quitar_eliminar("eliminar_publicacion", autor, publi, "publicación","1","Publicaciones");
+    quitar_eliminar("eliminar_publicacion", autor, publi, "publicacion","1","Publicaciones");
   }
   else if(denun == "usuario"){
     alert("Me quieren eliminar");
