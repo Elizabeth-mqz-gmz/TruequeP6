@@ -4,7 +4,7 @@
   // :)
   $usu = dame_cookie();
   if($_POST["val"] == "0"){
-    if ($usu == "317341712"){//revisar que efectivamente sea el admi
+    if ($usu == "979847874"){//revisar que efectivamente sea el admi
       if($_COOKIE["#Q"]!= null){
         $datos = array();
         $datos["ruta"] = "Admi.php";
