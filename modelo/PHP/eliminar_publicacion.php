@@ -16,25 +16,13 @@
   //eliminar imagen publicacion
   }
   if ($tabla == "1"){
-    echo "1";
-    $bus = "DELETE FROM perdida WHERE id_publi_per=$publicacion";
-    mysqli_query($bd,$bus);
-    //echo $bus;
+    $tabla = array("perdida" => "id_publi_per", "trueque" => "id_publi_true", "reaccion" => "id_publi_reac",
+    "comentario" => "id_publi_comen","publicacion" => "id_publicacion");
 
-    $bus = "DELETE FROM trueque WHERE id_publi_true=$publicacion";
-    mysqli_query($bd,$bus);
-    //echo $bus;
-
-    $bus = "DELETE FROM reaccion WHERE id_publi_reac = $publicacion";
-    mysqli_query($bd,$bus);
-    //echo $bus;
-
-    $bus = "DELETE FROM comentario  WHERE id_publi_comen = $publicacion";
-    mysqli_query($bd, $bus); //se elimino la publicación.
-    //echo $bus;
-
-    $bus = "DELETE FROM publicacion WHERE id_publicacion = $publicacion";
-    $busca =   mysqli_query($bd, $bus);
+    forEach($tabla as $i => $ele){//ahora está más lindo :)
+      $bus = "DELETE FROM $i WHERE $ele = $publicacion";
+      mysqli_query($bd,$bus);
+    }
   }
   else if($tabla == "2"){
     echo "2";
