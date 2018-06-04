@@ -22,5 +22,5 @@
     </div>
   </body>
   <script type='text/javascript' src='../../controlador/JS/chat.js'></script>
-  <!-- <script type= "text/javascript" src="../../controlador/JS/nav_eventos.js"></script> -->
+  <script type= "text/javascript" src="../../controlador/JS/nav_eventos.js"></script>
 </html>

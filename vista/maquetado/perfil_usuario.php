@@ -22,8 +22,11 @@
       <div id="imagen">
         <?php echo "<img src='../../".$perfil["imagen"]."' class='rounded float-left' class='img-thumbnail' alt='imagen perfil'/>"; ?>
       </div>
-      <div class="container">
+      <div class="container" id="nombre">
         <?php echo "<h2 class='display-2'>".$perfil["nomus"]."</h2>"; ?>
+        <div class="col-sm-10">
+          <button type="submit" id="chat" class="btn btn-primary">Enviar mensaje</button>
+      </div>
       </div>
     </div>
     <div class='container' id='contenedorPubli'>
