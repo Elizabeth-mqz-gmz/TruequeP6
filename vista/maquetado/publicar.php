@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicacion</title>
+    <script type="text/javascript" src="../../controlador/JS/nav_eventos.js"></script>
     <script type='text/javascript' src='../../librerias/jquery-3.3.1.min.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <style>
@@ -21,7 +22,7 @@
     <section>
         <form method='POST' action='../../modelo/PHP/publica.php' enctype='multipart/form-data'>
             <div class="custom-file">
-                <input type="file" name='imagen' accept='image/jpg' class="custom-file-input" required>
+                <input type="file" name='imagen' accept='image/jpg' class="custom-file-input" >
                 <label class="custom-file-label" for="validatedCustomFile">Elige una imagen</label>
             </div>
             <fieldset class="form-group">

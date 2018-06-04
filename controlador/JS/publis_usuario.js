@@ -1,4 +1,5 @@
 $(document).ready(()=>{
+    $("#chat").hide();
     var coo = [];
     coo = document.cookie.split(";");
     var cookie = "usuario";
@@ -9,6 +10,7 @@ $(document).ready(()=>{
       var cookieBuscada = cookie.split("=");
       cookie = cookieBuscada[1];
     }
+
     $.ajax({
     url:"../../modelo/PHP/publis_usuario.php",
     data:{
@@ -28,8 +30,21 @@ $(document).ready(()=>{
                 });
         }
         else {
-          $("#publicaciones").append("<div>Éste usuario aún no ha realizado ninguna publicación");
+          if ( cookie != "usuario" )
+            $("#publicaciones").append("<div>Éste usuario aún no ha realizado ninguna publicación</div>");
+          else {
+            $("#publicaciones").append("<div>Aún no has puplicado nada, <a href='../../vista/maquetado/publicar.php'>¡Vamos!</a></div>");
+          }
         }
     }
     });
+
+    if ( cookie != "usuario" ){
+      var persona =   $("#nombre");
+      $("#chat").show();
+      $("#chat").on("click",()=>{
+          document.cookie = "otro="+cookie+";max-age=10";
+          location.href ="../../vista/maquetado/chat.php";
+      });
+    }
 });
