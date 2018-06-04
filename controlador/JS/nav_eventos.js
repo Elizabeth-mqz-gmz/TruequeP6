@@ -44,11 +44,13 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
     publi = boton;
     $("#publicaciones").remove();
     if(publi == 0){
+      $(".cambio").html("TRUEQUE");
       $("<div id='publicaciones'><div id='trueque'>Trueques</div></div>").appendTo("#contenedorPubli");
       $("#contenedorPubli").html("");
       saca_publi("trueque");//IMPORTANTE saca eventos en index necesita funciones.js
     }
     else{
+      $(".cambio").html("PÉRDIDAS");
       $("<div id='publicaciones'><div id='trueque'>Pérdidas</div></div>").appendTo("#contenedorPubli");
       $("#contenedorPubli").html("");
       saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
