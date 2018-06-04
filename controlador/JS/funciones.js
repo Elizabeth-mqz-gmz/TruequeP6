@@ -292,6 +292,24 @@ function datos_chat(cb){
     });
 }
 
+function valdt ()//validar la fecha
+{
+  let year=$("#anho").val();//hacer variables con cada componente de la hora, para validar
+  let month=$("#mes").val();
+  let day=$("#dia").val();
+  let min=$("#hora").val();
+  let hr=$("#min").val();
+  if(year>0 && month<13&&month>0 && day<32&&day>0 && hr<25&&hr>=0 && min<61&&min>=0 ){
+    var date_ret= year+"-"+month+"-"+day+" "+hr+":"+min;//concatenar fecha y hora
+  }
+  else{
+    var date_ret='loser';//no se cumplió la validación
+    alert('Ingresaste un dato de la fecha de forma incorrecta, inténtalo de nuevo');
+  }
+  return date_ret;
+}
+
+
 function mostrar_chats(allChats) {
   $("#verChats").children("li").empty();
   if(allChats!= ""){

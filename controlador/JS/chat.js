@@ -43,7 +43,33 @@ nomsUsus.then(()=>{
             }
         });
       });
-      $("#hacerEvento").click(()=>{
-          console.log("hacer evento");
+      // $("#hacerEvento").click(()=>{
+      //     console.log("hacer evento");
+      // });
+});
+
+$("#Genial").click(function(){
+  alert("EVENTOOOOOOOOOO");
+  eventoP = $("input:checked").val();
+  fechaEven = valdt();
+  console.log(datos.chat);
+  lugar = $("#lugar").val();
+  if (fecha != "loser"){
+    $.ajax({
+      url:"../../modelo/PHP/nuevo_evento.php",
+      data:{
+        fecha : fechaEvento,
+        chat : datos.chat,
+        evento : eventoP,
+        lugar : dondeEs
+      },
+      type: "POST",
+      success: function(response){
+        if ( response == "")
+          return mens(null);
+        else
+          return mens(response);
+        }
       });
+    }
 });
