@@ -16,7 +16,7 @@
     while($row=mysqli_fetch_assoc($resp)){
         if($contador==0)
             $count = $row["nomus"];
-        $json.= "{\"nomus\":\"".$row["nomus"]."\",\"comentario\":\"".$row["comentario"]."\"}";
+        $json.= "{\"nomus\":\"".$row["nomus"]."\",\"comentario\":\"".$row["comentario"]."\"},";
     }
 
     $json[strlen($json)-1]="]";

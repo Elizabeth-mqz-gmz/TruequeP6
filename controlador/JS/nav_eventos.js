@@ -69,20 +69,14 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
         alert("Ingresa un número de cuenta para buscar");
   });
 
-  $("#navbarDropdownNotif").on("click",function(){
-			$.ajax({
-				    url: "../../modelo/PHP/despliega_notif.php",
-				    data: {
-				    },
-				    type: "POST",
-			            success: function(response){
-							    console.log(response);
-			            var notifis = JSON.parse(response);
-			            // console.log(notifis);
-			            let numNotifis = notifis.length;
-			            for(let count=0; count<numNotifis; count++){
-							$("<li id="+notifis[count].id_not+" style=padding: 4%; text-align: left; border-top: gray;>"+notifis[count].men_not+"</li>").appendTo("#notifis");
-						}
-					}
-			});
+  $("#navbarDropdownChat").on("click",function(){
+    $.ajax({
+        url:"../../modelo/PHP/todosLosChats.php",
+        data:{
+        },
+        type: "POST",
+        success: function(response){
+            mostrar_chats(response);
+        }
+    });
 	});
