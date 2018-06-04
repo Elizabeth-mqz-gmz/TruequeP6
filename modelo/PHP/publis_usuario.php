@@ -4,9 +4,9 @@
   checar_con($bd);
   if ($_POST["perfilUsu"] != "usuario")
       $id_usuario = $_POST["perfilUsu"];
-  else {
+  else 
       $id_usuario = dame_cookie();
-  }
+
   $resp = mysqli_query($bd, "SELECT id_publicacion FROM publicacion WHERE id_autor = $id_usuario");
   $count = "null";
   $contador = 0; //para saber si es nulo

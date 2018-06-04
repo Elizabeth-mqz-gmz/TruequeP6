@@ -290,3 +290,26 @@ function datos_chat(cb){
         }
     });
 }
+
+function busca_usu(usuBusc) {
+  $.ajax({
+      url:"../../modelo/PHP/busca.php",
+      data:{
+       usuario : usuBusc
+      },
+      type: "POST",
+      success: function(response){
+        if (response != "invalido"){
+           if (response != ""){
+             if (response == "diferente")
+                document.cookie = "usuBuscado="+usuBusc+";max-age=2";
+             location.href ="perfil_usuario.php";
+           }
+           else
+             alert("Lo siento, tu amigo no está registrado en esta plataforma");
+        }
+        else
+           alert("Ingresa un usuario válido");
+      }
+  });
+}

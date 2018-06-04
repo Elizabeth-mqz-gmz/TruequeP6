@@ -61,25 +61,7 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
      if ( usuBuscado != ""){
         let valida = new RegExp (/^(31)[6789][0-9]{6}/);
         if ( valida.test(usuBuscado) == true) {
-             $.ajax({
-                 url:"../../modelo/PHP/busca.php",
-                 data:{
-                  usuario : usuBuscado
-                 },
-                 type: "POST",
-                 success: function(response){
-                   if (response != "false"){
-                      if (response == "existe"){
-                        document.cookie = "usuBuscado="+usuBuscado+";max-age=2";
-                        location.href ="perfil_usuario.php";
-                      }
-                      else
-                        alert("Lo siento, tu amigo no está registrado en esta plataforma");
-                   }
-                   else
-                      alert("Ingresa un usuario válido");
-                 }
-             });
+             busca_usu(usuBuscado);
          }
         else
           alert("Ingresa un usuario válido");
