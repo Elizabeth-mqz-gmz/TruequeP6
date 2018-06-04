@@ -55,39 +55,8 @@
 					<div class="form-group">
 						<label >Confirma contraseña :</label>
 						<input class="form-control mx-sm-3" type='password' class="form-control" name='contra2' class='contrasena' id='pass2' required/>
-						<div></div>
+						<!-- <div></div> -->
 					</div>
-					<script>
-							$("#pass2").on("change",function(){
-									if($("#pass1").val() == $("#pass2").val()){
-								$("#msj").html("<input class='btn btn-success' class='btn btn-primary btn-l' type='submit'>");
-							}
-									else{
-								$("#msj").html("Las contraseñas no coinciden");
-							}
-							});
-
-							$(document).ready(()=>{
-								var regex = [/^(31)[6789][0-9]{6}/, /^[A-Z][a-zA-Záéíóú\s]+/, /^[A-Z][a-zA-Záéíóú\s]+/, /^[A-Z][a-zA-Záéíóú\s]+/, /[A-Za-z\d]{6,20}$/];
-								var elements = ["num_cta", "nom", "ape_pat", "ape_mat", "user"];
-								$("#regis").change((event)=>{
-									var dato = event.target.id;
-									var aux = elements.indexOf(dato);
-									if (aux >= 0){
-										var reg = new RegExp (regex[aux]);
-										// console.log(reg);
-										if (reg.test(event.target.value) == true){
-											document.getElementById(dato).className = "form-control is-valid";
-											document.getElementById(dato).nextSibling.innerHTML="Eso funciona para mi!"
-										}
-										else{
-											document.getElementById(dato).className = "form-control is-invalid";
-											document.getElementById(dato).nextSibling.innerHTML="No es correcto";
-										}
-									}
-								});
-							});
-					</script>
 					<div id='msj'>
 					</div>
 				</div>
@@ -95,4 +64,3 @@
 		</div>
 	</div>
 </section>
-<script src='controlador/JS/revisa.js'></script>

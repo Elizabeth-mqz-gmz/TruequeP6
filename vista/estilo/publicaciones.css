@@ -60,3 +60,12 @@ h6{
         margin: 5vw;
     }
 }
+.denc{
+  border: 1px solid gray;
+}
+img.denim{
+    width: 2em;
+    height: 2em;
+    position: relative;
+    left: 80%;
+}

@@ -9,8 +9,6 @@
     $busq = "SELECT comentario,nomus FROM comentario INNER JOIN usuario ON comentario. id_usu_comen=usuario.id_usuario where id_publi_comen= '$idPub';";
     $resp = mysqli_query($db,$busq);
 
-    $resp = mysqli_query($db,$busq);
-
     $count = "null";
     $contador = 0; //para saber si es nulo
     //si se ejecuta mysqli_fetch algo, se mueve el puntero de la BD
@@ -18,9 +16,7 @@
     while($row=mysqli_fetch_assoc($resp)){
         if($contador==0)
             $count = $row["nomus"];
-        $json.= "{\"nomus\":\"".$row["nomus"]."\",
-                \"comentario\":\"".$row["comentario"]."\"},";
-
+        $json.= "{\"nomus\":\"".$row["nomus"]."\",\"comentario\":\"".$row["comentario"]."\"},";
     }
 
     $json[strlen($json)-1]="]";

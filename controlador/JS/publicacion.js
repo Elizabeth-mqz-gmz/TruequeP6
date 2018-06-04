@@ -34,7 +34,7 @@ publicacion(publi,true,()=>{
     comentario(publi);
 });
 
-$(".container .btn").on("click",()=>{
+$("enviarComen").on("click",()=>{
 //ajax que guarda comentario en la BD, publi es id_publicacion
 //comentario es el mensaje, comentario
     var inp = document.getElementById("comentar");
@@ -48,7 +48,7 @@ $(".container .btn").on("click",()=>{
         type: "POST",
         success: function(){
             $(inp).val("");
-            $("#contenedorComen").append("Tú: <br />"+comentario+"<br/>"); //En vez de "Tú" Hay que poner el nomus
+            $("#contenedorComen").append("<div class='denc'>Tú :"+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
         }
     });
 });

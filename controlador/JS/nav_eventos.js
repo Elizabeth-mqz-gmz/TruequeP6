@@ -1,5 +1,4 @@
 
-
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
@@ -69,3 +68,15 @@ var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
       else
         alert("Ingresa un número de cuenta para buscar");
   });
+
+  $("#navbarDropdownChat").on("click",function(){
+    $.ajax({
+        url:"../../modelo/PHP/todosLosChats.php",
+        data:{
+        },
+        type: "POST",
+        success: function(response){
+            mostrar_chats(response);
+        }
+    });
+	});

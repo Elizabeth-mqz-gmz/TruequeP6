@@ -11,11 +11,12 @@ function comentario(idPub){
           if (response != "null"){
             comentarios = JSON.parse(response);
             for (let i in comentarios)
-              $("#contenedorComen").append(comentarios[i].nomus+"dice: <br />"+comentarios[i].comentario+"<br/>");
+                  $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div>");
           }
+          else
+            $("#contenedorComen").append("<div>Ésta publicación aún no tiene comentarios</div>");
         }
     });
-    // console.log(idPub);
     return;
 }
 
@@ -289,6 +290,25 @@ function datos_chat(cb){
             return cb(datos.chat);
         }
     });
+}
+
+function mostrar_chats(allChats) {
+  $("#verChats").children("li").empty();
+  if(allChats!= ""){
+    objChats = JSON.parse(allChats);
+    for (let i in objChats){
+      $("#verChats").append("<li id="+i+" style=padding: 4%; text-align: left; border-top: gray; >"+objChats[i].nomus+"</li>");
+      $("#verChats").append("<div class='dropdown-divider'></div>");
+    }
+    $("#verChats").click(()=>{
+      var ind = event.target.id;
+      document.cookie = "otro="+objChats[ind].usuario+";max-age=5";
+      location.href ="../../vista/maquetado/chat.php";
+    });
+  }
+  else
+    $("#verChats").append("<li style=padding: 4%; text-align: left; border-top: gray;  class='dropdown-divider'>Aún no tienes ninguna conversación</li>");
+
 }
 
 function busca_usu(usuBusc) {
