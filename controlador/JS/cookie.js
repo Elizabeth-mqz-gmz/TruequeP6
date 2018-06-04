@@ -7,7 +7,7 @@ $(document).ready(()=>{
         val : "1"
       },
       success: function(response){
-          console.log(response);
+          // console.log(response);
           if(response == "cookie")
             window.location="vista/maquetado/main.php";
         }

@@ -144,18 +144,14 @@ function validarPass($contra)
 			{
 				$regex2= "/(".$teclado[$i][$n].$teclado[$i][$n+1].$teclado[$i][$n+2].")/i";
 			  if(preg_match($regex2, $contra)){
-				$error++;
+				      $error++;
 				}
 			}
 	}
-	if (preg_match($regex, $contra)==0 || $error>0){ //Si no pasa la regex o no hay un error en qwerty
-		// echo "F";
-		return false;
-	}
-	else{
-		// echo "T";
-		return true;
-	}
+	if (preg_match($regex, $contra) == 0 || $error>0) //Si no pasa la regex o no hay un error en qwerty
+		return "false";
+	else
+		return "true";
 
 }
 ?>

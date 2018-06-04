@@ -1,7 +1,5 @@
 <?php
-	extract($_POST);
-	function validarPass($pass)
-	{
+	$pass = $_POST["pass"];
 		$regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`~!@$%^#*()_+\-={}|\[\]\:?,.\/])([A-Za-z\d`~!@$%^#*()_+\-={}|\[\]\:?,.\/]){8,20}$/";
 		$teclado = [
 			["q","w","e","r","t","y","u","i","o","p"],
@@ -29,15 +27,7 @@
 					}
 				}
 		}
-		if (preg_match($regex, $pass)==0 || $error>0){
+		if (preg_match($regex, $pass)==0 || $error>0)
 			echo "F";
-			return false;
-		}
-		else{
+		else
 			echo "T";
-			return true;
-		}
-
-	}
-	validarPass($pass);
-?>

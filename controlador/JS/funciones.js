@@ -10,22 +10,11 @@ function comentario(idPub){
           // console.log(response);
           if (response != "null"){
             comentarios = JSON.parse(response);
-            for (let i in comentarios){
-              if (comentarios[i].denuncia == 0)
-                $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"<img id='"+i+"' class='denim' src='../recursos/den.png'/></div>");
-              else
-                $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div>");
-              }
+            for (let i in comentarios)
+                  $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div>");
           }
         }
     });
-
-    $("#contenedorComen").on("click",()=>{ //Para cuando le da click en las denuncias -
-        let quiereDenun = event.target.id; //Ya no puedo, --Paola
-        if( typeof quiereDenun != undefined )
-          console.log("denuncuar");
-    });
-
     return;
 }
 

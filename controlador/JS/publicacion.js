@@ -34,7 +34,7 @@ publicacion(publi,true,()=>{
     comentario(publi);
 });
 
-$(".container .btn").on("click",()=>{
+$("enviarComen").on("click",()=>{
 //ajax que guarda comentario en la BD, publi es id_publicacion
 //comentario es el mensaje, comentario
     var inp = document.getElementById("comentar");

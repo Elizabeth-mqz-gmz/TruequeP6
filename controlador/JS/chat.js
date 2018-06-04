@@ -43,5 +43,7 @@ nomsUsus.then(()=>{
             }
         });
       });
+      $("#hacerEvento").click(()=>{
+          console.log("hacer evento");
+      });
 });
-//datos.id_chat es global 
