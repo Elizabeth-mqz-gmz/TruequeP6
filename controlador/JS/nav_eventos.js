@@ -1,4 +1,5 @@
 
+
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
@@ -14,6 +15,24 @@ var click = 0;
     click = 0;
     eliminar_eventos();
   });
+
+  $(document).ready(()=>{
+    jQuery.ajax({
+        url:"../../modelo/PHP/cookie.php",
+        type: "POST",
+        data:{
+          val : "0"
+        },
+        success: function(response){
+          if(response != "false"){
+            res = JSON.parse(response);
+            BotonAdmi = $("<li class='nav-item active'><a class='nav-link' id='mensajes' href='"+res.ruta+"'>Administrador</a></li>");
+            BotonAdmi.appendTo("#navbar");
+          }
+        }
+    });
+  });
+
 
 var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
   $('.cambio').on('click',()=>{

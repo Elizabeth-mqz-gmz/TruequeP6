@@ -7,12 +7,17 @@
       "user" => $_POST["user"],
       "contra" => $_POST["contra"] );
     //IMAGEN
-    // print_r($_FILES);
+    //print_r($_FILES);
+    //print_r($_POST);
     $ruta = "../imagenes_per/";
     //toma la extensión del archivo y la concatena
     $tipo = strtolower(pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION));
-    if($tipo == "png")
-        $ruta = $ruta.$_FILES["imagen"]["name"];
+    if($tipo == "png"){
+        $ruta = $ruta.$_FILES["imagen"]["name"];//para guardar debe ser una ruta
+        if(!move_uploaded_file($_FILES["imagen"]["tmp_name"],$ruta))
+            $ruta = "modelo/imagenes_per/default.png";
+        $ruta = "modelo/imagenes_per/".$_FILES["imagen"]["name"];//y debemos cambiarla
+      }
     else
         $ruta = "modelo/imagenes_per/default.png";
 

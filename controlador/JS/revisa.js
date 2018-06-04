@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('.contrasena').change(function(){
     	var pass = $(this).val();

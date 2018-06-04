@@ -17,7 +17,4 @@
     mysqli_query($db,$upd);
     mysqli_close($db);
 
-    echo (sha1("f2wesxdrftgyH3EmiliaB6jxddgvhuijwq"));
-
-
 ?>
