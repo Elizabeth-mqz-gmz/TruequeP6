@@ -8,11 +8,11 @@
   $publicacion = validar($_POST["publicacion"], "", $bd);
   $usuario = validar ($_POST["usuario"], "", $bd);
 
-  // if($tabla == "1"){
-  //   $resp = mysqli_query($bd, "SELECT imagen_publi FROM publicacion WHERE id_publicacion = $publicacion");
-  //   $bus = mysqli_fetch_assoc($resp);
-  //   if ($bus["imagen_publi"] != null)
-  //     unlink("../imagenes_per/".$bus["imagen_publi"]); //eliminar imagen del subdirectorio imagenes_pub
+   if($tabla == "1"){
+     $resp = mysqli_query($bd, "SELECT imagen_publi FROM publicacion WHERE id_publicacion = $publicacion");
+     $bus = mysqli_fetch_assoc($resp);
+     if ($bus["imagen_publi"] != null)
+       unlink($bus["imagen_publi"]); //eliminar imagen del subdirectorio imagenes_pub
   //eliminar imagen publicacion
   }
   if ($tabla == "1"){

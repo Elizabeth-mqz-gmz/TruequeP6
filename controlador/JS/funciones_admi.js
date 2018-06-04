@@ -19,7 +19,10 @@ $("#comentarios").on("click", function(){
 
 function desplegarPublicacion(respuesta){
   let publi = respuesta;
-  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
+  let imagen = respuesta.imagen_publi.replace("..","")
+  respuesta.imagen_publi = imagen;
+  // console.log(respuesta.imagen_publi);
+  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
   datos.appendTo("#contPublicaciones");
   console.log("hola");
 }
@@ -46,9 +49,9 @@ function denuncia (valor){
 }
 
 function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
-  console.log(valor);
-  console.log(autor_publi);
-  console.log(id_publi);
+  // console.log(valor);
+  // console.log(autor_publi);
+  // console.log(id_publi);
   jQuery.ajax({
       url:"../../modelo/PHP/"+ruta+".php",
       data:{
@@ -58,7 +61,7 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
       },
       type: "POST",
       success: function(response){
-        console.log(response);
+        // console.log(response);
           alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
           $(".quitar").remove();
           denuncia(valor, div);
@@ -78,7 +81,7 @@ document.getElementById("contPublicaciones").addEventListener("click",()=>{
   }
   else if(denun == "usuario"){
     var EliminarUsuario = event.target.getAttribute("autor");
-    console.log(EliminarUsuario);
+    // console.log(EliminarUsuario);
   }
 });
 //hacer funcion pequeña
@@ -86,8 +89,8 @@ document.getElementById("contComentarios").addEventListener("click",()=>{
   let denun = event.target.value;
   let publi = event.target.getAttribute("publi");
   autor = event.target.getAttribute("autor");
-  console.log(publi);
-  console.log(autor);
+  // console.log(publi);
+  // console.log(autor);
   if (denun == "quitarD"){
     quitar_eliminar("quitar_denuncia",autor,publi,"denuncia","2","Comentarios");
   }
@@ -97,7 +100,7 @@ document.getElementById("contComentarios").addEventListener("click",()=>{
   else if(denun == "usuario"){
     //alert("Me quieres eliminar");
      var EliminarUsuario = event.target.getAttribute("autor");
-     console.log(EliminarUsuario);
+     // console.log(EliminarUsuario);
   }
 });
 
