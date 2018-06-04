@@ -24,7 +24,7 @@ var click = 0;
           val : "0"
         },
         success: function(response){
-          if(response != "false"){
+          if(response != ""){
             // console.log(response);
             res = JSON.parse(response);
             // console.log(res);

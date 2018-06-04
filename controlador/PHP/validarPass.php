@@ -37,7 +37,6 @@
 			echo "T";
 			return true;
 		}
-
 	}
 	validarPass($pass);
 ?>
