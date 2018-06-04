@@ -17,6 +17,9 @@
         <div class="input-group-append">
           <button id="enviar" class="btn btn-outline-secondary" type="button">Enviar</button>
           <button id="actu" class="btn btn-outline-secondary" type="button">Ver nuevos mensajes</button>
+          <button id="evento" class="btn btn-outline-secondary" type="button">Evento</button>
+        </div>
+        <div>Ventana Modal
         </div>
       </div>
     </div>

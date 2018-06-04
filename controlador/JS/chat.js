@@ -44,3 +44,4 @@ nomsUsus.then(()=>{
         });
       });
 });
+//datos.id_chat es global 
