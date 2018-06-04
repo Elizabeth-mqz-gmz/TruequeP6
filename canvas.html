@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>canva</title>
+  </head>
+
+  <body>
+    <canvas id="lienzo">
+
+      nel
+    </canvas>
+  </body>
+
+  <script type="text/javascript">
+  //circulo cuadrado rectangulo triangulo yo puse bezier
+
+  var elemento = document.getElementById("lienzo");
+  elemento.width=window.innerWidth;
+  elemento.height=window.innerHeight;
+  var lienzo = elemento.getContext("2d");
+  lienzo.lineWidth=1;
+  lienzo.lineCap="round";
+
+  // var e = lienzo.createLinearGradient(0,0,600,600);
+  // e.addColorStop(0,"#ffff00");
+  // e.addColorStop(1,"#00ffff");
+  // lienzo.fillStyle=e;
+  // lienzo.strokeStyle=e;
+
+  var start;
+  var cax=0;
+  var zacks=0;
+
+  function animate(timer,coloz){
+    if(!start)
+      start=timer;
+    var progreso = timer-start;
+    cax+=20;
+    if (progreso<10000){
+      // lienzo.clearRect(0,0,elemento.width,elemento.height)
+      // lienzo.strokeStyle="rgb("+coloz%255+","+(cax%256)/2+","+cax%256+")";
+      lienzo.strokeStyle="#"+70+zacks+cax;
+      if(cax>155)
+        cax=0;
+      // console.log(progreso);
+      cax++;
+      zacks+=20;
+      if(zacks>1500)
+        zacks=6;
+      ank(0,0,cax);
+      lienzo.rotate(2*(Math.PI/180));
+      lienzo.scale(1.2,1);
+      requestAnimationFrame(animate,coloz+=2);
+    }
+  }
+  function ank(x,y,rax){
+    var a=setInterval(()=>{
+      lienzo.beginPath();
+      console.log(rax);
+      lienzo.arc(-150-rax%100,rax,25,0,2*Math.PI,true);
+      lienzo.moveTo(-250,0);
+      lienzo.lineTo(100,0);
+      lienzo.arc(150,0,25+rax/20,0,2*Math.PI,true);
+      // lienzo.moveTo(x,y);
+      // lienzo.arc(x-rax,y,rax,0,2*Math.PI,true);
+      // lienzo.moveTo(x,y);
+      // lienzo.arc(x,y+rax,rax,0,2*Math.PI,true);
+      lienzo.moveTo(x,y);
+      lienzo.arc(x,y-rax,rax,0,2*Math.PI,true);
+      lienzo.stroke();
+      lienzo.closePath();
+    });
+  }
+  function watz(){
+    requestAnimationFrame(animate,0);
+  }
+  lienzo.translate(670,300);
+  elemento.onclick=watz;
+  </script>
+</html>
