@@ -27,13 +27,14 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
+            <h3>Denuncia</h3>
             <button type="button" value="cerrar" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             </div>
             <div class="modal-body">
                 <form method="POST">
-                    <select name="denun" id="Opciondenun">
+                    <select name="denun" id="Opciondenun" class="custom-select" id="inputGroupSelect01">
                         <option value="Contenido inapropiado para la plataforma">Contenido inapropiado para la plataforma</option>
                         <option value="Me ofende">Me ofende</option>
                         <option value="Eso es mentira">Eso es mentira</option>
@@ -41,7 +42,7 @@
                         <option value="El usuario no pertenece a la Prepa">El usuario no pertenece a la Prepa</option>
                     </select>
                       <br><br>
-                      <input type="submit" id="envia">
+                      <button type="submit" class="btn btn-outline-dark" id="envia">Denunciar</button>
                 </form>
             </div>
         </div>

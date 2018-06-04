@@ -122,20 +122,17 @@ function publicacion(idPub,individual,cb){
                          $("#envia").on("click",()=>{
                              console.log("hola");
                              var denun = $(":selected").val();//obtiene el valor del select
-                             console.log(denun);
-                             alert(denun);
-
-                        // console.log(denuncia);
-                         $.ajax({
-                             url:"../../modelo/PHP/denuncia.php",
-                             data:{
+                             //console.log(denun);
+                             $.ajax({
+                               url:"../../modelo/PHP/denuncia.php",
+                               data:{
                                  idPubli: idPub,
                                  motivo : denun,
-                             },
-                             type: "POST",
-                             success: function(response){
-                 					console.log(response);
-                             }
+                               },
+                               type: "POST",
+                               success: function(response){
+                 					           console.log(response);
+                                   }
                               });
                          });
                      });
