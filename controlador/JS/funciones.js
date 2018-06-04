@@ -40,6 +40,8 @@ function publicacion(idPub,individual,cb){
             let divGeneral = "<div id='"+idPub+"' class='card'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
             let texto = "<h5 class='card-title'></h5><div class='den'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
+            // let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
+            //con MODAL
             let boton;
             if(individual)
                 boton = "<div class='reac'><img src='../recursos/nmp.png'/ class='Me vale'><img src='../recursos/md.png'/ class='Jajajaja'><img src='../recursos/mmm.png' class='Mmm'/></div>";
@@ -114,6 +116,27 @@ function publicacion(idPub,individual,cb){
                         type: "POST"
                     });
                 });
+                // if(publi.denuncia == "0") con MODAL
+                //     $("#"+idPub+" .den").on("click",()=>{
+                //         $("#"+idPub+" .den").hide();
+                //         $("#envia").on("click",()=>{
+                //             console.log("hola");
+                //             var denuncia = $("#denun").val();
+                //             // console.log(denuncia);
+                //         });
+                //         console.log(denuncia);
+                //         $.ajax({
+                //             url:"../../modelo/PHP/denuncia.php",
+                //             data:{
+                //                 idPubli: idPub,
+                //                 "denuncia": denun,
+                //             },
+                //             type: "POST",
+                //             success: function(response){
+                // 					console.log(response);
+                //             }
+                //         });
+                //     });
             else
                 $("#"+idPub+" .den").hide();
 
