@@ -24,9 +24,8 @@ var click = 0;
         },
         success: function(response){
           if(response != ""){
-             //console.log(response);
-             res = JSON.parse(response);
-            // console.log(res);
+
+            res = JSON.parse(response);
             BotonAdmi = $("<li class='nav-item active'><a class='nav-link' id='mensajes' href='"+res.ruta+"'>Administrador</a></li>");
             BotonAdmi.appendTo("#navbar");
           }

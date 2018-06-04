@@ -41,5 +41,6 @@ $(document).ready(function(){
           document.getElementById(dato).nextSibling.innerHTML="No es correcto";
         }
       }
+
     });
 });
