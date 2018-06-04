@@ -7,8 +7,8 @@
   checar_con($bd);
 
   if ($valor == "1"){
-    $bus = "SELECT id_autor, id_publicacion, publicacion, imagen_publi FROM publicacion WHERE denuncia_p = '1'";
-    //$bus = "SELECT id_autor, id_publicacion, publicacion, imagen_publi, razon_denuncia FROM publicacion WHERE denuncia_p = '1'";
+    //$bus = "SELECT id_autor, id_publicacion, publicacion, imagen_publi FROM publicacion WHERE denuncia_p = '1'";
+    $bus = "SELECT id_autor, id_publicacion, publicacion, imagen_publi, razon_denuncia FROM publicacion WHERE denuncia_p = '1'";
   }
   else{
     if ($valor == "2"){
