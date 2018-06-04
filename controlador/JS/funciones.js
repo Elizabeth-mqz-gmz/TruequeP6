@@ -102,7 +102,7 @@ function publicacion(idPub,individual,cb){
             if(publi.denuncia == "0")
                 $("#"+idPub+" .den").on("click",()=>{
                     $("#"+idPub+" .den").hide();
-                    console.log($("#"+idPub+" .den"));
+                    // console.log($("#"+idPub+" .den"));
                     let denuncia = prompt("Ingresa denuncia: ");
                     $.ajax({
                         url:"../../modelo/PHP/denuncia.php",
