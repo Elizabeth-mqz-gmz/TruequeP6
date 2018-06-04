@@ -89,4 +89,6 @@
     </section>
 </body>
 <script type='text/javascript' src='../animaciones/publica.js'></script>
+<script type='text/javascript' src='../../controlador/JS/nav_eventos.js'></script>
+
 </html>
