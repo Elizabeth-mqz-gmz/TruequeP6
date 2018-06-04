@@ -10,21 +10,25 @@
 
 .boton0{
   left : 1px;
-  background-color: red;
+  background-color: #8FCED0;
   color: white;
 }
 
 .boton1{
   right: 1px;
-  background-color: blue;
+  background-color: #E98836;
   color: white;
 }
 
 #cambio:hover {
-  background-color: yellow;
+  background-color: #1919BEBE;
   cursor: pointer;
 }
 
  #contenedor, button{
   height: 100%;
+}
+
+#contenedor{
+    background-image: url('../../modelo/documentacion/tp6.png');
 }

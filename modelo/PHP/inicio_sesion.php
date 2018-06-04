@@ -23,7 +23,7 @@
       $usu = cifrado("pUeE","usuario",1);
       $numeroCuenta = cifrado("pUeE", $datosUsu["id_usuario"], 1);
       setcookie($usu,$numeroCuenta,time()+3600*24*30,"/");//crear cookie
-      if ($datosUsu["id_usuario"] == "317341712"){ //revisa si coincide con el id de administrador
+      if ($datosUsu["id_usuario"] == "979847874"){ //revisa si coincide con el id de administrador
 
         //echo $datosUsu["id_usuario"];
         echo "T";
