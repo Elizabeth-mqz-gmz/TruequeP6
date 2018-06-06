@@ -52,19 +52,20 @@ $("#Genial").click(function(){
   alert("EVENTOOOOOOOOOO");
   eventoP = $("input:checked").val();
   fechaEven = valdt();
-  console.log(datos.chat);
-  lugar = $("#lugar").val();
-  if (fecha != "loser"){
+  //console.log(datos.chat);
+  dondeEs = $("#lugar").val();
+  if (fechaEven != "loser"){
     $.ajax({
       url:"../../modelo/PHP/nuevo_evento.php",
       data:{
-        fecha : fechaEvento,
+        fecha : fechaEven,
         chat : datos.chat,
         evento : eventoP,
         lugar : dondeEs
       },
       type: "POST",
       success: function(response){
+        console.log(response);
         if ( response == "")
           return mens(null);
         else
