@@ -33,20 +33,10 @@
                             else
                                 $valorcillo = true;
                     }
-                    else
-                        echo 'El nombre de usuario ('.$datos["user"].') es inválido';
                 }
-                else
-                        echo 'El apellido materno ('.$datos["ape_mat"].') es inválido';
             }
-            else
-                    echo 'El apellido paterno ('.$datos["ape_pat"].') es inválido';
         }
-        else
-                echo 'El nombre ('.$datos["nom"].') es inválido';
     }
-    else
-            echo 'El número de cuenta ('.$datos["num_cta"].') es inválido';
 
     if($valorcillo == true)
     {
@@ -56,11 +46,8 @@
             $datosCif[$i]=cifrado("pUeE",$v,1);
         }
         // print_r($datosCif);
-        //COOKIE
-        //$usu = cifrado("pUeE","usuario",1);
-        //setcookie($usu,$datosCif["num_cta"],time()+3600*24*30,"/"); //Vida de 1 mes.
 
-        $conex = mysqli_connect('localhost','root','','truequep6');
+        $conex = conexion();
         checar_con($conex);
         foreach ($datos as $i => $v) {
             $datos[$i]=validar($v,"",$conex);

@@ -24,7 +24,9 @@ function validar ($pal,$regex,$conex){//Esta función recibe una palabra y una r
       else
           return $pal;
 }
-
+function conexion(){
+    return mysqli_connect('localhost','root','','truequep6');
+}
 function checar_con($conex){//revisa conexión escribe en pantalla si hay error
     mysqli_set_charset($conex,"utf8");
     if(!$conex){
