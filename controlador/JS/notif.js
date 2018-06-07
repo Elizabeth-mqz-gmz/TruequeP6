@@ -17,21 +17,19 @@ $(document).ready(function(){
 					}
 			});
 	});
-});
- $(document).ready(function(){
-     $("nav #notifis").on("click", "li", function(){
-            let idNotif = $(this).attr('id');
-			// $(idNotif).children("li").css("cursor", "pointer");
-            // console.log(idNotif);
-            $.ajax({
-        			url: '../../modelo/PHP/visto.php',
-        			data:{
-        				notif : idNotif
-        			},
-        			type:'POST',
-        			success: function(response){
-        					// console.log(response);
-        			}
-        	});
- 	});
+   $("nav #notifis").on("click", "li", function(){
+          let idNotif = $(this).attr('id');
+		// $(idNotif).children("li").css("cursor", "pointer");
+          // console.log(idNotif);
+          $.ajax({
+      			url: '../../modelo/PHP/visto.php',
+      			data:{
+      				notif : idNotif
+      			},
+      			type:'POST',
+      			success: function(response){
+      					// console.log(response);
+      			}
+      	});
+	});
 });

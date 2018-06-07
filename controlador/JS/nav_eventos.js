@@ -1,4 +1,4 @@
-
+// console.log("Estoy en nav eventos");
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
@@ -24,7 +24,6 @@ var click = 0;
         },
         success: function(response){
           if(response != ""){
-
             res = JSON.parse(response);
             BotonAdmi = $("<li class='nav-item active'><a class='nav-link' id='mensajes' href='"+res.ruta+"'>Administrador</a></li>");
             BotonAdmi.appendTo("#navbar");
@@ -57,9 +56,10 @@ var click = 0;
 
 
   $("#buscar").on("click",()=>{
-     var usuBuscado = $("#buscado").val();
+    // console.log("Estoy en buscar");
+     var usuBuscado = $("#buscado").val(); //Tomar el valor del input
      if ( usuBuscado != ""){
-        let valida = new RegExp (/^(31)[6789][0-9]{6}/);
+        let valida = new RegExp (/^(31)[6789][0-9]{6}/); //Checar que meta un usuario válido
         if ( valida.test(usuBuscado) == true) {
              busca_usu(usuBuscado);
          }
@@ -70,13 +70,13 @@ var click = 0;
         alert("Ingresa un número de cuenta para buscar");
   });
 
-  $("#navbarDropdownChat").on("click",function(){
+  $("#navbarDropdownChat").on("click",function(){ //Muestra todos los chats de la persona
     $.ajax({
         url:"../../modelo/PHP/todosLosChats.php",
-        data:{
+        data:{ //Aquí no mando nada porque lo toma de la cookie con la que estamos trabajando, en php
         },
         type: "POST",
-        success: function(response){
+        success: function(response){ //response son los nombres de usuario de las personas con quienes ha chateado
             mostrar_chats(response);
         }
     });

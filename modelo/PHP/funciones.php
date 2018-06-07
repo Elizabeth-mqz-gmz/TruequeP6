@@ -119,7 +119,7 @@ function dame_publicacion($idPubli,$db){
     }";
     return $json;
 }
-function validarPass($contra)
+function validarPass($contra) //Creo que esta función ya no tiene caso, checar qué onda -Paola
 {
 	$regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`~!@$%^#*()_+\-={}|\[\]\:?,.\/])([A-Za-z\d`~!@$%^#*()_+\-={}|\[\]\:?,.\/]){8,20}$/";
 	$teclado = [

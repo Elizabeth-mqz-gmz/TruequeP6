@@ -21,7 +21,7 @@ function desplegarPublicacion(respuesta){
   let publi = respuesta;
   let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-warning' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button value = 'usuario' class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
   datos.appendTo("#contPublicaciones");
-  console.log("hola");
+  // console.log("hola");
 }
 
 function desplegarComentario(respuesta){
@@ -46,9 +46,9 @@ function denuncia (valor){
 }
 
 function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
-  console.log(autor_publi + "autor");
-  console.log(id_publi + "publicacion");
-  console.log(valor);
+  // console.log(autor_publi + "autor");
+  // console.log(id_publi + "publicacion");
+  // console.log(valor);
   jQuery.ajax({
       url:"../../modelo/PHP/"+ruta+".php",
       data:{
@@ -58,7 +58,7 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
       },
       type: "POST",
       success: function(response){
-          console.log(response);
+          // console.log(response);
           alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
           $(".quitar").remove();
           denuncia(valor, div);
@@ -85,8 +85,8 @@ document.getElementById("contComentarios").addEventListener("click",()=>{
   let denun = event.target.value;
   let publi = event.target.getAttribute("publi");
   let autor = event.target.getAttribute("autor");
-  console.log(publi);
-  console.log(autor);
+  // console.log(publi);
+  // console.log(autor);
   if (denun == "quitarD"){
     quitar_eliminar("quitar_denuncia",autor,publi,"denuncia","2","Comentarios");
   }
