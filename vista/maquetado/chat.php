@@ -40,15 +40,9 @@
                     <input type='text' class='form-control' id='lugar' name='id_usuario' required/>
                   </div>
                   <div class='form-group'>
-                    <!--label>Fecha:</label></br></br>
-                    Año <input type='text' class='form-control' id='anho' name='id_usuario' required/>
-                    Mes <input type='text' class='form-control' id='mes' name='id_usuario' required/>
-                    Dia <input type='text' class='form-control' id='dia' name='id_usuario' required/>
-                    Hora <input type='text' class='form-control' id='hora' name='id_usuario' required/>
-                    Minutos <input type='text' class='form-control' id='min' name='id_usuario' required/-->
-                    <label>Fecha</label><br /><br />
+                    <label>Fecha:</label><br /><br />
                     Día<input type="date" class"form-control" id="fechaFE" name="fecha" required />
-                    Hora<input type="time" class"form-control" id="horaFE" name="hora" required />
+                    Hora<input type="time" class"form-control" id="horaFE" name="hora" value="06:00" required />
                   </div>
                   <button id="Genial" class="btn btn-primary"  type="button">Registrar Evento</button>
                 </form>

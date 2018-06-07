@@ -45,22 +45,16 @@ nomsUsus.then(()=>{
       });
 
 });
+
 $("#Genial").hide(); //Ocultar el input hasta que todos los datos de la fecha estén bien
 $("#NuevoEvento").on("change",()=>{
-  console.log("hola");
-  let fecha = $("fechaFE").val();
-  let hora = $("horaFE").val();
-  //fecha = fecha.split("-");
-  //hora = hora.split(":");
-  console.log(fecha);
-  console.log(hora);
-  /*if ( ($("#hora").val()!= "") && ($("#anho").val()!="") && ($("#mes").val()!="") && ($("#min").val()!="") && ($("#dia").val()!="")){
+  if ( document.getElementById("fechaFE").value != "" && document.getElementById("horaFE").value != "" && $("#lugar").val()!= ""){
     fechaEven = valdt();
     if (fechaEven != "loser")
       $("#Genial").show();
     else
       $("#Genial").hide(); //Ocultar el input hasta que todos los datos de la fecha estén bien, por si los cambia
-  }*/
+  }
 });
 
 $("#Genial").click(function(){
