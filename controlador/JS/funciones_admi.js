@@ -22,8 +22,9 @@ function desplegarPublicacion(respuesta){
   let imagen = respuesta.imagen_publi.replace("..","")
   respuesta.imagen_publi = imagen;
   // console.log(respuesta.imagen_publi);
-  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
+  let  datos = $("<div class ='quitar' class='contDenuncia'><div>"+respuesta.id_autor+"</div><p><img src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
   datos.appendTo("#contPublicaciones");
+  $(".contDenuncia").css("margin", "10%");
   console.log("hola");
 }
 

@@ -14,11 +14,11 @@
       <div id="publicaciones">
         <div class='container'>
           <h2>Bienvenido a Trueque P6!!!</h2>
-          <p>Utiliza esta plataforma para encontrar tus cosas perdidas. Puedes buscar a tus amigos conociendo su número de cueta.</p>
+          <!--p>Utiliza esta plataforma para encontrar tus cosas perdidas. Puedes buscar a tus amigos conociendo su número de cueta.</p>
           <br />
           <p> Tus datos están seguros, nunca compartiremos nada de tu informacion.</p>
           <p>Esperamos te guste, lo hicimos con mucho cariño</p>
-          <img src="../../modelo/imagenes_pub/Nosotros.jpg"></img>
+          <img src="../../modelo/imagenes_pub/Nosotros.jpg"></img-->
         </div>
       </div>
     </div>
