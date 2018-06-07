@@ -47,13 +47,20 @@ nomsUsus.then(()=>{
 });
 $("#Genial").hide(); //Ocultar el input hasta que todos los datos de la fecha estén bien
 $("#NuevoEvento").on("change",()=>{
-  if ( ($("#hora").val()!= "") && ($("#anho").val()!="") && ($("#mes").val()!="") && ($("#min").val()!="") && ($("#dia").val()!="")){
+  console.log("hola");
+  let fecha = $("fechaFE").val();
+  let hora = $("horaFE").val();
+  //fecha = fecha.split("-");
+  //hora = hora.split(":");
+  console.log(fecha);
+  console.log(hora);
+  /*if ( ($("#hora").val()!= "") && ($("#anho").val()!="") && ($("#mes").val()!="") && ($("#min").val()!="") && ($("#dia").val()!="")){
     fechaEven = valdt();
     if (fechaEven != "loser")
       $("#Genial").show();
     else
       $("#Genial").hide(); //Ocultar el input hasta que todos los datos de la fecha estén bien, por si los cambia
-  }
+  }*/
 });
 
 $("#Genial").click(function(){
@@ -70,6 +77,8 @@ $("#Genial").click(function(){
     type: "POST",
     success: function(response){
       alert("Se registró el evento :)"); //Cerrar la ventana modal, no sé cómo jajajaj
+      document.getElementById("formularioEvento").reset();
+      $("#NuevoEvento").modal("hide");//cerrar la ventana modal
       }
     });
 });
