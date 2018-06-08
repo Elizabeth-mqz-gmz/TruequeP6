@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$("#navbarDropdownNotif").on("click",function(){
-		$("#notifis").children("li").empty();
+		$("#notifis").children(".estoNo").empty();
 			$.ajax({
 				    url: "../../modelo/PHP/despliega_notif.php",
 				    data: {
@@ -12,7 +12,7 @@ $(document).ready(function(){
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-							$("<li class='dropdown-item' id="+notifis[count].id_not+" style=padding: 4%; text-align: left; border-top: gray;>"+notifis[count].men_not+"</li><div class='dropdown-divider'></div>").appendTo("#notifis");
+							$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style=padding: 4%; text-align: left; border-top: gray;>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").appendTo("#notifis");
 						}
 					}
 			});
