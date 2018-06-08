@@ -7,12 +7,12 @@
 				<div class="container">
 					<div class="form-group">
 						<label>Número de cuenta:</label>
-						<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[678][0-9]{6}' required/>
+						<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[6789][0-9]{6}' required/>
 						<div></div>
 					</div>
 					<div class="form-group">
 						<label>Nombre de usuario:</label>
-						<input id='user' type='text' class="form-control" name='user' pattern='[A-Za-z\d]{6,20}$' required/>
+						<input id='user' type='text' class="form-control" name='user' pattern='[A-Za-z\d]{6,30}$' required/>
 						<div></div>
 						<small class="text-muted">
 							Debe comenzar con mayúsculas, mínimo 6 caracteres.
@@ -20,7 +20,7 @@
 					</div>
 					<div class="form-group">
 						<label>Nombre:</label>
-						<input id='nom' type='text' class="form-control" name='nom' pattern='^[A-Z][a-záéíóú]+' required/>
+						<input id='nom' type='text' class="form-control" name='nom' pattern='^[A-Z][a-záéíóú]+{3,30}$' required/>
 						<div></div>
 						<small class="text-muted">
 							Debe comenzar con mayúsculas.
@@ -28,7 +28,7 @@
 					</div>
 					<div class="form-group">
 						<label>Apellido paterno:</label>
-						<input id='ape_pat' type='text' class="form-control" name='ape_pat' pattern='^[A-Z][a-záéíóú]+' required/>
+						<input id='ape_pat' type='text' class="form-control" name='ape_pat' pattern='^[A-Z][a-záéíóú]+{3,30}$' required/>
 						<div></div>
 						<small class="text-muted">
 							Debe comenzar con mayúsculas.
@@ -36,7 +36,7 @@
 					</div>
 					<div class="form-group">
 						<label>Apellido materno:</label>
-						<input id='ape_mat' type='text' class="form-control" name='ape_mat' pattern='^[A-Z][a-záéíóú]+' required/>
+						<input id='ape_mat' type='text' class="form-control" name='ape_mat' pattern='^[A-Z][a-záéíóú]+{3,30}$' />
 						<div></div>
 						<small class="text-muted">
 							Debe comenzar con mayúsculas.
@@ -60,6 +60,7 @@
 						<div></div>
 					</div>
 					<div id='msj'>
+						<input class='btn btn-success' id='enviarRegis' class='btn btn-primary btn-l' type='submit'>
 					</div>
 				</div>
 			</form>

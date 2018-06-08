@@ -1,5 +1,5 @@
 <?php
-//manda todas los id de todas las publicaciones en un json
+//manda todas los id de todas las publicaciones o usuarios en un json
     include "funciones.php";
     $db = mysqli_connect("localhost","root","","truequep6");
     checar_con($db);

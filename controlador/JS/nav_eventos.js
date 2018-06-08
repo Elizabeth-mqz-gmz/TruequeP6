@@ -55,7 +55,7 @@ var click = 0;
     });
 
 
-  $("#buscar").on("click",()=>{
+  $("#buscar").on("click",()=>{ //Busca a alguien en la base de datos
     // console.log("Estoy en buscar");
      var usuBuscado = $("#buscado").val(); //Tomar el valor del input
      if ( usuBuscado != ""){
@@ -70,6 +70,7 @@ var click = 0;
         alert("Ingresa un número de cuenta para buscar");
   });
 
+
   $("#navbarDropdownChat").on("click",function(){ //Muestra todos los chats de la persona
     $.ajax({
         url:"../../modelo/PHP/todosLosChats.php",
@@ -81,3 +82,17 @@ var click = 0;
         }
     });
 	});
+
+  $("#nuevoChat").click(()=>{
+    $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con eso
+      url:"../../modelo/PHP/todos_los_ususs.php",
+      data:{
+      },
+      type: "POST",
+      success:function(response){
+          if(response!="null"){ //creo que nunca sería null, pero por si las moscas jaja
+              chat_nuevo(JSON.parse(response))
+          }
+      }
+    });
+  });
