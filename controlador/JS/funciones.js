@@ -316,13 +316,14 @@ function datos_chat(cb){
 
 function valdt ()//validar la fecha
 {
-  let year=$("#anho").val();//hacer variables con cada componente de la hora, para validar
-  let month=$("#mes").val();
-  let day=$("#dia").val();
-  let min=$("#min").val();
-  let hr=$("#hora").val();
-  if(year>2017 && month<13&&month>0 && day<32&&day>0 && hr<25&&hr>=0 && min<61&&min>=0 ){
-    return year+"-"+month+"-"+day+" "+hr+":"+min;//concatenar fecha y hora
+  //obtener valores del input para validar
+  //descompone el valor convirtiendolas en variables para poder realizar la validación
+  let fechaFE = document.getElementById("fechaFE").value; //obtener los valores
+  let horaFE = document.getElementById("horaFE").value;//por más que intenté ocn jquery no lo ocnseguí pero igual sirve
+  fecha = fecha.split("-");
+  hora = hora.split(":");
+  if(fecha[0]>2018 && fecha [1]<13&&fecha [1]>0 && fecha [2]<32&&fecha [2]>0 && hora[0]<25&&hora[0]>=0 && hora[1]<61&&hora[1]>=0 ){
+    return fechaFE + " " + horaFE;//concatenar fecha y hora
   }
   else{
     alert('Ingresaste un dato de la fecha de forma incorrecta, inténtalo de nuevo');
