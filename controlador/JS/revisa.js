@@ -12,7 +12,7 @@ $(document).ready(function(){
         			type:'POST',
         			success: function(response){
         					if (response == 'F'){ //Eso manda PHP cuando la contraseña está mal
-                        alert('Su contraseña es inválida');
+                        ModalGlobal('Seguridad','Su contraseña es inválida');
                         $("#pass1").val("");
                         $("#pass2").val("");
                         $("#enviarRegis").hide();

@@ -189,7 +189,7 @@ function ordenar_eventos(respuesta){
     respuesta[i].fecha = new Date (respuesta[i].fecha).getTime();//convertir la fecha para poder hacer una comparación
     ayu[i] = respuesta[i].fecha;
     }
-  ayu=ayu.sort(function(a,b){return a+b});
+  ayu=ayu.sort(function(a,b){return a-b});
   for (i in ayu){
     for (ind in respuesta){
       if (ayu[i] == evento[ind].fecha)
@@ -328,7 +328,7 @@ function valdt ()//validar la fecha
     return fechaFE + " " + horaFE;//concatenar fecha y hora
   }
   else{
-    alert('Ingresaste un dato de la fecha de forma incorrecta, inténtalo de nuevo');
+    ModalGlobal("Dato incorrecto","Ingresaste un dato de la fecha de forma incorrecta, inténtalo de nuevo" );
     return 'loser';//no se cumplió la validación
   }
 }
@@ -369,10 +369,10 @@ function busca_usu(usuBusc) {
              location.href ="perfil_usuario.php"; //Llevarlo al perfil del usuario
            }
            else
-             alert("Lo siento, tu amigo no está registrado en esta plataforma");
+            ModalGlobal("Búsqueda","Lo siento, tu amigo no está registrado en esta plataforma");
         }
         else
-           alert("Ingresa un usuario válido");
+           ModalGlobal("Búsqueda","Ingresa un usuario válido");
       }
   });
 }
@@ -395,4 +395,15 @@ function chat_nuevo(usuarios) {
     document.cookie = "otro="+usuarios[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
     location.href ="../../vista/maquetado/chat.php";
   });
+}
+
+  function ModalGlobal (encabezado, contenido){//sustituir alert hacer una ventana Modal
+    let enc = $("<p>"+encabezado+"</p>");
+    let cont = $("<p>"+contenido+"</p>");
+    $("#encabezado").empty();
+    $("#contenidoModal").empty();
+    enc.appendTo("#encabezado");
+    cont.appendTo("#contenidoModal");
+    $("#ModalGlobal").modal("show"); //mostrar la ventana modal
+    $("#ModalGlobal").css({"transition":"all 1s","color":"#E98836"});
 }

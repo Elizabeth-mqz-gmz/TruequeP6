@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Perfil</title>
-    <?php include 'head.html' ?>
+    <?php include 'head.html'; ?>
     <style>
       #imagen{
         width: 20%;
@@ -17,7 +17,7 @@
     </style>
   </head>
   <body>
-    <?php include 'navbar.html'?>
+    <?php include 'navbar.php';?>
     <div id="perfil">
       <div id="imagen">
         <?php echo "<img src='../../".$perfil["imagen"]."' class='rounded float-left' class='img-thumbnail' alt='imagen perfil'/>"; ?>

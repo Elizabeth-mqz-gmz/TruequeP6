@@ -4,7 +4,7 @@
     <?php include "head.html";?>
   </head>
   <body>
-    <?php include "navbar.html";?>
+    <?php include "navbar.php";?>
     <div class="container">
       <div class="row">
         <div class="col"><button id='publicaciones' class="btn btn-outline-secondary btn-lg btn-block" >Publicaciones</button></div>
@@ -23,11 +23,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <?php include "../../vista/maquetado/inicio_sesion.html"?>
+            <?php include "../../vista/maquetado/inicio_sesion.html";;?>
           </div>
         </div>
       </div>
     </div>
+    <?php include "modal.html";; ?>
   </body>
 </html>
 <script src= "../../controlador/JS/nav_eventos.js" type="text/javascript"></script>

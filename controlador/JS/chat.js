@@ -70,7 +70,7 @@ $("#Genial").click(function(){
     },
     type: "POST",
     success: function(response){
-      alert("Se registró el evento :)"); //Cerrar la ventana modal, no sé cómo jajajaj
+      ModalGlobal("Éxito","Se registró el evento :)"); //Cerrar la ventana modal, no sé cómo jajajaj
       document.getElementById("formularioEvento").reset();
       $("#NuevoEvento").modal("hide");//cerrar la ventana modal
       }

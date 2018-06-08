@@ -58,7 +58,7 @@ function quitar_eliminar( ruta, autor_publi, id_publi, mensaje, valor, div){
       type: "POST",
       success: function(response){
         // console.log(response);
-          alert("¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
+          ModalGlobal("Éxito","¡Proceso Éxitoso!, la "+mensaje+" ha sido eliminada");
           $(".quitar").remove();
           denuncia(valor, div);
       }
@@ -122,12 +122,12 @@ $("#enviar").click(()=>{
                   },
                   type: "POST",
                   success: function(response){
-                      alert("El usuario ha sido eliminado mauajajaja");
+                      ModalGlobal("Éxito","El usuario ha sido eliminado");
                       }
                   });
               }
             else{
-              alert("Ingrese bien los datos");
+              ModalGlobal("Datos incorrectos","Ingrese bien los datos");
             }
         }
     });

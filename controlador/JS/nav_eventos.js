@@ -65,10 +65,10 @@ var click = 0;
              busca_usu(usuBuscado);
          }
         else
-          alert("Ingresa un usuario válido");
+          ModalGlobal("Búsqueda","Ingresa un usuario válido");
       }
       else
-        alert("Ingresa un número de cuenta para buscar");
+        ModalGlobal("Búsqueda","Ingresa un número de cuenta para buscar");
   });
 
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
-    <?php include "navbar.html" ?>
+    <?php include "navbar.php";?>
     <div id='contenedorPubli'></div>
     <div class="container">
         <div id='contenedorComen'></div> <!--POR FAVOR AIUDA CON EL DISEÑO AQUÍ -Paola-->
@@ -22,6 +22,7 @@
             <button type="button" id="enviarComen" class="btn btn-primary">Comentar</button>
         </div>
     </div>
+    <?php include 'modal.html';?>
 </body>
 <script type='text/javascript' src='../../controlador/JS/publicacion.js'></script>
 </html>
