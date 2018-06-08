@@ -320,9 +320,11 @@ function valdt ()//validar la fecha
   //descompone el valor convirtiendolas en variables para poder realizar la validación
   let fechaFE = document.getElementById("fechaFE").value; //obtener los valores
   let horaFE = document.getElementById("horaFE").value;//por más que intenté ocn jquery no lo ocnseguí pero igual sirve
-  fecha = fecha.split("-");
-  hora = hora.split(":");
-  if(fecha[0]>2018 && fecha [1]<13&&fecha [1]>0 && fecha [2]<32&&fecha [2]>0 && hora[0]<25&&hora[0]>=0 && hora[1]<61&&hora[1]>=0 ){
+  fecha = fechaFE.split("-");
+  hora = horaFE.split(":");
+  //console.log(fecha);
+  //console.log(fecha);
+  if(parseInt(fecha[0])>2017 && parseInt(fecha[1])<13&&parseInt(fecha[1])>0 && parseInt(fecha[2])<32&&parseInt(fecha[2])>0 && parseInt(hora[0])<25&&parseInt(hora[0])>=0 && parseInt(hora[1])<61&&parseInt(hora[1])>=0 ){
     return fechaFE + " " + horaFE;//concatenar fecha y hora
   }
   else{
