@@ -40,7 +40,7 @@
                 <script>
                 let hoy = new Date ();
                 let mes = hoy.getMonth()+1;
-                $("<h4>Hoy: "+hoy.getDate()+"/"+mes.toString()+"/"+hoy.getFullYear()+"</h4>").appendTo("#fechaHoy");
+                $("<span style='color:#E98836;'><h4>Hoy: "+hoy.getDate()+"/"+mes.toString()+"/"+hoy.getFullYear()+"</h4></span>").appendTo("#fechaHoy");
                 </script>
               </div>
             </div>

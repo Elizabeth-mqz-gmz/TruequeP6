@@ -183,19 +183,24 @@ function ordenar_eventos(respuesta){
 }
 
 function hacer_calendario (respuesta) {
-  $("<div id='calendario'>").appendTo("#evento");
+  $("<div id='calendario' style='width:20%'>").appendTo("#evento");
 
   for ( i in respuesta){
     respuesta[i].fecha = new Date(respuesta[i].fecha);
     mes = parseInt(respuesta[i].fecha.getMonth());
-    mes ++;
+    mes ++;;
     dia = respuesta[i].fecha.getDate() +"/"+ mes.toString() + "/"+ respuesta[i].fecha.getFullYear();
-    hora = respuesta[i].fecha.getHours() + ":" + respuesta[i].fecha.getMinutes();
-    let fecha = "<div >El día "+dia+" en el horario "+hora;//mientras no está súper definido como se mostrará el calendario, así no está todo muy amontonado
+    hora = respuesta[i].fecha.getHours();
+    min = respuesta[i].fecha.getMinutes();
+    if (hora < 10)//hacer que la hora se vea 09:09 y no 9:9
+      hora = "0" + hora.toString();
+    if (min < 10)
+      min = "0" + min.toString();
+    let fecha = "<div >El día <span style='color:#E98836;'><b>"+dia+"</b></span> en el horario <span style='color:#E98836;'><b>"+ hora + ":" +min +"</b></span>";//mientras no está súper definido como se mostrará el calendario, así no está todo muy amontonado
     let personas = " se encontrarán "+respuesta[i].id_em+" y "+respuesta[i].id_rec;
     let evento = "<h4>"+respuesta[i].tipo_even+"</h4>";
     let lugar = " en "+respuesta[i].lugar+"</div>";
-    $("<div class='dropdown-item disabled'>"+ evento + fecha + personas +  lugar +"</div>").appendTo("#calendario");
+    $("<div class='dropdown-item disabled' style='color:#3D343F;'>"+ evento + fecha +"<br />"+ personas +  lugar +"</div>").appendTo("#calendario");
     $("<div class='dropdown-divider'></div>").appendTo("#calendario");
   }
   $("</div>").appendTo("#evento");
