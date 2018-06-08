@@ -8,20 +8,18 @@
   font-size: 18px;
 }
 
-.boton0{
-  left : 1px;
-  background-color: #8FCED0;
-  color: white;
-}
+.boton0{ left : 1px; }
+.boton1{ right : 1px; }
 
-.boton1{
-  right: 1px;
-  background-color: #E98836;
+.boton1, .boton0{
+  background-color: #3D343F;
+  font-family: 'Allerta', sans-serif;
   color: white;
+  transition:all 0.5s;
 }
 
 #cambio:hover {
-  background-color: #1919BEBE;
+  background-color: #19BEBE;
   cursor: pointer;
 }
 

@@ -36,7 +36,7 @@ var click = 0;
 
   var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
     $('.cambio').on('click',()=>{
-      boton = (publi == 0)? 1 : 0;
+      boton = (publi == 0)? 1 : 0;//quitar o colocar clase para que se esté en la izquierda o la derecha
       $(".cambio").removeClass( "boton"+ publi.toString());
       $(".cambio").addClass("boton"+ boton.toString());
       publi = boton;

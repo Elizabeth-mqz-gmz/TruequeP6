@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="vista/estilo/inicio.css">
     <link rel='stylesheet' href='vista/estilo/publicaciones.css'/>
     <link rel='stylesheet' href='vista/estilo/formulario.css' />
+    <link rel="shortcut icon" type="image/x-icon" href="vista/recursos/favicon.ico" />
   </head>
   <body>
     <div id="inicio">

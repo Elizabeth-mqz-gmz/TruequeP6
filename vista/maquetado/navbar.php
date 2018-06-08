@@ -75,20 +75,20 @@
 <div class="modal fade" id="buscarParaNuevoChat" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header headerForm">
         <h5 class="modal-title">Nueva conversación</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <div class='form-group'>
+          <div class='form-group formtexto'>
             <label>Nombre de usuario:</label>
             <input type='text' class='form-control' id='usuarioParaChatear' name='id_usuario' required />
             <ul id="mostrarPers" role="menu" aria-labelledby="navbarDropdown">
             </ul>
           </div>
-          <div class='form-group'>
+          <div class='form-group formtexto'>
             Da click en el nombre del usuario con el que quieres empezar a chismear
           </div>
           <!-- <button id="comenzarConver" class="btn btn-primary"  type="button">Iniciar conversación</button> -->
