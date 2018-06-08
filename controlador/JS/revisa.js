@@ -10,7 +10,7 @@ $(document).ready(function(){
         			type:'POST',
         			success: function(response){
         					if (response == 'F'){ //En las regex hubo algún error
-                                alert('Su contraseña es invalida');
+                                ModalGlobal('Seguridad','Su contraseña es invalida');
         					}
                   else //Si pasó la validación entonces envía el botón de submit
                     $("#msj").html("<input class='btn btn-success' class='btn btn-primary btn-l' type='submit'>");

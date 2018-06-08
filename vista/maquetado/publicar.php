@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-    <?php include "navbar.html" ?>
+    <?php include "navbar.php"; ?>
     <section>
         <form method='POST' action='../../modelo/PHP/publica.php' enctype='multipart/form-data'>
             <div class="custom-file">

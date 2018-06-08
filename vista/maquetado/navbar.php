@@ -71,5 +71,6 @@
     </div>
   </div>
 </nav>
+<?php include 'modal.html' ?>
 <script src='../../controlador/JS/num_notif.js'></script>
 <script src='../../controlador/JS/notif.js'></script>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php include 'head.html' ?>
+    <?php include 'head.html'; ?>
     <title>Trueque P6</title>
     <link rel='stylesheet' href='../estilo/botonCambio.css'/>
 </head>
   <body>
-    <?php include 'navbar.html' ?>
+    <?php include 'navbar.php'; ?>
     <div id="contenedor">
       <button id="cambio" class="cambio boton0 btn btn-light"><div id="contenedorBoton"></div></button>
     </div>
@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <?php include "modal.html";?>
     <!--?php include 'footer.html' ?-->
   </body>
   <?php include '../../modelo/PHP/notif_bienve.php' ?>
