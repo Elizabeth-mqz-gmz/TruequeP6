@@ -1,8 +1,18 @@
 .botones{
-  padding: 20% 5% ;
+  padding: 20%;
   margin: 0;
 }
 #contenedor{
   display:flex;
   padding: 10% 31%;
+}
+#bienvenido{
+    color:blue;
+    background: red;
+}
+#inicio{
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
+    margin-left: 25%;
 }

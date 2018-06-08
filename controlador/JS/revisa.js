@@ -30,14 +30,16 @@ $(document).ready(function(){
       var aux = elements.indexOf(dato); //Busca ese ID en el array, y devuelve su índice
       if (aux >= 0){
         let reg = new RegExp (regex[aux]); //Índice equivalente en el array de regex
-
+        console.log(dato);
         if (reg.test(event.target.value) == true){ //Si hace match
           document.getElementById(dato).className = "form-control is-valid";
-          document.getElementById(dato).nextSibling.innerHTML="Eso funciona para mi!"
+          document.getElementById(dato).nextElementSibling.innerHTML="Eso funciona para mi!"
+          document.getElementById(dato).nextElementSibling.style.color="green";
         }
         else{
           document.getElementById(dato).className = "form-control is-invalid"; //Si falla
-          document.getElementById(dato).nextSibling.innerHTML="No es correcto";
+          document.getElementById(dato).nextElementSibling.innerHTML="No es correcto";
+          document.getElementById(dato).nextElementSibling.style.color="red";
         }
       }
 

@@ -5,42 +5,46 @@
 		<div class="card-body">
 			<form id='regis' action='modelo/PHP/regis.php' method='POST' enctype='multipart/form-data'>
 				<div class="container">
-					<div class="form-group">
-						<label>Número de cuenta:</label>
-						<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[678][0-9]{6}' required/>
-						<div></div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Número de cuenta:</label>
+							<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[678][0-9]{6}' required/>
+							<div></div>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Nombre de usuario:</label>
+							<input id='user' type='text' class="form-control" name='user' pattern='[A-Za-z\d]{6,20}$' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas, mínimo 6 caracteres.
+							</small>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>Nombre de usuario:</label>
-						<input id='user' type='text' class="form-control" name='user' pattern='[A-Za-z\d]{6,20}$' required/>
-						<div></div>
-						<small class="text-muted">
-							Debe comenzar con mayúsculas, mínimo 6 caracteres.
-						</small>
-					</div>
-					<div class="form-group">
-						<label>Nombre:</label>
-						<input id='nom' type='text' class="form-control" name='nom' pattern='^[A-Z][a-záéíóú]+' required/>
-						<div></div>
-						<small class="text-muted">
-							Debe comenzar con mayúsculas.
-						</small>
-					</div>
-					<div class="form-group">
-						<label>Apellido paterno:</label>
-						<input id='ape_pat' type='text' class="form-control" name='ape_pat' pattern='^[A-Z][a-záéíóú]+' required/>
-						<div></div>
-						<small class="text-muted">
-							Debe comenzar con mayúsculas.
-						</small>
-					</div>
-					<div class="form-group">
-						<label>Apellido materno:</label>
-						<input id='ape_mat' type='text' class="form-control" name='ape_mat' pattern='^[A-Z][a-záéíóú]+' required/>
-						<div></div>
-						<small class="text-muted">
-							Debe comenzar con mayúsculas.
-						</small>
+						<div class="form-group">
+							<label>Nombre:</label>
+							<input id='nom' type='text' class="form-control" name='nom' pattern='^[A-Z][a-záéíóú]+' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas.
+							</small>
+						</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Apellido paterno:</label>
+							<input id='ape_pat' type='text' class="form-control" name='ape_pat' pattern='^[A-Z][a-záéíóú]+' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas.
+							</small>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Apellido materno:</label>
+							<input id='ape_mat' type='text' class="form-control" name='ape_mat' pattern='^[A-Z][a-záéíóú]+' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas.
+							</small>
+						</div>
 					</div>
 					<div class="custom-file">
 						<input type="file" name='imagen' accept='image/png' class="custom-file-input" id="validatedCustomFile">
