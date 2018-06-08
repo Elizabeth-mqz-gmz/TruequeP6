@@ -1,7 +1,7 @@
 <?php
 //manda todas los id de todas las publicaciones o usuarios en un json
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
 
     $busq = "SELECT id_publicacion FROM publicacion"; //Tooodas las publicaciones

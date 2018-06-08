@@ -2,7 +2,7 @@
 //recibe una id publicación y devuelve
 //json en forma de arreglo normal, con nomus : comentario
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     $idPub = validar($_POST["idPubli"],"",$db);
 

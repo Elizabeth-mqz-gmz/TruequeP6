@@ -1,7 +1,7 @@
 <?php
     //abrir base de datos en indexs
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     //$chat = $_POST["chat"];
     $llave = $_POST["llave"]; //Para descifrar

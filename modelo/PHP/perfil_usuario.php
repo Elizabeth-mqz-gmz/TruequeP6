@@ -1,6 +1,6 @@
 <?php
   include "funciones.php";
-  $bd = mysqli_connect("localhost","root","","truequep6");
+  $bd = conexion();
   checar_con($bd);
   if (iSSET($_COOKIE["usuBuscado"])) //Checa si eso existe porque cuando le das buscar en js se crea la cookie, sólo si no se está buscando a él mismo
       $id_usuario= $_COOKIE["usuBuscado"];

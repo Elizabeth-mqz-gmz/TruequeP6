@@ -2,7 +2,7 @@
   //eliminar_usuario.php
   //Diosito ayudame, quiero que esto funcione y se vea bonito
   include "funciones.php";
-  $bd = mysqli_connect("localhost", "root", "", "truequep6");
+  $bd = conexion();
   checar_con($bd);
   $usuario = $_POST["usuario"];
   //Elimina parcialmente al usuario :)

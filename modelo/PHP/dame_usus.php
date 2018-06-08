@@ -1,6 +1,6 @@
 <?php
   include "funciones.php";
-  $bd = mysqli_connect("localhost","root","","truequep6");
+  $bd = conexion();
   checar_con($bd);
   $otro = $_POST["otro"]; //Tomar el nnum de cuenta de la persona con la que quiere chatear
 

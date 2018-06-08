@@ -26,8 +26,8 @@ $(document).ready(function(){
           $("#msj").html("Las contraseñas no coinciden"); //Si pass2 no es igual a pass1
     });
 
-    var regex = [/^(31)[6789][0-9]{6}/, /^[A-Z][a-zA-Záéíóú\s]{3,30}$/, /^[A-Z][a-zA-Záéíóú\s]{3,30}$/,
-     /^[A-Z][a-zA-Záéíóú\s]{3,30}$/, /[A-Za-z\d]{6,30}$/];
+    var regex = [/^(31)[6789][0-9]{6}/, /^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$/, /^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$/,
+     /^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$/, /[A-Za-z\d]{6,30}$/];
     var elements = ["num_cta", "nom", "ape_pat", "ape_mat", "user"];
 
     $("#regis").change((event)=>{ //En el elemento que esté cambiando dentro del form

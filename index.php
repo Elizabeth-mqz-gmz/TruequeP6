@@ -36,7 +36,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <?php include "vista/maquetado/regis.php"?>
+            <?php include "vista/maquetado/regis.html"?>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <?php include "vista/maquetado/inicio_sesion.html"?>
+            <?php include "vista/maquetado/inicio_sesion.html";?>
           </div>
         </div>
       </div>

@@ -3,8 +3,8 @@
 //obtener lo básico de la publicación para valorar si se debe eliminar
   include "funciones.php";
 
-  $bd = mysqli_connect("localhost","root","","truequep6");
-
+  $bd = conexion();
+  checar_con($bd);
   $id = validar($_POST["id"],"",$bd);
   $tabla = validar($_POST["tabla"], "", $bd);
 

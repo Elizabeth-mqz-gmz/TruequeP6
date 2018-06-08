@@ -1,7 +1,7 @@
 <?php
     //abrir base de datos en index
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     //Datos que se definen para la búsqueda
     $quienEnvio = 1; // Suponemos que es el emisor hasta que entra en la condición de lo contrario

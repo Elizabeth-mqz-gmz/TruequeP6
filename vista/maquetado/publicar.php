@@ -20,9 +20,9 @@
     <?php include "navbar.php"; ?>
     <section>
         <form method='POST' action='../../modelo/PHP/publica.php' enctype='multipart/form-data'>
-            <div class="custom-file">
-                <input type="file" name='imagen' accept='image/jpg' class="custom-file-input" required>
-                <label class="custom-file-label" for="validatedCustomFile">Elige una imagen</label>
+            <div class="form-group">
+                <label class="custom-file-label" for="exampleFormControlFile2">Elige una imagen</label>
+                <input type="file" name="imagen" accept="image/jpg" class="form-control-file" id="exampleFormControlFile2"required>
             </div>
             <fieldset class="form-group">
                 <div class="row">

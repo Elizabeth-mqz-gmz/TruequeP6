@@ -24,9 +24,9 @@
     $hash = sha1("f2wesxdrftgyH3".$datos["contra"]."B6jxddgvhuijwq"); //hasheado de contraseña, con sazonado
     $valorcillo = false;
      if (preg_match('/^(31)[6789][0-9]{6}/',$datos["num_cta"])){
-        if (preg_match('/^[A-Z][a-záéíóú]{3,30}$/',$datos["nom"])){
-            if (preg_match('/^[A-Z][a-záéíóú]{3,30}$/',$datos["ape_pat"])){
-                if (preg_match('/^[A-Z][a-záéíóú]{3,30}$/',$datos["ape_mat"])){
+        if (preg_match('/^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$/',$datos["nom"])){
+            if (preg_match('/^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$/',$datos["ape_pat"])){
+                if (preg_match('/^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$/',$datos["ape_mat"])){
                     if (preg_match('/[A-Za-z\d]{6,30}$/',$datos["user"])){
                             if(!validarPass($datos["contra"]))
                                 echo 'La contraseña es inválida';
@@ -63,9 +63,6 @@
             $bus.=$datos['user']."','".$ruta."')";
             //echo $bus;
             $resp=mysqli_query($conex,$bus);
-        }
-        else{//REVISAAAAAAAA
-            echo "+<script type='text/javascript'>alert('Ya existe un registro como este')</script>+";
         }
         mysqli_close($conex);
     }

@@ -1,7 +1,7 @@
 <?php
   //buscar.php
   include "funciones.php";
-  $bd = mysqli_connect("localhost", "root", "", "truequep6");
+  $bd = conexion();
   checar_con($bd);
   $num_cta = validar($_POST["usuario"],"/^(31)[6789][0-9]{6}/",$bd);
 

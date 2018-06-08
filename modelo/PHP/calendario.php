@@ -2,9 +2,8 @@
   include "funciones.php";
   $usuario = dame_cookie();
   //echo ($usuario);
-  $bd = mysqli_connect("localhost", "root", "", "truequep6");
+  $bd = conexion();
   checar_con($bd);
-
   $queryEvento = array(
     "SELECT fecha, tipo_even, id_em, id_rec, lugar FROM ",
     "usuario INNER JOIN chat ON usuario.id_usuario = chat.id_rec OR usuario.id_usuario = chat.id_em ",

@@ -1,7 +1,7 @@
 <?php
   //eliminar publicación;
   include "funciones.php";
-  $bd = mysqli_connect("localhost", "root", "", "truequep6");
+  $bd = conexion();
   checar_con($bd);
 
   $tabla = $_POST["tabla"];

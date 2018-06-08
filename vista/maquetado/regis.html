@@ -1,0 +1,74 @@
+<script type='text/javascript' src='../../librerias/jquery-3.3.1.min.js'></script>
+
+<section id='registro'>
+	<div class="card">
+		<div class="card-body">
+			<form id='regis' action='modelo/PHP/regis.php' method='POST' enctype='multipart/form-data'>
+				<div class="container">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Número de cuenta:</label>
+							<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[678][0-9]{6}' required/>
+							<div></div>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Nombre de usuario:</label>
+							<input id='user' type='text' class="form-control" name='user' pattern='[A-Za-z\d]{6,30}$' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas, mínimo 6 caracteres.
+							</small>
+						</div>
+					</div>
+						<div class="form-group">
+							<label>Nombre:</label>
+							<input id='nom' type='text' class="form-control" name='nom' pattern='^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas.
+							</small>
+						</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Apellido paterno:</label>
+							<input id='ape_pat' type='text' class="form-control" name='ape_pat' pattern='^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas.
+							</small>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Apellido materno:</label>
+							<input id='ape_mat' type='text' class="form-control" name='ape_mat' pattern='^[A-Z][a-záéíóúA-ZÁÉÍÓÚ\s]{3,30}$' required/>
+							<div></div>
+							<small class="text-muted">
+								Debe comenzar con mayúsculas.
+							</small>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlFile1">Elige una imagen</label>
+						<input type="file" name="imagen" accept="image/png" class="form-control-file" id="exampleFormControlFile1">
+					</div>
+					<div class="form-group">
+						<label >Contraseña :</label>
+						<input class="form-control mx-sm-3" type='password' class="form-control contrasena" name='contra' id='pass1' required/>
+						<div></div>
+						<small class="text-muted">
+							De 8-20 caracteres, al menos una mayúscula, una minúscula, un número y un caracter especial.
+						</small>
+					</div>
+					<div class="form-group">
+						<label >Confirma contraseña :</label>
+						<input class="form-control mx-sm-3" type='password' class="form-control contrasena" name='contra2'  id='pass2' required/>
+						<div></div>
+					</div>
+					<div id='msj'>
+						<input class='btn btn-success' id='enviarRegis' class='btn btn-primary btn-l' type='submit'>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<script>'../../controlador/JS/revisa.js'</script>

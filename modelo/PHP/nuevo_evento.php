@@ -1,7 +1,7 @@
 <?php
   include "funciones.php"; //Este archivo guarda un evento en la bd a través de ajax
 
-  $bd = mysqli_connect("localhost", "root", "", "truequep6");
+  $bd = conexion();
   checar_con($bd);
 
   $id_chat = validar($_POST["chat"], "", $bd);

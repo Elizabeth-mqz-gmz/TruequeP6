@@ -1,6 +1,6 @@
 <?php
   include "funciones.php";
-  $db = mysqli_connect("localhost","root","","truequep6");
+  $db = conexion();
   checar_con($db);
   //Datos que se definen para la búsqueda
   $pers = "[";

@@ -1,7 +1,7 @@
 <?php
 //envía una notificación cuando un usuario da me interesa la publicación
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     $form = [];
     foreach($_POST as $i=> $v){

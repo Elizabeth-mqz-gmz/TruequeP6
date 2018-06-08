@@ -3,7 +3,7 @@
   //Es el bueno x2
   include 'funciones.php';
   $valor = $_POST["tabla"];
-  $bd = mysqli_connect('localhost', 'root', '', 'truequep6');
+  $bd = conexion();
   checar_con($bd);
 
   if ($valor == "1"){

@@ -1,7 +1,7 @@
 <?php
 //recibe una publicación y un mensaje y los guarda en los comentarios
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     $form = [];
     foreach($_POST as $i=> $v){

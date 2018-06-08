@@ -1,6 +1,6 @@
 <?php
   include "funciones.php";
-  $bd = mysqli_connect("localhost","root","","truequep6");
+  $bd = conexion();
   checar_con($bd);
   if ($_POST["perfilUsu"] != "usuario") //Eso se manda en el ajax cuando el usuario que busca es él mismo
       $id_usuario = $_POST["perfilUsu"];
@@ -20,7 +20,7 @@
   if($count!="null") // Hay publicaciones, manda el json de éstas
       echo $json;
   else
-      echo "null"; //Envía null para validar en js que el usuario no ha publicado nada 
+      echo "null"; //Envía null para validar en js que el usuario no ha publicado nada
 
   mysqli_close($bd);
 ?>

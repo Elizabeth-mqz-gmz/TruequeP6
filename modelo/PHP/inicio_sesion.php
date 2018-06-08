@@ -4,7 +4,7 @@
 
   $datosUsu = array ("id_usuario" => $_POST["id_usuario"] , "contra" => $_POST["contra"]);
 
-  $bd = mysqli_connect("localhost", "root", "", "truequep6");
+  $bd = conexion();
   checar_con($bd);
   forEach($datosUsu as $ind => $ele)
     $datosUsu[$ind]= validar($ele,"", $bd);//escapar datos ingresados por el usuario

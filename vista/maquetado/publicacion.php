@@ -6,7 +6,6 @@
     <title>Publicacion</title>
     <script type='text/javascript' src='../../librerias/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='../../controlador/JS/funciones.js'></script>
-    <script type='text/javascript' src='../../controlador/JS/nav_eventos.js'></script>
     <link rel='stylesheet' href='../estilo/publicaciones.css'/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
@@ -25,4 +24,5 @@
     <?php include 'modal.html';?>
 </body>
 <script type='text/javascript' src='../../controlador/JS/publicacion.js'></script>
+<script type='text/javascript' src='../../controlador/JS/nav_eventos.js'></script>
 </html>

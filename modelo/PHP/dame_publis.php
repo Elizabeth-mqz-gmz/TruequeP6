@@ -1,7 +1,7 @@
 <?php
 //manda todas los id publicaciones en un json
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     $form = [];
     foreach($_POST as $i => $v){

@@ -1,7 +1,7 @@
 <?php
     include "funciones.php";
     $usuario = dame_cookie();
-    $conex = mysqli_connect('localhost','root','','truequep6');
+    $conex = conexion();
     checar_con($conex);
     $pru = $_POST["notif"];
     $actualNotif = "UPDATE notificacion SET visto='1' WHERE id_not = '$pru'";

@@ -2,7 +2,7 @@
 //abre base de datos, recibe de un ajax un número id_publicacion
 //cambia al atributo denuncia_p a 1
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     $form = [];
     foreach($_POST as $i => $v){

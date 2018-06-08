@@ -1,7 +1,7 @@
 <?php
     include 'funciones.php';
     $usuario = dame_cookie();
-    $conex = mysqli_connect('localhost','root','','truequep6');
+    $conex = conexion();
     checar_con($conex);
 
     $busBien = "SELECT id_not FROM notificacion WHERE id_usu_not = ".$usuario."";

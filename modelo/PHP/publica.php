@@ -1,7 +1,7 @@
 <?php
 //guarda los datos de una publicación en la base de datos
     include "funciones.php";
-    $db = mysqli_connect("localhost","root","","truequep6");
+    $db = conexion();
     checar_con($db);
     $form = [];
     foreach($_POST as $i=> $v){
