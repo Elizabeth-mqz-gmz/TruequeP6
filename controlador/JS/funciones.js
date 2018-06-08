@@ -336,12 +336,13 @@ function valdt ()//validar la fecha
 
 function mostrar_chats(allChats) {
   $("#verChats").children("li").empty(); //Para que sólo los muestre una vez
+
   if(allChats!= ""){ //Validar qu etenga chats
     objChats = JSON.parse(allChats);
-    for (let i in objChats){
-      $("#verChats").append("<li id="+i+" style=padding: 4%; text-align: left; border-top: gray; >"+objChats[i].nomus+"</li>"); //Agregarlos con el id del índide del array
-      $("#verChats").append("<div class='dropdown-divider'></div>"); //Poner rayita
-    }
+
+    for (let i in objChats)
+      $("#verChats").append("<li id="+i+" style=padding: 4%; text-align: left; border-top: gray; >"+objChats[i].nomus+"<div class='dropdown-divider'></div></li>"); //Agregarlos con el id del índide del array
+
     $("#verChats").click(()=>{
       var ind = event.target.id;
       document.cookie = "otro="+objChats[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
@@ -373,5 +374,25 @@ function busca_usu(usuBusc) {
         else
            alert("Ingresa un usuario válido");
       }
+  });
+}
+
+function chat_nuevo(usuarios) {
+  // console.log(usuarios);
+  $("#usuarioParaChatear").keypress(()=>{
+    let buscado = $("#usuarioParaChatear").val();
+    if (buscado != ""){
+      $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez
+      let reg = new RegExp ("^("+buscado+")","i");
+      // console.log(reg);
+      for (let i in usuarios)
+        if(reg.test(usuarios[i].nomus))
+          $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+usuarios[i].nomus+"</li>");
+    }
+  });
+  $("#mostrarPers").click(()=>{
+    var ind = event.target.id;
+    document.cookie = "otro="+usuarios[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
+    location.href ="../../vista/maquetado/chat.php";
   });
 }
