@@ -1,0 +1,22 @@
+/*formulario.css*/
+.formularios{
+  background-color:#8FCED0;
+  color:#3D343F;
+}
+.formularios, .formtexto{
+  font-family: 'Spinnaker', sans-serif;
+}
+.headerForm{
+  background-color:#3D343F;
+  color:#FBF8F7;
+  font-family: 'Allerta', sans-serif;
+}
+.alertHeaderForm{
+  background-color:#E98836;
+  color:#FBF8F7;
+  font-family: 'Allerta', sans-serif;
+}
+.alertForm{
+  color:#E98836;
+  font-family: 'Spinnaker', sans-serif;
+}

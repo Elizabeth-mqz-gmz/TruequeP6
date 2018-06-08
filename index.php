@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="vista/animaciones/registro.html">
     <link rel="stylesheet" href="vista/estilo/inicio.css">
     <link rel='stylesheet' href='vista/estilo/publicaciones.css'/>
+    <link rel='stylesheet' href='vista/estilo/formulario.css' />
   </head>
   <body>
     <div id="inicio">
@@ -35,7 +36,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body formularios">
             <?php include "vista/maquetado/regis.html"?>
           </div>
         </div>
@@ -50,8 +51,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <?php include "vista/maquetado/inicio_sesion.html";?>
+          <div class="modal-body formularios">
+            <?php include "vista/maquetado/inicio_sesion.html"?>
           </div>
         </div>
       </div>

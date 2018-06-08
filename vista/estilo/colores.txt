@@ -3,5 +3,5 @@ colores:
 #FBF8F7 casi blanco
 #8FCED0 azul cielo
 #E98836 naranja
-#1919BEBE azul-morado
+#19BEBE azul-morado
 #3D343F casi negro

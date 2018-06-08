@@ -22,7 +22,7 @@
         <div class="modal fade" id="NuevoEvento" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
+              <div class="modal-header headerForm">
                 <h5 class="modal-title">Nuevo evento</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -31,16 +31,16 @@
               <div class="modal-body">
                 <form id="formularioEvento">
                   <div class='form-group'>
-                    <label>Tipo de Evento :</label>
+                    <label class="formtexto">Tipo de Evento :</label>
                     <input type="radio" name="evento" value="trueque" checked/>Trueque
                     <input type="radio" name="evento" value="perdida" />Perdida
                   </div>
                   <div class='form-group'>
-                    <label>Lugar:</label>
+                    <label class="formtexto">Lugar:</label>
                     <input type='text' class='form-control' id='lugar' name='id_usuario' required/>
                   </div>
                   <div class='form-group'>
-                    <label>Fecha:</label><br /><br />
+                    <label class="formtexto">Fecha:</label><br /><br />
                     Día<input type="date" class"form-control" id="fechaFE" name="fecha" required />
                     Hora<input type="time" class"form-control" id="horaFE" name="hora" value="06:00" required />
                   </div>
