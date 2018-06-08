@@ -12,7 +12,7 @@ $(document).ready(function(){
         			type:'POST',
         			success: function(response){
         					if (response == 'F'){ //Eso manda PHP cuando la contraseña está mal
-                        alert('Su contraseña es invalida');
+                        alert('Su contraseña es inválida');
                         $("#pass1").val("");
                         $("#pass2").val("");
                         $("#enviarRegis").hide();
@@ -26,8 +26,8 @@ $(document).ready(function(){
           $("#msj").html("Las contraseñas no coinciden"); //Si pass2 no es igual a pass1
     });
 
-    var regex = [/^(31)[6789][0-9]{6}/, /^[A-Z][a-zA-Záéíóú\s]+{3,30}$/, /^[A-Z][a-zA-Záéíóú\s]+{3,30}$/,
-     /^[A-Z][a-zA-Záéíóú\s]+{3,30}$/, /[A-Za-z\d]{6,30}$/];
+    var regex = [/^(31)[6789][0-9]{6}/, /^[A-Z][a-zA-Záéíóú\s]{3,30}$/, /^[A-Z][a-zA-Záéíóú\s]{3,30}$/,
+     /^[A-Z][a-zA-Záéíóú\s]{3,30}$/, /[A-Za-z\d]{6,30}$/];
     var elements = ["num_cta", "nom", "ape_pat", "ape_mat", "user"];
 
     $("#regis").change((event)=>{ //En el elemento que esté cambiando dentro del form
@@ -38,7 +38,7 @@ $(document).ready(function(){
         // console.log(dato);
         if (reg.test(event.target.value) == true){ //Si hace match
           document.getElementById(dato).className = "form-control is-valid";
-          document.getElementById(dato).nextElementSibling.innerHTML="Eso funciona para mi!"
+          document.getElementById(dato).nextElementSibling.innerHTML="Eso funciona para mí!"
           document.getElementById(dato).nextElementSibling.style.color="green";
         }
         else{
