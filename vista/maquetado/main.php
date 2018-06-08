@@ -20,7 +20,7 @@
     <div class="modal fade" id="denuncia" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header headerForm">
             <h3>Denuncia</h3>
             <button type="button" value="cerrar" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>

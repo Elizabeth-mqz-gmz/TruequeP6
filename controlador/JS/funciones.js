@@ -405,5 +405,5 @@ function chat_nuevo(usuarios) {
     enc.appendTo("#encabezado");
     cont.appendTo("#contenidoModal");
     $("#ModalGlobal").modal("show"); //mostrar la ventana modal
-    $("#ModalGlobal").css({"transition":"all 1s","color":"#E98836"});
+    $("#ModalGlobal").css("transition","all 1s");
 }

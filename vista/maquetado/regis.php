@@ -1,17 +1,17 @@
 <script type='text/javascript' src='../../librerias/jquery-3.3.1.min.js'></script>
 
 <section id='registro'>
-	<div class="card">
+	<div class="card ">
 		<div class="card-body">
 			<form id='regis' action='modelo/PHP/regis.php' method='POST' enctype='multipart/form-data'>
 				<div class="container">
 					<div class="form-group">
-						<label>Número de cuenta:</label>
+						<label class="formtexto">Número de cuenta:</label>
 						<input id='num_cta' type='text' class="form-control" name='num_cta' pattern='^(31)[6789][0-9]{6}' required/>
 						<div></div>
 					</div>
 					<div class="form-group">
-						<label>Nombre de usuario:</label>
+						<label class="formtexto">Nombre de usuario:</label>
 						<input id='user' type='text' class="form-control" name='user' pattern='[A-Za-z\d]{6,30}$' required/>
 						<div></div>
 						<small class="text-muted">
@@ -19,7 +19,7 @@
 						</small>
 					</div>
 					<div class="form-group">
-						<label>Nombre:</label>
+						<label class="formtexto">Nombre:</label>
 						<input id='nom' type='text' class="form-control" name='nom' pattern='^[A-Z][a-záéíóú]{3,30}$' required/>
 						<div></div>
 						<small class="text-muted">
@@ -27,7 +27,7 @@
 						</small>
 					</div>
 					<div class="form-group">
-						<label>Apellido paterno:</label>
+						<label class="formtexto">Apellido paterno:</label>
 						<input id='ape_pat' type='text' class="form-control" name='ape_pat' pattern='^[A-Z][a-záéíóú]{3,30}$' required/>
 						<div></div>
 						<small class="text-muted">
@@ -35,7 +35,7 @@
 						</small>
 					</div>
 					<div class="form-group">
-						<label>Apellido materno:</label>
+						<label class="formtexto">Apellido materno:</label>
 						<input id='ape_mat' type='text' class="form-control" name='ape_mat' pattern='^[A-Z][a-záéíóú]{3,30}$' />
 						<div></div>
 						<small class="text-muted">
@@ -47,7 +47,7 @@
 						<label class="custom-file-label" for="validatedCustomFile">Elige una imagen</label>
 					</div>
 					<div class="form-group">
-						<label >Contraseña :</label>
+						<label class="formtexto">Contraseña :</label>
 						<input class="form-control mx-sm-3" type='password' class="form-control contrasena" name='contra' id='pass1' required/>
 						<div></div>
 						<small class="text-muted">
@@ -55,7 +55,7 @@
 						</small>
 					</div>
 					<div class="form-group">
-						<label >Confirma contraseña :</label>
+						<label class="formtexto">Confirma contraseña :</label>
 						<input class="form-control mx-sm-3" type='password' class="form-control contrasena" name='contra2'  id='pass2' required/>
 						<div></div>
 					</div>
