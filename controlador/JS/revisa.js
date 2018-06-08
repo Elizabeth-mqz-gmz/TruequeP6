@@ -1,9 +1,8 @@
 $(document).ready(function(){
     $("#pass2").on("change",function(){ //Cuando ha terminado la confirmación de contraseña
         contra = $("#pass2").val();
-        if($("#pass1").val() == $("#pass2").val()){
-
-          $.ajax({
+        if($("#pass1").val() == $("#pass2").val()){ //Checa que las contraseñas sean iguales
+          $.ajax({ //Valida que sean iguales en PHP (ahora que lo pienso, no tiene sentido, pero bueno)-Paola
         			url: 'controlador/PHP/validarPass.php',
         			data:{
         				pass :	contra,
@@ -30,7 +29,7 @@ $(document).ready(function(){
       var aux = elements.indexOf(dato); //Busca ese ID en el array, y devuelve su índice
       if (aux >= 0){
         let reg = new RegExp (regex[aux]); //Índice equivalente en el array de regex
-        console.log(dato);
+        // console.log(dato);
         if (reg.test(event.target.value) == true){ //Si hace match
           document.getElementById(dato).className = "form-control is-valid";
           document.getElementById(dato).nextElementSibling.innerHTML="Eso funciona para mi!"

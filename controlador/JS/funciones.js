@@ -1,4 +1,4 @@
-function comentario(idPub){
+function comentario(idPub){  //Obtener todos los comentarios de la publicación que recibe como argumento
   var comentarios;
     $.ajax({
         url:"../../modelo/PHP/dame_comen.php",
@@ -8,9 +8,9 @@ function comentario(idPub){
         type: "POST",
         success: function(response){
           // console.log(response);
-          if (response != "null"){
+          if (response != "null"){ //Que sí haya comentarios
             comentarios = JSON.parse(response);
-            for (let i in comentarios)
+            for (let i in comentarios) //Los va agregando
                   $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div>");
           }
           else
@@ -39,8 +39,8 @@ function publicacion(idPub,individual,cb){
             //clases de bootstrap
             let divGeneral = "<div id='"+idPub+"' class='card'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
-            let texto = "<h5 class='card-title'></h5><div class='den'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
-            // let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
+            //let texto = "<h5 class='card-title'></h5><div class='den' ><img src='../recursos/den.png'/></div><p class='card-text'></p>";
+            let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             //con MODAL
             let boton;
             if(individual)
@@ -72,7 +72,7 @@ function publicacion(idPub,individual,cb){
 
             if(publi.esAutor=="true"){
                 //poner borde si es autor
-                $("#"+idPub+">h6").css("border","1px solid #1919BEBE");
+                $("#"+idPub+">h6").css("border","1px solid #19BEBE");
 
                 //al darle click al estado, este se cambia y actualiza en la base de datos
                 $("#"+idPub+">h6").on("click",()=>{
@@ -102,7 +102,7 @@ function publicacion(idPub,individual,cb){
             }
             //si la denuncia es 0, muestra la imagen, del contrario no
             //al darle click en la imagen de denuncia, cambia el estado
-            if(publi.denuncia == "0")
+            /*if(publi.denuncia == "0")
                 $("#"+idPub+" .den").on("click",()=>{
                     $("#"+idPub+" .den").hide();
                     // console.log($("#"+idPub+" .den"));
@@ -115,28 +115,27 @@ function publicacion(idPub,individual,cb){
                         },
                         type: "POST"
                     });
-                });
-                // if(publi.denuncia == "0") con MODAL
-                //     $("#"+idPub+" .den").on("click",()=>{
-                //         $("#"+idPub+" .den").hide();
-                //         $("#envia").on("click",()=>{
-                //             console.log("hola");
-                //             var denuncia = $("#denun").val();
-                //             // console.log(denuncia);
-                //         });
-                //         console.log(denuncia);
-                //         $.ajax({
-                //             url:"../../modelo/PHP/denuncia.php",
-                //             data:{
-                //                 idPubli: idPub,
-                //                 "denuncia": denun,
-                //             },
-                //             type: "POST",
-                //             success: function(response){
-                // 					console.log(response);
-                //             }
-                //         });
-                //     });
+                });*/
+                 if(publi.denuncia == "0") //con MODAL
+                     $("#"+idPub+" .den").on("click",()=>{
+                         $("#"+idPub+" .den").hide();
+                         $("#envia").on("click",()=>{
+                             // console.log("hola");
+                             var denun = $(":selected").val();//obtiene el valor del select
+                             //console.log(denun);
+                             $.ajax({
+                               url:"../../modelo/PHP/denuncia.php",
+                               data:{
+                                 idPubli: idPub,
+                                 motivo : denun,
+                               },
+                               type: "POST",
+                               success: function(response){
+                 					           // console.log(response);
+                                   }
+                              });
+                         });
+                     });
             else
                 $("#"+idPub+" .den").hide();
 
@@ -161,7 +160,7 @@ function publicacion(idPub,individual,cb){
     });
 }
 
-function saca_publi(tipo){
+function saca_publi(tipo){ //Sacar las publicaciones, dependiedno de si quieres trueque o pérdida
     $.ajax({
         url:"../../modelo/PHP/dame_publis.php",
         data:{
@@ -242,17 +241,17 @@ function eliminar_eventos(){
 //Funciones chat
 
 function mens(mens){
-    if(mens == null)
+    if(mens == null) //Aún no han hablado jajajaj, eso significa que en la bd el usuario es ==1 en el atributo emisor
       $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!<br />");
     else{
       mensajes = JSON.parse(mens);
       for (var i in mensajes){
-        if (datos.quienEnvio == mensajes[i].emisor)
+        if (datos.quienEnvio == mensajes[i].emisor) //SIgnifica que la persona mandó en mensaje
             $(chat).append("Tú: "+mensajes[i].mensaje+"<br/>");
         else
             $(chat).append(recNomus+":"+mensajes[i].mensaje+"<br/>");
       }
-      ultimoMen = mensajes[mensajes.length-1].idMen;
+      ultimoMen = mensajes[mensajes.length-1].idMen; //Obtener el último id para hacer la búsqueda en la bd cuando quiera ver los nuevos mensajes
     }
     $("#enviar").on("click",()=>{
         var mensaje = $("#mensaje").val();
@@ -260,15 +259,15 @@ function mens(mens){
             $.ajax({
                 url:"../../modelo/PHP/guarda_mensaje.php",
                 data:{
-                    chat : datos.chat,
+                    chat : datos.chat, //EL id del Chat
                     men : mensaje,
-                    envia : datos.quienEnvio,
+                    envia : datos.quienEnvio, //Puede ser 0 o 1, dependiendo de si el usuario es el emisor en la tabla chat
                     llave : llave
                 },
                 type: "POST",
-                success: function(response){
-                    $("#mensaje").val("");
-                    $(chat).append("Tú: "+mensaje+"<br/>");
+                success: function(response){ //Ya que se guardó el mensaje
+                    $("#mensaje").val(""); //Limpiar el imput
+                    $(chat).append("Tú: "+mensaje+"<br/>"); //Agregarlo al html
                 }
             });
     });
@@ -276,21 +275,21 @@ function mens(mens){
         $.ajax({
             url:"../../modelo/PHP/dame_mens.php",
             data:{
-                busq :"SELECT id_men,mensaje,emisor FROM mensaje where id_chat ='"+datos.chat+"' AND id_men >'"+ultimoMen+"';",
+                busq :"SELECT id_men,mensaje,emisor FROM mensaje where id_chat ='"+datos.chat+"' AND id_men >'"+ultimoMen+"';", //Checar que no esté guardado en el html ya, o sea que no se haya sacado de la bd
                 llave : llave
             },
             type: "POST",
             success: function(response){
-                if(response != ""){
-                    console.log(response);
+                if(response != ""){ //Manda "" cuando no hay nuevos mensajes
+                    // console.log(response);
                     let nuevosMen = JSON.parse(response);
                     for (var i in nuevosMen)
-                      if (datos.quienEnvio != nuevosMen[i].emisor){
-                          console.log(mensajes);
-                          $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");
-                          mensajes.push(nuevosMen[i]);
-                      }
-                    ultimoMen = mensajes[(mensajes.length)-1].idMen;
+                        if (datos.quienEnvio != nuevosMen[i].emisor){ //Checar que el mensaje nuevo que llegó no lo haya mandado el usuario
+                            // console.log(mensajes);
+                            $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");// Escribirlo en el html
+                            mensajes.push(nuevosMen[i]); //Agregarlo al array de mensajes
+                        }
+                    ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
                 }
             }
         });
@@ -300,17 +299,17 @@ function mens(mens){
 
 function datos_chat(cb){
     $.ajax({
-        url:"../../modelo/PHP/dame_chat.php",
+        url:"../../modelo/PHP/dame_chat.php", //Obtener el id del chat de la conversación
         data:{
             usuEm : usuario,
-            usuRec : receptor
+            usuRec : receptor //Id's de las personas para hacer la búsqueda
         },
         type: "POST",
         success: function(response){
             datos = JSON.parse(response);
-            if (datos.quienEnvio == 0)
+            if (datos.quienEnvio == 0) //Saber si el usuario fue el primero en enviar el mensaje, para voltear la llave del cifrado
                 llave = recNomus+usuNomus;
-            return cb(datos.chat);
+            return cb(datos.chat); //Ahora obtener los mensajes
         }
     });
 }
@@ -320,34 +319,33 @@ function valdt ()//validar la fecha
   let year=$("#anho").val();//hacer variables con cada componente de la hora, para validar
   let month=$("#mes").val();
   let day=$("#dia").val();
-  let min=$("#hora").val();
-  let hr=$("#min").val();
-  if(year>0 && month<13&&month>0 && day<32&&day>0 && hr<25&&hr>=0 && min<61&&min>=0 ){
-    var date_ret= year+"-"+month+"-"+day+" "+hr+":"+min;//concatenar fecha y hora
+  let min=$("#min").val();
+  let hr=$("#hora").val();
+  if(year>2017 && month<13&&month>0 && day<32&&day>0 && hr<25&&hr>=0 && min<61&&min>=0 ){
+    return year+"-"+month+"-"+day+" "+hr+":"+min;//concatenar fecha y hora
   }
   else{
-    var date_ret='loser';//no se cumplió la validación
     alert('Ingresaste un dato de la fecha de forma incorrecta, inténtalo de nuevo');
+    return 'loser';//no se cumplió la validación
   }
-  return date_ret;
 }
 
 
 function mostrar_chats(allChats) {
-  $("#verChats").children("li").empty();
-  if(allChats!= ""){
+  $("#verChats").children("li").empty(); //Para que sólo los muestre una vez
+  if(allChats!= ""){ //Validar qu etenga chats
     objChats = JSON.parse(allChats);
     for (let i in objChats){
-      $("#verChats").append("<li id="+i+" style=padding: 4%; text-align: left; border-top: gray; >"+objChats[i].nomus+"</li>");
-      $("#verChats").append("<div class='dropdown-divider'></div>");
+      $("#verChats").append("<li id="+i+" style=padding: 4%; text-align: left; border-top: gray; >"+objChats[i].nomus+"</li>"); //Agregarlos con el id del índide del array
+      $("#verChats").append("<div class='dropdown-divider'></div>"); //Poner rayita
     }
     $("#verChats").click(()=>{
       var ind = event.target.id;
-      document.cookie = "otro="+objChats[ind].usuario+";max-age=5";
+      document.cookie = "otro="+objChats[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
       location.href ="../../vista/maquetado/chat.php";
     });
   }
-  else
+  else //Aún no ha chateado con nadie haha
     $("#verChats").append("<li style=padding: 4%; text-align: left; border-top: gray;  class='dropdown-divider'>Aún no tienes ninguna conversación</li>");
 
 }
@@ -360,11 +358,11 @@ function busca_usu(usuBusc) {
       },
       type: "POST",
       success: function(response){
-        if (response != "invalido"){
+        if (response != "invalido"){// Eso manda PHP si se ingresó algún dato incorrecto
            if (response != ""){
-             if (response == "diferente")
-                document.cookie = "usuBuscado="+usuBusc+";max-age=2";
-             location.href ="perfil_usuario.php";
+             if (response == "diferente") //No es está buscando a él mismo
+                document.cookie = "usuBuscado="+usuBusc+";max-age=2"; //Si no se busca a él mismo se crea la cookie, entonces se toma ésta cookie y así se hace la búsquedpara mostrar el perfil
+             location.href ="perfil_usuario.php"; //Llevarlo al perfil del usuario
            }
            else
              alert("Lo siento, tu amigo no está registrado en esta plataforma");

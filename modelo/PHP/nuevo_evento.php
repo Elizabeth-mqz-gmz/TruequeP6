@@ -1,5 +1,5 @@
 <?php
-  include "funciones.php";
+  include "funciones.php"; //Este archivo guarda un evento en la bd a través de ajax
 
   $bd = mysqli_connect("localhost", "root", "", "truequep6");
   checar_con($bd);
@@ -9,9 +9,9 @@
   $evento = validar($_POST["evento"], "", $bd);
   $lugar = validar($_POST["lugar"], "", $bd);
 
-  $bus = "INSERT INTO evento (id_chat, fecha, tipo_even, lugar) VALUES ($id_chat, $fecha, '$evento', '$lugar')";
+  $bus = "INSERT INTO evento (id_chat, fecha, tipo_even, lugar) VALUES ($id_chat, convert('$fecha',datetime), '$evento', '$lugar')";
   mysqli_query($bd, $bus);
-
+  echo $bus;
   mysqli_close($bd);
 
 ?>

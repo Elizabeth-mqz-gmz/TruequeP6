@@ -17,7 +17,7 @@
         $resp = mysqli_query($db,$busq);
         $exist = mysqli_num_rows($resp);
         if($exist==0){ // Tampoco existe el chat con usuario como receptor
-            $busq = "INSERT INTO chat VALUES "."("."'',$usuario,$otro);";//Hace el chat con usuario como emisor, porque como aún no existe el chat, él envió el 1er mns
+            $busq = "INSERT INTO chat VALUES "."("."'','$usuario','$otro');";//Hace el chat con usuario como emisor, porque como aún no existe el chat, él envió el 1er mns
             mysqli_query($db,$busq);
             $busq = "SELECT id_chat FROM chat WHERE id_em='$usuario' and id_rec='$otro';"; //Obtiene la query del id chat nuevo
             $resp = mysqli_query($db,$busq);
@@ -28,6 +28,7 @@
         }
     }
     $id_chat = mysqli_fetch_array($resp)[0]; //Obtiene el id_chat (Ahora sí)
+    // echo $id_chat;
     echo '{"chat":"'.$id_chat.'","'.$personas.'","quienEnvio":"'.$quienEnvio.'"}'; //Hace el json y lo manda a js
     mysqli_close($db);
 
