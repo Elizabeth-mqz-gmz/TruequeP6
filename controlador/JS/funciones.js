@@ -37,7 +37,7 @@ function publicacion(idPub,individual,cb){
             //el php regresa un json
             var publi = JSON.parse(response);
             //clases de bootstrap
-            let divGeneral = "<div id='"+idPub+"' class='card'>";
+            let divGeneral = "<div id='"+idPub+"' class='card' style='width: 55%;'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
             //let texto = "<h5 class='card-title'></h5><div class='den' ><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
