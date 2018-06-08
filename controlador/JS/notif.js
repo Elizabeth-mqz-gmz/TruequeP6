@@ -12,7 +12,7 @@ $(document).ready(function(){
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-							$("<li id="+notifis[count].id_not+" style=padding: 4%; text-align: left; border-top: gray;>"+notifis[count].men_not+"</li>").appendTo("#notifis");
+							$("<li class='dropdown-item' id="+notifis[count].id_not+" style=padding: 4%; text-align: left; border-top: gray;>"+notifis[count].men_not+"</li><div class='dropdown-divider'></div>").appendTo("#notifis");
 						}
 					}
 			});
