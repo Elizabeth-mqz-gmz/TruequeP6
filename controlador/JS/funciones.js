@@ -100,42 +100,25 @@ function publicacion(idPub,individual,cb){
 
                 });
             }
-            //si la denuncia es 0, muestra la imagen, del contrario no
-            //al darle click en la imagen de denuncia, cambia el estado
-            /*if(publi.denuncia == "0")
-                $("#"+idPub+" .den").on("click",()=>{
-                    $("#"+idPub+" .den").hide();
-                    // console.log($("#"+idPub+" .den"));
-                    let denuncia = prompt("Ingresa denuncia: ");
-                    $.ajax({
-                        url:"../../modelo/PHP/denuncia.php",
-                        data:{
-                            idPubli: idPub,
-                            motivo: denuncia,
-                        },
-                        type: "POST"
-                    });
-                });*/
-                 if(publi.denuncia == "0") //con MODAL
-                     $("#"+idPub+" .den").on("click",()=>{
-                         $("#"+idPub+" .den").hide();
-                         $("#envia").on("click",()=>{
-                             // console.log("hola");
-                             var denun = $(":selected").val();//obtiene el valor del select
-                             //console.log(denun);
-                             $.ajax({
-                               url:"../../modelo/PHP/denuncia.php",
-                               data:{
-                                 idPubli: idPub,
-                                 motivo : denun,
-                               },
-                               type: "POST",
-                               success: function(response){
-                 					           // console.log(response);
-                                   }
-                              });
-                         });
-                     });
+           if(publi.denuncia == "0") //con MODAL
+               $("#"+idPub+" .den").on("click",()=>{
+                   $("#envia").on("click",()=>{
+                       // console.log("hola");
+                       var denun = $(":selected").val();//obtiene el valor del select
+                       //console.log(denun);
+                       $.ajax({
+                         url:"../../modelo/PHP/denuncia.php",
+                         data:{
+                           idPubli: idPub,
+                           motivo : denun,
+                         },
+                         type: "POST",
+                         success: function(response){
+                           $("#"+idPub+" .den").hide();
+                         }
+                        });
+                   });
+               });
             else
                 $("#"+idPub+" .den").hide();
 
@@ -397,7 +380,7 @@ function chat_nuevo(usuarios) {
   });
 }
 
-  function ModalGlobal (encabezado, contenido){//sustituir alert hacer una ventana Modal
+function ModalGlobal (encabezado, contenido){//sustituir alert hacer una ventana Modal
     let enc = $("<p>"+encabezado+"</p>");
     let cont = $("<p>"+contenido+"</p>");
     $("#encabezado").empty();
