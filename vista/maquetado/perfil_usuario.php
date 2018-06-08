@@ -7,7 +7,7 @@
       #imagen{
         width: 20%;
       }
-      img{
+      #img_perfil{
         width:100%
       }
       #publicaiones, #perfil{
@@ -20,7 +20,7 @@
     <?php include 'navbar.php';?>
     <div id="perfil">
       <div id="imagen">
-        <?php echo "<img src='../../".$perfil["imagen"]."' class='rounded float-left' class='img-thumbnail' alt='imagen perfil'/>"; ?>
+        <?php echo "<img id='img_perfil' src='../../".$perfil["imagen"]."' class='rounded float-left img-thumbnail' alt='imagen perfil'/>"; ?>
       </div>
       <div class="container" id="nombre">
         <?php echo "<h2 class='display-2'>".$perfil["nomus"]."</h2>"; ?>
