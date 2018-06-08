@@ -268,11 +268,15 @@ function mens(mens){
                     let nuevosMen = JSON.parse(response);
                     for (var i in nuevosMen)
                         if (datos.quienEnvio != nuevosMen[i].emisor){ //Checar que el mensaje nuevo que llegó no lo haya mandado el usuario
-                            // console.log(mensajes);
+                            console.log(mensajes);
                             $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");// Escribirlo en el html
                             mensajes.push(nuevosMen[i]); //Agregarlo al array de mensajes
                         }
+                    // console.log(ultimoMen);
                     ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
+                }
+                else {
+                  ModalGlobal("Nadie te quiere","Lo siento, no hay nuevos mensajes):")
                 }
             }
         });
