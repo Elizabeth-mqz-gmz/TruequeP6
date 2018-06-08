@@ -1,6 +1,5 @@
 //funciones Administrador
 //Este es el bueno :)
-
 mostrar = [];
 mostrar["1"] = desplegarPublicacion;
 mostrar["2"] = desplegarComentario;
@@ -15,21 +14,23 @@ $("#comentarios").on("click", function(){
   denuncia("2");
 });
 
-//data-target='byebye' class='btn btn-danger'
 
 function desplegarPublicacion(respuesta){
-  let publi = respuesta;
+  //objeto que contiene todo relacionado con la publicacion
   let imagen = respuesta.imagen_publi.replace("..","")
   respuesta.imagen_publi = imagen;
   // console.log(respuesta.imagen_publi);
-  let  datos = $("<div class ='quitar'><div>"+respuesta.id_autor+"</div><p><img src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar'>"+respuesta.publicacion+"</p><h6>"+respuesta.razon_denuncia+"</h6><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
+  let  datos = $("<div class ='quitar'><div class='card-header'>"+respuesta.id_autor+"</div><div class='card-body'><img class='card-img-top' src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar card-text'>"+respuesta.publicacion+"</p><h6 class='card-title'>"+respuesta.razon_denuncia+"</h6><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div></div>");
+  $("<div class='card' style='width: 18rem'>").appendTo("#contComentarios");
   datos.appendTo("#contPublicaciones");
-  console.log("hola");
+  $("</div>").appendTo("#contComentarios");
 }
 
 function desplegarComentario(respuesta){
-  let datos = $("<div class ='quitar'><div>"+respuesta.id_usu_comen+"</div><p>"+respuesta.comentario+"</p><button class='btn btn-outline-primary' autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'eliminarD'>Eliminar Comentario</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div>");
+  let datos = $("<div class ='quitar'><div class='card-header'>"+respuesta.id_usu_comen+"</div><div class='card-body'><p class='card-text'>"+respuesta.comentario+"</p><button class='btn btn-outline-primary' autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_usu_comen+"'publi='"+respuesta.id_comen+"' value = 'eliminarD'>Eliminar Comentario</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div><div>");
+$("<div class='card' style='width: 18rem'>").appendTo("#contComentarios");
   datos.appendTo("#contComentarios");
+  $("</div>").appendTo("#contComentarios");
 }
 
 function denuncia (valor){
