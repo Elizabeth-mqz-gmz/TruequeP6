@@ -122,7 +122,11 @@ $("#enviar").click(()=>{
                   },
                   type: "POST",
                   success: function(response){
-                      ModalGlobal("Éxito","El usuario ha sido eliminado");
+                      console.log(response);
+                      if (response == "")
+                        ModalGlobal("Éxito","El usuario ha sido eliminado");
+                      else
+                        console.log ("buuuh"); 
                       }
                   });
               }
