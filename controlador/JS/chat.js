@@ -23,6 +23,7 @@ let nomsUsus = new Promise(function(resolve, reject) { //Obtener los nombres de 
             recNomus = personas.usuRec;
             llave = usuNomus+recNomus; //Hacer la llave para el cifrado
             resolve("Yap");
+            $("#amiko").append(recNomus);
         }
     });
 });

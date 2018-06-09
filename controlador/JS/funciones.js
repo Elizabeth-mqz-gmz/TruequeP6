@@ -225,14 +225,14 @@ function eliminar_eventos(){
 
 function mens(mens){
     if(mens == null) //Aún no han hablado jajajaj, eso significa que en la bd el usuario es ==1 en el atributo emisor
-      $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!<br />");
+      $(chat).html($(chat).html()+"<br/><div id='saludo'>Saluda a "+recNomus+"!<div><br />");
     else{
       mensajes = JSON.parse(mens);
       for (var i in mensajes){
         if (datos.quienEnvio == mensajes[i].emisor) //SIgnifica que la persona mandó en mensaje
-            $(chat).append("Tú: "+mensajes[i].mensaje+"<br/>");
+            $(chat).append("<div class='aux'></div><div class='yo'>  "+mensajes[i].mensaje+"</div>");
         else
-            $(chat).append(recNomus+":"+mensajes[i].mensaje+"<br/>");
+            $(chat).append("<div class='otro'>  "+mensajes[i].mensaje+"</div><div class='aux'></div>");
       }
       ultimoMen = mensajes[mensajes.length-1].idMen; //Obtener el último id para hacer la búsqueda en la bd cuando quiera ver los nuevos mensajes
     }
@@ -250,7 +250,8 @@ function mens(mens){
                 type: "POST",
                 success: function(response){ //Ya que se guardó el mensaje
                     $("#mensaje").val(""); //Limpiar el imput
-                    $(chat).append("Tú: "+mensaje+"<br/>"); //Agregarlo al html
+                    $(chat).append("<div class='aux'></div><div class='yo'>  "+mensaje+"</div>"); //Agregarlo al html
+                    $("#saludo").remove();
                 }
             });
     });
@@ -268,16 +269,15 @@ function mens(mens){
                     let nuevosMen = JSON.parse(response);
                     for (var i in nuevosMen)
                         if (datos.quienEnvio != nuevosMen[i].emisor){ //Checar que el mensaje nuevo que llegó no lo haya mandado el usuario
-                            console.log(mensajes);
+                            // console.log(mensajes);
                             $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");// Escribirlo en el html
                             mensajes.push(nuevosMen[i]); //Agregarlo al array de mensajes
                         }
                     // console.log(ultimoMen);
                     ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
                 }
-                else {
+                else
                   ModalGlobal("Nadie te quiere","Lo siento, no hay nuevos mensajes):")
-                }
             }
         });
       });
@@ -366,7 +366,7 @@ function busca_usu(usuBusc) {
 
 function chat_nuevo(usuarios) {
   // console.log(usuarios);
-  $("#usuarioParaChatear").keypress(()=>{
+  $("#usuarioParaChatear").keydown(()=>{
     let buscado = $("#usuarioParaChatear").val();
     if (buscado != ""){
       $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez
