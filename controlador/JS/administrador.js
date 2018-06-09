@@ -132,3 +132,25 @@ $("#enviar").click(()=>{
         }
     });
 });
+
+$("#NotificacionesTodos").on("click", function(){
+  let mensaje = $("#menNotif").val();
+  console.log(mensaje);
+  if (mensaje != ""){
+    jQuery.ajax({
+      url:"../../modelo/PHP/Notificaciones_Todos.php",
+      data:{
+          notificacion : mensaje
+      },
+      type: "POST",
+      success: function(response){
+          $('#notificacionesPT').modal('hide');
+          ModalGlobal("Éxito","El mensaje <i>"+mensaje+"</i> ha sido enviado.");
+          }
+      });
+    }
+  else{
+    $('#notificacionesPT').modal('hide');
+    ModalGlobal("Dato incorrecto","Por favor ingrese un mensaje");
+  }
+});

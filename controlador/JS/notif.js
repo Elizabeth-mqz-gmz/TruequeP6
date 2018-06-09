@@ -17,7 +17,7 @@ $(document).ready(function(){
 					}
 			});
 	});
-   $("nav #notifis").on("click", "li", function(){
+   $("nav #notifis").on("click", "span", function(){
           let idNotif = $(this).attr('id');
 		// $(idNotif).children("li").css("cursor", "pointer");
           // console.log(idNotif);

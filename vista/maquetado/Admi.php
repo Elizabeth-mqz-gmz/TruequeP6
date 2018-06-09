@@ -9,6 +9,7 @@
       <div class="row">
         <div class="col"><button id='publicaciones' class="btn btn-outline-secondary btn-lg btn-block" >Publicaciones</button></div>
         <div class="col"><button id='comentarios' class="btn btn-outline-secondary btn-lg btn-block">Comentarios</button></div>
+        <div class="col"><button data-target='#notificacionesPT'data-toggle='modal' class="btn btn-outline-secondary btn-lg btn-block">Notificación</button></div>
       </div>
     </div>
     <div id="contPublicaciones"></div>
@@ -23,7 +24,28 @@
             </button>
           </div>
           <div class="modal-body">
-            <?php include "../../vista/maquetado/inicio_sesion.html";;?>
+            <?php include "../../vista/maquetado/inicio_sesion.html";?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="notificacionesPT" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header headerForm">
+            <h5 class="modal-title">Notificación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formSuperNoti">
+              <div class="form-group formtexto">
+                <label >Mensaje</label>
+                <input type="text" class="form-control" id="menNotif" placeholder="Hola...">
+              </div>
+              <button type="reset" class="btn btn-dark" id="NotificacionesTodos">Enviar</button>
+            </form>
           </div>
         </div>
       </div>
