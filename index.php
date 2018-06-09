@@ -3,14 +3,14 @@
   <head>
     <title>Inicio</title>
     <meta charset='UTF-8'/>
+    <link rel='icon' href='vista/estilo/favicon.png' type='image/png'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB' crossorigin='anonymous'>
     <script type='text/javascript' src='librerias/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='controlador/JS/funciones.js'></script>
     <link rel='stylesheet' href='vista/estilo/inicio.css'>
     <link rel='stylesheet' href='vista/estilo/publicaciones.css'/>
-    <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allerta|Fredericka+the+Great" rel="stylesheet">
   </head>
   <body>
     <div class='anima'>
@@ -19,19 +19,19 @@
     </div>
     <div id='inicio'>
     <div id='present'>
-      <div id='bienvenido'><h1>¡BIENVENIDO!</h1></div>
-        <p><strong>TruequeP6</strong> ha sido diseñada para esas situaciones en las que pierdes algo en la escuela y estás desesperado por encontrarlo. O aquellas en las que encuentras algo y se te antojan unos ricos chilaquiles, pero no sabes a quien reclamarlos...</p>
-        <p>Bueno, esos momentos han terminado, disfruta de una red actualizada, fácil de usar y bien conectada entre toda la comunidad estudiantil.</p>
+      <div id='bienvenido'><h1>TRUEQUE-P6</h1></div>
+        <p id='per'>¿Perdiste algo?</p>
+        <p>Utiliza <strong>Trueque-P6</strong> ahora y encuentra tu objeto perdido, o publica aquello que haz encontrado</p>
     </div>
     <div id='contenedor' >
       <div class='botones'>
         <p>¿Aún no te has registrado?</p>
-        <button type='button' class='bot' data-toggle='modal' data-target='#Registro' >Registro</button>
+        <button type='button' class='bot' data-toggle='modal' data-target='#Registro'>Regístrate</button>
         <br/><p>¿Qué esperas?</p>
       </div>
       <div class='botones'>
-        <p>¿Ya estás registrado?</p>
-        <button type='button' class='bot' data-toggle='modal' data-target='#Inicio_Sesion'>Inicio de Sesión</button>
+        <p>¿Ya tienes una cuenta?</p>
+        <button type='button' class='bot' data-toggle='modal' data-target='#Inicio_Sesion'>Iniciar sesión</button>
       </div>
     </div>
   </div>

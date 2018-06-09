@@ -9,8 +9,9 @@
 }
 #contenedor{
     display: flex;
-    padding-top: 10%;
+    padding-top: 13%;
     margin: 3%;
+    font-size: 1.2em;
 }
 #bienvenido{
     color:#FBF8F7;
@@ -34,6 +35,8 @@
     text-align: center;
     font-family: 'Allerta', sans-serif;
 }
+#per{font-size: 2.2em;}
+#per~p{font-size: 1.2em;}
 .anima{
     width: 310px;
     height: 633px;
