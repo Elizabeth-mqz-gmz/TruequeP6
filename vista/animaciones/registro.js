@@ -1,20 +1,13 @@
-
-<html>
-  <body>
-    <canvas id="lienzo" width="300" height="633">
-    </canvas>
-  </body>
-  <script>
-  let elemento = document.getElementById("lienzo");
-  let lienzo = elemento.getContext("2d");
+function colores(elemento){
+  var lienzo = elemento.getContext("2d");
   lienzo.lineWidth=1;
   lienzo.lineCap="round";
-  let inicio;
-  let colores =["#FBF8F7","#8FCED0","#E98836","#1919BEBE","#3D343F"]
-  let aux = 0;
+  var inicio;
+  var colores =["#FBF8F7","#8FCED0","#E98836","#1919BEBE","#3D343F"]
+  var aux = 0;
 
-  let x=0;
-  let z=0;
+  var x=0;
+  var z=0;
   function animacion(timer,color){
     if(aux<5)
       aux++;
@@ -23,7 +16,7 @@
 
     if(!inicio)
       inicio=timer;
-    let progreso = timer-inicio;
+    var progreso = timer-inicio;
     x+=20;
     if (progreso<10000){
       lienzo.strokeStyle=colores[aux];
@@ -40,7 +33,7 @@
     }
   }
   function linea(x,y,rax){
-    let a=setInterval(()=>{
+    var a=setInterval(()=>{
       lienzo.beginPath();
       lienzo.moveTo(-250,0);
       lienzo.lineTo(100,0);
@@ -55,5 +48,4 @@
   }
   lienzo.translate(370,300);
     anima();
-  </script>
-</html>
+}

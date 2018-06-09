@@ -1,3 +1,55 @@
+function colores(elemento){
+  var lienzo = elemento.getContext("2d");
+  lienzo.lineWidth=1;
+  lienzo.lineCap="round";
+  var inicio;
+  var colores =["#FBF8F7","#8FCED0","#E98836","#1919BEBE","#3D343F"]
+  var aux = 0;
+
+  var x=0;
+  var z=0;
+  function animacion(timer,color){
+    if(aux<5)
+      aux++;
+    else
+      aux = 0;
+
+    if(!inicio)
+      inicio=timer;
+    var progreso = timer-inicio;
+    x+=20;
+    if (progreso<10000){
+      lienzo.strokeStyle=colores[aux];
+      if(x>155)
+        x=0;
+      x++;
+      z+=20;
+      if(z>1500)
+        z=6;
+      linea(0,0,x);
+      lienzo.rotate(2*(Math.PI/180));
+      lienzo.scale(3,1);
+      requestAnimationFrame(animacion,color++);
+    }
+  }
+  function linea(x,y,rax){
+    var a=setInterval(()=>{
+      lienzo.beginPath();
+      lienzo.moveTo(-250,0);
+      lienzo.lineTo(100,0);
+      lienzo.moveTo(x,y);
+      lienzo.arc(x,y-rax,rax,0,2*Math.PI,true);
+      lienzo.stroke();
+      lienzo.closePath();
+    });
+  }
+  function anima(){
+    requestAnimationFrame(animacion,0);
+  }
+  lienzo.translate(370,300);
+    anima();
+}
+
 function comentario(idPub){  //Obtener todos los comentarios de la publicación que recibe como argumento
   var comentarios;
     $.ajax({
@@ -39,7 +91,6 @@ function publicacion(idPub,individual,cb){
             //clases de bootstrap
             let divGeneral = "<div id='"+idPub+"' class='card'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
-            //let texto = "<h5 class='card-title'></h5><div class='den' ><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             //con MODAL
             let boton;
@@ -102,20 +153,6 @@ function publicacion(idPub,individual,cb){
             }
             //si la denuncia es 0, muestra la imagen, del contrario no
             //al darle click en la imagen de denuncia, cambia el estado
-            /*if(publi.denuncia == "0")
-                $("#"+idPub+" .den").on("click",()=>{
-                    $("#"+idPub+" .den").hide();
-                    // console.log($("#"+idPub+" .den"));
-                    let denuncia = prompt("Ingresa denuncia: ");
-                    $.ajax({
-                        url:"../../modelo/PHP/denuncia.php",
-                        data:{
-                            idPubli: idPub,
-                            motivo: denuncia,
-                        },
-                        type: "POST"
-                    });
-                });*/
                  if(publi.denuncia == "0") //con MODAL
                      $("#"+idPub+" .den").on("click",()=>{
                          $("#"+idPub+" .den").hide();
