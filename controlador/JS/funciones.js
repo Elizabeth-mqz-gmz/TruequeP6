@@ -9,12 +9,12 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
         success: function(response){
           // console.log(response);
           if (response != "null"){ //Que sí haya comentarios
+            $("#noComen").hide()
             comentarios = JSON.parse(response);
+            // console.log(comentarios);
             for (let i in comentarios) //Los va agregando
-                  $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div>");
+                  $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img class='denunc' src='../recursos/den.png'/></div>");
           }
-          else
-            $("#contenedorComen").append("<div>Ésta publicación aún no tiene comentarios</div>");
         }
     });
     return;
