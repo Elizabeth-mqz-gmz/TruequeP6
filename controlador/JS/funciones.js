@@ -183,8 +183,7 @@ function ordenar_eventos(respuesta){
 }
 
 function hacer_calendario (respuesta) {
-  $("<div id='calendario' style='width:20%'>").appendTo("#evento");
-
+  $("<div id='calendario' style='width:100%; height: 400px; overflow-y: scroll;'>").appendTo("#evento");
   for ( i in respuesta){
     respuesta[i].fecha = new Date(respuesta[i].fecha);
     mes = parseInt(respuesta[i].fecha.getMonth());

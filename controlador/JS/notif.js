@@ -12,7 +12,7 @@ $(document).ready(function(){
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-							$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style=padding: 4%; text-align: left; border-top: gray;>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").appendTo("#notifis");
+							$("<div class='estoNo'><span class='navbar-text' style='color:#3D343F;' id="+notifis[count].id_not+" style='padding: 4%; text-align: left; border-top: gray;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").appendTo("#notifis");
 						}
 					}
 			});

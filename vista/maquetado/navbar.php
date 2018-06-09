@@ -49,12 +49,12 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Notificaciones
             </a>
-            <ul class="dropdown-menu" id="notifis" role="menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu scroll" id="notifis" role="menu" aria-labelledby="navbarDropdown">
             </ul>
           </li>
           <li class='nav-item dropdown'>
             <a class='nav-link dropdown-toggle' id="navbarDropdownChat"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chat</a>
-            <ul class="dropdown-menu" id="verChats" role="menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu scroll" id="verChats" role="menu" aria-labelledby="navbarDropdown">
               <button id='nuevoChat' class='btn btn-outline-secondary'  data-toggle='modal' data-target='#buscarParaNuevoChat' type='button'>Iniciar una nueva conversación</button>
             </ul>
           </li>
