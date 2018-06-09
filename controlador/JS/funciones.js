@@ -1,5 +1,5 @@
 function comentario(idPub){  //Obtener todos los comentarios de la publicación que recibe como argumento
-  var comentarios;
+  // var comentarios;
     $.ajax({
         url:"../../modelo/PHP/dame_comen.php",
         data:{
@@ -10,10 +10,12 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
           // console.log(response);
           if (response != "null"){ //Que sí haya comentarios
             $("#noComen").hide()
+            // console.log(response);
             comentarios = JSON.parse(response);
             // console.log(comentarios);
             for (let i in comentarios) //Los va agregando
-                  $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img class='denunc' src='../recursos/den.png'/></div>");
+                  $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+            // console.log($(".comen~img"));
           }
         }
     });

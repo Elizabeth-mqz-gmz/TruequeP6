@@ -3,7 +3,7 @@
 var coo = [];
 //separa la cookie en arreglo por ";"
 coo = document.cookie.split(";");
-var cookie;
+var cookie, comentarios;
 //busca el valor con "pub", es una regex
 //si la encuentra, su siguiente índice el es el valor de la cookie pub
 //ese valor es el número de publicación actual
@@ -50,8 +50,26 @@ $("#enviarComen").on("click",()=>{
           success: function(response){
               $("#noComen").hide()
               $("#comentar").val("");
-              $("#contenedorComen").append("<div><div class='comen'>Tú:"+comentario+"</div><img class='denunc' src='../recursos/den.png'/></div>");
+              $("#contenedorComen").append("<div><div class='comen'>Tú:"+comentario+"</div></div>");
           }
       });
     }
+});
+$("#contenedorComen").click((ev)=>{ //Este evento denuncia un comentario
+  let val = ev.target.className;
+  if (val == "denunc") { //Checar que le haya clickeado al monito
+    let ind = ev.target.id;
+    $.ajax({
+        url:"../../modelo/PHP/denun_comen.php",
+        data:{
+            comenID: comentarios[ind].idComen //Id del comentario
+        },
+        type: "POST",
+        success: function(response){
+            // console.log($("#"+ind));
+            $("#"+ind+".denunc").hide(); //No sé porque se borra todo el comentario jajajaj, pero no tendría que ser así
+            // ModalGlobal("Éxito","Se denunció el comentario"); //Me manda un error, no sé por qué ):
+        }
+    });
+  }
 });
