@@ -1,6 +1,4 @@
-body{
-  background-color: #FBF8F7;
-}
+
 #amiko{
   font-family: 'Allerta', sans-serif;
   margin-top: 5%;
@@ -18,15 +16,9 @@ body{
 #mensaje{
   width: inherit;
 }
-nav{
-  background-color: #19BEBE;
-}
-button{
-  color: #E98836;
-}
 .otro,.yo{
   font-family: 'Spinnaker', sans-serif;
-  background-color: white;
+  background-color: #FBF8F7;
   border-radius: 11px;
   color: #19BEBE;
   font-size: 1em;

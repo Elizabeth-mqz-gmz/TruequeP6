@@ -371,15 +371,25 @@ function busca_usu(usuBusc) {
 
 function chat_nuevo(usuarios) {
   // console.log(usuarios);
+
   $("#usuarioParaChatear").keydown(()=>{
+    let hay = false;
     let buscado = $("#usuarioParaChatear").val();
+
     if (buscado != ""){
-      $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez
-      let reg = new RegExp ("^("+buscado+")","i");
-      // console.log(reg);
-      for (let i in usuarios)
-        if(reg.test(usuarios[i].nomus))
-          $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+usuarios[i].nomus+"</li>");
+
+        $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez
+        let reg = new RegExp ("^("+buscado+")","i");
+        // console.log(reg);
+        for (let i in usuarios) //No sería eficiente en 1000 usuarios, pero ahora sirve 
+          if(reg.test(usuarios[i].nomus)){
+            $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+usuarios[i].nomus+"</li>");
+            hay = true;
+          }
+
+        if (!hay) //No se encontró nada en la búsqueda
+          $("#mostrarPers").append("<li style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+
     }
   });
   $("#mostrarPers").click(()=>{
