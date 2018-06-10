@@ -4,6 +4,13 @@
     <?php include 'head.html'; ?>
     <title>Trueque P6</title>
     <link rel='stylesheet' href='../estilo/botonCambio.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        i{
+            padding: 2px;
+        }
+    </style>
 </head>
   <body>
     <?php include 'navbar.php'; ?>
@@ -42,8 +49,8 @@
         </div>
       </div>
     </div>
-    <?php include "modal.html";?>
-    <!--?php include 'footer.html' ?-->
+    <?php include 'modal.html';?>
+    <?php include 'footer.html';?>
   </body>
   <?php include '../../modelo/PHP/notif_bienve.php' ?>
   <script type= 'text/javascript' src='../../controlador/JS/funciones.js'></script>

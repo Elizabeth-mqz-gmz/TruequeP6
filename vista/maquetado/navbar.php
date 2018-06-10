@@ -13,7 +13,8 @@
       </div>
       <input class='form-control mr-sm-2' type='search'id="buscado" placeholder='Número de Cuenta' aria-label='Search'>
     </div>
-    <button class='btn btn-light my-2 my-sm-0' id="buscar" type='submit'>Buscar</button>
+    <button class='btn btn-light my-2 my-sm-0' id="buscar" type='submit'><i class="fa fa-search" style="font-size:24px"></i>
+</button>
   </div>
 
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -33,7 +34,8 @@
           <li class='nav-item active'>
             <div class="dropdown"  id="botonEvento">
               <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Calendario
+                <!-- Calendario -->
+                <i class="fa fa-calendar" style="font-size:24px"></i>
               </a>
               <div  id="evento" id="MuchosEventos" class="dropdown-menu p-4 text-muted" aria-labelledby="dropdownMenuLink">
                 <span class='navbar-text' id='fechaHoy'></span>
@@ -47,25 +49,38 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Notificaciones
+            <!-- Notificaciones -->
+                <i class="fa fa-bell-o" style="font-size:24px"></i>
             </a>
             <ul class="dropdown-menu scroll" id="notifis" role="menu" aria-labelledby="navbarDropdown">
             </ul>
           </li>
           <li class='nav-item dropdown'>
-            <a class='nav-link dropdown-toggle' id="navbarDropdownChat"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chat</a>
-            <ul class="dropdown-menu scroll" id="verChats" role="menu" aria-labelledby="navbarDropdown">
+            <a class='nav-link dropdown-toggle' id="navbarDropdownChat"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- Chat -->
+                <i class="fa fa-wechat" style="font-size:24px;color:#3D343F"></i>
+            </a>
+            <ul class="dropdown-menu" id="verChats" role="menu" aria-labelledby="navbarDropdown">
               <button id='nuevoChat' class='btn btn-outline-secondary'  data-toggle='modal' data-target='#buscarParaNuevoChat' type='button'>Iniciar una nueva conversación</button>
             </ul>
           </li>
           <li class='nav-item active'>
-            <a class='nav-link' id='perfil' href='perfil_usuario.php'>Perfil</a>
+            <a class='nav-link' id='perfil' href='perfil_usuario.php'>
+                <!-- Perfil -->
+                <i class="fa fa-user-circle" style="font-size:24px;color:#1919BEBE"></i>
+            </a>
           </li>
           <li class='nav-item active'>
-            <a class='nav-link' id='mensajes' href='publicar.php'>Publicar</a>
+            <a class='nav-link' id='mensajes' href='publicar.php'>
+                <!-- Publicar -->
+                <i class="fa fa-pencil-square-o" style="font-size:24px;color:#E98836"></i>
+            </a>
           </li>
           <li class='nav-item active'>
-            <a class='nav-link' id='cerrar_sesion' href='../../cerrar_sesion.php'>Cerrar Sesión</a>
+            <a class='nav-link' id='cerrar_sesion' href='../../cerrar_sesion.php'>
+                <!-- Cerrar Sesión -->
+                <i class="fa fa-sign-out" style="font-size:24px;color:#8FCED0"></i>
+            </a>
           </li>
         </ul>
       </div>

@@ -1,0 +1,67 @@
+
+<html>
+    <head>
+        <style >
+            body{
+                background-color: gray;
+            }
+        </style>
+    </head>
+  <body>
+    <canvas id="carga">
+    </canvas>
+  </body>
+  <script type="text/javascript">
+  var elemento = document.getElementById("carga");
+  elemento.width=window.innerWidth;
+  elemento.height=window.innerHeight;
+  var carga = elemento.getContext("2d");
+  carga.lineWidth=1;
+  carga.lineCap="round";
+  var inicio;
+  var colores =["#FBF8F7","#8FCED0","#E98836","#1919BEBE","#3D343F"]
+  var aux = 0;
+
+  var x=0;
+  var z=0;
+  function animacion(timer,color){
+    if(aux<5)
+      aux++;
+    else
+      aux = 0;
+
+    if(!inicio)
+      inicio=timer;
+    var progreso = timer-inicio;
+    x+=20;
+    if (progreso<6000){
+      carga.strokeStyle=colores[aux];
+      if(x>155)
+        x=0;
+      x++;
+      z+=20;
+      if(z>1500)
+        z=6;
+      linea(0,0,x);
+      carga.rotate(2*(Math.PI/180));
+      requestAnimationFrame(animacion,color++);
+    }
+  }
+  function linea(x,y,rax){
+    var a=setInterval(()=>{
+      carga.beginPath();
+      carga.moveTo(-250,0);
+      carga.lineTo(100,0);
+      carga.moveTo(x,y);
+      carga.arc(x,y-rax,rax,0,2*Math.PI,true);
+      carga.stroke();
+      carga.closePath();
+    });
+  }
+  function anima(){
+    requestAnimationFrame(animacion,0);
+  }
+  carga.translate(670,300);
+    anima();
+  </script>
+</html>
