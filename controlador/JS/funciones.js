@@ -394,13 +394,14 @@ function ModalGlobal (encabezado, contenido){//sustituir alert hacer una ventana
     $("#ModalGlobal").css("transition","all 1s");
 }
 function colores(elemento){
+  elemento.width = window.innerWidth/4;
+	elemento.height = window.innerHeight;
   var lienzo = elemento.getContext("2d");
   lienzo.lineWidth=1;
   lienzo.lineCap="round";
   var inicio;
   var colores =["#FBF8F7","#8FCED0","#E98836","#1919BEBE","#3D343F"]
   var aux = 0;
-
   var x=0;
   var z=0;
   function animacion(timer,color){
