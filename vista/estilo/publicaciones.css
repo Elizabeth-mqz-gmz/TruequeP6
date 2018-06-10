@@ -67,15 +67,18 @@ h6{
   margin-bottom: 10px;
   background-color: #E98836;
   border-radius: 5px;
+  height: 3em;
 }
 .denunc{
   text-align: right;
-  width: 5%;
+  width: 2em;
+  padding-top: .3em;
 }
 .comen{
   float: left;
   width: 90%;
   color: white;
   padding-left: 4px;
+  padding: .5em;
   font-size: 1.2em;
 }

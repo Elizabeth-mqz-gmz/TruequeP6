@@ -50,7 +50,7 @@ $("#enviarComen").on("click",()=>{
           success: function(response){
               $("#noComen").hide()
               $("#comentar").val("");
-              $("#contenedorComen").append("<div><div class='comen'>Tú:"+comentario+"</div></div>");
+              $("#contenedorComen").append("<div><div class='comen'>"+comentario+"</div></div>");
           }
       });
     }
@@ -68,7 +68,7 @@ $("#contenedorComen").click((ev)=>{ //Este evento denuncia un comentario
         success: function(response){
             // console.log($("#"+ind));
             $("#"+ind+".denunc").hide(); //No sé porque se borra todo el comentario jajajaj, pero no tendría que ser así
-            // ModalGlobal("Éxito","Se denunció el comentario"); //Me manda un error, no sé por qué ):
+            ModalGlobal("Éxito","Se denunció el comentario"); //Me manda un error, no sé por qué ):
         }
     });
   }

@@ -23,8 +23,8 @@
 }
 #bienvenido>h1{font-size: 4.5rem;}
 #inicio{
-    width: 49%;
-    height: 60%;
+    width: 60%;
+    /* height: 100%; */
     float: left;
     background: #3D343F;
 }
