@@ -19,8 +19,7 @@
     </div>
     <div class='container' id='contenedorPubli'>
       <div id="publicaciones">
-          <h2>Bienvenido a Trueque P6!!! Pícale en la cosa azul si quieres ver algún tipo de publicación en específico, desliza para ver todas las publicaciones</h2>
-
+          <h2>¿Haz encontrado algo?</h2>
       </div>
     </div>
     <!-- con MODAL -->

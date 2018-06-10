@@ -10,8 +10,7 @@
 }
 #contenedor{
     display: flex;
-    padding-top: 8%;
-    margin: 3%;
+    padding-top: 11.7%;
     font-size: 1.2em;
 }
 #bienvenido{
@@ -23,14 +22,13 @@
 }
 #bienvenido>h1{font-size: 4.5rem;}
 #inicio{
-    width: 60%;
-    /* height: 100%; */
+    width: 49%;
     float: left;
     background: #3D343F;
 }
 #present>p{
     color: #8FCED0;
-    padding-top: 5.5%;
+    padding-top: 7%;
     padding-right: 7%;
     padding-left: 7%;
     text-align: center;
@@ -38,9 +36,8 @@
 }
 #per{font-size: 2.2em;}
 #per~p{font-size: 1.2em;}
+
 canvas{
-    /* width: 22.2%;
-    /* height: 100%; */
     float: left;
 }
 .bot{
@@ -57,5 +54,5 @@ canvas{
     cursor: pointer;
 }
 .bot:hover{
-    background-color: rgba(255,255,255,0.3);
+    background-color: #E98836;
 }
