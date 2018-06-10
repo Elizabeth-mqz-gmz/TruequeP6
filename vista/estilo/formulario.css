@@ -1,7 +1,7 @@
 /*formulario.css*/
 .formularios{
-  background-color:#8FCED0;
-  color:#3D343F;
+  /* background-color:#8FCED0; */
+  color:#8FCED0;
 }
 .formularios, .formtexto{
   font-family: 'Spinnaker', sans-serif;

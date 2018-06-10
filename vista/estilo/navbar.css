@@ -12,6 +12,7 @@ background-color:#19BEBE;
     font-family: 'Fredericka the Great', cursive;
     font-size: 3em;
     color: #3D343F;
+    margin: 2%;
 }
 .scroll{
   overflow-y: scroll;
