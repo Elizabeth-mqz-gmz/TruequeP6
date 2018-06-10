@@ -6,6 +6,7 @@
     <title>Publicacion</title>
     <script type='text/javascript' src='../../librerias/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='../../controlador/JS/funciones.js'></script>
+    <link rel='icon' href='../recursos/favicon.png' type='image/png'>
     <link rel='stylesheet' href='../estilo/publicaciones.css'/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>

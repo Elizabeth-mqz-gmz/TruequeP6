@@ -1,5 +1,12 @@
 
 <html>
+    <head>
+        <style >
+            body{
+                background-color: gray;
+            }
+        </style>
+    </head>
   <body>
     <canvas id="carga">
     </canvas>
@@ -27,7 +34,7 @@
       inicio=timer;
     var progreso = timer-inicio;
     x+=20;
-    if (progreso<10000){
+    if (progreso<6000){
       carga.strokeStyle=colores[aux];
       if(x>155)
         x=0;

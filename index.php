@@ -3,7 +3,7 @@
   <head>
     <title>Inicio</title>
     <meta charset='UTF-8'/>
-    <link rel='icon' href='vista/estilo/favicon.png' type='image/png'>
+    <link rel='icon' href='vista/recursos/favicon.png' type='image/png'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB' crossorigin='anonymous'>
     <script type='text/javascript' src='librerias/jquery-3.3.1.min.js'></script>
