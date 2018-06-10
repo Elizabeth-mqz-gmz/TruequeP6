@@ -6,7 +6,7 @@
     checar_con($db);
     $idPub = validar($_POST["idPubli"],"",$db);
 
-    $busq = "SELECT comentario,nomus FROM comentario INNER JOIN usuario ON comentario. id_usu_comen=usuario.id_usuario where id_publi_comen= '$idPub';";
+    $busq = "SELECT comentario,nomus,id_comen FROM comentario INNER JOIN usuario ON comentario. id_usu_comen=usuario.id_usuario where id_publi_comen= '$idPub';";
     $resp = mysqli_query($db,$busq);
 
     $count = "null";
@@ -16,7 +16,7 @@
     while($row=mysqli_fetch_assoc($resp)){
         if($contador==0)
             $count = $row["nomus"];
-        $json.= "{\"nomus\":\"".$row["nomus"]."\",\"comentario\":\"".$row["comentario"]."\"},";
+        $json.= "{\"nomus\":\"".$row["nomus"]."\",\"comentario\":\"".$row["comentario"]."\",\"idComen\":\"".$row["id_comen"]."\"},";
     }
 
     $json[strlen($json)-1]="]";

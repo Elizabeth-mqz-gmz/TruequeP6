@@ -33,6 +33,8 @@ h6{
     width: 28em;
     height: auto;
     margin: 5% auto;
+    color:#FBF8F7;
+    background-color: #3D343F;
 }
 .card span{
     position: absolute;
@@ -60,12 +62,20 @@ h6{
         margin: 5vw;
     }
 }
-.denc{
-  border: 1px solid gray;
+#contenedorComen>div{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: #E98836;
+  border-radius: 5px;
 }
-img.denim{
-    width: 2em;
-    height: 2em;
-    position: relative;
-    left: 80%;
+.denunc{
+  text-align: right;
+  width: 5%;
+}
+.comen{
+  float: left;
+  width: 90%;
+  color: white;
+  padding-left: 4px;
+  font-size: 1.2em;
 }

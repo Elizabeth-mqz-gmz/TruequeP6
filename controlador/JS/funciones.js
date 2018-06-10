@@ -1,5 +1,5 @@
 function comentario(idPub){  //Obtener todos los comentarios de la publicación que recibe como argumento
-  var comentarios;
+  // var comentarios;
     $.ajax({
         url:"../../modelo/PHP/dame_comen.php",
         data:{
@@ -9,12 +9,14 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
         success: function(response){
           // console.log(response);
           if (response != "null"){ //Que sí haya comentarios
+            $("#noComen").hide()
+            // console.log(response);
             comentarios = JSON.parse(response);
+            // console.log(comentarios);
             for (let i in comentarios) //Los va agregando
-                  $("#contenedorComen").append("<div class='denc'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div>");
+                  $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+            // console.log($(".comen~img"));
           }
-          else
-            $("#contenedorComen").append("<div>Ésta publicación aún no tiene comentarios</div>");
         }
     });
     return;
@@ -228,14 +230,14 @@ function eliminar_eventos(){
 
 function mens(mens){
     if(mens == null) //Aún no han hablado jajajaj, eso significa que en la bd el usuario es ==1 en el atributo emisor
-      $(chat).html($(chat).html()+"<br/>Saluda a "+recNomus+"!<br />");
+      $(chat).html($(chat).html()+"<br/><div id='saludo'>Saluda a "+recNomus+"!<div><br />");
     else{
       mensajes = JSON.parse(mens);
       for (var i in mensajes){
         if (datos.quienEnvio == mensajes[i].emisor) //SIgnifica que la persona mandó en mensaje
-            $(chat).append("Tú: "+mensajes[i].mensaje+"<br/>");
+            $(chat).append("<div class='aux'></div><div class='yo'>  "+mensajes[i].mensaje+"</div>");
         else
-            $(chat).append(recNomus+":"+mensajes[i].mensaje+"<br/>");
+            $(chat).append("<div class='otro'>  "+mensajes[i].mensaje+"</div><div class='aux'></div>");
       }
       ultimoMen = mensajes[mensajes.length-1].idMen; //Obtener el último id para hacer la búsqueda en la bd cuando quiera ver los nuevos mensajes
     }
@@ -253,7 +255,8 @@ function mens(mens){
                 type: "POST",
                 success: function(response){ //Ya que se guardó el mensaje
                     $("#mensaje").val(""); //Limpiar el imput
-                    $(chat).append("Tú: "+mensaje+"<br/>"); //Agregarlo al html
+                    $(chat).append("<div class='aux'></div><div class='yo'>  "+mensaje+"</div>"); //Agregarlo al html
+                    $("#saludo").remove();
                 }
             });
     });
@@ -275,8 +278,11 @@ function mens(mens){
                             $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");// Escribirlo en el html
                             mensajes.push(nuevosMen[i]); //Agregarlo al array de mensajes
                         }
+                    // console.log(ultimoMen);
                     ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
                 }
+                else
+                  ModalGlobal("Nadie te quiere","Lo siento, no hay nuevos mensajes):")
             }
         });
       });
@@ -365,7 +371,7 @@ function busca_usu(usuBusc) {
 
 function chat_nuevo(usuarios) {
   // console.log(usuarios);
-  $("#usuarioParaChatear").keypress(()=>{
+  $("#usuarioParaChatear").keydown(()=>{
     let buscado = $("#usuarioParaChatear").val();
     if (buscado != ""){
       $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez

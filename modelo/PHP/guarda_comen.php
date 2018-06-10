@@ -14,7 +14,7 @@
     $comen = $form["comen"];
     $usuario = dame_cookie();
 
-    $consul = "INSERT INTO comentario(id_usu_comen,id_publi_comen,comentario) VALUE"."("."'$usuario','$idPub','$comen'".")";
+    $consul = "INSERT INTO comentario(id_usu_comen,id_publi_comen,comentario) VALUES"."("."'$usuario','$idPub','$comen'".")";
     mysqli_query($db,$consul);
     mysqli_close($db);
  ?>

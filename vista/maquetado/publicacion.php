@@ -15,8 +15,8 @@
 <body>
     <?php include "navbar.php";?>
     <div id='contenedorPubli'></div>
-    <div class="container">
-        <div id='contenedorComen'></div> <!--POR FAVOR AIUDA CON EL DISEÑO AQUÍ -Paola-->
+    <div id='contenedorComen'class="container">
+      <div id="noComen">Esta publicación aún no tiene comentarios</div>
     </div>
     <div class="container">
         <div class="form-inline row">

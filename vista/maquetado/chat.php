@@ -4,13 +4,15 @@
     <?php include 'head.html'; ?>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T' crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='../estilo/chat.css'/>
+    <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet">
+    <link href="https://fonts.googleapi;s.com/css?family=Spinnaker" rel="stylesheet">
     <title>Chat</title>
-    <style>
-    </style>
   </head>
   <body>
-    <?php include 'navbar.php';; ?>
+    <?php include 'navbar.php'; ?>
     <div class='container'>
+      <div id="amiko"></div>
       <div id='chat'></div>
       <div class="input-group mb-3">
         <input type="text" id='mensaje' class="form-control" placeholder="..." aria-describedby="basic-addon2" />
