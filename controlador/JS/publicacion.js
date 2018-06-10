@@ -50,7 +50,7 @@ $("#enviarComen").on("click",()=>{
           success: function(response){
               $("#noComen").hide()
               $("#comentar").val("");
-              $("#contenedorComen").append("<div><div class='comen'>"+comentario+"</div></div>");
+              $("#contenedorComen").append("<div><div class='comen'>Tú: "+comentario+"</div></div>");
           }
       });
     }

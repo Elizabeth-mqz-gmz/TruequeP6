@@ -14,12 +14,12 @@
 .boton1, .boton0{
   background-color: #3D343F;
   font-family: 'Allerta', sans-serif;
-  color: white;
+  color: #E98836;
   transition:all 0.5s;
 }
 
 #cambio:hover {
-  background-color: #19BEBE;
+  background-color: #E98836;
   cursor: pointer;
 }
 
