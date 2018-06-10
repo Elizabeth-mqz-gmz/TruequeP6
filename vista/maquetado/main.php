@@ -14,36 +14,35 @@
 </head>
   <body>
     <?php include 'navbar.php'; ?>
-    <div id="contenedor">
-      <button id="cambio" class="cambio boton0 btn btn-light"><div id="contenedorBoton">TRUEQUE</div></button>
+    <div id='contenedor'>
+      <button id='cambio' class='cambio boton0 btn btn-light'><div id='contenedorBoton'>TRUEQUE</div></button>
     </div>
     <div class='container' id='contenedorPubli'>
-      <div id="publicaciones">
-          <h2>Bienvenido a Trueque P6!!! Pícale en la cosa azul si quieres ver algún tipo de publicación en específico, desliza para ver todas las publicaciones</h2>
-
+      <div id='publicaciones'>
+          <h2>¿Encontraste algo?</h2>
       </div>
     </div>
     <!-- con MODAL -->
-    <div class="modal fade" id="denuncia" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header headerForm">
+    <div class='modal fade' id='denuncia' tabindex='-1' role='dialog' aria-hidden='true'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header headerForm'>
             <h3>Denuncia</h3>
-            <button type="button" value="cerrar" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <button type='button' value='cerrar' class='close' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
             </button>
             </div>
-            <div class="modal-body">
-                <form method="POST">
-                    <select name="denun" id="Opciondenun" class="custom-select" id="inputGroupSelect01">
-                        <option value="Contenido inapropiado para la plataforma">Contenido inapropiado para la plataforma</option>
-                        <option value="Me ofende">Me ofende</option>
-                        <option value="Eso es mentira">Eso es mentira</option>
-                        <option value="La publicación se repite">La publicación se repite</option>
-                        <option value="El usuario no pertenece a la Prepa">El usuario no pertenece a la Prepa</option>
+            <div class='modal-body'>
+                <form method='POST'>
+                    <select name='denun' id='Opciondenun' class='custom-select' id='inputGroupSelect01'>
+                        <option value='Contenido inapropiado para la plataforma'>Contenido inapropiado para la plataforma</option>
+                        <option value='Me ofende'>Me ofende</option>
+                        <option value='Eso es mentira'>Eso es mentira</option>
+                        <option value='La publicación se repite'>La publicación se repite</option>
+                        <option value='El usuario no pertenece a la Prepa'>El usuario no pertenece a la Prepa</option>
                     </select>
                       <br><br>
-                      <button type="submit" class="btn btn-outline-dark" id="envia">Denunciar</button>
+                      <button type='submit' class='btn btn-outline-dark' id='envia'>Denunciar</button>
                 </form>
             </div>
         </div>

@@ -3,12 +3,14 @@
 var coo = [];
 //separa la cookie en arreglo por ";"
 coo = document.cookie.split(";");
+console.log(coo);
 var cookie, comentarios;
 //busca el valor con "pub", es una regex
 //si la encuentra, su siguiente índice el es el valor de la cookie pub
 //ese valor es el número de publicación actual
 for(let v of coo)
     if(v.search(/pub/)!=-1)
+        console.log(v);
         cookie = v;
 var cookieBuscada = cookie.split("=");
 var publi = cookieBuscada[1];

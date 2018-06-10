@@ -39,7 +39,7 @@ function publicacion(idPub,individual,cb){
             //el php regresa un json
             var publi = JSON.parse(response);
             //clases de bootstrap
-            let divGeneral = "<div id='"+idPub+"' class='card' style='width: 55%;'>";
+            let divGeneral = "<div id='"+idPub+"' class='card' style='width: 45%;'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
             let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             //con MODAL
@@ -47,8 +47,8 @@ function publicacion(idPub,individual,cb){
             if(individual)
                 boton = "<div class='reac'><img src='../recursos/nmp.png'/ class='Me vale'><img src='../recursos/md.png'/ class='Jajajaja'><img src='../recursos/mmm.png' class='Mmm'/></div>";
             else
-                boton = "<a href='publicacion.php' class='btn btn-primary'>Ver publicación</a>";
-            let estado = "</div><h6></h6><span>Me interesa<span></div>";
+                boton = "<a href='publicacion.php' class='bot-publi' class='btn btn-primary' style='text-decoration:none'>Ver publicación</a>";
+            let estado = "</div><h6></h6><span>Me interesa<i class='fa fa-flag'></i></span></div>";
 
             //contenedor puede ser cualquier caja IMPORTANTE
             $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+estado);
@@ -409,6 +409,7 @@ function ModalGlobal (encabezado, contenido){//sustituir alert hacer una ventana
     $("#ModalGlobal").modal("show"); //mostrar la ventana modal
     $("#ModalGlobal").css("transition","all 1s");
 }
+
 function colores(elemento){
   elemento.width = window.innerWidth/4;
 	elemento.height = window.innerHeight;

@@ -1,9 +1,9 @@
 <nav class='navbar sticky-top navbar-expand-lg navbar-light'>
   <a class="navbar-brand" href="#">
-    <img src="../../modelo/imagenes_pub/tp6.png" width="50" height="50" alt="">
+    <img src="../recursos/tpfon.png" width="90%"alt="Trueque P6">
   </a>
   <a class='navbar-brand mb-0 h1' href='main.php'>
-    <h1 class='display-4'>Trueque P6</h1>
+    <h1 id='TP6' class='display-4'>Trueque P6</h1>
   </a>
 
   <div class='form-inline my-2 my-lg-0'>
@@ -35,7 +35,7 @@
             <div class="dropdown"  id="botonEvento">
               <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <!-- Calendario -->
-                <i class="fa fa-calendar" style="font-size:24px"></i>
+                <i class="fa fa-calendar" style="font-size:24px;color:#3D343F"></i>
               </a>
               <div  id="evento" id="MuchosEventos" class="dropdown-menu p-4 text-muted" aria-labelledby="dropdownMenuLink">
                 <span class='navbar-text' id='fechaHoy'></span>
@@ -50,7 +50,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <!-- Notificaciones -->
-                <i class="fa fa-bell-o" style="font-size:24px"></i>
+                <i class="fa fa-bell-o" style="font-size:24px;color:#3D343F"></i>
             </a>
             <ul class="dropdown-menu scroll" id="notifis" role="menu" aria-labelledby="navbarDropdown">
             </ul>
@@ -67,19 +67,19 @@
           <li class='nav-item active'>
             <a class='nav-link' id='perfil' href='perfil_usuario.php'>
                 <!-- Perfil -->
-                <i class="fa fa-user-circle" style="font-size:24px;color:#1919BEBE"></i>
+                <i class="fa fa-user-circle" style="font-size:24px;color:#3D343F"></i>
             </a>
           </li>
           <li class='nav-item active'>
             <a class='nav-link' id='mensajes' href='publicar.php'>
                 <!-- Publicar -->
-                <i class="fa fa-pencil-square-o" style="font-size:24px;color:#E98836"></i>
+                <i class="fa fa-pencil-square-o" style="font-size:24px;color:#3D343F"></i>
             </a>
           </li>
           <li class='nav-item active'>
             <a class='nav-link' id='cerrar_sesion' href='../../cerrar_sesion.php'>
                 <!-- Cerrar Sesión -->
-                <i class="fa fa-sign-out" style="font-size:24px;color:#8FCED0"></i>
+                <i class="fa fa-sign-out" style="font-size:24px;color:#3D343F"></i>
             </a>
           </li>
         </ul>
