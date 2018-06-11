@@ -32,6 +32,7 @@ publicacion(n,true,()=>{
         //pone el color de de la reacción elegida, naranja
         $(event.target).css("border-color","#E98836");
     });
+    // console.log(individual);
     comentario(n);
 });
 

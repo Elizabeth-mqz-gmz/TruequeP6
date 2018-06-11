@@ -6,7 +6,7 @@ $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con
   },
   type: "POST",
   success:function(response){
-      console.log(response);
+      // console.log(res);
       if(response!="null") //creo que nunca sería null, pero por si las moscas jaja
           todosLosUsuariosOf = JSON.parse(response);
       for (let i in todosLosUsuariosOf)
