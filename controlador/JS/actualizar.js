@@ -10,6 +10,23 @@ $("#user").on("blur", ()=>{
 });
 
 $("#NuevoUsuario").on("click", ()=>{//accionar ajax para cambiar el nombre de usuario
+  let nombre = $("#user").val();
+  console.log("Evento");
+  jQuery.ajax({
+      url:"../../modelo/PHP/actualizar_nombre.php",
+      data:{
+          usuario : nombre
+      },
+      type: "POST",
+      success: function(response){
+        console.log(response);
+        $("#nuevonomus").modal("hide");
+        if(response == "F")
+          ModalGlobal("Dato Invalido", "Nombre de usuario incorrecto");
+        else
+          window.location = "perfil_usuario.php";
+        }
+  });
 });
 
   $("#novasenha").hide();
