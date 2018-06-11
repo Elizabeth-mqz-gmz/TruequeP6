@@ -151,10 +151,18 @@ function publicacion(idPub,individual,cb){
               location.href ="../../vista/maquetado/chat.php";
             });
 
+            //Cuando le da clic en el username lo redirige a su perfil
             $("#aut"+publi.idAutor+"pub"+idPub).click(()=>{
               document.cookie = "usuBuscado="+publi.idAutor+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
               location.href ="../../vista/maquetado/perfil_usuario.php";
             });
+
+            //Que se muestre la foto en grande
+            $("#"+idPub+">img").click(()=>{
+              console.log("Muestro la imagen");
+              fotoPubli(publi.publicacion,"../../modelo/PHP/"+publi.imagen);
+            });
+
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             //para el botón se agrega el evento click
             return cb();
@@ -458,4 +466,15 @@ function colores(elemento){
   }
   lienzo.translate(370,300);
     anima();
+}
+
+function fotoPubli (publicacion, imagen){//sustituir alert hacer una ventana Modal
+    let pub = $("<p>"+publicacion+"</p>");
+    let imag = $("<img src='"+imagen+"'/>");
+    $("#publicacion").empty();
+    $("#imagenPubli").empty();
+    pub.appendTo("#publicacion");
+    imag.appendTo("#imagenPubli");
+    $("#ModalFoto").modal("show"); //mostrar la ventana modal
+    $("#ModalFoto").css("transition","all 1s");
 }

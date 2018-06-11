@@ -112,5 +112,6 @@
   </div>
 </div>
 <?php include 'modal.html'; ?>
+<?php include 'foto_modal.html'; ?>
 <script src='../../controlador/JS/num_notif.js'></script>
 <script src='../../controlador/JS/notif.js'></script>
