@@ -350,28 +350,6 @@ function mostrar_chats(allChats) {
 
 }
 
-// function busca_usu(usuBusc) {
-//   $.ajax({
-//       url:"../../modelo/PHP/busca.php",
-//       data:{
-//        usuario : usuBusc
-//       },
-//       type: "POST",
-//       success: function(response){
-//         if (response != "invalido"){// Eso manda PHP si se ingresó algún dato incorrecto
-//            if (response != ""){
-//              if (response == "diferente") //No es está buscando a él mismo
-//                 document.cookie = "usuBuscado="+usuBusc+";max-age=2"; //Si no se busca a él mismo se crea la cookie, entonces se toma ésta cookie y así se hace la búsquedpara mostrar el perfil
-//              location.href ="perfil_usuario.php"; //Llevarlo al perfil del usuario
-//            }
-//            else
-//             ModalGlobal("Búsqueda","Lo siento, tu amigo no está registrado en esta plataforma");
-//         }
-//         else
-//            ModalGlobal("Búsqueda","Ingresa un usuario válido");
-//       }
-//   });
-// }
 
 function chat_nuevo() {
   // console.log(usuarios);
@@ -387,12 +365,12 @@ function chat_nuevo() {
         // console.log(reg);
         for (let i in todosLosUsuariosOf) //No sería eficiente en 1000 usuarios, pero ahora sirve
           if(reg.test(todosLosUsuariosOf[i].nomus)){
-            $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
+            $("#mostrarPers").append("<li class='despliega' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
             hay = true;
           }
 
         if (!hay) //No se encontró nada en la búsqueda
-          $("#mostrarPers").append("<li style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+          $("#mostrarPers").append("<li class='despliega' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
 
     }
   });

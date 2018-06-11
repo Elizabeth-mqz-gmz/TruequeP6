@@ -41,3 +41,16 @@ background-color:#19BEBE;
 #nuevoChat{
   height: 25%;
 }
+.despliega {
+    color: #E98836;
+    background: #FBF8F7;
+    display: block;
+    font-family: 'Allerta', sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 70%;
+}
+.des-bus{
+    width: 310%;
+    margin-left: 8%;
+}

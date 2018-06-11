@@ -9,14 +9,12 @@
   <div class='form-inline my-2 my-lg-0'>
     <div class='input-group'>
       <div class='input-group-prepend'>
-        <span class='input-group-text' id='basic-addon1'><i class="fa fa-users"></i></span>
+        <span class='input-group-text' id='basic-addon1'><i class="fa fa-search"></i></span>
       </div>
       <input class='form-control mr-sm-2' type='search'id="buscado" placeholder='Nombre de Usuario' aria-label='Search'>
         <ul id="buscadillo" role="menu" aria-labelledby="navbarDropdown">
         </ul>
     </div>
-    <button class='btn btn-light my-2 my-sm-0' id="buscar" type='submit'><i class="fa fa-search" style="font-size:24px"></i>
-</button>
   </div>
 
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>

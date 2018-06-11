@@ -84,12 +84,12 @@ var click = 0;
           // console.log(reg);
           for (let i in todosLosUsuariosOf)
             if(reg.test(todosLosUsuariosOf[i].nomus) && todosLosUsuariosOf[i].usuario != "usuarioOf" ){
-              $("#buscadillo").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
+              $("#buscadillo").append("<li class='despliega des-bus' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
               hay = true;
             }
 
           if (!hay) //No se encontró nada en la búsqueda
-            $("#buscadillo").append("<li style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+            $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
 
       }
     });
