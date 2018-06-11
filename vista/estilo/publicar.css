@@ -1,0 +1,26 @@
+section{
+  margin: 10%;
+  width: 80%;
+  border: 1px solid #3D343F;
+  padding: 5%;
+  border-radius: 1%;
+  background-color: #8FCED0;
+  color: #3D343F;
+  font-family: 'Allerta', sans-serif;
+}
+.bot{
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.bot:hover{
+    background-color: #E98836;
+}

@@ -9,15 +9,7 @@
     <script type='text/javascript' src='../../librerias/jquery-3.3.1.min.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel='stylesheet' href='../estilo/navbar.css' />
-    <style>
-        section{
-            margin: 10%;
-            width: 80%;
-            border: 1px solid #8FCED0;
-            padding: 5%;
-            border-radius: 1%;
-        }
-    </style>
+    <link rel='stylesheet' href='../estilo/publicar.css' />
 </head>
 <body>
     <?php include "navbar.php"; ?>
@@ -85,7 +77,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Publicar</button>
+                    <button type="submit" class="bot">Publicar</button>
                 </div>
             </div>
         </form>

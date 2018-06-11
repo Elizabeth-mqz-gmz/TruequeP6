@@ -6,8 +6,8 @@
   padding: 10px;
   margin:30%, 0;
   font-size: 18px;
-  background-color: #3D343F;
-  color: #E98836;
+  background-color: #E98836;
+  color: #19BEBE;
 }
 
 .boton0{ left : 1px; }
@@ -21,8 +21,8 @@
 }
 
 #cambio:hover {
-  background-color: #E98836;
-  color: #3D343F;
+  background-color: #19BEBE;
+  color: #E98836;
   cursor: pointer;
 }
 
