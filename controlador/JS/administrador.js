@@ -126,7 +126,7 @@ $("#enviar").click(()=>{
                       if (response == "")
                         ModalGlobal("Éxito","El usuario ha sido eliminado");
                       else
-                        console.log ("buuuh"); 
+                        ModalGlobal("Cuidado","No es posible eliminar al administrador");
                       }
                   });
               }
