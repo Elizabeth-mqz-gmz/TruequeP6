@@ -59,3 +59,22 @@ $("#enviarComen").on("click",()=>{
         });
     }
 });
+
+$("#contenedorComen").click((ev)=>{ //Este evento denuncia un comentario
+  let val = ev.target.className;
+  if (val == "denunc") { //Checar que le haya clickeado al monito
+    let ind = ev.target.id;
+    $.ajax({
+        url:"../../modelo/PHP/denun_comen.php",
+        data:{
+            comenID: comentarios[ind].idComen //Id del comentario
+        },
+        type: "POST",
+        success: function(response){
+            // console.log($("#"+ind));
+            $("#"+ind+".denunc").hide(); //No sé porque se borra todo el comentario jajajaj, pero no tendría que ser así
+            // ModalGlobal("Éxito","Se denunció el comentario"); //Me manda un error, no sé por qué ):
+        }
+    });
+  }
+});
