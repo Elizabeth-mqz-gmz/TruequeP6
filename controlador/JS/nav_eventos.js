@@ -84,22 +84,27 @@ $("#buscado").keydown(()=>{
           let reg = new RegExp ("^("+buscado+")","i");
           // console.log(reg);
           for (let i in todosLosUsuariosOf)
-            if(reg.test(todosLosUsuariosOf[i].nomus) && todosLosUsuariosOf[i].usuario != "usuarioOf" ){
+            if( (reg.test(todosLosUsuariosOf[i].nomus) || reg.test(todosLosUsuariosOf[i].usuario)) && todosLosUsuariosOf[i].usuario != "usuarioOf" ){
               $("#buscadillo").append("<li class='despliega des-bus' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
               hay = true;
             }
-
           if (!hay) //No se encontró nada en la búsqueda
               $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+          $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;></li>"); //Para que alcance a agarrar todo jsjsj
 
       }
     });
 
-$("#buscadillo").click(()=>{
+  $("#buscadillo").mouseout(()=>{
+    $("#buscadillo").children("li").empty();
+  });
+
+  $("#buscadillo").click(()=>{
+      console.log("Hola mundo");
       var ind = event.target.id;
       document.cookie = "usuBuscado="+todosLosUsuariosOf[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere
       location.href ="../../vista/maquetado/perfil_usuario.php";
-});
+  });
 
 
   $("#navbarDropdownChat").on("click",function(){ //Muestra todos los chats de la persona
@@ -112,7 +117,7 @@ $("#buscadillo").click(()=>{
             mostrar_chats(response);
         }
     });
-	});
+  });
 
   $("#nuevoChat").click(()=>{
     chat_nuevo();
