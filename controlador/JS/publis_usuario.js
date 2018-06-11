@@ -41,6 +41,7 @@ $(document).ready(()=>{
 
     if ( cookie != "usuario" ){
       var persona =   $("#nombre");
+      $("#actualizacion").hide();
       $("#chat").show(); //Mostrar el "Enviar mensaje"
       $("#chat").on("click",()=>{ //Si le da click se crea la cookie y te redirecciona a chat jiji
           document.cookie = "otro="+cookie+";max-age=10";

@@ -1,5 +1,6 @@
 //actualizar.js
-$("#NuevoUsuario").hide();
+//Se utilizan las funciones de revisa js para validar el nombre y contraseña :)
+$("#NuevoUsuario").hide();//Ocultar el botón de actualizar
 $("#user").on("blur", ()=>{
   let clase = $("#user").attr("class");
   console.log(clase);
@@ -10,6 +11,23 @@ $("#user").on("blur", ()=>{
 });
 
 $("#NuevoUsuario").on("click", ()=>{//accionar ajax para cambiar el nombre de usuario
+  let nombre = $("#user").val();
+  console.log("Evento");
+  jQuery.ajax({
+      url:"../../modelo/PHP/actualizar_nombre.php",
+      data:{
+          usuario : nombre
+      },
+      type: "POST",
+      success: function(response){
+        // console.log(response);
+        $("#nuevonomus").modal("hide");
+        if(response == "F")
+          ModalGlobal("Dato Invalido", "Nombre de usuario incorrecto");
+        else
+          window.location = "perfil_usuario.php";
+        }
+  });
 });
 
   $("#novasenha").hide();
@@ -37,6 +55,7 @@ $("#enviar").click(()=>{
         success: function(response){
               let n = response;
               if (n == "T"){
+                document.getElementById("formIS").reset();
                 $("#kk").modal("hide");
                 $("#nuevacontra").modal("show");
               }
@@ -52,4 +71,28 @@ $("#enviar").click(()=>{
               }
             }
     });
+});
+
+$("#novasenha").on("click", ()=>{
+  let contra = $("#pass1").val(); //obtener contraseña del input
+  // console.log("eveto");
+  // console.log(contra);
+  jQuery.ajax({
+      url:"../../modelo/PHP/actualizar_contrasena.php",
+      data:{
+          contrasena : contra
+      },
+      type: "POST",
+      success: function(response){
+        // console.log(response);
+        // $("#pass1").empty();
+        // $("#pass2").empty();
+        document.getElementById("formContra").reset();
+        $("#nuevacontra").modal("hide");
+        if (response != "Contrasena")
+          ModalGlobal("Éxito", "Tu contraseña ha sido modificada");
+        else
+          ModalGlobal("Dato Invalido", "Esa contraseña no cumple con las especificaciones");
+        }
+  });
 });

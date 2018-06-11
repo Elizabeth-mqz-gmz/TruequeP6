@@ -2,14 +2,15 @@
   <head>
     <title>Administrador</title>
     <?php include "head.html";?>
+    <link rel="stylesheet" href="../estilo/administrador.css" />
   </head>
   <body>
     <?php include "navbar.php";?>
     <div class="container">
       <div class="row">
-        <div class="col"><button id='publicaciones' class="btn btn-outline-secondary btn-lg btn-block" >Publicaciones</button></div>
-        <div class="col"><button id='comentarios' class="btn btn-outline-secondary btn-lg btn-block">Comentarios</button></div>
-        <div class="col"><button data-target='#notificacionesPT'data-toggle='modal' class="btn btn-outline-secondary btn-lg btn-block">Notificación</button></div>
+        <div class="col"><button id='publicaciones' class="btn  btn-lg btn-block" >Publicaciones</button></div>
+        <div class="col"><button id='comentarios' class="btn  btn-lg btn-block">Comentarios</button></div>
+        <div class="col"><button data-target='#notificacionesPT'data-toggle='modal' class="btn btn-lg btn-block">Notificación</button></div>
       </div>
     </div>
     <div id="contPublicaciones"></div>
@@ -42,7 +43,7 @@
             <form id="formSuperNoti">
               <div class="form-group formtexto">
                 <label >Mensaje</label>
-                <input type="text" class="form-control" id="menNotif" placeholder="Hola...">
+                <textarea title="Por favor ingrese un mensaje" class="form-control" rows="4" id="menNotif" placeholder="Hola..." maxlength="100" autofocus required></textarea>
               </div>
               <button type="reset" class="btn btn-dark" id="NotificacionesTodos">Enviar</button>
             </form>
