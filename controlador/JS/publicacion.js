@@ -12,7 +12,8 @@ for(let v of coo)
         cookie = v;
 var cookieBuscada = cookie.split("=");
 var publi = cookieBuscada[1];
-publicacion(publi,true,()=>{
+var n = publi;
+publicacion(n,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
         reac = event.target.className; //el id es el tipo de reacción
@@ -20,7 +21,7 @@ publicacion(publi,true,()=>{
             $.ajax({
                 url:"../../modelo/PHP/reacciona.php",
                 data:{
-                    idPubli: publi,
+                    idPubli: n,
                     tipoReac: reac
                 },
                 type:"POST"
@@ -31,24 +32,28 @@ publicacion(publi,true,()=>{
         //pone el color de de la reacción elegida, naranja
         $(event.target).css("border-color","#E98836");
     });
-    comentario(publi);
+    comentario(n);
 });
 
 $("#enviarComen").on("click",()=>{
 //ajax que guarda comentario en la BD, publi es id_publicacion
 //comentario es el mensaje, comentario
+
     var inp = document.getElementById("comentar");
     comentario = inp.value;
-    $.ajax({
-        url:"../../modelo/PHP/guarda_comen.php",
-        data:{
-            idPubli: publi,
-            comen: comentario
-        },
-        type: "POST",
-        success: function(){
-            $(inp).val("");
-            $("#contenedorComen").append("<div class='denc'>Tú :"+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
-        }
-    });
+
+    if (comentario != ""){
+        $.ajax({
+            url:"../../modelo/PHP/guarda_comen.php",
+            data:{
+                idPubli: n,
+                comen: comentario
+            },
+            type: "POST",
+            success: function(){
+                $(inp).val("");
+                $("#contenedorComen").append("<div class='denc'>"+nombreUsuarioOf+" dice: "+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
+            }
+        });
+    }
 });

@@ -13,8 +13,12 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
             // console.log(response);
             comentarios = JSON.parse(response);
             // console.log(comentarios);
-            for (let i in comentarios) //Los va agregando
-                  $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+            for (let i in comentarios){ //Los va agregando
+                  if (comentarios[i].nomus != nombreUsuarioOf)
+                      $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+                  else
+                      $("#contenedorComen").append("<div class='denc'>"+nombreUsuarioOf+" dice: "+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
+            }
             // console.log($(".comen~img"));
           }
         }
@@ -346,30 +350,30 @@ function mostrar_chats(allChats) {
 
 }
 
-function busca_usu(usuBusc) {
-  $.ajax({
-      url:"../../modelo/PHP/busca.php",
-      data:{
-       usuario : usuBusc
-      },
-      type: "POST",
-      success: function(response){
-        if (response != "invalido"){// Eso manda PHP si se ingresó algún dato incorrecto
-           if (response != ""){
-             if (response == "diferente") //No es está buscando a él mismo
-                document.cookie = "usuBuscado="+usuBusc+";max-age=2"; //Si no se busca a él mismo se crea la cookie, entonces se toma ésta cookie y así se hace la búsquedpara mostrar el perfil
-             location.href ="perfil_usuario.php"; //Llevarlo al perfil del usuario
-           }
-           else
-            ModalGlobal("Búsqueda","Lo siento, tu amigo no está registrado en esta plataforma");
-        }
-        else
-           ModalGlobal("Búsqueda","Ingresa un usuario válido");
-      }
-  });
-}
+// function busca_usu(usuBusc) {
+//   $.ajax({
+//       url:"../../modelo/PHP/busca.php",
+//       data:{
+//        usuario : usuBusc
+//       },
+//       type: "POST",
+//       success: function(response){
+//         if (response != "invalido"){// Eso manda PHP si se ingresó algún dato incorrecto
+//            if (response != ""){
+//              if (response == "diferente") //No es está buscando a él mismo
+//                 document.cookie = "usuBuscado="+usuBusc+";max-age=2"; //Si no se busca a él mismo se crea la cookie, entonces se toma ésta cookie y así se hace la búsquedpara mostrar el perfil
+//              location.href ="perfil_usuario.php"; //Llevarlo al perfil del usuario
+//            }
+//            else
+//             ModalGlobal("Búsqueda","Lo siento, tu amigo no está registrado en esta plataforma");
+//         }
+//         else
+//            ModalGlobal("Búsqueda","Ingresa un usuario válido");
+//       }
+//   });
+// }
 
-function chat_nuevo(usuarios) {
+function chat_nuevo() {
   // console.log(usuarios);
 
   $("#usuarioParaChatear").keydown(()=>{
@@ -381,9 +385,9 @@ function chat_nuevo(usuarios) {
         $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez
         let reg = new RegExp ("^("+buscado+")","i");
         // console.log(reg);
-        for (let i in usuarios) //No sería eficiente en 1000 usuarios, pero ahora sirve
-          if(reg.test(usuarios[i].nomus)){
-            $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+usuarios[i].nomus+"</li>");
+        for (let i in todosLosUsuariosOf) //No sería eficiente en 1000 usuarios, pero ahora sirve
+          if(reg.test(todosLosUsuariosOf[i].nomus)){
+            $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
             hay = true;
           }
 
@@ -394,7 +398,7 @@ function chat_nuevo(usuarios) {
   });
   $("#mostrarPers").click(()=>{
     var ind = event.target.id;
-    document.cookie = "otro="+usuarios[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
+    document.cookie = "otro="+todosLosUsuariosOf[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
     location.href ="../../vista/maquetado/chat.php";
   });
 }

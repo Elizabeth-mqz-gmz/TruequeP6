@@ -11,7 +11,9 @@
       <div class='input-group-prepend'>
         <span class='input-group-text' id='basic-addon1'><i class="fa fa-users"></i></span>
       </div>
-      <input class='form-control mr-sm-2' type='search'id="buscado" placeholder='Número de Cuenta' aria-label='Search'>
+      <input class='form-control mr-sm-2' type='search'id="buscado" placeholder='Nombre de Usuario' aria-label='Search'>
+        <ul id="buscadillo" role="menu" aria-labelledby="navbarDropdown">
+        </ul>
     </div>
     <button class='btn btn-light my-2 my-sm-0' id="buscar" type='submit'><i class="fa fa-search" style="font-size:24px"></i>
 </button>
