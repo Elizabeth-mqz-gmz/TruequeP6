@@ -55,8 +55,9 @@ function publicacion(idPub,individual,cb){
                 boton = "<a href='publicacion.php' class='btn bot-publi' style='text-decoration:none'>Ver publicación</a>";
             let estado = "</div><h6></h6><span>Me interesa<i class='fa fa-flag'></i></span></div>";
 
+            let botonParaChat = "<a href='chat.php' id='chat"+idPub+"' class='btn bot-publi' style='text-decoration:none'>Enviar mensaje</a>";
             //contenedor puede ser cualquier caja IMPORTANTE
-            $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+estado);
+            $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+botonParaChat+estado);
             $("#"+idPub+">div>h5").text(publi.autor);
             $("#"+idPub+">div>p").text(publi.publicacion);
 
@@ -105,6 +106,8 @@ function publicacion(idPub,individual,cb){
                     });
 
                 });
+
+                $("#chat"+idPub).hide(); //Ocultar el botón para chat
             }
            if(publi.denuncia == "0") //con MODAL
                $("#"+idPub+" .den").on("click",()=>{
@@ -142,6 +145,11 @@ function publicacion(idPub,individual,cb){
                 });
             });
 
+            //COSAS DE Chat
+            $("#chat"+idPub).click(()=>{
+              document.cookie = "otro="+publi.idAutor+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
+              location.href ="../../vista/maquetado/chat.php";
+            });
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             //para el botón se agrega el evento click
             return cb();

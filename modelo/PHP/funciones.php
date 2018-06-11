@@ -104,7 +104,7 @@ function dame_publicacion($idPubli,$db){
     else
         $esAutor = "false";
 
-    $consul = "SELECT nomus FROM usuario WHERE id_usuario='$usu'";
+    $consul = "SELECT nomus,id_usuario FROM usuario WHERE id_usuario='$usu'";
     $re = mysqli_query($db,$consul);
     $regis =  mysqli_fetch_array($re);
     $nomUs = $regis[0];
@@ -117,7 +117,8 @@ function dame_publicacion($idPubli,$db){
         \"publicacion\":\"".$row["publicacion"]."\",
         \"esAutor\":\"$esAutor\",
         \"usuReac\":\"$tipoReac\",
-        \"denuncia\":\"".$row["denuncia_p"]."\"
+        \"denuncia\":\"".$row["denuncia_p"]."\",
+        \"idAutor\":\"".$usu."\"
     }";
     return $json;
 }
