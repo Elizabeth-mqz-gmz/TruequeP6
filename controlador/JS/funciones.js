@@ -58,7 +58,7 @@ function publicacion(idPub,individual,cb){
             let botonParaChat = "<a href='chat.php' id='chat"+idPub+"' class='btn bot-publi' style='text-decoration:none'>Enviar mensaje</a>";
             //contenedor puede ser cualquier caja IMPORTANTE
             $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+botonParaChat+estado);
-            $("#"+idPub+">div>h5").text(publi.autor);
+            $("#"+idPub+">div>h5").append("<div id='aut"+publi.idAutor+"pub"+idPub+"'>"+publi.autor+"</div>");
             $("#"+idPub+">div>p").text(publi.publicacion);
 
             //OJO no agregar o quitar clases de img, IMPORTANTE para reacciones
@@ -149,6 +149,11 @@ function publicacion(idPub,individual,cb){
             $("#chat"+idPub).click(()=>{
               document.cookie = "otro="+publi.idAutor+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
               location.href ="../../vista/maquetado/chat.php";
+            });
+
+            $("#aut"+publi.idAutor+"pub"+idPub).click(()=>{
+              document.cookie = "usuBuscado="+publi.idAutor+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
+              location.href ="../../vista/maquetado/perfil_usuario.php";
             });
             //para cuando está con comenatrios y reacciones, se ejecute un callback
             //para el botón se agrega el evento click

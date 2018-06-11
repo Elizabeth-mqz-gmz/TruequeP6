@@ -100,7 +100,7 @@ $("#buscado").keydown(()=>{
   });
 
   $("#buscadillo").click(()=>{
-      console.log("Hola mundo");
+      // console.log("Hola mundo");
       var ind = event.target.id;
       document.cookie = "usuBuscado="+todosLosUsuariosOf[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere
       location.href ="../../vista/maquetado/perfil_usuario.php";
