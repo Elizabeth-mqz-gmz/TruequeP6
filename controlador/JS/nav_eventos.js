@@ -1,5 +1,5 @@
 // console.log("Estoy en nav eventos");
-var todosLosUsuariosOf, nombreUsuarioOf;
+var todosLosUsuariosOf;
 $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con eso
   url:"../../modelo/PHP/todos_los_ususs.php",
   data:{
@@ -9,9 +9,8 @@ $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con
       // console.log(res);
       if(response!="null") //creo que nunca sería null, pero por si las moscas jaja
           todosLosUsuariosOf = JSON.parse(response);
-      for (let i in todosLosUsuariosOf)
-          if (todosLosUsuariosOf[i].usuario == "usuarioOf")
-              nombreUsuarioOf = todosLosUsuariosOf[i].nomus;
+
+      // console.log(nombreUsuarioOf);
       // console.log(response);
   }
 });

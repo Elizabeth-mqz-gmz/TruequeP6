@@ -3,7 +3,7 @@
 var coo = [];
 //separa la cookie en arreglo por ";"
 coo = document.cookie.split(";");
-var cookie;
+var cookie, nombreUsuarioOf;
 //busca el valor con "pub", es una regex
 //si la encuentra, su siguiente índice el es el valor de la cookie pub
 //ese valor es el número de publicación actual
@@ -13,6 +13,11 @@ for(let v of coo)
 var cookieBuscada = cookie.split("=");
 var publi = cookieBuscada[1];
 var n = publi;
+
+for (let i in todosLosUsuariosOf)
+    if (todosLosUsuariosOf[i].usuario == "usuarioOf")
+        nombreUsuarioOf = todosLosUsuariosOf[i].nomus;
+        
 publicacion(n,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
@@ -53,7 +58,7 @@ $("#enviarComen").on("click",()=>{
             type: "POST",
             success: function(){
                 $(inp).val("");
-                $("#contenedorComen").append("<div class='denc'>"+nombreUsuarioOf+" dice: "+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
+                $("#contenedorComen").append("<div><div class='comen'>"+nombreUsuarioOf+" dice: "+comentario+"</div></div>");
             }
         });
     }

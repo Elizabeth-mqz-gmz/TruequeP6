@@ -12,12 +12,16 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
             $("#noComen").hide()
             // console.log(response);
             comentarios = JSON.parse(response);
+            
             // console.log(comentarios);
             for (let i in comentarios){ //Los va agregando
-                  if (comentarios[i].nomus != nombreUsuarioOf)
+                  if (comentarios[i].nomus != nombreUsuarioOf){
                       $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+                      console.log("no es el mismo");
+                      console.log(comentarios[i].nomus +","+ nombreUsuarioOf);
+                  }
                   else
-                      $("#contenedorComen").append("<div class='denc'>"+nombreUsuarioOf+" dice: "+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
+                      $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div></div>");
             }
             // console.log($(".comen~img"));
           }
@@ -136,7 +140,7 @@ function publicacion(idPub,individual,cb){
                     },
                     type: "POST",
                     success: function(){
-                        $("#"+idPub+">span").css("color","green");
+                        $("#"+idPub+">span").css("color","#827D78");
                     }
                 });
             });
