@@ -13,8 +13,12 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
             // console.log(response);
             comentarios = JSON.parse(response);
             // console.log(comentarios);
-            for (let i in comentarios) //Los va agregando
-                  $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+            for (let i in comentarios){ //Los va agregando
+                  if (comentarios[i].nomus != nombreUsuarioOf)
+                      $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
+                  else
+                      $("#contenedorComen").append("<div class='denc'>"+nombreUsuarioOf+" dice: "+comentario+"<img class='denim' src='../recursos/den.png'/></div>");
+            }
             // console.log($(".comen~img"));
           }
         }
@@ -39,7 +43,7 @@ function publicacion(idPub,individual,cb){
             //el php regresa un json
             var publi = JSON.parse(response);
             //clases de bootstrap
-            let divGeneral = "<div id='"+idPub+"' class='card' style='width: 55%;'>";
+            let divGeneral = "<div id='"+idPub+"' class='card' style='width: 45%;'>";
             let imgDiv2 = "<img class='card-img-top'/><div class='card-body'>";
             let texto = "<h5 class='card-title'></h5><div class='den' data-toggle='modal' data-target='#denuncia'><img src='../recursos/den.png'/></div><p class='card-text'></p>";
             //con MODAL
@@ -47,8 +51,8 @@ function publicacion(idPub,individual,cb){
             if(individual)
                 boton = "<div class='reac'><img src='../recursos/nmp.png'/ class='Me vale'><img src='../recursos/md.png'/ class='Jajajaja'><img src='../recursos/mmm.png' class='Mmm'/></div>";
             else
-                boton = "<a href='publicacion.php' class='btn btn-primary'>Ver publicación</a>";
-            let estado = "</div><h6></h6><span>Me interesa<span></div>";
+                boton = "<a href='publicacion.php' class='btn bot-publi' style='text-decoration:none'>Ver publicación</a>";
+            let estado = "</div><h6></h6><span>Me interesa<i class='fa fa-flag'></i></span></div>";
 
             //contenedor puede ser cualquier caja IMPORTANTE
             $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+estado);
@@ -347,30 +351,8 @@ function mostrar_chats(allChats) {
 
 }
 
-function busca_usu(usuBusc) {
-  $.ajax({
-      url:"../../modelo/PHP/busca.php",
-      data:{
-       usuario : usuBusc
-      },
-      type: "POST",
-      success: function(response){
-        if (response != "invalido"){// Eso manda PHP si se ingresó algún dato incorrecto
-           if (response != ""){
-             if (response == "diferente") //No es está buscando a él mismo
-                document.cookie = "usuBuscado="+usuBusc+";max-age=2"; //Si no se busca a él mismo se crea la cookie, entonces se toma ésta cookie y así se hace la búsquedpara mostrar el perfil
-             location.href ="perfil_usuario.php"; //Llevarlo al perfil del usuario
-           }
-           else
-            ModalGlobal("Búsqueda","Lo siento, tu amigo no está registrado en esta plataforma");
-        }
-        else
-           ModalGlobal("Búsqueda","Ingresa un usuario válido");
-      }
-  });
-}
 
-function chat_nuevo(usuarios) {
+function chat_nuevo() {
   // console.log(usuarios);
 
   $("#usuarioParaChatear").keydown(()=>{
@@ -382,20 +364,20 @@ function chat_nuevo(usuarios) {
         $("#mostrarPers").children("li").remove(); //Para que sólo los muestre una vez
         let reg = new RegExp ("^("+buscado+")","i");
         // console.log(reg);
-        for (let i in usuarios) //No sería eficiente en 1000 usuarios, pero ahora sirve
-          if(reg.test(usuarios[i].nomus)){
-            $("#mostrarPers").append("<li id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+usuarios[i].nomus+"</li>");
+        for (let i in todosLosUsuariosOf) //No sería eficiente en 1000 usuarios, pero ahora sirve
+          if(reg.test(todosLosUsuariosOf[i].nomus)){
+            $("#mostrarPers").append("<li class='despliega' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
             hay = true;
           }
 
         if (!hay) //No se encontró nada en la búsqueda
-          $("#mostrarPers").append("<li style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+          $("#mostrarPers").append("<li class='despliega' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
 
     }
   });
   $("#mostrarPers").click(()=>{
     var ind = event.target.id;
-    document.cookie = "otro="+usuarios[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
+    document.cookie = "otro="+todosLosUsuariosOf[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
     location.href ="../../vista/maquetado/chat.php";
   });
 }
@@ -410,6 +392,7 @@ function ModalGlobal (encabezado, contenido){//sustituir alert hacer una ventana
     $("#ModalGlobal").modal("show"); //mostrar la ventana modal
     $("#ModalGlobal").css("transition","all 1s");
 }
+
 function colores(elemento){
   elemento.width = window.innerWidth/4;
 	elemento.height = window.innerHeight;

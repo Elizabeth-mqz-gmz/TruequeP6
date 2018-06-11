@@ -44,3 +44,6 @@ Para usar la sesión de administrador no es necesario un registro, a continuaci�
 A través de está cuenta se podrán gestionar las denuncias de comentarios, publicaciones y perfiles de usuario, el administrador tendrá el poder de retirar la denuncia o eliminar aquello que se ha denunciado, también podrá mandar notificaciones personalizadas...
 
 Esperamos que disfrute su experiencia en "Trueque-P6", buen viaje!
+
+NOTAS:
+-No puedes publicar imágenes que pasen los 10M.

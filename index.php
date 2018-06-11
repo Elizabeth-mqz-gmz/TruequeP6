@@ -43,7 +43,7 @@
               <span aria-hidden='true'>&times;</span>
             </button>
           </div>
-          <div class="modal-body formularios">
+          <div class="modal-body">
              <?php include "vista/maquetado/regis.html"?>
           </div>
         </div>
@@ -58,7 +58,7 @@
               <span aria-hidden='true'>&times;</span>
             </button>
           </div>
-          <div class="modal-body formularios">
+          <div class="modal-body">
             <?php include "vista/maquetado/inicio_sesion.html"?>
           </div>
         </div>

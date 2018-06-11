@@ -1,4 +1,22 @@
 // console.log("Estoy en nav eventos");
+var todosLosUsuariosOf, nombreUsuarioOf;
+$.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con eso
+  url:"../../modelo/PHP/todos_los_ususs.php",
+  data:{
+  },
+  type: "POST",
+  success:function(response){
+      console.log(response);
+      if(response!="null") //creo que nunca sería null, pero por si las moscas jaja
+          todosLosUsuariosOf = JSON.parse(response);
+      for (let i in todosLosUsuariosOf)
+          if (todosLosUsuariosOf[i].usuario == "usuarioOf")
+              nombreUsuarioOf = todosLosUsuariosOf[i].nomus;
+      // console.log(response);
+  }
+});
+
+
 var click = 0;
   $('#botonEvento').on('click',()=>{
     if(click==0){
@@ -55,21 +73,33 @@ var click = 0;
       }
     });
 
+    //BUSQUEDA DE USUARIO
+    $("#buscado").keydown(()=>{
+      let hay = false;
+      let buscado = $("#buscado").val();
+        console.log(buscado);
+      if (buscado != ""){
 
-  $("#buscar").on("click",()=>{ //Busca a alguien en la base de datos
-    // console.log("Estoy en buscar");
-     var usuBuscado = $("#buscado").val(); //Tomar el valor del input
-     if ( usuBuscado != ""){
-        let valida = new RegExp (/^(31)[6789][0-9]{6}/); //Checar que meta un usuario válido
-        if ( valida.test(usuBuscado) == true) {
-             busca_usu(usuBuscado);
-         }
-        else
-          ModalGlobal("Búsqueda","Ingresa un usuario válido");
+          $("#buscadillo").children("li").remove(); //Para que sólo los muestre una vez
+          let reg = new RegExp ("^("+buscado+")","i");
+          // console.log(reg);
+          for (let i in todosLosUsuariosOf)
+            if(reg.test(todosLosUsuariosOf[i].nomus) && todosLosUsuariosOf[i].usuario != "usuarioOf" ){
+              $("#buscadillo").append("<li class='despliega des-bus' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
+              hay = true;
+            }
+
+          if (!hay) //No se encontró nada en la búsqueda
+            $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+
       }
-      else
-        ModalGlobal("Búsqueda","Ingresa un número de cuenta para buscar");
-  });
+    });
+
+    $("#buscadillo").click(()=>{
+      var ind = event.target.id;
+      document.cookie = "usuBuscado="+todosLosUsuariosOf[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere
+      location.href ="../../vista/maquetado/perfil_usuario.php";
+    });
 
 
   $("#navbarDropdownChat").on("click",function(){ //Muestra todos los chats de la persona
@@ -85,15 +115,5 @@ var click = 0;
 	});
 
   $("#nuevoChat").click(()=>{
-    $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con eso
-      url:"../../modelo/PHP/todos_los_ususs.php",
-      data:{
-      },
-      type: "POST",
-      success:function(response){
-          if(response!="null"){ //creo que nunca sería null, pero por si las moscas jaja
-              chat_nuevo(JSON.parse(response))
-          }
-      }
-    });
+    chat_nuevo();
   });

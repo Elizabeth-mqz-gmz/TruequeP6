@@ -14,13 +14,12 @@
 </head>
   <body>
     <?php include 'navbar.php'; ?>
-    <div id="contenedor">
-      <button id="cambio" class="cambio boton0 btn btn-light"><div id="contenedorBoton">TRUEQUE</div></button>
+    <div id='contenedor'>
+      <button id='cambio' class='cambio boton0 btn btn-light'><div id='contenedorBoton'>TRUEQUE</div></button>
     </div>
     <div class='container' id='contenedorPubli'>
-      <div id="publicaciones">
-          <h2>Bienvenido a Trueque P6!!! Pícale en la cosa azul si quieres ver algún tipo de publicación en específico, desliza para ver todas las publicaciones</h2>
-
+      <div id='publicaciones'>
+          <h2>¿Encontraste algo?</h2>
       </div>
     </div>
     <?php include 'denuncia.html';?>

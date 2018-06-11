@@ -6,20 +6,23 @@
   padding: 10px;
   margin:30%, 0;
   font-size: 18px;
+  background-color: #3D343F;
+  color: #E98836;
 }
 
 .boton0{ left : 1px; }
 .boton1{ right : 1px; }
 
 .boton1, .boton0{
-  background-color: #3D343F;
+  /* background-color: #3D343F; */
   font-family: 'Allerta', sans-serif;
-  color: #E98836;
+  /* color: #E98836; */
   transition:all 0.5s;
 }
 
 #cambio:hover {
   background-color: #E98836;
+  color: #3D343F;
   cursor: pointer;
 }
 

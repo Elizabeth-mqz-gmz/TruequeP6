@@ -16,9 +16,7 @@
 h6:hover,.reac>img:hover,.den>img:hover,.card span:hover{
     cursor: pointer;
 }
-h6{
-    padding: 1%;
-}
+.card-body{ border-top: #827d78 1px solid; }
 .den>img{
     width: 2em;
     height: 2em;
@@ -30,22 +28,33 @@ h6{
     height: 23em;
 }
 .card{
-    width: 28em;
+    /* width: 28em; */
     height: auto;
     margin: 5% auto;
-    color: black;
-    background-color: #3D343F;
+    background-color: #3D343F !important;
+    border: #8FCED0 3px solid !important;
+    font-family: 'Allerta', sans-serif;
 }
 .card span{
     position: absolute;
-    left: 79%;
-    bottom: 15%;
+    left: 69%;
+    bottom: 10%;
     font-weight: bold;
+    color: #827d78;
 }
 .container>.form-inline{
     width: 100%;
     display: flex;
     margin: auto;
+}
+.card-body>.card-title{
+    font-size: 1.7em;
+    color: #19BEBE;
+}
+.card-body>.card-text{
+    font-size: 1em;
+    color: #8FCED0;
+    font-style: italic;
 }
 .form-control{
     width: 80% !important;
@@ -55,10 +64,20 @@ h6{
 .container .btn{
     margin-bottom: 7%;
 }
+.bot-publi{
+    background: #E98836;
+    color: #FBF8F7;
+    border-radius: 5%;
+    padding: 2.5%;
+    transition: 1s;
+}
+.bot-publi:hover{
+    background: #8FCED0;
+}
 /*checar responsive de publicacion*/
 @media (max-width: 500px){
     .card{
-        width: 90vw;
+        width: 110vw;
         margin: 5vw;
     }
 }
@@ -70,15 +89,18 @@ h6{
   height: 3em;
 }
 .denunc{
-  text-align: right;
   width: 2em;
   padding-top: .3em;
+  margin-left: 5%;
 }
 .comen{
   float: left;
-  width: 90%;
-  color: white;
+  width: 85%;
+  color: #3D343F;
+  background: #8FCED0;
   padding-left: 4px;
   padding: .5em;
   font-size: 1.2em;
+  border-radius: 15%;
+  font-family: 'Allerta', sans-serif;
 }
