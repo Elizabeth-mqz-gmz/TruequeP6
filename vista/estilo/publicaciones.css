@@ -89,15 +89,18 @@ h6:hover,.reac>img:hover,.den>img:hover,.card span:hover{
   height: 3em;
 }
 .denunc{
-  text-align: right;
   width: 2em;
   padding-top: .3em;
+  margin-left: 5%;
 }
 .comen{
   float: left;
-  width: 90%;
-  color: white;
+  width: 85%;
+  color: #3D343F;
+  background: #8FCED0;
   padding-left: 4px;
   padding: .5em;
   font-size: 1.2em;
+  border-radius: 15%;
+  font-family: 'Allerta', sans-serif;
 }

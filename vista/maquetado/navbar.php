@@ -7,7 +7,7 @@
   </a>
 
   <div class='form-inline my-2 my-lg-0'>
-    <div class='input-group'>
+    <div class='input-group' id='busk'>
       <div class='input-group-prepend'>
         <span class='input-group-text' id='basic-addon1'><i class="fa fa-search"></i></span>
       </div>
@@ -29,7 +29,7 @@
           ¿Perdiste algo?
         </span>
       </div>
-      <div class='container'>
+      <div class='container' id='cont-nav'>
         <ul id="navbar" class='navbar-nav mr-auto nav-tabs'>
           <li class='nav-item active'>
             <div class="dropdown"  id="botonEvento">

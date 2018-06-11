@@ -54,3 +54,17 @@ background-color:#19BEBE;
     width: 310%;
     margin-left: 8%;
 }
+#cont-nav{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+#busk{
+    position: unset;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding-left: 40%;
+}
