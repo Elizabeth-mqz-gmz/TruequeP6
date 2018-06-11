@@ -43,7 +43,7 @@
             </button>
           </div>
           <div id= "contenidoModal" class="modal-body alertForm">
-            <form method='POST' enctype='multipart/form-data'>
+            <form method='POST' enctype='multipart/form-data' action = "../../modelo/PHP/actualizar_imagen.php">
               <label>Elige una imagen</label>
   						<input id="novaImagem" type="file" name="imagen" accept="image/png" class="form-control-file " required />
               <button class="btn btn-dark" type="submit">Actualizar</button>

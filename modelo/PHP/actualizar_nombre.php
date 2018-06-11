@@ -12,4 +12,6 @@
   }
   else
     echo "F";
+
+  mysli_close($bd);
 ?>
