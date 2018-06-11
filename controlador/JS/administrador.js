@@ -19,7 +19,7 @@ function desplegarPublicacion(respuesta){
   //objeto que contiene todo relacionado con la publicacion
   let imagen = respuesta.imagen_publi.replace("..","")
   respuesta.imagen_publi = imagen;
-  let  datos = $("<div class ='quitar'><div class='card quitar' style='width: 45%;'><div class='card-header'>"+respuesta.id_autor+"</div><div class='card-body'><img class='card-img-top' src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar card-text'>"+respuesta.publicacion+"</p><h6 class='card-title'>"+respuesta.razon_denuncia+"</h6><div class='text-right'><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button data-target='#kk'data-toggle='modal' class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div></div></div></div>");
+  let  datos = $("<div class ='quitar'><div class='card quitar' style='width: 55%;'><div class='card-header'>"+respuesta.id_autor+"</div><div class='card-body'><img class='card-img-top' src='../../modelo/"+respuesta.imagen_publi+"' class='quitar'/><p class='quitar card-text'>"+respuesta.publicacion+"</p><h6 class='card-title'>"+respuesta.razon_denuncia+"</h6><div class='text-right'><button class='btn btn-outline-primary' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'quitarD'>Quitar Denuncia</button><button class='btn btn-outline-danger' autor ='"+respuesta.id_autor+"'publi='"+respuesta.id_publicacion+"' value = 'eliminarD'>Eliminar Publicación</button><button class='btn btn-danger' value = 'usuario' class='btn btn-danger' autor ='"+respuesta.id_autor+"'>Eliminar Usuario</button></div></div></div></div>");
   datos.appendTo("#contPublicaciones");
 }
 
@@ -76,8 +76,9 @@ document.getElementById("contPublicaciones").addEventListener("click",()=>{
     quitar_eliminar("eliminar_publicacion", autor, publi, "publicación","1","Publicaciones");
   }
   else if(denun == "usuario"){
-    var EliminarUsuario = event.target.getAttribute("autor");
-    // console.log(EliminarUsuario);
+    //autor = event.target.getAttribute("autor");
+    $("#kk").modal("show");
+     console.log(autor);
   }
 });
 //hacer funcion pequeña
@@ -95,8 +96,9 @@ document.getElementById("contComentarios").addEventListener("click",()=>{
   }
   else if(denun == "usuario"){
     //alert("Me quieres eliminar");
-     var EliminarUsuario = event.target.getAttribute("autor");
-     // console.log(EliminarUsuario);
+    //EliminarUsuario = event.target.getAttribute("autor");
+    $("#kk").modal("show");
+     console.log(autor);
   }
 });
 
@@ -113,7 +115,7 @@ $("#enviar").click(()=>{
         type: "POST",
         success: function(response){
             let n = response;
-            //console.log(n);
+            console.log(autor);
             if (n.length == 2){
               jQuery.ajax({
                   url:"../../modelo/PHP/elimina_usuario.php",
@@ -126,7 +128,7 @@ $("#enviar").click(()=>{
                       if (response == "")
                         ModalGlobal("Éxito","El usuario ha sido eliminado");
                       else
-                        console.log ("buuuh");
+                        ModalGlobal("Cuidado","No es posible eliminar al administrador");
                       }
                   });
               }
