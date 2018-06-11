@@ -12,7 +12,7 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
             $("#noComen").hide()
             // console.log(response);
             comentarios = JSON.parse(response);
-            
+
             // console.log(comentarios);
             for (let i in comentarios){ //Los va agregando
                   if (comentarios[i].nomus != nombreUsuarioOf){
