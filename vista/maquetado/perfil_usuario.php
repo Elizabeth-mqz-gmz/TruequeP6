@@ -33,6 +33,7 @@
       <div id="publicaciones">
       </div>
     </div>
+    <?php include 'denuncia.html';?>
       <!--?php include 'footer.html'-->
   </body>
 </html>

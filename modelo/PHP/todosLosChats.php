@@ -16,6 +16,8 @@ while($row = mysqli_fetch_assoc($resp)){ //Ir seleccionando el nombre de usuario
   $aux = mysqli_fetch_array($resp2);
   $pers = $pers.'{"usuario":"'.$aux["id_usuario"].'","nomus":"'.$aux["nomus"].'"},'; // //Concatenar el json
 }
-$pers[strlen($pers)-1]="]";
-echo $pers;
+if( $pers != "["){
+    $pers[strlen($pers)-1]="]";
+    echo $pers;
+}
 ?>

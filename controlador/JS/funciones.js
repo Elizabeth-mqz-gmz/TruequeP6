@@ -328,7 +328,7 @@ function valdt ()//validar la fecha
 
 function mostrar_chats(allChats) {
   $("#verChats").children("li").empty(); //Para que sólo los muestre una vez
-
+  // console.log(allChats);
   if(allChats!= ""){ //Validar qu etenga chats
     objChats = JSON.parse(allChats);
 
@@ -340,9 +340,10 @@ function mostrar_chats(allChats) {
       document.cookie = "otro="+objChats[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
       location.href ="../../vista/maquetado/chat.php";
     });
+
   }
   else //Aún no ha chateado con nadie haha
-    $("#verChats").append("<li style=padding: 4%; text-align: left; border-top: gray;  class='dropdown-divider'>Aún no tienes ninguna conversación</li>");
+    $("#verChats").append("<li style=padding: 4%; text-align: left; border-top: gray; >Aún no has chateado con nadie<div class='dropdown-divider'></div></li>"); //Agregarlos con el id del índide del array
 
 }
 
