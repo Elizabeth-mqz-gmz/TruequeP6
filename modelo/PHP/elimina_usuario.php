@@ -7,6 +7,12 @@
   $usuario = validar($_POST["usuario"],"", $bd);
   if ($usuario != "979847874"){//verificar que no autoelimines XD
   //Elimina parcialmente al usuario :)
+    $resp = mysqli_query($bd, "SELECT imagen FROM usuario WHERE id_usuario = $usuario");
+    $imagen = mysqli_fetch_assoc($resp);
+    if ($imagen["imagen"] != "modelo/imagenes_per/default.png"){//Eliminar imagen de perfil
+      $imagen["imagen"] = str_replace("modelo", "..", $imagen["imagen"] );//modificar ruta para poder borrar
+      unlink($imagen["imagen"]);
+    }
     //obtener datos para eliminar todo lo relacionado con él ;)
     $publicaciones = "SELECT id_publicacion FROM publicacion WHERE id_autor = $usuario";
     $chats = "SELECT id_chat FROM chat WHERE $usuario = id_em OR $usuario = id_rec";

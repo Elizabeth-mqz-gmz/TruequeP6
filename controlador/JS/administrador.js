@@ -78,7 +78,7 @@ document.getElementById("contPublicaciones").addEventListener("click",()=>{
   else if(denun == "usuario"){
     //autor = event.target.getAttribute("autor");
     $("#kk").modal("show");
-     console.log(autor);
+     // console.log(autor);
   }
 });
 //hacer funcion pequeña
@@ -98,7 +98,7 @@ document.getElementById("contComentarios").addEventListener("click",()=>{
     //alert("Me quieres eliminar");
     //EliminarUsuario = event.target.getAttribute("autor");
     $("#kk").modal("show");
-     console.log(autor);
+     // console.log(autor);
   }
 });
 
@@ -124,12 +124,16 @@ $("#enviar").click(()=>{
                   },
                   type: "POST",
                   success: function(response){
-                      console.log(response);
+                      // console.log(response);
+                      $("#usuario").reset();//resetear formulario :)
+                      $("#contrasena").reset();
+                      $("#kk").modal("hide");//dejar de mostrar el formulario
                       if (response == "")
                         ModalGlobal("Éxito","El usuario ha sido eliminado");
                       else
                         ModalGlobal("Cuidado","No es posible eliminar al administrador");
                       }
+                      window.location="admi.php";//enviarte
                   });
               }
             else{
