@@ -1,0 +1,17 @@
+#muro{
+  width: 30%;
+  height: 100%;
+  position: fixed;
+  float: left;
+  background-color: #8FCED0;
+}
+#pic{
+  width: 100%;
+}
+#contenedorPubli{
+  width: 70%;
+  float: right;
+}
+#nombre{
+  font-size: 4em;
+}
