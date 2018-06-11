@@ -125,15 +125,14 @@ $("#enviar").click(()=>{
                   type: "POST",
                   success: function(response){
                       // console.log(response);
-                      $("#usuario").reset();//resetear formulario :)
-                      $("#contrasena").reset();
+                      document.getElementById("formIS").reset();
                       $("#kk").modal("hide");//dejar de mostrar el formulario
                       if (response == "")
                         ModalGlobal("Éxito","El usuario ha sido eliminado");
                       else
                         ModalGlobal("Cuidado","No es posible eliminar al administrador");
                       }
-                      window.location="admi.php";//enviarte
+                      window.location="Admi.php";//enviarte
                   });
               }
             else{

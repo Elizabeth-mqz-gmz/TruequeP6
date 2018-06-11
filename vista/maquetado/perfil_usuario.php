@@ -45,7 +45,8 @@
           <div id= "contenidoModal" class="modal-body alertForm">
             <form method='POST' enctype='multipart/form-data' action = "../../modelo/PHP/actualizar_imagen.php">
               <label>Elige una imagen</label>
-  						<input id="novaImagem" type="file" name="imagen" accept="image/png" class="form-control-file " required />
+  						<input id="novaImagem" type="file" name="imagen" accept="image/png" class="form-control-file " />
+              <small>Si no seleccionas una imagen, tu foto de perfil será la que está por default.</small>
               <button class="btn btn-dark" type="submit">Actualizar</button>
             </form>
           </div>
@@ -101,7 +102,7 @@
             </button>
           </div>
           <div id= "contenidoModal" class="modal-body alertForm">
-            <form method='POST' enctype='multipart/form-data'>
+            <form method='POST' enctype='multipart/form-data' id="formContra">
               <div class="form-group">
     						<label class="formtexto">Nueva contraseña :</label>
     						<input class="form-control mx-sm-3" type='password' class="form-control contrasena" name='contra' id='pass1' required/>
@@ -116,7 +117,7 @@
     						<div></div>
     					</div>
               <div id='msj'>
-    						<input class='btn btn-success' id='novasenha' class='btn btn-primary btn-l' type='submit'>
+    						<input value="Actualizar" class='btn btn-success' id='novasenha' class='btn btn-primary btn-l' type='button'>
     					</div>
           </div>
         </div>
