@@ -136,7 +136,7 @@ $("#enviar").click(()=>{
 $("#NotificacionesTodos").on("click", function(){
   let mensaje = $("#menNotif").val();
   console.log(mensaje);
-  if (mensaje != ""){
+  if (mensaje != "" && mensaje.length <= 100){//validar que sea nulo y no pase el límite establecido en la bd
     jQuery.ajax({
       url:"../../modelo/PHP/Notificaciones_Todos.php",
       data:{
@@ -151,6 +151,6 @@ $("#NotificacionesTodos").on("click", function(){
     }
   else{
     $('#notificacionesPT').modal('hide');
-    ModalGlobal("Dato incorrecto","Por favor ingrese un mensaje");
+    ModalGlobal("Dato incorrecto","No es posible enviar ese mensaje.");
   }
 });

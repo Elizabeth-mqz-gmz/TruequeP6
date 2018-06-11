@@ -43,7 +43,7 @@
             <form id="formSuperNoti">
               <div class="form-group formtexto">
                 <label >Mensaje</label>
-                <input type="text" class="form-control" id="menNotif" placeholder="Hola...">
+                <textarea title="Por favor ingrese un mensaje" class="form-control" rows="4" id="menNotif" placeholder="Hola..." maxlength="100" autofocus required></textarea>
               </div>
               <button type="reset" class="btn btn-dark" id="NotificacionesTodos">Enviar</button>
             </form>
