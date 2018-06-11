@@ -39,19 +39,20 @@
   border: solid 2px #8FCED0;
   color: #8FCED0;
 }
-.eliminar-denuncia{
+.quitar-denuncia{
   background-color: rgba(0,0,0,0);
   border: solid 2px #FBF8F7;
   color: #FBF8F7;
 }
 .eliminar-usuario:hover{
   background-color: #E98836;
+  color: #FBF8F7;
 }
 .eliminar-publicacion:hover{
   background-color: #8FCED0;
   color: #3D343F;
 }
-.eliminar-denuncia:hover{
+.quitar-denuncia:hover{
   background-color: #FBF8F7;
   color: #E98836;
 }
