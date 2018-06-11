@@ -9,7 +9,7 @@
     <?php include 'navbar.php';?>
     <div id="muro">
       <div id="imagen">
-        <?php echo "<img id='pic' src='../../".$perfil["imagen"]."' class='rounded float-left img-thumbnail' alt='imagen perfil'/>"; ?>
+        <?php echo "<img id='pic' src='../../".$perfil["imagen"]."' />"; ?>
       </div>
       <div class="container">
         <?php echo "<h2 id='nombre' class='display-2'>".$perfil["nomus"]."</h2>"; ?>

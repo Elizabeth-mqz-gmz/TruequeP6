@@ -7,11 +7,15 @@
 }
 #pic{
   width: 100%;
+  background-color: #FBF8F7;
+  border-radius: 7px;
 }
 #contenedorPubli{
   width: 70%;
   float: right;
 }
 #nombre{
+  font-family: 'Allerta', sans-serif;
   font-size: 4em;
+  color: #E98836;
 }
