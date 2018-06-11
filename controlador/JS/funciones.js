@@ -159,7 +159,7 @@ function publicacion(idPub,individual,cb){
 
             //Que se muestre la foto en grande
             $("#"+idPub+">img").click(()=>{
-              console.log("Muestro la imagen");
+              // console.log("Muestro la imagen");
               fotoPubli(publi.publicacion,"../../modelo/PHP/"+publi.imagen);
             });
 
