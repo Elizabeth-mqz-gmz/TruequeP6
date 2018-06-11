@@ -2,14 +2,74 @@
   <head>
     <title>Administrador</title>
     <?php include "head.html";?>
+    <link rell="stylesheet" href="../estilo/administrador.css" />
+    <style>
+    .row .col{
+      margin-top: 3%;
+    }
+
+    .btn-lg{
+      background-color: #19BEBE;
+      font-weight: bold !important;
+      font-size: 1.5em;
+      color: #3D343F;
+    }
+
+    .btn-lg:hover {
+      background-color: #E98836;
+      color: #FBF8F7;
+      transition: all 0.5s;
+    }
+
+    .PerfilDenun:hover{
+      cursor:pointer;
+      background-color: #19BEBE;
+      transition: all 1s;
+    }
+
+    .PerfilDenun h4{
+      text-align: center;
+      letter-spacing: 10px;
+      font-size: 200%;
+      font-family: 'Allerta', sans-serif; /*No entiendo por que no funciona */
+    }
+
+    .eliminar-usuario{
+      background-color: rgba(233,136,54,0.9);
+      border: solid 2px rgba(233,136,54,0.9);
+      color: #FBF8F7;
+    }
+    .eliminar-publicacion{
+      background-color: rgba(0,0,0,0);
+      border: solid 2px #8FCED0;
+      color: #8FCED0;
+    }
+    .eliminar-denuncia{
+      background-color: rgba(0,0,0,0);
+      border: solid 2px #FBF8F7;
+      color: #FBF8F7;
+    }
+    .eliminar-usuario:hover{
+      background-color: #E98836;
+    }
+    .eliminar-publicacion:hover{
+      background-color: #8FCED0;
+      color: #3D343F;
+    }
+    .eliminar-denuncia:hover{
+      background-color: #FBF8F7;
+      color: #E98836;
+    }
+
+    </style>
   </head>
   <body>
     <?php include "navbar.php";?>
     <div class="container">
       <div class="row">
-        <div class="col"><button id='publicaciones' class="btn btn-outline-secondary btn-lg btn-block" >Publicaciones</button></div>
-        <div class="col"><button id='comentarios' class="btn btn-outline-secondary btn-lg btn-block">Comentarios</button></div>
-        <div class="col"><button data-target='#notificacionesPT'data-toggle='modal' class="btn btn-outline-secondary btn-lg btn-block">Notificación</button></div>
+        <div class="col"><button id='publicaciones' class="btn  btn-lg btn-block" >Publicaciones</button></div>
+        <div class="col"><button id='comentarios' class="btn  btn-lg btn-block">Comentarios</button></div>
+        <div class="col"><button data-target='#notificacionesPT'data-toggle='modal' class="btn btn-lg btn-block">Notificación</button></div>
       </div>
     </div>
     <div id="contPublicaciones"></div>
