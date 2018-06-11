@@ -9,12 +9,13 @@ $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con
       // console.log(res);
       if(response!="null") //creo que nunca sería null, pero por si las moscas jaja
           todosLosUsuariosOf = JSON.parse(response);
-
-      // console.log(nombreUsuarioOf);
-      // console.log(response);
+      for (let i in todosLosUsuariosOf)
+          if (todosLosUsuariosOf[i].usuario == "usuarioOf"){
+              nombreUsuarioOf = todosLosUsuariosOf[i].nomus;
+              comentario(n); //Aquí manda un error de que n no está definida, pero no causa problemas
+          }
   }
 });
-
 
 var click = 0;
   $('#botonEvento').on('click',()=>{
@@ -60,23 +61,23 @@ var click = 0;
       $("#publicaciones").remove();
       if(publi == 0){
         $(".cambio").html("TRUEQUE");
-        $("<div id='publicaciones'><div id='trueque'>Trueques</div></div>").appendTo("#contenedorPubli");
+        $("<div id='publicaciones'><div id='trueque'>Pérdidas</div></div>").appendTo("#contenedorPubli");
         $("#contenedorPubli").html("");
         saca_publi("trueque");//IMPORTANTE saca eventos en index necesita funciones.js
       }
       else{
         $(".cambio").html("PÉRDIDAS");
-        $("<div id='publicaciones'><div id='trueque'>Pérdidas</div></div>").appendTo("#contenedorPubli");
+        $("<div id='publicaciones'><div id='trueque'>Trueque</div></div>").appendTo("#contenedorPubli");
         $("#contenedorPubli").html("");
         saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
       }
     });
 
     //BUSQUEDA DE USUARIO
-    $("#buscado").keydown(()=>{
+$("#buscado").keydown(()=>{
       let hay = false;
       let buscado = $("#buscado").val();
-        console.log(buscado);
+        // console.log(buscado);
       if (buscado != ""){
 
           $("#buscadillo").children("li").remove(); //Para que sólo los muestre una vez
@@ -89,16 +90,16 @@ var click = 0;
             }
 
           if (!hay) //No se encontró nada en la búsqueda
-            $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
+              $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
 
       }
     });
 
-    $("#buscadillo").click(()=>{
+$("#buscadillo").click(()=>{
       var ind = event.target.id;
       document.cookie = "usuBuscado="+todosLosUsuariosOf[ind].usuario+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere
       location.href ="../../vista/maquetado/perfil_usuario.php";
-    });
+});
 
 
   $("#navbarDropdownChat").on("click",function(){ //Muestra todos los chats de la persona

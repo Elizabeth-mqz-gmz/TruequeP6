@@ -14,10 +14,6 @@ var cookieBuscada = cookie.split("=");
 var publi = cookieBuscada[1];
 var n = publi;
 
-for (let i in todosLosUsuariosOf)
-    if (todosLosUsuariosOf[i].usuario == "usuarioOf")
-        nombreUsuarioOf = todosLosUsuariosOf[i].nomus;
-        
 publicacion(n,true,()=>{
     var reacciones = $(".reac>img"); //todas las img de reacciones
     $(reacciones).on("click",(event)=>{
@@ -37,14 +33,14 @@ publicacion(n,true,()=>{
         //pone el color de de la reacción elegida, naranja
         $(event.target).css("border-color","#E98836");
     });
-    // console.log(individual);
-    comentario(n);
+
+    //Aquí iba la parte de comentarios, que se ejecuta en nav eventos
 });
 
 $("#enviarComen").on("click",()=>{
 //ajax que guarda comentario en la BD, publi es id_publicacion
 //comentario es el mensaje, comentario
-
+    // console.log(nombreUsuarioOf);
     var inp = document.getElementById("comentar");
     comentario = inp.value;
 

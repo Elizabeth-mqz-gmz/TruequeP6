@@ -12,14 +12,11 @@ function comentario(idPub){  //Obtener todos los comentarios de la publicación 
             $("#noComen").hide()
             // console.log(response);
             comentarios = JSON.parse(response);
-            
+
             // console.log(comentarios);
             for (let i in comentarios){ //Los va agregando
-                  if (comentarios[i].nomus != nombreUsuarioOf){
+                  if (comentarios[i].nomus != nombreUsuarioOf)
                       $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div><img id='"+i+"' class='denunc' src='../recursos/den.png'/></div>");
-                      console.log("no es el mismo");
-                      console.log(comentarios[i].nomus +","+ nombreUsuarioOf);
-                  }
                   else
                       $("#contenedorComen").append("<div><div class='comen'>"+comentarios[i].nomus+" dice: "+comentarios[i].comentario+"</div></div>");
             }
@@ -140,7 +137,7 @@ function publicacion(idPub,individual,cb){
                     },
                     type: "POST",
                     success: function(){
-                        $("#"+idPub+">span").css("color","#827D78");
+                        $("#"+idPub+">span").css("color","teal");
                     }
                 });
             });
@@ -369,7 +366,7 @@ function chat_nuevo() {
         let reg = new RegExp ("^("+buscado+")","i");
         // console.log(reg);
         for (let i in todosLosUsuariosOf) //No sería eficiente en 1000 usuarios, pero ahora sirve
-          if(reg.test(todosLosUsuariosOf[i].nomus)){
+          if(reg.test(todosLosUsuariosOf[i].nomus) && todosLosUsuariosOf[i].usuario != "usuarioOf"){
             $("#mostrarPers").append("<li class='despliega' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
             hay = true;
           }
