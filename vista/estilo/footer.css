@@ -2,24 +2,82 @@
 footer{
     background: #3D343F;
     color:#FBF8F7;
-    padding: 2% 0;
+    padding: 2% 0%;
     clear: both;
     position: relative;
-    bottom: 0;
-    height: 135px;
+    height: 400px;
     z-index: -3;
     margin-top: -3px;
     bottom: 0;
     left: 0;
     right: 0;
+}
 
-    /* position: fixed; */
+#TP62{
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 3em;
+  color: #FBF8F7;
+
 }
-.desarrolladores>a>img{
-  width: 10%;
-  align:left;
+
+#ContFooter, footer> div:nth-child(2) {
+  margin: 0 100px;
 }
+
+footer> div:nth-child(2)> hr{
+  border: solid 1px white;
+}
+
+div .icono{
+  width: 50px;
+  height: 50px;
+  background-color: #FBF8F7;
+  border-color: white;
+  border-radius: 100%;
+  margin: 0;
+  color: #3D343F;
+}
+
+.desarrolladores > div{
+  margin: 0 3.5%;
+}
+
 
 .desarrolladores{
-    margin-left: 78% ;
+  display: flex;
+  padding: 5% 33%;
+}
+
+#ContFooter > div:nth-child(2){
+  /* background-color: red; */
+  margin: 0 38%;
+  padding-bottom: 3%;
+}
+
+#ContFooter > div:nth-child(2) >p{
+  margin: 0 30%;
+  color: #FBF8F7;
+}
+
+footer >div:nth-child(2){
+  margin: 0;
+  padding: 3%;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #8FCED0;
+  width: 100%;
+}
+
+i .fa-face{
+  style="font-size:30px;"
+}
+
+div .f{
+  padding: 24%;
+}
+
+div .git{
+  padding: 20%;
 }
