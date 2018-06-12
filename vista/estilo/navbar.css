@@ -86,13 +86,16 @@ input#buscado.form-control{
 }
 
 nav{
-  width: 100vw;
+  width: 99vw;
 }
 
 .rows{
   column-count: 2;
 }
 
+a.navbar-brand{
+  width: 25%;
+}
 /* div #navbarSupportedContent.navbar-collapse.collapse{
   margin-left:30%;
 } */
