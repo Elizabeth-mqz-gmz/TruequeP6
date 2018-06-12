@@ -22,12 +22,17 @@
 }
 
 #cambio:hover {
-  background-color: #19BEBE;
-  color: #3D343F;
+  background-color: #3D343F;
+  color: #FBF8F7;
   cursor: pointer;
   font-weight: bold;
 }
 
  #contenedor, button{
   height: 100%;
+}
+
+div #publicaciones{
+  text-align: center;
+  background-color:#3D343F;
 }

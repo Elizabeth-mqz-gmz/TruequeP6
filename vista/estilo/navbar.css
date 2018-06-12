@@ -76,9 +76,9 @@ img.card-img-top:hover{
 }
 
 
-.container>.form-inline{
+/* .container>.form-inline{
   width: 28% !important;
-}
+} */
 
 div #cont-nav .container, nav > div.container{
   width: 50% !important;
