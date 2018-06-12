@@ -25,7 +25,10 @@ publicacion(n,true,()=>{
                     idPubli: n,
                     tipoReac: reac
                 },
-                type:"POST"
+                type:"POST",
+                success: function(response){
+                    console.log(response);
+                }
             });
         //cambia color de bordes
         for(let v of $(reacciones))

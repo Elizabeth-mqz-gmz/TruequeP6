@@ -25,5 +25,16 @@
         $busq = "UPDATE reaccion SET tipo_reac='$tipoReac' WHERE id_publi_reac='$idPub' AND id_usu_reac='$usuario'";
     echo $busq;
     mysqli_query($db,$busq);
+
+    //busca al autor de la publicación para enviarle la notificación
+    $consul = "SELECT id_autor FROM publicacion WHERE id_publicacion='$idPub'";
+    $respu=mysqli_query($db,$consul);
+    $row = mysqli_fetch_assoc($respu);
+    $autor = $row["id_autor"];
+
+    //el usuario activo es que el aparece en el mensaje de notificación
+    $not = "INSERT INTO notificacion(id_usu_not,men_not) VALUE"."("."'$autor','$usuario ha reaccionado $tipoReac a una publicación tuya $idPub'".")";
+    echo $not;
+    mysqli_query($db,$not);
     mysqli_close($db);
  ?>
