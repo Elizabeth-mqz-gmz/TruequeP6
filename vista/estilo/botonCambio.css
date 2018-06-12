@@ -33,6 +33,7 @@
 }
 
 div #publicaciones{
+  padding: 2%;
   text-align: center;
-  background-color:#3D343F;
+  color:#3D343F;
 }

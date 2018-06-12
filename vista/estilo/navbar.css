@@ -54,8 +54,8 @@ body{
     width: 70%;
 }
 .des-bus{
-    width: 310%;
-    margin-left: 8%;
+    width: 200px;
+    margin-left: 2.5%;
 }
 
 #busk{
@@ -75,11 +75,6 @@ img.card-img-top:hover{
   cursor:pointer;
 }
 
-
-/* .container>.form-inline{
-  width: 28% !important;
-} */
-
 div #cont-nav .container, nav > div.container{
   width: 50% !important;
   margin-right:  125px !important;
@@ -89,9 +84,11 @@ div #cont-nav .container, nav > div.container{
 input#buscado.form-control{
   width: 200px !important;
 }
+
 nav{
   width: 100vw;
 }
+
 .rows{
   column-count: 2;
 }

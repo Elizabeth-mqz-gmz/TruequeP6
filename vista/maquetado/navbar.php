@@ -1,4 +1,4 @@
-<nav id="nav" class='navbar sticky-top navbar-expand-lg navbar-light row'>
+<nav id="nav" class='navbar sticky-top navbar-expand-lg navbar-light rows'>
 <div class="column">
   <a class="navbar-brand" href="#">
     <img src="../recursos/tpfon.png" width="90%"alt="Trueque P6">
