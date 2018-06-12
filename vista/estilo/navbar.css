@@ -1,4 +1,4 @@
-/*navbar.css*/
+/* /navbar.css/ */
 nav{
 background-color:#19BEBE;
 }
@@ -57,21 +57,40 @@ body{
     width: 310%;
     margin-left: 8%;
 }
-#cont-nav{
+/* #cont-nav{
     width: 100%;
     padding-right: 15px;
     padding-left: 5%;
     margin-right: auto;
     margin-left: auto;
-}
+} */
 #busk{
     position: unset;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: stretch;
-    padding-left: 40%;
+    /* padding-left: 40%;*/
 }
 
 img.card-img-top:hover{
   cursor:pointer;
+}
+
+
+.container>.form-inline{
+  width: 28% !important;
+}
+
+div #cont-nav .container, nav > div.container{
+  width: 50% !important;
+  margin-right:  125px !important;
+  margin-left:  0px !important;
+}
+
+input#buscado.form-control{
+  width: 200px !important;
+}
+
+div #navbarSupportedContent.navbar-collapse.collapse{
+  margin-left:30%;
 }

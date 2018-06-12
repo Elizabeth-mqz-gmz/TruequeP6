@@ -6,22 +6,28 @@
     <h1 id='TP6' class='display-4'>Trueque P6</h1>
   </a>
 
-  <div class='form-inline my-2 my-lg-0'>
-    <div class='input-group' id='busk'>
-      <div class='input-group-prepend'>
-        <span class='input-group-text' id='basic-addon1'><i class="fa fa-search"></i></span>
-      </div>
-      <input class='form-control mr-sm-2' type='search'id="buscado" placeholder='Nombre de Usuario' aria-label='Search'>
-        <ul id="buscadillo" role="menu" >
-        </ul>
-    </div>
-  </div>
+<div class="container" id="cosa-derecha">
+
+
 
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
 
   <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+
+    <div width="250px">
+    <div class='form-inline '>
+      <div class='input-group' id='busk'>
+        <div class='input-group-prepend'>
+          <span class='input-group-text' id='basic-addon1'><i class="fa fa-search"></i></span>
+        </div>
+        <input class='form-control ' type='search'id="buscado" placeholder='Nombre de Usuario' aria-label='Search' size="10">
+          <ul id="buscadillo" role="menu" >
+          </ul>
+      </div>
+    </div>
+  </div>
 
     <div class='container'>
       <div class='container'>
@@ -30,7 +36,7 @@
         </span>
       </div>
       <div class='container' id='cont-nav'>
-        <ul id="navbar" class='navbar-nav mr-auto nav-tabs'>
+        <ul id="navbar" class='navbar-nav'>
           <li class='nav-item active'>
             <div class="dropdown"  id="botonEvento">
               <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,6 +93,7 @@
     </div>
   </div>
 </nav>
+
 <div class="modal fade" id="buscarParaNuevoChat" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -110,6 +117,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 <?php include 'modal.html'; ?>
 <?php include 'foto_modal.html'; ?>
