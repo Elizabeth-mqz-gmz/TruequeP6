@@ -34,7 +34,7 @@
       inicio=timer;
     var progreso = timer-inicio;
     x+=20;
-    if (progreso<6000){
+    if (progreso<3000){
       carga.strokeStyle=colores[aux];
       if(x>155)
         x=0;
@@ -43,7 +43,7 @@
       if(z>1500)
         z=6;
       linea(0,0,x);
-      carga.rotate(2*(Math.PI/180));
+      carga.rotate(5*(Math.PI/180));
       requestAnimationFrame(animacion,color++);
     }
   }
@@ -60,8 +60,12 @@
   }
   function anima(){
     requestAnimationFrame(animacion,0);
+    var valor = true;
   }
-  carga.translate(670,300);
+  carga.translate(760,340);
     anima();
+    // if(valor == true){
+    //     window.location="vista/animaciones/carga.html";
+    // }
   </script>
 </html>

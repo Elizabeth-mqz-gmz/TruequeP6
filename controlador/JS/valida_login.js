@@ -19,7 +19,8 @@ $("#enviar").click(()=>{
               }
             else{
               if (n == "T"){
-                window.location="vista/maquetado/main.php";
+                console.log("entro");
+                window.location="vista/animaciones/carga.html";
               }
               else{
               var alerta = $("<div id = 'alert' class='alert alert-danger' role='alert'>Tu número de cuenta o contraseña no son validos. Por favor inténtalo de nuevo.</div>");

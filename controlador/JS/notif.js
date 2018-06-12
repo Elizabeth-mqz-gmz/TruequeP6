@@ -19,30 +19,23 @@ $(document).ready(function(){
 							let patt = new RegExp("^31"); //revisa que sea un # de cuenta
 							// console.log(chekReac);
 						    let res = patt.test(chekReac[0]);
-							if(res == true && notifis[count].visto == 0){
+							if(res == true){
 								chekReac.pop();
 								console.log(chekReac);
 								var i = 0;
 								var text = "";
 								for (;chekReac[i];) {
-    							text += chekReac[i] + " ";
-    							i++;
-								}
-								console.log(text);
-								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-							}
-							else if (res == true && notifis[count].visto == 1) {
-								chekReac.pop();
-								console.log(chekReac);
-								var i = 0;
-								var text = "";
-								for (;chekReac[i];) {//NOTA: esto es súper extraño! No tenemos idea del porqué funciona, pero funciona! Intentamos con while, for y no hacía nada.
-    							text += chekReac[i] + " ";
-    							i++;
+	    							text += chekReac[i] + " ";
+	    							i++;
 								}
 								console.log(text);
 
-								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+								if(notifis[count].visto == 0){
+									$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+								}
+								else if(notifis[count].visto == 1){
+									$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+								}
 							}
 							if(notifis[count].visto == 0) //checa si ya la vió
 								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
@@ -87,10 +80,18 @@ $(document).ready(function(){
 			//Para publicaciones
 			let pubVal = patt.test(linkNotif[0]);
 			if(pubVal == true){
-				let idPublica = ''+linkNotif[8]+'';
 				console.log(linkNotif[8]);
-				document.cookie = "pub="+linkNotif[8]+";max-age=60";
-				location.href ="../../vista/maquetado/publicacion.php";
+				let patt = new RegExp("[0-9]"); //revisa que sea un # de cuenta
+			    let res = patt.test(linkNotif[8]);
+				if(res == true){
+					document.cookie = "pub="+linkNotif[8]+";max-age=60";
+					location.href ="../../vista/maquetado/publicacion.php";
+				}
+				let res2 = patt.test(linkNotif[9]);
+				if(res2 == true){
+					document.cookie = "pub="+linkNotif[9]+";max-age=60";
+					location.href ="../../vista/maquetado/publicacion.php";
+				}
 			}
  	});
 });
