@@ -91,12 +91,12 @@ $("#buscado").keydown(()=>{
             }
           if (!hay) //No se encontró nada en la búsqueda
               $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;>No se encontró usuario</li>");
-          $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;></li>"); //Para que alcance a agarrar todo jsjsj
+          // $("#buscadillo").append("<li class='despliega des-bus' style=padding: 4%; text-align: left; border-top: gray;></li>"); //Para que alcance a agarrar todo jsjsj
 
       }
     });
 
-  $("#buscadillo").mouseout(()=>{
+  $("#buscadillo").mouseleave(()=>{
     $("#buscadillo").children("li").empty();
   });
 

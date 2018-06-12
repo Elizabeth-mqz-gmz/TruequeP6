@@ -104,3 +104,6 @@ h6:hover,.reac>img:hover,.den>img:hover,.card span:hover{
   border-radius: 15%;
   font-family: 'Allerta', sans-serif;
 }
+.autor{
+  cursor: pointer;
+}

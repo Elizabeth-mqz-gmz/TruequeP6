@@ -43,7 +43,7 @@
         //CIFRADO
         $datosCif = array();
         foreach($datos as $i => $v){ //Guarda datos cifrados en nuevo array
-            $datosCif[$i]=cifrado("pUeE",$v,1);
+            $datosCif[$i]=cifrado($datos["num_cta"],$v,1);
         }
         // print_r($datosCif);
 

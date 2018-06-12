@@ -1,5 +1,5 @@
 #muro{
-  width: 30%;
+  width: 25% !important;
   height: 100%;
   position: fixed;
   float: left;
@@ -16,6 +16,6 @@
 }
 #nombre{
   font-family: 'Allerta', sans-serif;
-  font-size: 4em;
+  font-size: 4vw;
   color: #E98836;
 }
