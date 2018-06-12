@@ -7,7 +7,8 @@
   margin:30%, 0;
   font-size: 18px;
   background-color: #E98836;
-  color: #19BEBE;
+  color: #FBF8F7;
+  font-weight: bold;
 }
 
 .boton0{ left : 1px; }
@@ -22,14 +23,11 @@
 
 #cambio:hover {
   background-color: #19BEBE;
-  color: #E98836;
+  color: #3D343F;
   cursor: pointer;
+  font-weight: bold;
 }
 
  #contenedor, button{
   height: 100%;
-}
-
-#contenedor{
-    background-image: url('../../modelo/documentacion/tp6.png');
 }

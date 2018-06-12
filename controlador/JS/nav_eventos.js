@@ -61,17 +61,15 @@ var click = 0;
       publi = boton;
       $("#publicaciones").remove();
       if(publi == 0){
-        $(".cambio").html("TRUEQUE");
-        $("<div id='publicaciones'><div id='trueque'>Ir a <br/>Pérdidas</div></div>").appendTo("#contenedorPubli");
+        $(".cambio").html("IR A <br/>TRUEQUE");
         $("#contenedorPubli").html("");
-        $("<h3>Estás en <span>TRUEQUE</span></h3>").appendTo$("#contenedorPubli");
+        $("<div id='publicaciones'><div id='perdida'><h4 style='text-align:center;color: #3D343F; font-size:2em;'>Estás en: <span class='dondeEstoy' style='color: #E98836;'>Pérdidas</span></h4></div></div>").appendTo("#contenedorPubli");
         saca_publi("trueque");//IMPORTANTE saca eventos en index necesita funciones.js
       }
       else{
-        $(".cambio").html("PÉRDIDAS");
-        $("<div id='publicaciones'><div id='trueque'>Ir a <br/>Trueque</div></div>").appendTo("#contenedorPubli");
+        $(".cambio").html("IR A <br/>PÉRDIDAS");
         $("#contenedorPubli").html("");
-        $("<h3>Estás en <span>PÉRDIDAS</span></h3>").appendTo$("#contenedorPubli");
+        $("<div id='publicaciones'><div id='trueque'><h4 style='text-align:center; color:#3D343F; font-size:2em;' >Estás en: <span class='dondeEstoy' style='color: #E98836;'>Trueque<span></h4></div></div>").appendTo("#contenedorPubli");
         saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
       }
     });
