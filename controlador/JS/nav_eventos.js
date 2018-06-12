@@ -123,3 +123,12 @@ $("#buscado").keydown(()=>{
   $("#nuevoChat").click(()=>{
     chat_nuevo();
   });
+
+//footer
+$(" .icono").on("mouseover",()=>{
+  let Perfil = event.target.getAttribute("perfil");
+  $("<h5 class='remover'>"+Perfil+"</h5>").appendTo("#PerfilFacebook");
+});
+$(" .icono").on("mouseout",()=>{
+  $(".remover").remove();
+});

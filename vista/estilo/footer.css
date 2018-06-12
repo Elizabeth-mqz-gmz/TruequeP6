@@ -6,7 +6,7 @@ footer{
     clear: both;
     position: relative;
     height: 400px;
-    z-index: -3;
+    /* z-index: -3; */
     margin-top: -3px;
     bottom: 0;
     left: 0;
@@ -41,22 +41,23 @@ div .icono{
 
 .desarrolladores > div{
   margin: 0 3.5%;
+  z-index: 99;
 }
 
 
 .desarrolladores{
   display: flex;
-  padding: 5% 33%;
+  padding: 5% 33% 2% 33%;
 }
 
-#ContFooter > div:nth-child(2){
+#ContFooter > div:nth-child(3){
   /* background-color: red; */
   margin: 0 20%;
   padding-bottom: 3%;
   /* padding-left: 5%; */
 }
 
-#ContFooter > div:nth-child(2) >p{
+#ContFooter > div:nth-child(3) >p{
   margin: 0 30%;
   color: #FBF8F7;
   text-align: center;
@@ -95,9 +96,16 @@ div .git{
   color: #3D343F;
 }
 
-.contDivI:hover, .icono:hover{
+#PerfilFacebook{
+  text-align: center;
+  color: #E98836;
+  padding-bottom: 2%;
+}
+
+.icono:hover{
   opacity: 0.9;
   background-color: #19BEBE;
   transition: all 0.5s;
   cursor: pointer;
+  border-radius: 100%;
 }
