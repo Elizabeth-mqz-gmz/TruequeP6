@@ -30,6 +30,7 @@ $(document).ready(()=>{
                 });
         }
         else {
+          $("footer").attr("style", "position: fixed;");//hacer que el footer se quede abajo
           if ( cookie != "usuario" ) //Otra vez validar que no sea él mismo jajaja, para mandar el mensaje
             $("#publicaciones").append("<div>Éste usuario aún no ha realizado ninguna publicación</div>");
           else {

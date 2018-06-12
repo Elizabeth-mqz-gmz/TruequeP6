@@ -26,6 +26,8 @@
     </div>
     <?php include 'denuncia.html';?>
     <?php include 'modal.html';?>
+    <?php include 'footer.html';?>
+    
 </body>
 <script type= 'text/javascript' src='../../controlador/JS/funciones.js'></script>
 <script type= 'text/javascript' src='../../controlador/JS/nav_eventos.js'></script>

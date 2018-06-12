@@ -1,5 +1,9 @@
 //funciones Administrador
 //Este es el bueno :)
+$(document).ready(()=>{
+  $("footer").attr("style", "position: fixed;");//al no haber nada debe estar fijo
+});
+
 mostrar = [];
 mostrar["1"] = desplegarPublicacion;
 mostrar["2"] = desplegarComentario;
@@ -55,10 +59,15 @@ function denuncia (valor){
       },
       type: "POST",
       success: function(response){
+        if(response != ""){
           denuncias = JSON.parse(response);
           for (i in denuncias){
             mostrar[valor](denuncias[i]);
+            $("footer").attr("style", "position: relative;");//como hay denuncias cambia la propiedad
           }
+        }
+        else
+          $("footer").attr("style", "position: fixed;");
       }
   });
 }

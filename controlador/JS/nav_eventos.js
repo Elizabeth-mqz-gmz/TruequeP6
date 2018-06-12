@@ -1,4 +1,5 @@
 // console.log("Estoy en nav eventos");
+
 var todosLosUsuariosOf;
 $.ajax({ //Este ajax es para traer todos los usuarios registrados y trabajar con eso
   url:"../../modelo/PHP/todos_los_ususs.php",

@@ -1,0 +1,25 @@
+/* footer.css */
+footer{
+    background: #3D343F;
+    color:#FBF8F7;
+    padding: 2% 0;
+    clear: both;
+    position: relative;
+    bottom: 0;
+    height: 135px;
+    z-index: -3;
+    margin-top: -3px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* position: fixed; */
+}
+.desarrolladores>a>img{
+  width: 10%;
+  align:left;
+}
+
+.desarrolladores{
+    margin-left: 78% ;
+}
