@@ -57,19 +57,18 @@ body{
     width: 310%;
     margin-left: 8%;
 }
-/* #cont-nav{
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 5%;
-    margin-right: auto;
-    margin-left: auto;
-} */
+
 #busk{
     position: unset;
     display: flex;
     flex-wrap: nowrap;
     align-items: stretch;
     /* padding-left: 40%;*/
+}
+#cosaQueBusca{
+  display:flex;
+  flex-wrap: wrap;
+
 }
 
 img.card-img-top:hover{
@@ -90,7 +89,13 @@ div #cont-nav .container, nav > div.container{
 input#buscado.form-control{
   width: 200px !important;
 }
-
-div #navbarSupportedContent.navbar-collapse.collapse{
-  margin-left:30%;
+nav{
+  width: 100vw;
 }
+.rows{
+  column-count: 2;
+}
+
+/* div #navbarSupportedContent.navbar-collapse.collapse{
+  margin-left:30%;
+} */

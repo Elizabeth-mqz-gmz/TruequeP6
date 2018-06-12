@@ -1,12 +1,13 @@
-<nav id="nav" class='navbar sticky-top navbar-expand-lg navbar-light'>
+<nav id="nav" class='navbar sticky-top navbar-expand-lg navbar-light row'>
+<div class="column">
   <a class="navbar-brand" href="#">
     <img src="../recursos/tpfon.png" width="90%"alt="Trueque P6">
   </a>
   <a class='navbar-brand mb-0 h1' href='main.php'>
     <h1 id='TP6' class='display-4'>Trueque P6</h1>
   </a>
-
-<div class="container" id="cosa-derecha">
+</div>
+<div class="container column" id="cosa-derecha">
 
 
 
@@ -16,17 +17,20 @@
 
   <div class='collapse navbar-collapse' id='navbarSupportedContent'>
 
-    <div width="250px">
+  <div id="cosaQueBusca">
     <div class='form-inline '>
       <div class='input-group' id='busk'>
         <div class='input-group-prepend'>
           <span class='input-group-text' id='basic-addon1'><i class="fa fa-search"></i></span>
         </div>
+        <!-- <div id="cosaQueBusca"> -->
         <input class='form-control ' type='search'id="buscado" placeholder='Nombre de Usuario' aria-label='Search' size="10">
-          <ul id="buscadillo" role="menu" >
-          </ul>
+
+        <!-- </div> -->
       </div>
     </div>
+    <ul id="buscadillo" role="menu" >
+    </ul>
   </div>
 
     <div class='container'>
