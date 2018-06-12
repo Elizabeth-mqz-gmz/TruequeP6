@@ -17,15 +17,16 @@ footer{
   font-family: 'Fredericka the Great', cursive;
   font-size: 3em;
   color: #FBF8F7;
-
+  text-align: center;
+  padding: 0 1%;
 }
 
 #ContFooter, footer> div:nth-child(2) {
   margin: 0 100px;
 }
 
-footer> div:nth-child(2)> hr{
-  border: solid 1px white;
+div:nth-child(2)> hr{
+  border: solid 0.3px rgba(255,255,255, 0.3) !important;
 }
 
 div .icono{
@@ -50,13 +51,16 @@ div .icono{
 
 #ContFooter > div:nth-child(2){
   /* background-color: red; */
-  margin: 0 38%;
+  margin: 0 20%;
   padding-bottom: 3%;
+  /* padding-left: 5%; */
 }
 
 #ContFooter > div:nth-child(2) >p{
   margin: 0 30%;
   color: #FBF8F7;
+  text-align: center;
+  font-family: 'Allerta', sans-serif;
 }
 
 footer >div:nth-child(2){
@@ -68,10 +72,11 @@ footer >div:nth-child(2){
   left: 0;
   background-color: #8FCED0;
   width: 100%;
-}
-
-i .fa-face{
-  style="font-size:30px;"
+  color: #3D343F;
+  text-align: center;
+  /* padding-left: 7.5%; */
+  font-family: 'Allerta', sans-serif;
+  /* font-weight: bold; */
 }
 
 div .f{
@@ -80,4 +85,19 @@ div .f{
 
 div .git{
   padding: 20%;
+}
+
+.icono a:link{
+  color: #3D343F;
+}
+
+.icono a:visited{
+  color: #3D343F;
+}
+
+.contDivI:hover, .icono:hover{
+  opacity: 0.9;
+  background-color: #19BEBE;
+  transition: all 0.5s;
+  cursor: pointer;
 }
