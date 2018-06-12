@@ -15,12 +15,12 @@
   <body>
     <?php include 'navbar.php'; ?>
     <div id='contenedor'>
-      <button id='cambio' class='cambio boton0 btn btn-light'><div id='contenedorBoton'>Ir a <br/>Trueque</div></button>
+      <button id='cambio' class='cambio boton0 btn btn-light'><div id='contenedorBoton'>IR A <br/>PÉRDIDAS</div></button>
     </div>
     <div class='container' id='contenedorPubli'>
-      <div id='publicaciones'>
-          <h2>¿Encontraste algo?</h2>
-          <h4>Aquí podras encontrar todas las publicaciones.</h4>
+      <div id='publicaciones' >
+          <h2 styel='text-align: center;'>¿Encontraste algo?</h2>
+          <h4 styel='text-align: center;'>Aquí podras encontrar todas las publicaciones.</h4>
       </div>
     </div>
     <?php include 'denuncia.html';?>
