@@ -37,7 +37,7 @@ nomsUsus.then(()=>{
             },
             type: "POST",
             success: function(response){
-              // console.log(response);
+              console.log(response);
                 if ( response == "")
                   return mens(null);
                 else

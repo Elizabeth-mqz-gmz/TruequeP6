@@ -258,6 +258,7 @@ function mens(mens){
     if(mens == null) //Aún no han hablado jajajaj, eso significa que en la bd el usuario es ==1 en el atributo emisor
       $(chat).html($(chat).html()+"<br/><div id='saludo'>Saluda a "+recNomus+"!<div><br />");
     else{
+      console.log(mensajes);
       mensajes = JSON.parse(mens);
       for (var i in mensajes){
         if (datos.quienEnvio == mensajes[i].emisor) //SIgnifica que la persona mandó en mensaje

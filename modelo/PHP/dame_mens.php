@@ -9,7 +9,7 @@
     $busq = $_POST["busq"];
     $resp = mysqli_query($db,$busq);
     while ($row = mysqli_fetch_assoc($resp)) { //Sacar los mensajes y hacerlos un json
-        $men = '{"idMen":"'.$row["id_men"].'","mensaje":"'.cifrado($llave,$row["mensaje"],2).'","emisor":"'.$row["emisor"].'","hora":"'.$row["hora_men"].'"},';
+        $men = '{"idMen":"'.$row["id_men"].'","mensaje":"'.validar(cifrado($llave,$row["mensaje"],2),"",$db).'","emisor":"'.$row["emisor"].'","hora":"'.$row["hora_men"].'"},';
         $mensajes .= $men;
     }
     if ($mensajes != "["){ //Sólo manda respuesta cuando sí encontró nuevos mensajes, sino, retorna ""

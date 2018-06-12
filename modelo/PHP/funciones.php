@@ -12,11 +12,12 @@ function dame_cookie(){ //Regresa el num_cta, si no existe devuelve 0.
 }
 
 function validar ($pal,$regex,$conex){//Esta función recibe una palabra y una regex
-      $pal=strip_tags($pal); //quitar las etiquetas
-      $pal=mysqli_real_escape_string($conex,$pal); //quitar los comandos sql
+      $pal = addslashes($pal); // escapar las comillas, simples y dobles
+      $pal = strip_tags($pal); //quitar las etiquetas
+      $pal = mysqli_real_escape_string($conex,$pal); //quitar los comandos sql
       if ($regex != ""){
-        $val=preg_match($regex,$pal); //checar la coincidencia
-        if ($val==1)
+        $val = preg_match($regex,$pal); //checar la coincidencia
+        if ($val == 1)
           return $pal; //coincide con la regex, devuelve la cadena validada y segura
         else
           return false; //regresa falso porque no cumple con la regex
