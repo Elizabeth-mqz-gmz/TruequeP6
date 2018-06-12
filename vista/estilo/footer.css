@@ -25,7 +25,7 @@ footer{
   margin: 0 100px;
 }
 
-div:nth-child(2)> hr{
+div:nth-child(3)> hr{
   border: solid 0.3px rgba(255,255,255, 0.3) !important;
 }
 
@@ -108,4 +108,11 @@ div .git{
   transition: all 0.5s;
   cursor: pointer;
   border-radius: 100%;
+}
+
+footer > div:nth-child(3)>a>h5:hover{
+  color: #19BEBE;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-decoration: none;
 }
