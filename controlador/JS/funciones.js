@@ -425,11 +425,8 @@ function colores(elemento){
 }
 
 function fotoPubli (publicacion, imagen){//sustituir alert hacer una ventana Modal
-    let pub = $("<p>"+publicacion+"</p>");
-    let imag = $("<img src='"+imagen+"'/>");
-    $("#publicacion").empty();
+    let imag = $("<img src='"+imagen+"'/><div class='carousel-caption d-none d-md-block' style='background-color:rgba(0,0,0,0.3);'><h5>"+publicacion+"</h5></div>");
     $("#imagenPubli").empty();
-    pub.appendTo("#publicacion");
     imag.appendTo("#imagenPubli");
     $("#ModalFoto").modal("show"); //mostrar la ventana modal
     $("#ModalFoto").css("transition","all 1s");
