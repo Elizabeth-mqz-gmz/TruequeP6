@@ -13,31 +13,37 @@ $(document).ready(function(){
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-							//Para las notificaciones de reacción
-							// let pubReac  = ''+notifis[count].men_not+'';
-							// let chekReac = pubReac.split(" ");
-							// let patt = new RegExp("^31"); //revisa que sea un # de cuenta
-						    // let res = patt.test(chekReac[0]);
-							// if(res == true && notifis[count].visto == 0){
-							// 	chekReac.pop();
-							// 	let st = chekReac.toString();
-							// 	for(let x=1; x>8; x++){
-							// 		var notRec = st.replace(",", " ");
-							// 		x++;
-							// 	}
-							// 	console.log(notRec);
-							// 	$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notRec+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-							// }
-							// else if (res == true && notifis[count].visto == 1) {
-							// 	chekReac.pop();
-							// 	let st = chekReac.toString();
-							// 	for(let x=1; x>8; x++){
-							// 		var notRec = st.replace(",", " ");
-							// 		x++;
-							// 	}
-							// 	console.log(notRec);
-							// 	$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+notRec+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-							// }
+							// Para las notificaciones de reacción
+							let pubReac  = ''+notifis[count].men_not+'';
+							let chekReac = pubReac.split(" ");
+							let patt = new RegExp("^31"); //revisa que sea un # de cuenta
+							// console.log(chekReac);
+						    let res = patt.test(chekReac[0]);
+							if(res == true && notifis[count].visto == 0){
+								chekReac.pop();
+								console.log(chekReac);
+								var i = 0;
+								var text = "";
+								for (;chekReac[i];) {
+    							text += chekReac[i] + " ";
+    							i++;
+								}
+								console.log(text);
+								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+							}
+							else if (res == true && notifis[count].visto == 1) {
+								chekReac.pop();
+								console.log(chekReac);
+								var i = 0;
+								var text = "";
+								for (;chekReac[i];) {//NOTA: esto es súper extraño! No tenemos idea del porqué funciona, pero funciona! Intentamos con while, for y no hacía nada.
+    							text += chekReac[i] + " ";
+    							i++;
+								}
+								console.log(text);
+
+								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+							}
 							if(notifis[count].visto == 0) //checa si ya la vió
 								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
 							else
@@ -83,17 +89,8 @@ $(document).ready(function(){
 			if(pubVal == true){
 				let idPublica = ''+linkNotif[8]+'';
 				console.log(linkNotif[8]);
-				$.ajax({
-			        url:"../../modelo/PHP/publicacion.php",
-			        //pide una publicación con el id_publicacion = idPub
-			        data:{
-			            idPubli: idPublica
-			        },
-			        type:"POST"
-				});
-				// 	success: function(response){
-				// location.href ="../../vista/maquetado/publicacion.php";
-				// }
+				document.cookie = "pub="+linkNotif[8]+";max-age=60";
+				location.href ="../../vista/maquetado/publicacion.php";
 			}
  	});
 });
