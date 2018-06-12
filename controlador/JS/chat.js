@@ -21,7 +21,7 @@ let nomsUsus = new Promise(function(resolve, reject) { //Obtener los nombres de 
             usuario = personas.usuario;
             usuNomus = personas.usuNomus;
             recNomus = personas.usuRec;
-            llave = usuNomus+recNomus; //Hacer la llave para el cifrado
+            llave = usuario+receptor; //Hacer la llave para el cifrado
             resolve("Yap");
             $("#amiko").append(recNomus);
         }
@@ -32,11 +32,12 @@ nomsUsus.then(()=>{
         $.ajax({
             url:"../../modelo/PHP/dame_mens.php",
             data:{ //Pongo la búsqueda lit, porque ué el mismo archivo php para ver los nuevos mensajes
-                busq :"SELECT id_men,mensaje,emisor FROM mensaje where id_chat ='"+r+"';",
+                busq :"SELECT id_men,mensaje,emisor,hora_men FROM mensaje where id_chat ='"+r+"';",
                 llave : llave
             },
             type: "POST",
             success: function(response){
+              // console.log(response);
                 if ( response == "")
                   return mens(null);
                 else
@@ -46,7 +47,9 @@ nomsUsus.then(()=>{
       });
 
 });
+//BOTONES DE CHAT
 
+//Evento
 $("#Genial").hide(); //Ocultar el input hasta que todos los datos de la fecha estén bien
 $("#NuevoEvento").on("change",()=>{
   if ( document.getElementById("fechaFE").value != "" && document.getElementById("horaFE").value != "" && $("#lugar").val()!= ""){
@@ -77,3 +80,59 @@ $("#Genial").click(function(){
       }
     });
 });
+//Enviar y actualizar
+$("#enviar").on("click",()=>{
+    var mensaje = $("#mensaje").val();
+    if(mensaje!="")
+      var hora = new Date();
+      let hr;
+      if( hora.getMinutes() > 9 ) //esto sólo es para que se vea bonito jajajaj
+        hr = hora.getHours()+":"+hora.getMinutes();
+      else
+        hr = hora.getHours()+":0"+hora.getMinutes();
+
+      // console.log(hr);
+        $.ajax({
+            url:"../../modelo/PHP/guarda_mensaje.php",
+            data:{
+                chat : datos.chat, //EL id del Chat
+                men : mensaje,
+                envia : datos.quienEnvio, //Puede ser 0 o 1, dependiendo de si el usuario es el emisor en la tabla chat
+                llave : llave,
+                horaMen : hr
+            },
+            type: "POST",
+            success: function(response){ //Ya que se guardó el mensaje
+                // console.log(response);
+                $("#mensaje").val(""); //Limpiar el imput
+                $(chat).append("<div class='row'><div class='col aux'></div><div class='col yo'>  "+mensaje+"<small>"+hr+"</small></div></div>"); //Agregarlo al html
+                $("#saludo").remove();
+            }
+        });
+});
+$("#actu").on("click",()=>{
+    $.ajax({
+        url:"../../modelo/PHP/dame_mens.php",
+        data:{
+            busq :"SELECT id_men,mensaje,emisor,hora_men FROM mensaje where id_chat ='"+datos.chat+"' AND id_men >'"+ultimoMen+"';", //Checar que no esté guardado en el html ya, o sea que no se haya sacado de la bd
+            llave : llave
+        },
+        type: "POST",
+        success: function(response){
+            if(response != ""){ //Manda "" cuando no hay nuevos mensajes
+                // console.log(response);
+                let nuevosMen = JSON.parse(response);
+                for (var i in nuevosMen)
+                    if (datos.quienEnvio != nuevosMen[i].emisor){ //Checar que el mensaje nuevo que llegó no lo haya mandado el usuario
+                        // console.log(mensajes);
+                        $(chat).append("<div class='row'><div class='otro'>  "+nuevosMen[i].mensaje+"<small>"+nuevosMen[i].hora.substr(0,5)+"</small></div></div>");
+                        mensajes.push(nuevosMen[i]); //Agregarlo al array de mensajes
+                    }
+                // console.log(ultimoMen);
+                ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
+            }
+            else
+              ModalGlobal("Nadie te quiere","Lo siento, no hay nuevos mensajes):")
+        }
+    });
+  });

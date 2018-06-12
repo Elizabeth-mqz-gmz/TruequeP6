@@ -20,7 +20,7 @@ body{
 }
 
 #verChats{
-  width: 300px;
+  width: 250px;
   height: 200px;
   overflow: scroll;
 }
@@ -42,6 +42,7 @@ body{
 }
 #nuevoChat{
   height: 25%;
+  width: 100%;
 }
 .despliega {
     color: #E98836;

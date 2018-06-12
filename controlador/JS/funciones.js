@@ -58,7 +58,7 @@ function publicacion(idPub,individual,cb){
             let botonParaChat = "<a href='chat.php' id='chat"+idPub+"' class='btn bot-publi' style='text-decoration:none'>Enviar mensaje</a>";
             //contenedor puede ser cualquier caja IMPORTANTE
             $("#contenedorPubli").append(divGeneral+imgDiv2+texto+boton+botonParaChat+estado);
-            $("#"+idPub+">div>h5").append("<div id='aut"+publi.idAutor+"pub"+idPub+"'>"+publi.autor+"</div>");
+            $("#"+idPub+">div>h5").append("<div class='autor' id='aut"+publi.idAutor+"pub"+idPub+"'>"+publi.autor+"</div>");
             $("#"+idPub+">div>p").text(publi.publicacion);
 
             //OJO no agregar o quitar clases de img, IMPORTANTE para reacciones
@@ -261,57 +261,12 @@ function mens(mens){
       mensajes = JSON.parse(mens);
       for (var i in mensajes){
         if (datos.quienEnvio == mensajes[i].emisor) //SIgnifica que la persona mandó en mensaje
-            $(chat).append("<div class='aux'></div><div class='yo'>  "+mensajes[i].mensaje+"</div>");
+            $(chat).append("<div class='row'><div class='col aux'></div><div class='yo col'>  "+mensajes[i].mensaje+"<small>"+mensajes[i].hora.substr(0,5)+"</small></div></div>");
         else
-            $(chat).append("<div class='otro'>  "+mensajes[i].mensaje+"</div><div class='aux'></div>");
+            $(chat).append("<div class='row'><div class='otro'>  "+mensajes[i].mensaje+"<small>"+mensajes[i].hora.substr(0,5)+"</small></div></div>");
       }
       ultimoMen = mensajes[mensajes.length-1].idMen; //Obtener el último id para hacer la búsqueda en la bd cuando quiera ver los nuevos mensajes
     }
-    $("#enviar").on("click",()=>{
-        var mensaje = $("#mensaje").val();
-        if(mensaje!="")
-            $.ajax({
-                url:"../../modelo/PHP/guarda_mensaje.php",
-                data:{
-                    chat : datos.chat, //EL id del Chat
-                    men : mensaje,
-                    envia : datos.quienEnvio, //Puede ser 0 o 1, dependiendo de si el usuario es el emisor en la tabla chat
-                    llave : llave
-                },
-                type: "POST",
-                success: function(response){ //Ya que se guardó el mensaje
-                    $("#mensaje").val(""); //Limpiar el imput
-                    $(chat).append("<div class='aux'></div><div class='yo'>  "+mensaje+"</div>"); //Agregarlo al html
-                    $("#saludo").remove();
-                }
-            });
-    });
-    $("#actu").on("click",()=>{
-        $.ajax({
-            url:"../../modelo/PHP/dame_mens.php",
-            data:{
-                busq :"SELECT id_men,mensaje,emisor FROM mensaje where id_chat ='"+datos.chat+"' AND id_men >'"+ultimoMen+"';", //Checar que no esté guardado en el html ya, o sea que no se haya sacado de la bd
-                llave : llave
-            },
-            type: "POST",
-            success: function(response){
-                if(response != ""){ //Manda "" cuando no hay nuevos mensajes
-                    // console.log(response);
-                    let nuevosMen = JSON.parse(response);
-                    for (var i in nuevosMen)
-                        if (datos.quienEnvio != nuevosMen[i].emisor){ //Checar que el mensaje nuevo que llegó no lo haya mandado el usuario
-                            // console.log(mensajes);
-                            $(chat).append(recNomus+":"+nuevosMen[i].mensaje+"<br/>");// Escribirlo en el html
-                            mensajes.push(nuevosMen[i]); //Agregarlo al array de mensajes
-                        }
-                    // console.log(ultimoMen);
-                    ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
-                }
-                else
-                  ModalGlobal("Nadie te quiere","Lo siento, no hay nuevos mensajes):")
-            }
-        });
-      });
     return;
 }
 
@@ -326,7 +281,7 @@ function datos_chat(cb){
         success: function(response){
             datos = JSON.parse(response);
             if (datos.quienEnvio == 0) //Saber si el usuario fue el primero en enviar el mensaje, para voltear la llave del cifrado
-                llave = recNomus+usuNomus;
+                llave = receptor+usuario;
             return cb(datos.chat); //Ahora obtener los mensajes
         }
     });
@@ -359,7 +314,7 @@ function mostrar_chats(allChats) {
     objChats = JSON.parse(allChats);
 
     for (let i in objChats)
-      $("#verChats").append("<li id="+i+" style=padding: 4%; text-align: left; border-top: gray; >"+objChats[i].nomus+"<div class='dropdown-divider'></div></li>"); //Agregarlos con el id del índide del array
+      $("#verChats").append("<li id="+i+" class='despliega'>"+objChats[i].nomus+"<div class='dropdown-divider'></div></li>"); //Agregarlos con el id del índide del array
 
     $("#verChats").click(()=>{
       var ind = event.target.id;
@@ -387,7 +342,7 @@ function chat_nuevo() {
         let reg = new RegExp ("^("+buscado+")","i");
         // console.log(reg);
         for (let i in todosLosUsuariosOf) //No sería eficiente en 1000 usuarios, pero ahora sirve
-          if(reg.test(todosLosUsuariosOf[i].nomus) && todosLosUsuariosOf[i].usuario != "usuarioOf"){
+          if( (reg.test(todosLosUsuariosOf[i].nomus) || reg.test(todosLosUsuariosOf[i].usuario)) && todosLosUsuariosOf[i].usuario != "usuarioOf"){
             $("#mostrarPers").append("<li class='despliega' id='"+i+"' style=padding: 4%; text-align: left; border-top: gray;>"+todosLosUsuariosOf[i].nomus+"</li>");
             hay = true;
           }

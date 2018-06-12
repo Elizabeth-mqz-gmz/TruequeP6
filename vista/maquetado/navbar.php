@@ -1,4 +1,4 @@
-<nav class='navbar sticky-top navbar-expand-lg navbar-light'>
+<nav id="nav" class='navbar sticky-top navbar-expand-lg navbar-light'>
   <a class="navbar-brand" href="#">
     <img src="../recursos/tpfon.png" width="90%"alt="Trueque P6">
   </a>
@@ -12,7 +12,7 @@
         <span class='input-group-text' id='basic-addon1'><i class="fa fa-search"></i></span>
       </div>
       <input class='form-control mr-sm-2' type='search'id="buscado" placeholder='Nombre de Usuario' aria-label='Search'>
-        <ul id="buscadillo" role="menu" aria-labelledby="navbarDropdown">
+        <ul id="buscadillo" role="menu" >
         </ul>
     </div>
   </div>

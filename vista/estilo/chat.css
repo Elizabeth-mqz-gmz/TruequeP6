@@ -24,15 +24,19 @@ body{
   border-radius: 11px;
   color: #19BEBE;
   font-size: 1em;
-  width: 48%;
-  margin: 1%;
-  padding-left: 10px;
-  float: left;
+  width: 50%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 10px;
+}
+.yo{
+  margin-right: 3%;
+}
+.otro{
+  margin-left: 3%;
 }
 .aux{
-  width: 48%;
-  margin: 1%;
-  float: left;
+  width: 46%;
 }
 #saludo{
   font-family: 'Allerta', sans-serif;
@@ -40,3 +44,11 @@ body{
   text-align: center;
   color: #FBF8F7;
 }
+small{
+  text-align: right;
+  float: right;
+  padding: 4px;
+}
+/* .otro>small{
+  margin-right: 4px;
+} */
