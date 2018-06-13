@@ -8,7 +8,7 @@
     $unico = mysqli_query($conex,$busBien);
     $exist = mysqli_num_rows($unico);
     if($exist == 0){ //REVISA SI EL REGISTRO EXISTE
-        $inserta = "INSERT INTO notificacion (id_usu_not, men_not) VALUES "."($usuario,'¡Felicidades, te has registrado en Trueque-P6 :)')";
+        $inserta = "INSERT INTO notificacion (id_usu_not, men_not) VALUES "."($usuario,'¡Felicidades, te has registrado en Trueque-P6! :)')";
         $resp=mysqli_query($conex,$inserta);
     }
     mysqli_close($conex);
