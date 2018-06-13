@@ -132,7 +132,7 @@ $("#actu").on("click",()=>{
                 ultimoMen = mensajes[(mensajes.length)-1].idMen; //GUardar el último mensaje para que no se repitan
             }
             else
-              ModalGlobal("Nadie te quiere","Lo siento, no hay nuevos mensajes):")
+              ModalGlobal("","Lo siento, no hay nuevos mensajes ):")
         }
     });
   });

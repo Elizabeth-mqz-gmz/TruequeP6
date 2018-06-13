@@ -1,3 +1,6 @@
+html{
+  height: 100%;
+}
 .botones{
     margin-top: 5%;
     margin-right: 5%;
@@ -10,7 +13,7 @@
 }
 #contenedor{
     display: flex;
-    padding-top: 11.7%;
+    padding-top: 3% !important;
     font-size: 1.2em;
 }
 #bienvenido{
@@ -23,6 +26,7 @@
 #bienvenido>h1{font-size: 4.5rem;}
 #inicio{
     width: 49%;
+    height: 100%;
     float: left;
     background: #3D343F;
     padding: 0;
@@ -30,7 +34,7 @@
 }
 #present>p{
     color: #8FCED0;
-    padding-top: 18%;
+    padding-top: 7%;
     padding-right: 7%;
     padding-left: 7%;
     text-align: center;
