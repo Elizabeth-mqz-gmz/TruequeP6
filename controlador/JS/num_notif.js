@@ -9,7 +9,7 @@ $(document).ready(function(){
 		            success: function(response){
 						// console.log(response);
 		                let notifNum = response;
-		                $("#navbarDropdownNotif").html("Notificaciones<span class='badge badge-light'>"
+		                $("#navbarDropdownNotif").html("<i class='fa fa-bell-o' style='font-size:24px;color:#3D343F'></i><span class='badge badge-light'>"
 							+notifNum+"</span>");
 					}
 		});
