@@ -18,7 +18,7 @@
           <!-- <button type='submit' id='actualizacion' class='btn btn-primary'>Actualizar Información</button> -->
           <div class='dropdown' id='vete'>
             <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='actualizacion' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-              Actualizar Información
+              Actualizar 
             </a>
             <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
               <li class='dropdown-item' data-toggle='modal' data-target='#nuevaimagen' id='Imagendeperfil'>Imagen de perfil</li>
@@ -77,7 +77,7 @@
       <div class='modal-dialog' role='document'>
         <div class='modal-content'>
           <div class='modal-header'>
-            <h5 class='modal-title'>Confirmarción</h5>
+            <h5 class='modal-title'>Confirmación</h5>
             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
@@ -122,7 +122,7 @@
     </div>
       <?php include 'modal.html'; ?>
       <?php include 'denuncia.html';?>
-      <!-- <?php include 'footer.html';?> -->
+      <?php include 'footer.html';?>
   </body>
   <script type= 'text/javascript' src='../../controlador/JS/actualizar.js'></script>
   <script type= 'text/javascript' src='../../controlador/JS/revisa.js'></script>

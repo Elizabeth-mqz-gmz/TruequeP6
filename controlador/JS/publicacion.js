@@ -3,7 +3,7 @@
 var coo = [];
 //separa la cookie en arreglo por ";"
 coo = document.cookie.split(";");
-var cookie, nombreUsuarioOf, allReacciones;
+var cookie, nombreUsuarioOf, allReacciones, actuReac;
 //busca el valor con "pub", es una regex
 //si la encuentra, su siguiente índice el es el valor de la cookie pub
 //ese valor es el número de publicación actual
@@ -27,7 +27,7 @@ publicacion(n,true,()=>{
                 },
                 type:"POST",
                 success: function(response){
-                    // console.log(response);
+
                 }
             });
         //cambia color de bordes
@@ -47,7 +47,7 @@ publicacion(n,true,()=>{
         success: function(response){
             // console.log(response);
             allReacciones = JSON.parse(response);
-            $(".card-body").append("<b>"+allReacciones.MeVale+"</b><b>"+allReacciones.Jajajaja+"</b><b>"+allReacciones.Mmm+"</b>");
+            $(".card-body").append("<b class='numReac'>"+allReacciones.MeVale+"</b><b class='numReac'>"+allReacciones.Jajajaja+"</b><b class='numReac'>"+allReacciones.Mmm+"</b>");
         }
     });
     //Aquí iba la parte de comentarios, que se ejecuta en nav eventos

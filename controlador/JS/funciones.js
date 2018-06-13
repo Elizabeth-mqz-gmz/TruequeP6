@@ -110,6 +110,9 @@ function publicacion(idPub,individual,cb){
                     });
 
                 });
+
+                $("#"+idPub+">span").hide(); // No te puede interesar tu misma publicación
+                // $("#"+idPub+">.den>img").hide();
             }
 
             //Decuncias
@@ -156,10 +159,11 @@ function publicacion(idPub,individual,cb){
             });
 
             //Cuando le da clic en el username lo redirige a su perfil
-            $("#aut"+publi.idAutor+"pub"+idPub).click(()=>{
-              document.cookie = "usuBuscado="+publi.idAutor+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
-              location.href ="../../vista/maquetado/perfil_usuario.php";
-            });
+            if (publi.esAutor == "false")
+                $("#aut"+publi.idAutor+"pub"+idPub).click(()=>{
+                  document.cookie = "usuBuscado="+publi.idAutor+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario con el que quiere chatear
+                  location.href ="../../vista/maquetado/perfil_usuario.php";
+                });
 
             //Que se muestre la foto en grande
             $("#"+idPub+">img").click(()=>{
@@ -450,4 +454,26 @@ function botones (publi){
     $("<div id='publicaciones'><div id='perdida'><h4 style='text-align:center;color: #3D343F; font-size:2em;'>Estás en: <span class='dondeEstoy' style='color: #E98836;'>Pérdidas</span></h4></div></div>").appendTo("#contenedorPubli");
     saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
   }
+}
+
+function validar_contra (contra, ruta, boton){//Es función porque despues se utiliza en actualizar
+  $.ajax({
+      url: ruta,
+      data:{
+        pass :	contra,
+      },
+      type:'POST',
+      success: function(response){
+          if (response == 'F'){ //Eso manda PHP cuando la contraseña está mal
+                ModalGlobal('Seguridad','Su contraseña es inválida');
+                $("#pass1").val("");
+                $("#pass2").val("");
+                $("#"+boton).hide();
+          }
+          else{
+            $("#msj>input").show();
+            console.log("Bieeen");
+          }
+        }
+    });
 }

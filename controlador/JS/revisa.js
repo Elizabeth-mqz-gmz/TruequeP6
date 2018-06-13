@@ -1,30 +1,11 @@
-function validar_contra (contra, ruta, boton){//Es función porque despues se utiliza en actualizar
-  $.ajax({
-      url: ruta,
-      data:{
-        pass :	contra,
-      },
-      type:'POST',
-      success: function(response){
-          if (response == 'F'){ //Eso manda PHP cuando la contraseña está mal
-                ModalGlobal('Seguridad','Su contraseña es inválida');
-                $("#pass1").val("");
-                $("#pass2").val("");
-                $("#"+boton).hide();
-          }
-          else
-              $("#"+boton).show();
-        }
-    });
-}
 
 $(document).ready(function(){
-  $("#enviarRegis").hide();
+  $("#contraRevisa").hide();
     $("#pass2").on("change",function(){
         // contra = $("#pass2").val();
         if($("#pass1").val() == $("#pass2").val()){ //Checa que las contraseñas sean iguales
-          contra = $("#pass2").val();
-          validar_contra(contra, 'controlador/PHP/validarPass.php', "enviarRegis");
+          var contra = $("#pass2").val();
+          validar_contra(contra, 'controlador/PHP/validarPass.php', "contraRevisa");
         }
         else
           $("#msj").html("Las contraseñas no coinciden"); //Si pass2 no es igual a pass1
