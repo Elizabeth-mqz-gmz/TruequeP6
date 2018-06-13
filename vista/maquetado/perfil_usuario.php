@@ -122,7 +122,7 @@
     </div>
       <?php include 'modal.html'; ?>
       <?php include 'denuncia.html';?>
-      <?php include 'footer.html';?>
+      <!-- s?php include 'footer.html';? -->
   </body>
   <script type= 'text/javascript' src='../../controlador/JS/actualizar.js'></script>
   <script type= 'text/javascript' src='../../controlador/JS/revisa.js'></script>
