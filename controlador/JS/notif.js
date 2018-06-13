@@ -21,21 +21,15 @@ $(document).ready(function(){
 										    let res = patt.test(chekReac[0]);
 											if(res == true){
 												chekReac.pop();
-												console.log(chekReac);
+												// console.log(chekReac);
 												var i = 0;
 												var text = "";
 												for (;chekReac[i];) {
 					    							text += chekReac[i] + " ";
 					    							i++;
 												}
-												console.log(text);
-
-												if(notifis[count].visto == 0){
-													$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-												}
-												else if(notifis[count].visto == 1){
-													$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+text+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-												}
+												// console.log(text);
+												notifis[count].men_not = text;
 											}
 											if(notifis[count].visto == 0) //checa si ya la vió
 												$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
@@ -80,7 +74,7 @@ $(document).ready(function(){
 			//Para publicaciones
 			let pubVal = patt.test(linkNotif[0]);
 			if(pubVal == true){
-				console.log(linkNotif[8]);
+				// console.log(linkNotif[8]);
 				let patt = new RegExp("[0-9]"); //revisa que sea un # de cuenta
 			  let res = patt.test(linkNotif[8]);
 				if(res == true){
