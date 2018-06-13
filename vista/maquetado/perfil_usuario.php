@@ -16,9 +16,9 @@
         <div class='col-sm-10'>
           <button type='submit' id='chat' class='btn btn-primary'>Enviar mensaje</button>
           <!-- <button type='submit' id='actualizacion' class='btn btn-primary'>Actualizar Información</button> -->
-          <div class='dropdown' id='vete'>
+          <div class='dropup' id='vete'>
             <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='actualizacion' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-              Actualizar 
+              Actualizar
             </a>
             <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
               <li class='dropdown-item' data-toggle='modal' data-target='#nuevaimagen' id='Imagendeperfil'>Imagen de perfil</li>
