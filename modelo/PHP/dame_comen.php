@@ -25,4 +25,6 @@
         echo $json;
     else
         echo $count;
+    mysqli_close($db);
+
  ?>

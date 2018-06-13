@@ -96,6 +96,4 @@ nav{
 a.navbar-brand{
   width: 25%;
 }
-/* div #navbarSupportedContent.navbar-collapse.collapse{
-  margin-left:30%;
-} */
+.navbar-text{font-family: 'Allerta', sans-serif;}

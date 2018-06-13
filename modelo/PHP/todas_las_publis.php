@@ -24,4 +24,6 @@
         echo $json;
     else
         echo "null";
+    mysqli_close($db);
+
 ?>

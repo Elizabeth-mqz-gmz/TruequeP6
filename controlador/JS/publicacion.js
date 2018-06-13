@@ -3,7 +3,7 @@
 var coo = [];
 //separa la cookie en arreglo por ";"
 coo = document.cookie.split(";");
-var cookie, nombreUsuarioOf;
+var cookie, nombreUsuarioOf, allReacciones;
 //busca el valor con "pub", es una regex
 //si la encuentra, su siguiente índice el es el valor de la cookie pub
 //ese valor es el número de publicación actual
@@ -25,7 +25,10 @@ publicacion(n,true,()=>{
                     idPubli: n,
                     tipoReac: reac
                 },
-                type:"POST"
+                type:"POST",
+                success: function(response){
+                    // console.log(response);
+                }
             });
         //cambia color de bordes
         for(let v of $(reacciones))
@@ -34,9 +37,23 @@ publicacion(n,true,()=>{
         $(event.target).css("border-color","#E98836");
     });
 
+    //Cosas para las reacciones de la publicación
+    $.ajax({
+        url:"../../modelo/PHP/num_reacciones.php",
+        data:{
+            idPubli: n,
+        },
+        type:"POST",
+        success: function(response){
+            // console.log(response);
+            allReacciones = JSON.parse(response);
+            $(".card-body").append("<small>"+allReacciones.MeVale+"</small><small>"+allReacciones.Jajajaja+"</small><small>"+allReacciones.Mmm+"</small>");
+        }
+    });
     //Aquí iba la parte de comentarios, que se ejecuta en nav eventos
 });
 
+//Cosas de comentarios
 $("#enviarComen").on("click",()=>{
 //ajax que guarda comentario en la BD, publi es id_publicacion
 //comentario es el mensaje, comentario
@@ -73,7 +90,7 @@ $("#contenedorComen").click((ev)=>{ //Este evento denuncia un comentario
         success: function(response){
             // console.log($("#"+ind));
             $("#"+ind+".denunc").hide(); //No sé porque se borra todo el comentario jajajaj, pero no tendría que ser así
-            // ModalGlobal("Éxito","Se denunció el comentario"); //Me manda un error, no sé por qué ):
+            ModalGlobal("Éxito","Se denunció el comentario"); //Me manda un error, no sé por qué ):
         }
     });
   }

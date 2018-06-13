@@ -1,3 +1,4 @@
+var notifis;
 $(document).ready(function(){
 	$("#navbarDropdownNotif").on("click",function(){
 		$("#notifis").children(".estoNo").empty();
@@ -6,20 +7,43 @@ $(document).ready(function(){
 				    data: {
 				    },
 				    type: "POST",
-			            success: function(response){
+			        success: function(response){
 							// console.log(response);
-			            var notifis = JSON.parse(response);
+									var aux;
+			            notifis = JSON.parse(response);
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-							$("<div class='estoNo'><span class='navbar-text' style='color:#3D343F;' id="+notifis[count].id_not+" style='padding: 4%; text-align: left; border-top: gray;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").appendTo("#notifis");
+								// Para las notificaciones de reacción
+										let pubReac  = ''+notifis[count].men_not+'';
+										let chekReac = pubReac.split(" ");
+										let patt = new RegExp("^31"); //revisa que sea un # de cuenta
+									// console.log(chekReac);
+								  	let res = patt.test(chekReac[0]);
+										if(res == true){
+											chekReac.pop();
+											// console.log(chekReac);
+											var i = 0;
+											var text = "";
+											for (;chekReac[i];) {
+								    			text += chekReac[i] + " ";
+								    			i++;
+											}
+											aux = text;
+											// console.log(aux);
+										}
+										else
+											aux = notifis[count].men_not;
+										if(notifis[count].visto == 0 ) //checa si ya la vió
+											$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+aux+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+										else
+											$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+aux+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
 						}
 					}
 			});
 	});
    $("nav #notifis").on("click", "span", function(){
           let idNotif = $(this).attr('id');
-		// $(idNotif).children("li").css("cursor", "pointer");
           // console.log(idNotif);
           $.ajax({
       			url: '../../modelo/PHP/visto.php',
@@ -32,4 +56,40 @@ $(document).ready(function(){
       			}
       	});
 	});
+	$("nav #notifis").on("click", "span", function(){
+      let tipoNotif = $(this).attr('id'); //obtiene el ID de la publicación
+		   // console.log(tipoNotif);
+		   let todoNotif = notifis.length;
+		   for(let count=0; count<todoNotif; count++){ //revisa todas las notif, hasta encontrar la del ID
+				if(notifis[count].id_not == tipoNotif)
+					var menNotif = ''+notifis[count].men_not+''; //extrae el mensaje de la notif
+					var notifComplet = notifis[count];
+			}
+			let linkNotif = menNotif.split(" "); //lo hace array
+			// console.log(linkNotif);
+        	// console.log(linkNotif[2]);
+	    let patt = new RegExp("^31"); //revisa que sea un # de cuenta
+	    let res = patt.test(linkNotif[2]);
+			if(res == true){
+				document.cookie = "usuBuscado="+linkNotif[2]+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario para perfil
+		        location.href ="../../vista/maquetado/perfil_usuario.php";
+			}
+		// console.log(notifComplet);
+			//Para publicaciones
+			let pubVal = patt.test(linkNotif[0]);
+			if(pubVal == true){
+				// console.log(linkNotif[8]);
+				let patt = new RegExp("[0-9]"); //revisa que sea un # de cuenta
+			  let res = patt.test(linkNotif[8]);
+				if(res == true){
+					document.cookie = "pub="+linkNotif[8]+";max-age=60";
+					location.href ="../../vista/maquetado/publicacion.php";
+				}
+				let res2 = patt.test(linkNotif[9]);
+				if(res2 == true){
+					document.cookie = "pub="+linkNotif[9]+";max-age=60";
+					location.href ="../../vista/maquetado/publicacion.php";
+				}
+			}
+ 	});
 });

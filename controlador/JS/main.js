@@ -11,7 +11,7 @@ $.ajax({
           publis.pop(); publis.shift(); //Había un problema raro, no sé qué pasaba, pero ésto lo soluciona :), creo que era por las , que mandamos en php
           for (let v of publis)
               publicacion(v,false,()=>{ //Hacer las publicaciones
-                  $("#"+v+" .btn").one("click",()=>{
+                  $("#"+v+" .btn").one("click",()=>{ //Agregar el "ver publicación"
                       document.cookie = "pub="+v+";max-age=60";
                   });
               });

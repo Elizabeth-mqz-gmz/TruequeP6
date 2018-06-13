@@ -34,7 +34,7 @@
       inicio=timer;
     var progreso = timer-inicio;
     x+=20;
-    if (progreso<6000){
+    if (progreso<3000){
       carga.strokeStyle=colores[aux];
       if(x>155)
         x=0;
@@ -43,7 +43,7 @@
       if(z>1500)
         z=6;
       linea(0,0,x);
-      carga.rotate(2*(Math.PI/180));
+      carga.rotate(5*(Math.PI/180));
       requestAnimationFrame(animacion,color++);
     }
   }
@@ -61,7 +61,13 @@
   function anima(){
     requestAnimationFrame(animacion,0);
   }
-  carga.translate(670,300);
+  carga.translate(760,340);
     anima();
+    setTimeout(()=>{
+      window.location="../maquetado/main.php";
+    },2000);
+    // if(valor == true){
+
+    // }
   </script>
 </html>
