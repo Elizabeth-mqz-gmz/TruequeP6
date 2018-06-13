@@ -52,10 +52,9 @@ publicacion(n,true,()=>{
     });
     $(reacciones).on("mouseover",(ev)=>{
         reac = ev.target.className;
-        $("<h5 class='numReac'>"+reac+"</h5><br/>").prependTo(".reac");
+        $("<h5 class='numReac' style='color:#FBF8F7'>"+reac+"</h5>").prependTo(".reac");
         $(ev.target).on("mouseout",()=>{
-            $("h5").remove();
-            $("br").remove();
+            $("h5.numReac").remove();
          });
       });
     //Aquí iba la parte de comentarios, que se ejecuta en nav eventos

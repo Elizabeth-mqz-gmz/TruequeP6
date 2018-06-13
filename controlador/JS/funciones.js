@@ -471,8 +471,8 @@ function validar_contra (contra, ruta, boton){//Es función porque despues se ut
                 $("#"+boton).hide();
           }
           else{
-            $("#msj>input").show();
-            console.log("Bieeen");
+            $("#"+boton).show();
+            // console.log("Bieeen");
           }
         }
     });

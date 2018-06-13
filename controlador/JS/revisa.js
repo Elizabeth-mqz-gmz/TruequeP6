@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   $("#contraRevisa").hide();
     $("#pass2").on("change",function(){
