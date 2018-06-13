@@ -47,7 +47,7 @@ publicacion(n,true,()=>{
         success: function(response){
             // console.log(response);
             allReacciones = JSON.parse(response);
-            $(".card-body").append("<small>"+allReacciones.MeVale+"</small><small>"+allReacciones.Jajajaja+"</small><small>"+allReacciones.Mmm+"</small>");
+            $(".card-body").append("<b>"+allReacciones.MeVale+"</b><b>"+allReacciones.Jajajaja+"</b><b>"+allReacciones.Mmm+"</b>");
         }
     });
     //Aquí iba la parte de comentarios, que se ejecuta en nav eventos
