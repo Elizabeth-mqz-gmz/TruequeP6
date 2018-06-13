@@ -9,32 +9,35 @@ $(document).ready(function(){
 				    type: "POST",
 			        success: function(response){
 							// console.log(response);
+									var aux;
 			            notifis = JSON.parse(response);
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-							// Para las notificaciones de reacción
-							let pubReac  = ''+notifis[count].men_not+'';
-							let chekReac = pubReac.split(" ");
-							let patt = new RegExp("^31"); //revisa que sea un # de cuenta
-							// console.log(chekReac);
-						  	let res = patt.test(chekReac[0]);
-							if(res == true){
-								chekReac.pop();
-								// console.log(chekReac);
-								var i = 0;
-								var text = "";
-								for (;chekReac[i];) {
-					    			text += chekReac[i] + " ";
-					    			i++;
-								}
-								// console.log(text);
-								var aux = notifis[count].men_not = text;
-							}
-							if(notifis[count].visto == 0) //checa si ya la vió
-								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-							else
-								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+								// Para las notificaciones de reacción
+										let pubReac  = ''+notifis[count].men_not+'';
+										let chekReac = pubReac.split(" ");
+										let patt = new RegExp("^31"); //revisa que sea un # de cuenta
+									// console.log(chekReac);
+								  	let res = patt.test(chekReac[0]);
+										if(res == true){
+											chekReac.pop();
+											// console.log(chekReac);
+											var i = 0;
+											var text = "";
+											for (;chekReac[i];) {
+								    			text += chekReac[i] + " ";
+								    			i++;
+											}
+											aux = text;
+											// console.log(aux);
+										}
+										else
+											aux = notifis[count].men_not;
+										if(notifis[count].visto == 0 ) //checa si ya la vió
+											$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+aux+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+										else
+											$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+aux+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
 						}
 					}
 			});
