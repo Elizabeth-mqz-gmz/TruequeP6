@@ -45,6 +45,7 @@ publicacion(n,true,()=>{
         },
         type:"POST",
         success: function(response){
+            // console.log(response);
             allReacciones = JSON.parse(response);
             $(".card-body").append("<small>"+allReacciones.MeVale+"</small><small>"+allReacciones.Jajajaja+"</small><small>"+allReacciones.Mmm+"</small>");
         }

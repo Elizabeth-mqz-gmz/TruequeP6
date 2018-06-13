@@ -74,7 +74,7 @@ $(document).ready(function(){
 				document.cookie = "usuBuscado="+linkNotif[2]+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario para perfil
 		        location.href ="../../vista/maquetado/perfil_usuario.php";
 			}
-		console.log(notifComplet);
+		// console.log(notifComplet);
 			//Para publicaciones
 			let pubVal = patt.test(linkNotif[0]);
 			if(pubVal == true){
