@@ -431,3 +431,19 @@ function fotoPubli (publicacion, imagen){//sustituir alert hacer una ventana Mod
     $("#ModalFoto").modal("show"); //mostrar la ventana modal
     $("#ModalFoto").css("transition","all 1s");
 }
+
+function botones (publi){
+  $("#publicaciones").remove();
+  if(publi == 0){
+    $(".cambio").html("IR A <br/>PÉRDIDAS");
+    $("#contenedorPubli").html("");
+    $("<div id='publicaciones'><div id='trueque'><h4 style='text-align:center; color:#3D343F; font-size:2em;' >Estás en: <span class='dondeEstoy' style='color: #E98836;'>Trueque<span></h4></div></div>").appendTo("#contenedorPubli");
+    saca_publi("trueque");//IMPORTANTE saca eventos en index necesita funciones.js
+  }
+  else{
+    $(".cambio").html("IR A <br/>TRUEQUE");
+    $("#contenedorPubli").html("");
+    $("<div id='publicaciones'><div id='perdida'><h4 style='text-align:center;color: #3D343F; font-size:2em;'>Estás en: <span class='dondeEstoy' style='color: #E98836;'>Pérdidas</span></h4></div></div>").appendTo("#contenedorPubli");
+    saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
+  }
+}

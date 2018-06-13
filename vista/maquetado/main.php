@@ -21,8 +21,7 @@
     </div>
     <div class='container' id='contenedorPubli'>
       <div id='publicaciones' >
-          <h2 styel='text-align: center;'>¿Encontraste algo?</h2>
-          <h4 styel='text-align: center;'>Aquí podras encontrar todas las publicaciones.</h4>
+          <h2 styel='text-align: center;'>Aquí podras encontrar todas las publicaciones.</h4>
       </div>
     </div>
     <?php include 'denuncia.html';?>

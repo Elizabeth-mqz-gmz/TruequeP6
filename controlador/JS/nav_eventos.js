@@ -52,28 +52,12 @@ var click = 0;
     });
   });
 
-  function botones (publi){
-    $("#publicaciones").remove();
-    if(publi == 0){
-      $(".cambio").html("IR A <br/>PÉRDIDAS");
-      $("#contenedorPubli").html("");
-      $("<div id='publicaciones'><div id='trueque'><h4 style='text-align:center; color:#3D343F; font-size:2em;' >Estás en: <span class='dondeEstoy' style='color: #E98836;'>Trueque<span></h4></div></div>").appendTo("#contenedorPubli");
-      saca_publi("trueque");//IMPORTANTE saca eventos en index necesita funciones.js
-    }
-    else{
-      $(".cambio").html("IR A <br/>TRUEQUE");
-      $("#contenedorPubli").html("");
-      $("<div id='publicaciones'><div id='perdida'><h4 style='text-align:center;color: #3D343F; font-size:2em;'>Estás en: <span class='dondeEstoy' style='color: #E98836;'>Pérdidas</span></h4></div></div>").appendTo("#contenedorPubli");
-      saca_publi("perdida");//IMPORTANTE saca eventos en index necesita funciones.js
-    }
-  }
-
-
   var publi = 0; //Saber en que html está, al inicio se encuentra en Trueque
-    $('.cambio').on('click',()=>{
+    $('.cambio').on('click',(ev)=>{
       largo = window.innerWidth -140;
       boton = (publi == 0)? 1 : 0;//quitar o colocar clase para que se esté en la izquierda o la derecha
       // $(".cambio").removeClass( "boton"+ publi.toString());
+      //$(ev.target).attr("style","background-color:pink;") //Amiga ya lo cambié, pero se descompone):
       publi = boton;
       if (publi == 1){
         $("#cambio").animate({ "left": "+="+largo+"px" }, 3000 , "linear", function(){botones(publi);});
@@ -86,6 +70,7 @@ var click = 0;
       // $(".cambio").addClass("boton"+ boton.toString());
       // $(".cambio").addClass("boton"+ boton.toString());
       $("html").stop().animate({scrollTop:0}, 500, 'swing');
+      // $(ev.target).attr("style","background-color:#E98836;");
        // $( ".block" ).animate({ "left": "+=50px" }, "slow" );
       // $("html").animate({scrollTop:0}, 500, 'swing');
     });
