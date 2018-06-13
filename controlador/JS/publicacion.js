@@ -3,7 +3,7 @@
 var coo = [];
 //separa la cookie en arreglo por ";"
 coo = document.cookie.split(";");
-var cookie, nombreUsuarioOf, allReacciones;
+var cookie, nombreUsuarioOf, allReacciones, actuReac;
 //busca el valor con "pub", es una regex
 //si la encuentra, su siguiente índice el es el valor de la cookie pub
 //ese valor es el número de publicación actual
@@ -27,7 +27,7 @@ publicacion(n,true,()=>{
                 },
                 type:"POST",
                 success: function(response){
-                    // console.log(response);
+
                 }
             });
         //cambia color de bordes
@@ -47,9 +47,16 @@ publicacion(n,true,()=>{
         success: function(response){
             // console.log(response);
             allReacciones = JSON.parse(response);
-            $(".card-body").append("<b>"+allReacciones.MeVale+"</b><b>"+allReacciones.Jajajaja+"</b><b>"+allReacciones.Mmm+"</b>");
+            $(".card-body").append("<b class='numReac'>"+allReacciones.MeVale+"</b><b class='numReac'>"+allReacciones.Jajajaja+"</b><b class='numReac'>"+allReacciones.Mmm+"</b>");
         }
     });
+    $(reacciones).on("mouseover",(ev)=>{
+        reac = ev.target.className;
+        $("<h5 class='numReac' style='color:#FBF8F7'>"+reac+"</h5>").prependTo(".reac");
+        $(ev.target).on("mouseout",()=>{
+            $("h5.numReac").remove();
+         });
+      });
     //Aquí iba la parte de comentarios, que se ejecuta en nav eventos
 });
 
@@ -95,12 +102,3 @@ $("#contenedorComen").click((ev)=>{ //Este evento denuncia un comentario
     });
   }
 });
-var reaccionDice = $(".reac>img"); //todas las img de reacciones
-$(reaccionDice).hover(event){
-    var dice = event.target.className;
-    console.log(dice);
-  // $("<h5 class='remover'>"+Perfil+"</h5>").appendTo("#PerfilFacebook");
-}
-// $(" .icono").on("mouseout",()=>{
-//   $(".remover").remove();
-// });
