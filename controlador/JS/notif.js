@@ -13,29 +13,29 @@ $(document).ready(function(){
 			            // console.log(notifis);
 			            let numNotifis = notifis.length;
 			            for(let count=0; count<numNotifis; count++){
-											// Para las notificaciones de reacción
-											let pubReac  = ''+notifis[count].men_not+'';
-											let chekReac = pubReac.split(" ");
-											let patt = new RegExp("^31"); //revisa que sea un # de cuenta
-											// console.log(chekReac);
-										    let res = patt.test(chekReac[0]);
-											if(res == true){
-												chekReac.pop();
-												// console.log(chekReac);
-												var i = 0;
-												var text = "";
-												for (;chekReac[i];) {
-					    							text += chekReac[i] + " ";
-					    							i++;
-												}
-												// console.log(text);
-												notifis[count].men_not = text;
-											}
-											if(notifis[count].visto == 0) //checa si ya la vió
-												$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-											else
-												$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
-									}
+							// Para las notificaciones de reacción
+							let pubReac  = ''+notifis[count].men_not+'';
+							let chekReac = pubReac.split(" ");
+							let patt = new RegExp("^31"); //revisa que sea un # de cuenta
+							// console.log(chekReac);
+						  	let res = patt.test(chekReac[0]);
+							if(res == true){
+								chekReac.pop();
+								// console.log(chekReac);
+								var i = 0;
+								var text = "";
+								for (;chekReac[i];) {
+					    			text += chekReac[i] + " ";
+					    			i++;
+								}
+								// console.log(text);
+								var aux = notifis[count].men_not = text;
+							}
+							if(notifis[count].visto == 0) //checa si ya la vió
+								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #E98836; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+							else
+								$("<div class='estoNo'><span class='navbar-text' id="+notifis[count].id_not+" style='cursor: pointer; background: #FBF8F7; color: #19BEBE; padding: 4%; text-align: left;'>"+notifis[count].men_not+"</span><div class='dropdown-divider'></div></div>").prependTo("#notifis");
+						}
 					}
 			});
 	});
@@ -60,6 +60,7 @@ $(document).ready(function(){
 		   for(let count=0; count<todoNotif; count++){ //revisa todas las notif, hasta encontrar la del ID
 				if(notifis[count].id_not == tipoNotif)
 					var menNotif = ''+notifis[count].men_not+''; //extrae el mensaje de la notif
+					var notifComplet = notifis[count];
 			}
 			let linkNotif = menNotif.split(" "); //lo hace array
 			// console.log(linkNotif);
@@ -70,7 +71,7 @@ $(document).ready(function(){
 				document.cookie = "usuBuscado="+linkNotif[2]+";max-age=5"; //Hacer la cookie con el número de cuenta del usuario para perfil
 		        location.href ="../../vista/maquetado/perfil_usuario.php";
 			}
-
+		console.log(notifComplet);
 			//Para publicaciones
 			let pubVal = patt.test(linkNotif[0]);
 			if(pubVal == true){
