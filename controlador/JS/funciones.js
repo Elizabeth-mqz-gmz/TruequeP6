@@ -70,6 +70,10 @@ function publicacion(idPub,individual,cb){
             else if(publi.estado=="terminado")
                 $("#"+idPub+">h6").css("color","green");//cambiar a color elegido
 
+            //Quitar el "enviar mensaje" si es autor o sólo es una publicación
+            if (publi.esAutor == "true" || individual == true)
+                $("#chat"+idPub).hide(); //Ocultar el botón para chat
+
             //si el usuario actual ya reaccionó se pone naranja la reacción
             if(publi.usuReac!="null")
                 if(publi.usuReac=="Me vale")//Me vale, causa error por tener espacio, corregido
@@ -106,9 +110,9 @@ function publicacion(idPub,individual,cb){
                     });
 
                 });
-
-                $("#chat"+idPub).hide(); //Ocultar el botón para chat
             }
+
+            //Decuncias
            if(publi.denuncia == "0") //con MODAL
                $("#"+idPub+" .den").on("click",()=>{
                    $("#envia").on("click",()=>{

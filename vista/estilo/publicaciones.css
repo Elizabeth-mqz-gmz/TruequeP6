@@ -11,7 +11,7 @@
     height: 3.5em;
     border: 3px solid #8FCED0;
     border-radius: 100%;
-    margin-right: 3%;
+    margin-right: 5%;
 }
 h6:hover,.reac>img:hover,.den>img:hover,.card span:hover{
     cursor: pointer;
@@ -103,4 +103,13 @@ h6:hover,.reac>img:hover,.den>img:hover,.card span:hover{
   font-size: 1.2em;
   border-radius: 15%;
   font-family: 'Allerta', sans-serif;
+}
+
+small{
+  font-family: 'Allerta', sans-serif;
+  margin-left: 2%;
+  font-size: 2vw;
+  font-weight: 400;
+  margin-right: 15%;
+  color: #FBF8F7;
 }

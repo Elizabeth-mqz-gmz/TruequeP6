@@ -18,5 +18,7 @@
   }
   else
     echo "null";
+  mysqli_close($db);
+
 
 ?>

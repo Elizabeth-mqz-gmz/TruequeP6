@@ -60,12 +60,14 @@
   }
   function anima(){
     requestAnimationFrame(animacion,0);
-    var valor = true;
   }
   carga.translate(760,340);
     anima();
+    setTimeout(()=>{
+      window.location="../maquetado/main.php";
+    },2000);
     // if(valor == true){
-    //     window.location="vista/animaciones/carga.html";
+
     // }
   </script>
 </html>
