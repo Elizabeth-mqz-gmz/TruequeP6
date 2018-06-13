@@ -15,7 +15,7 @@ $("#enviar").click(()=>{
 
             if (n.length == 2){
               //cookie que indica que eres un administrador
-              window.location="vista/maquetado/main.php";
+              window.location="vista/animaciones/carga.html";
               }
             else{
               if (n == "T"){
