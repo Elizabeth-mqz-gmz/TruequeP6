@@ -12,7 +12,7 @@
       $bus = "UPDATE publicacion SET denuncia_p = '0' WHERE id_publicacion = $publicacion"; //quitar denuncia
      else {
         if($tabla =="2")
-          $bus = "UPDATE comentario SET denuncia_p = '0' WHERE id_comen = $publicacion";
+          $bus = "UPDATE comentario SET denuncia_c = '0' WHERE id_comen = $publicacion";
     }
 
      mysqli_query($bd, $bus);
