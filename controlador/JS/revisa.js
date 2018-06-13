@@ -10,7 +10,7 @@ function validar_contra (contra, ruta, boton){//Es función porque despues se ut
                 ModalGlobal('Seguridad','Su contraseña es inválida');
                 $("#pass1").val("");
                 $("#pass2").val("");
-                $("#"+boton).hide();
+                // $("#"+boton).hide();
           }
           else
               $("#"+boton).show();

@@ -95,3 +95,12 @@ $("#contenedorComen").click((ev)=>{ //Este evento denuncia un comentario
     });
   }
 });
+var reaccionDice = $(".reac>img"); //todas las img de reacciones
+$(reaccionDice).hover(event){
+    var dice = event.target.className;
+    console.log(dice);
+  // $("<h5 class='remover'>"+Perfil+"</h5>").appendTo("#PerfilFacebook");
+}
+// $(" .icono").on("mouseout",()=>{
+//   $(".remover").remove();
+// });

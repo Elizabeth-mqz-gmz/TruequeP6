@@ -32,9 +32,11 @@
     echo $busq;
     mysqli_query($db,$busq);
     //el usuario activo es que el aparece en el mensaje de notificación
-    $not = "INSERT INTO notificacion(id_usu_not,men_not) VALUE"."("."'$autor','$usuario ha reaccionado \"$tipoReac\" a una publicación tuya $idPub'".")";
-    echo $not;
-    mysqli_query($db,$not);
+    if($autor != $usuario){
+        $not = "INSERT INTO notificacion(id_usu_not,men_not) VALUE"."("."'$autor','$usuario ha reaccionado \"$tipoReac\" a una publicación tuya $idPub'".")";
+        echo $not;
+        mysqli_query($db,$not);
+    }
 
     mysqli_close($db);
  ?>
