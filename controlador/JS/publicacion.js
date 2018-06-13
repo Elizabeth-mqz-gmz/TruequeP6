@@ -50,6 +50,14 @@ publicacion(n,true,()=>{
             $(".card-body").append("<b class='numReac'>"+allReacciones.MeVale+"</b><b class='numReac'>"+allReacciones.Jajajaja+"</b><b class='numReac'>"+allReacciones.Mmm+"</b>");
         }
     });
+    $(reacciones).on("mouseover",(ev)=>{
+        reac = ev.target.className;
+        $("<h5 class='numReac'>"+reac+"</h5><br/>").prependTo(".reac");
+        $(ev.target).on("mouseout",()=>{
+            $("h5").remove();
+            $("br").remove();
+         });
+      });
     //Aquí iba la parte de comentarios, que se ejecuta en nav eventos
 });
 
