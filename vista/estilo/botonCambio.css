@@ -9,6 +9,38 @@
   background-color: #E98836;
   color: #FBF8F7;
   font-weight: bold;
+  width: 125px;
+}
+
+#izquierda{
+  position: fixed;
+  z-index: 99;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin:30%, 0;
+  font-size: 18px;
+  background-color: #E98836;
+  font-weight: bold;
+  width: 0px;
+  left : 1px;
+  height: 100%;
+}
+/*  Ya se que es repetitivo, lo siento */
+
+#derecha{
+  position: fixed;
+  z-index: 99;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin:30%, 0;
+  font-size: 18px;
+  background-color: #E98836;
+  font-weight: bold;
+  width: 0px;
+  right: 1px;
+  height: 100%;
 }
 
 .boton0{ left : 1px; }

@@ -15,7 +15,9 @@
   <body>
     <?php include 'navbar.php'; ?>
     <div id='contenedor'>
+      <div id="izquierda"></div>
       <button id='cambio' class='cambio boton0 btn btn-light'><div id='contenedorBoton'>IR A <br/>PÉRDIDAS</div></button>
+      <div id="derecha"></div>
     </div>
     <div class='container' id='contenedorPubli'>
       <div id='publicaciones' >
