@@ -114,7 +114,7 @@
     						<div></div>
     					</div>
               <div id='msj'>
-    						<input value='Actualizar' class='btn btn-success' id='novasenha' class='btn btn-primary btn-l' type='button'>
+    						<!-- <input value='Actualizar' class='btn btn-success' id='novasenha' class='btn btn-primary btn-l' type='button'> -->
     					</div>
           </div>
         </div>
