@@ -47,17 +47,20 @@ publicacion(n,true,()=>{
         success: function(response){
             // console.log(response);
             allReacciones = JSON.parse(response);
-            $(".card-body").append("<b class='numReac'>"+allReacciones.MeVale+"</b><b class='numReac'>"+allReacciones.Jajajaja+"</b><b class='numReac'>"+allReacciones.Mmm+"</b>");
+            $(".card-body").append("<b class='numReac'>"+allReacciones.MeVale+"</b><b class='numReac'>"+allReacciones.Jajajaja+"</b><b class='numReac'>"+allReacciones.Mmm+"</b><h5 class='numReac' id= 'NomReac'style='color:#FBF8F7'></h5>");
         }
     });
-    $(reacciones).on("mouseover",(ev)=>{
-        reac = ev.target.className;
-        $("<h5 class='numReac' style='color:#FBF8F7'>"+reac+"</h5>").prependTo(".reac");
-        $(ev.target).on("mouseout",()=>{
-            $("h5.numReac").remove();
+
+    $(".reac").on("mouseover",()=>{
+      // console.log("hola");
+        reac = event.target.className;
+        // console.log(reac);
+        $("#NomReac").html(reac);
+        $(event.target).on("mouseout",()=>{
+          $("#NomReac").html("");
          });
       });
-    //Aquí iba la parte de comentarios, que se ejecuta en nav eventos
+    // Aquí iba la parte de comentarios, que se ejecssssuta en nav eventos
 });
 
 //Cosas de comentarios
