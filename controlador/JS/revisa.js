@@ -1,6 +1,28 @@
-$(document).ready(function(){
-  $("#contraRevisa").hide();
-    $("#pass2").on("change",function(){
+
+function validar_contra (contra, ruta, boton){//Es función porque después se utiliza en actualizar
+  $.ajax({
+      url: ruta,
+      data:{
+        pass :	contra,
+      },
+      type:'POST',
+      success: response => {
+          if (response == 'F'){ //Eso manda PHP cuando la contraseña está mal
+            ModalGlobal('Seguridad','Su contraseña es inválida');
+            $("#pass1").val("");
+            $("#pass2").val("");
+            $("#"+boton).remove();
+          }
+          else {
+            $("#msj").html("");
+            $("#msj").append("<input class='btn btn-success' id='"+boton+"' class='btn btn-primary btn-l' type='submit'/>");
+          }
+        }
+    });// Pues, ya quedó jajajjaja
+}
+$(document).ready( () => {
+  // $("#contraRevisa").hide();
+    $("#pass2").on("change", () => {
         // contra = $("#pass2").val();
         if($("#pass1").val() == $("#pass2").val()){ //Checa que las contraseñas sean iguales
           var contra = $("#pass2").val();
